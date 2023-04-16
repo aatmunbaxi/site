@@ -7,7 +7,7 @@ weight = -1000
 
 ## About Me {#about-me}
 
-I'm Aatmun Baxi. Currently I am an MS student in mathematics at Texas A&amp;M University.
+Currently I am an MS student in mathematics at Texas A&amp;M University.
 
 **Interests:** Broad. Some include category theory, topological quantum field theories, and algebraic geometry.
 
