@@ -6,9 +6,6 @@ weight = 2002
 type = "post"
 +++
 
-{{< figure src="/images/black-hole.png" >}}
-
-
 {{< figure src="/ox-hugo/black-hole.png" >}}
 
 

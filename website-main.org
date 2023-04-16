@@ -1,4 +1,4 @@
-#+hugo_base_dir: ./
+#+hugo_base_dir: .
 #+options: tex:t
 #+hugo_weight: auto
 * Home
@@ -53,7 +53,6 @@ Here I record some things that I've learned along the way.
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: doom-config
 :END:
-[[/images/black-hole.png]]
 #+include: ~/.doom.d/config.org
 * Misc
 :PROPERTIES:
