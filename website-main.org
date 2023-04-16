@@ -1,0 +1,79 @@
+#+hugo_base_dir: ./
+#+options: tex:t
+#+hugo_weight: auto
+* Home
+:PROPERTIES:
+:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_FRONT_MATTER: :toc false :author false
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_WEIGHT: -1000
+:END:
+** About Me
+:PROPERTIES:
+:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_FRONT_MATTER: :author false :toc false
+:END:
+I'm Aatmun Baxi. Currently I am an MS student in mathematics at Texas A&M University.
+
+*Interests:* Broad. Some include category theory, topological quantum field theories, and algebraic geometry.
+
+*Education:*
+- MS Mathematics, Texas A&M University (in progess)
+- PhD Mathematics, Texas A&M (upcoming)
+- BS Mathematics, UCLA 2021
+
+
+* Math
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: math
+:END:
+** Math
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: math
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_MENU: :menu main
+:END:
+* Computing
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
+:END:
+** Computing
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: computing
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_MENU: :menu main
+:END:
+I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
+Here I record some things that I've learned along the way.
+
+** My DOOM Emacs Configuration
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: computing
+:EXPORT_FILE_NAME: doom-config
+:END:
+#+include: ~/.doom.d/config.org
+* Misc
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: misc
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
+:END:
+** Misc
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: misc
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_MENU: :menu main
+:END:
+Some stuff that doesn't really fit anywhere else.
+** Favorite Theorems and Equations
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: misc
+:EXPORT_FILE_NAME: fav_theorems
+:END:
+Here are some of my favorite theorems and equations.
+
+*Yoneda Lemma:* For a locally small category \( \mathcal{C} \) and functor \( F : \mathcal{C} \to \mathsf{Set} \),
+\begin{equation}
+\operatorname{Nat}(\operatorname{Hom}(X,-), F) \cong FX
+\end{equation}

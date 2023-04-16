@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Home on Aatmun Baxi</title>
+    <link>https://atmnbaxi.github.io/</link>
+    <description>Recent content in Home on Aatmun Baxi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://atmnbaxi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Favorite Theorems and Equations</title>
+      <link>https://atmnbaxi.github.io/misc/fav_theorems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://atmnbaxi.github.io/misc/fav_theorems/</guid>
+      <description>Here are some of my favorite theorems and equations.
+Yoneda Lemma: For a locally small category \( \mathcal{C} \) and functor \( F : \mathcal{C} \to \mathsf{Set} \),
+\begin{equation} \operatorname{Nat}(\operatorname{Hom}(X,-), F) \cong FX \end{equation}</description>
+    </item>
+    
+  </channel>
+</rss>

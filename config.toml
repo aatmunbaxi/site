@@ -1,0 +1,4 @@
+baseURL = 'https://atmnbaxi.github.io/'
+languageCode = 'en-us'
+title = 'Aatmun Baxi'
+theme = 'PaperMod'
