@@ -14,7 +14,7 @@
 :EXPORT_HUGO_MENU: :menu main
 :EXPORT_HUGO_FRONT_MATTER: :author false :toc false
 :END:
-I'm Aatmun Baxi. Currently I am an MS student in mathematics at Texas A&M University.
+Currently I am an MS student in mathematics at Texas A&M University.
 
 *Interests:* Broad. Some include category theory, topological quantum field theories, and algebraic geometry.
 
