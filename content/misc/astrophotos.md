@@ -9,4 +9,4 @@ type = "post"
 
 ## M101: Pinwheel Galaxy {#m101-pinwheel-galaxy}
 
-{{< figure src="/static/ox-hugo/m101_take2.png" >}}
+{{< figure src="/ox-hugo/m101_take2.png" >}}
