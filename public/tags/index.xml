@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Aatmun Baxi</title>
-    <link>https://aatmunbaxi.github.io/site/tags/</link>
+    <link>https://aatmunbaxi.github.io/tags/</link>
     <description>Recent content in Tags on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>emacs</title>
-      <link>https://aatmunbaxi.github.io/site/tags/emacs/</link>
+      <link>https://aatmunbaxi.github.io/tags/emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/site/tags/emacs/</guid>
+      <guid>https://aatmunbaxi.github.io/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>org</title>
-      <link>https://aatmunbaxi.github.io/site/tags/org/</link>
+      <link>https://aatmunbaxi.github.io/tags/org/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/site/tags/org/</guid>
+      <guid>https://aatmunbaxi.github.io/tags/org/</guid>
       <description></description>
     </item>
     
