@@ -80,7 +80,7 @@ Some stuff that doesn't really fit anywhere else.
 :EXPORT_FILE_NAME: astrophotos
 :END:
 *** M101: Pinwheel Galaxy
-[[~/Pictures/astro/m101_take2.png]]
+[[file:~/Pictures/astro/m101_take2.png]]
 ** Favorite Theorems and Equations
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
