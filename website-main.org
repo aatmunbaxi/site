@@ -1,4 +1,4 @@
-#+hugo_base_dir: ./
+#+hugo_base_dir: /home/aatmun/websites/personal/
 #+hugo_weight: auto
 #+bibliography: std-references.bib
 * Home
@@ -21,6 +21,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 - /Basic Algebraic Geometry 2/ [[cite:&shafarevichBasicAlgebraicGeometry2013]]
   - For reference, /Algebraic Geometry/ [[cite:&hartshorneAlgebraicGeometry1977]] and /The Rising Sea/ [[cite:&vakilRisingSea2017]]
 - /Tensor Categories/ [[cite:&etingofTensorCategories2015]]
+- /Dune/
 *** Education
 - PhD Mathematics, Texas A&M University (upcoming)
 - MS Mathematics, Texas A&M University (in progess)
@@ -82,14 +83,14 @@ Some stuff that doesn't really fit anywhere else.
 *** M101: Pinwheel Galaxy
 #+name: m101
 #+caption: M101, The Pinwheel Galaxy
-[[~/Pictures/astro/m101_take2.png]]
-** Favorite Theorems and Equations
+[[/home/aatmun/Pictures/astro/m101_take2.png]]
+** Some Theorems
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
 :EXPORT_FILE_NAME: fav_theorems
 :EXPORT_OPTIONS: toc:2
 :END:
-Here are some of my favorite theorems and equations. Click on the statements for some injected commentary.
+Here are some of my favorite theorems. Click on the statements for some injected commentary.
 
 *** The Yoneda Lemma
 #+begin_details

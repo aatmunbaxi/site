@@ -17,6 +17,7 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 -   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_3">Shafarevich 2013</a>)
     -   For reference, _Algebraic Geometry_ (<a href="#citeproc_bib_item_2">Hartshorne 1977</a>) and _The Rising Sea_ (<a href="#citeproc_bib_item_4">Vakil 2017</a>)
 -   _Tensor Categories_ (<a href="#citeproc_bib_item_1">Etingof et al. 2015</a>)
+-   _Dune_
 
 
 ### Education {#education}

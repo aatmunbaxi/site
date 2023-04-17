@@ -1,5 +1,5 @@
 +++
-title = "Favorite Theorems and Equations"
+title = "Some Theorems"
 author = ["Aatmun Baxi"]
 draft = false
 weight = 2003
@@ -17,7 +17,7 @@ type = "post"
 </div>
 <!--endtoc-->
 
-Here are some of my favorite theorems and equations. Click on the statements for some injected commentary.
+Here are some of my favorite theorems. Click on the statements for some injected commentary.
 
 
 ## The Yoneda Lemma {#the-yoneda-lemma}

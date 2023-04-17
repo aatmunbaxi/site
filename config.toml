@@ -1,8 +1,7 @@
-baseURL = 'https://aatmunbaxi.github.io/site/'
+baseURL = 'https://aatmunbaxi.github.io/'
 languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'PaperMod'
-staticDir = 'static'
 
 [markup.goldmark.renderer]
   unsafe = true
