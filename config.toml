@@ -3,6 +3,6 @@ languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'PaperMod'
 staticDir = 'static'
-relativeURLs = true
+
 [markup.goldmark.renderer]
   unsafe = true
