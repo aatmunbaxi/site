@@ -1,7 +1,7 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
-tags = ["emacs", "org"]
+tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
 type = "post"
@@ -573,8 +573,8 @@ This code adds the relevant file extensions to org's log file extension list, an
       ;; `ox-hugo' is derived indirectly from `ox-html'.
       ;; ox-hugo <- ox-blackfriday <- ox-md <- ox-html
       (when (org-export-derived-backend-p backend 'html)
-        (org-ref-process-buffer 'html)))
-    (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html))
+        (org-ref-process-buffer 'html))))
+    (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html)
 
   :config
   (setq   org-ref-default-bibliography "~/Documents/bib/reference-texts.bib"

@@ -14,7 +14,8 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 
 ### What I'm Reading {#what-i-m-reading}
 
--   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_2">Shafarevich 2013</a>)
+-   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_3">Shafarevich 2013</a>)
+    -   For reference, Algebraic Geometry (<a href="#citeproc_bib_item_2">Hartshorne 1977</a>) and The Rising Sea (<a href="#citeproc_bib_item_4">Vakil 2017</a>)
 -   _Tensor Categories_ (<a href="#citeproc_bib_item_1">Etingof et al. 2015</a>)
 
 
@@ -28,4 +29,5 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 ### Hobbies {#hobbies}
 
 -   Soccer. Specifically, Liverpool FC
--   Astrophotography. Check my images [here]({{< relref "astrophotos" >}}).
+-   Astrophotography. Check my images [here]({{< relref "astrophotos" >}})
+-   Learning japanese through immersion

@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://aatmunbaxi.github.io/site/</loc>
+    <loc>https://aatmunbaxi.github.io/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/computing/</loc>
+    <loc>https://aatmunbaxi.github.io/computing/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/math/</loc>
+    <loc>https://aatmunbaxi.github.io/math/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/misc/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/misc/astrophotos/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/astrophotos/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/computing/doom-config/</loc>
+    <loc>https://aatmunbaxi.github.io/computing/doom-config/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/misc/fav_theorems/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/fav_theorems/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/categories/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/nihongo/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/tags/emacs/</loc>
+    <loc>https://aatmunbaxi.github.io/tags/astro/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/tags/org/</loc>
+    <loc>https://aatmunbaxi.github.io/categories/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.github.io/site/tags/</loc>
+    <loc>https://aatmunbaxi.github.io/tags/emacs/</loc>
+  </url><url>
+    <loc>https://aatmunbaxi.github.io/tags/hobby/</loc>
+  </url><url>
+    <loc>https://aatmunbaxi.github.io/tags/japanese/</loc>
+  </url><url>
+    <loc>https://aatmunbaxi.github.io/tags/org/</loc>
+  </url><url>
+    <loc>https://aatmunbaxi.github.io/tags/</loc>
   </url>
 </urlset>

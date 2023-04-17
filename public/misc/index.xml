@@ -2,29 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Misc on Aatmun Baxi</title>
-    <link>https://aatmunbaxi.github.io/site/misc/</link>
+    <link>https://aatmunbaxi.github.io/misc/</link>
     <description>Recent content in Misc on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/site/misc/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Astrophotos</title>
-      <link>https://aatmunbaxi.github.io/site/misc/astrophotos/</link>
+      <link>https://aatmunbaxi.github.io/misc/astrophotos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/site/misc/astrophotos/</guid>
+      <guid>https://aatmunbaxi.github.io/misc/astrophotos/</guid>
       <description>M101: Pinwheel Galaxy </description>
     </item>
     
     <item>
       <title>Favorite Theorems and Equations</title>
-      <link>https://aatmunbaxi.github.io/site/misc/fav_theorems/</link>
+      <link>https://aatmunbaxi.github.io/misc/fav_theorems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/site/misc/fav_theorems/</guid>
+      <guid>https://aatmunbaxi.github.io/misc/fav_theorems/</guid>
       <description>Here are some of my favorite theorems and equations.
 First Isomorphism Theorems Let \( A \) be a certain algebraic object (group, ring, module), and \( f : A \to B \) be an algebraic object-homomorphism. Then
 \begin{equation} \label{eq:3} A / \ker f \cong \operatorname{im} f. \end{equation}
 Commentary: This theorem is supremely useful. So much so that it feels like half of algebra wouldn&amp;rsquo;t work if it weren&amp;rsquo;t true. The Yoneda Lemma Let \( \mathsf{C} \) be a locally small category and \( F : \mathsf{C} \to \mathsf{Set} \) be a functor, then</description>
+    </item>
+    
+    <item>
+      <title>日本語</title>
+      <link>https://aatmunbaxi.github.io/misc/nihongo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aatmunbaxi.github.io/misc/nihongo/</guid>
+      <description>ここで日本語に関して勉強したり読んだりするものを話す。</description>
     </item>
     
   </channel>

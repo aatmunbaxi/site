@@ -1,6 +1,6 @@
 #+hugo_base_dir: .
-#+options: tex:t
 #+hugo_weight: auto
+#+bibliography: std-references.bib
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
@@ -19,6 +19,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 
 *** What I'm Reading
 - /Basic Algebraic Geometry 2/ [[cite:&shafarevichBasicAlgebraicGeometry2013]]
+  - For reference, Algebraic Geometry [[cite:&hartshorneAlgebraicGeometry1977]] and The Rising Sea [[cite:&vakilRisingSea2017]]
 - /Tensor Categories/ [[cite:&etingofTensorCategories2015]]
 *** Education
 - PhD Mathematics, Texas A&M University (upcoming)
@@ -27,7 +28,9 @@ Currently I am an MS student in mathematics at Texas A&M University.
 
 *** Hobbies
 - Soccer. Specifically, Liverpool FC
-- Astrophotography. Check my images [[*Astrophotos][here]].
+- Astrophotography. Check my images [[*Astrophotos][here]]
+- Learning japanese through immersion
+
 * Math
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
@@ -53,7 +56,7 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
 Here I record some things that I've learned along the way.
 
-** My DOOM Emacs Configuration :emacs:org:
+** My DOOM Emacs Configuration :emacs:org:hobby:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: doom-config
@@ -71,13 +74,13 @@ Here I record some things that I've learned along the way.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Some stuff that doesn't really fit anywhere else.
-** Astrophotos
+** Astrophotos :astro:hobby:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
 :EXPORT_FILE_NAME: astrophotos
 :END:
 *** M101: Pinwheel Galaxy
-[[~/Pictures/astro/m101_take2.png]]
+[[/ox-hugo/m101_take2.png]]
 ** Favorite Theorems and Equations
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
@@ -100,3 +103,11 @@ Let \( \mathsf{C} \) be a locally small category and \( F : \mathsf{C} \to \math
 \end{equation}
 and is natural in both \( X \) and \( F \).
 - /Commentary:/ This is an absolutely remarkable theorem. When you think about it, the left side of this isomorphism is an almost incalculable collection of objects. Not only does this theorem say that there are only a set's worth of such natural transformations, but it also gives an *explicit description* of those natural transformations! When applied to the \( \operatorname{\operatorname{Hom}} \) functor, this gives meaning to the phrase "an object can be completely determined by the maps into/out of it".
+
+** 日本語 :japanese:hobby:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: misc
+:EXPORT_HUGO_MENU: :menu misc
+:EXPORT_FILE_NAME: nihongo
+:END:
+ここで日本語に関して勉強したり読んだりするものを話す。
