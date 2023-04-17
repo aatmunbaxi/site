@@ -2,4 +2,3 @@ baseURL = 'https://aatmunbaxi.github.io/site'
 languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'PaperMod'
-canonifyURLs = true
