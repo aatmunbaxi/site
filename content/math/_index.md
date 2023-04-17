@@ -8,3 +8,5 @@ weight = 2001
     weight = 2001
     identifier = "math"
 +++
+
+Here I keep some thoughts about math-related things I find interesting or worth sharing.

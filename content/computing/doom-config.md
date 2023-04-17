@@ -1,13 +1,11 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
+tags = ["emacs", "org"]
 draft = false
 weight = 2002
 type = "post"
 +++
-
-<~/.doom.d/splash/black-hole/png>
-
 
 {{< figure src="/ox-hugo/black-hole.png" >}}
 

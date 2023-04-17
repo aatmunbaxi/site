@@ -9,10 +9,10 @@ weight = -1000
 
 Currently I am an MS student in mathematics at Texas A&amp;M University.
 
-**Interests:** Broad. Some include category theory, topological quantum field theories, and algebraic geometry.
+**Interests:** Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
 
 **Education:**
 
+-   PhD Mathematics, Texas A&amp;M University (upcoming)
 -   MS Mathematics, Texas A&amp;M University (in progess)
--   PhD Mathematics, Texas A&amp;M (upcoming)
 -   BS Mathematics, UCLA 2021
