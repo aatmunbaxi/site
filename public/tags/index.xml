@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Aatmun Baxi</title>
-    <link>https://aatmunbaxi.github.io/tags/</link>
+    <link>https://aatmunbaxi.github.io/site/tags/</link>
     <description>Recent content in Tags on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/site/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>astro</title>
-      <link>https://aatmunbaxi.github.io/tags/astro/</link>
+      <link>https://aatmunbaxi.github.io/site/tags/astro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/tags/astro/</guid>
+      <guid>https://aatmunbaxi.github.io/site/tags/astro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emacs</title>
-      <link>https://aatmunbaxi.github.io/tags/emacs/</link>
+      <link>https://aatmunbaxi.github.io/site/tags/emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/tags/emacs/</guid>
+      <guid>https://aatmunbaxi.github.io/site/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hobby</title>
-      <link>https://aatmunbaxi.github.io/tags/hobby/</link>
+      <link>https://aatmunbaxi.github.io/site/tags/hobby/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/tags/hobby/</guid>
+      <guid>https://aatmunbaxi.github.io/site/tags/hobby/</guid>
       <description></description>
     </item>
     
     <item>
       <title>japanese</title>
-      <link>https://aatmunbaxi.github.io/tags/japanese/</link>
+      <link>https://aatmunbaxi.github.io/site/tags/japanese/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/tags/japanese/</guid>
+      <guid>https://aatmunbaxi.github.io/site/tags/japanese/</guid>
       <description></description>
     </item>
     
     <item>
       <title>org</title>
-      <link>https://aatmunbaxi.github.io/tags/org/</link>
+      <link>https://aatmunbaxi.github.io/site/tags/org/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aatmunbaxi.github.io/tags/org/</guid>
+      <guid>https://aatmunbaxi.github.io/site/tags/org/</guid>
       <description></description>
     </item>
     
