@@ -9,4 +9,6 @@ type = "post"
 
 ## M101: Pinwheel Galaxy {#m101-pinwheel-galaxy}
 
-{{< figure src="/ox-hugo/m101_take2.png" >}}
+<a id="figure--m101"></a>
+
+{{< figure src="/ox-hugo/m101_take2.png" caption="<span class=\"figure-number\">Figure 1: </span>M101, The Pinwheel Galaxy" >}}
