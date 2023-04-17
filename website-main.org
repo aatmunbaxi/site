@@ -16,11 +16,11 @@
 :END:
 Currently I am an MS student in mathematics at Texas A&M University.
 
-*Interests:* Broad. Some include category theory, topological quantum field theories, and algebraic geometry.
+*Interests:* Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
 
 *Education:*
+- PhD Mathematics, Texas A&M University (upcoming)
 - MS Mathematics, Texas A&M University (in progess)
-- PhD Mathematics, Texas A&M (upcoming)
 - BS Mathematics, UCLA 2021
 
 
@@ -34,6 +34,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_MENU: :menu main
 :END:
+Here I keep some thoughts about math-related things I find interesting or worth sharing.
 * Computing
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
@@ -48,7 +49,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
 Here I record some things that I've learned along the way.
 
-** My DOOM Emacs Configuration
+** My DOOM Emacs Configuration :emacs:org:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: doom-config

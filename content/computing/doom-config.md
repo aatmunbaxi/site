@@ -6,6 +6,9 @@ weight = 2002
 type = "post"
 +++
 
+<~/.doom.d/splash/black-hole/png>
+
+
 {{< figure src="/ox-hugo/black-hole.png" >}}
 
 
@@ -30,10 +33,6 @@ Each mode has their own subsection for common configuration patterns such as key
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :style "Light" :size 18)
       doom-serif-font (font-spec :family "Iosevka" :size 18)
       doom-big-font (font-spec :family "Iosevka Aile" :style "Regular" :size 24))
-;; (setq doom-font (font-spec :family "IBM Plex Serif" :style "Regular" :size 18)
-;;       doom-variable-pitch-font (font-spec :family "IBM Plex Serif" :style "Regular" :size 18)
-;;       doom-serif-font (font-spec :family "IBM Plex Serif" :style "Regular" :size 18)
-;;       doom-big-font (font-spec :family "Iosevka Aile" :style "Regular" :size 24))
 ```
 
 
@@ -371,9 +370,6 @@ I use some of my own block names in typsetting math, so we make sure that these 
 ```emacs-lisp
 ;; (setq org-protecting-blocks '("src" "example" "export" "theorem" "proposition" "proof" "lemma" "corollary"))
 ```
-
-
-## `latex-mode` {#latex-mode}
 
 
 ## `bibtex` {#bibtex}
