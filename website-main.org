@@ -82,7 +82,7 @@ Some stuff that doesn't really fit anywhere else.
 *** M101: Pinwheel Galaxy
 #+name: m101
 #+caption: M101, The Pinwheel Galaxy
-[[file:~/Pictures/astro/m101_take2.png]]
+[[~/Pictures/astro/m101_take2.png]]
 ** Favorite Theorems and Equations
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
