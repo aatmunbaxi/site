@@ -2,18 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://atmnbaxi.github.io/categories/</loc>
+    <loc>https://aatmunbaxi.github.io/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/computing/</loc>
+    <loc>https://aatmunbaxi.github.io/computing/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/misc/fav_theorems/</loc>
+    <loc>https://aatmunbaxi.github.io/math/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/math/</loc>
+    <loc>https://aatmunbaxi.github.io/misc/fav_theorems/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/misc/</loc>
+    <loc>https://aatmunbaxi.github.io/computing/doom-config/</loc>
   </url><url>
-    <loc>https://atmnbaxi.github.io/tags/</loc>
+    <loc>https://aatmunbaxi.github.io/categories/</loc>
+  </url><url>
+    <loc>https://aatmunbaxi.github.io/tags/</loc>
   </url>
 </urlset>
