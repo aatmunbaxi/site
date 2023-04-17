@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Math on Aatmun Baxi</title>
-    <link>https://aatmunbaxi.github.io/math/</link>
+    <link>https://aatmunbaxi.github.io/site/math/</link>
     <description>Recent content in Math on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/math/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://aatmunbaxi.github.io/site/math/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
