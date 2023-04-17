@@ -567,6 +567,15 @@ This code adds the relevant file extensions to org's log file extension list, an
   (require 'org-ref-helm)
   ;; (require 'org-ref-ivy)
 
+  (with-eval-after-load 'ox
+    (defun my/org-ref-process-buffer--html (backend)
+      "Preprocess `org-ref' citations to HTML format. Do this only if the export backend is `html' or a derivative of that."
+      ;; `ox-hugo' is derived indirectly from `ox-html'.
+      ;; ox-hugo <- ox-blackfriday <- ox-md <- ox-html
+      (when (org-export-derived-backend-p backend 'html)
+        (org-ref-process-buffer 'html)))
+    (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html))
+
   :config
   (setq   org-ref-default-bibliography "~/Documents/bib/reference-texts.bib"
           org-ref-pdf-directory '("~/Documents/books" "~/Documents/articles")
@@ -580,8 +589,7 @@ This code adds the relevant file extensions to org's log file extension list, an
           bibtex-autokey-titleword-separator "-"
           bibtex-autokey-titlewords 2
           bibtex-autokey-titlewords-stretch 1
-          bibtex-autokey-titleword-length 5
-          )
+          bibtex-autokey-titleword-length 5)
   )
 ```
 

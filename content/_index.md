@@ -11,8 +11,21 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 
 **Interests:** Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
 
-**Education:**
+
+### What I'm Reading {#what-i-m-reading}
+
+-   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_2">Shafarevich 2013</a>)
+-   _Tensor Categories_ (<a href="#citeproc_bib_item_1">Etingof et al. 2015</a>)
+
+
+### Education {#education}
 
 -   PhD Mathematics, Texas A&amp;M University (upcoming)
 -   MS Mathematics, Texas A&amp;M University (in progess)
 -   BS Mathematics, UCLA 2021
+
+
+### Hobbies {#hobbies}
+
+-   Soccer. Specifically, Liverpool FC
+-   Astrophotography. Check my images [here]({{< relref "astrophotos" >}}).

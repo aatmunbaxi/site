@@ -2,7 +2,7 @@
 title = "Favorite Theorems and Equations"
 author = ["Aatmun Baxi"]
 draft = false
-weight = 2002
+weight = 2003
 type = "post"
 +++
 
@@ -28,5 +28,7 @@ Let \\( \mathsf{C} \\) be a locally small category and \\( F : \mathsf{C} \to \m
 \begin{equation}
 \operatorname{Hom}(\operatorname{Hom}(X,-), F) \cong FX
 \end{equation}
+
+and is natural in both \\( X \\) and \\( F \\).
 
 -   _Commentary:_ This is an absolutely remarkable theorem. When you think about it, the left side of this isomorphism is an almost incalculable collection of objects. Not only does this theorem say that there are only a set's worth of such natural transformations, but it also gives an **explicit description** of those natural transformations! When applied to the \\( \operatorname{\operatorname{Hom}} \\) functor, this gives meaning to the phrase "an object can be completely determined by the maps into/out of it".
