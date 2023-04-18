@@ -12,7 +12,7 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 **Interests:** Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
 
 
-### What I'm Reading {#what-i-m-reading}
+### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}
 
 -   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_3">Shafarevich 2013</a>)
     -   For reference, _Algebraic Geometry_ (<a href="#citeproc_bib_item_2">Hartshorne 1977</a>) and _The Rising Sea_ (<a href="#citeproc_bib_item_4">Vakil 2017</a>)

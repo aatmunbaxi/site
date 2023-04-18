@@ -1,6 +1,7 @@
 #+hugo_base_dir: /home/aatmun/websites/personal/
 #+hugo_weight: auto
-#+bibliography: std-references.bib
+#+bibliography: ~/Documents/bib/reference-texts.bib
+#+options: ':t
 
 * Home
 :PROPERTIES:

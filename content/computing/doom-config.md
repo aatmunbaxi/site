@@ -114,7 +114,7 @@ Set our theme
 
 These custom faces will appear later on in the config.
 We could define them immediately before they are used, but I ran into issues with them not being initialized properly and not being applied if they are defined too close to where they are used.
-So they're define here so they get loaded in early.
+So they&rsquo;re define here so they get loaded in early.
 
 Faces for [`org-super-agenda`](#org-super-agenda).
 
@@ -292,7 +292,7 @@ Set our variable for `org-journal`.
           (setq org-journal-dir "~/Documents/org/journal")
 ```
 
-By default, the `org-preview-latex-default-process` doesn't play well with tikz pictures.
+By default, the `org-preview-latex-default-process` doesn&rsquo;t play well with tikz pictures.
 To fix this, we use `imagemagick` instead.
 
 ```emacs-lisp
@@ -560,9 +560,9 @@ This PDF export process ensures that bibliographies are properly exported, makin
 
 #### `noex`  Drawers {#noex-drawers}
 
-Sometimes I have text in an org document that I want to see while editing, but don't want it exported to the final document such as PDF.
+Sometimes I have text in an org document that I want to see while editing, but don&rsquo;t want it exported to the final document such as PDF.
 This setting excludes all drawers carrying the name `noex`  from being exported to the final output.
-Word by word, this variable says "export all drawers that _don't_ have the name `noex`"
+Word by word, this variable says &ldquo;export all drawers that _don&rsquo;t_ have the name `noex`&rdquo;
 
 ```emacs-lisp
 (setq org-export-with-drawers '(not "noex"))
@@ -574,7 +574,7 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 #### Cleanup `org-directory` of log files from export {#cleanup-org-directory-of-log-files-from-export}
 
 \LaTeX generates a bunch of log files and extraneous files during its compilation process which can really clutter the compile directory quickly.
-This code adds the relevant file extensions to org's log file extension list, and so it will clean them up after the export process is finish.
+This code adds the relevant file extensions to org&rsquo;s log file extension list, and so it will clean them up after the export process is finish.
 
 \LaTeX:
 
@@ -667,18 +667,18 @@ This code adds the relevant file extensions to org's log file extension list, an
 
 Used mostly in tight integration with the `agenda`, capture templates let me capture snippets of org text and quickly refile them to worry about later.
 They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
-It is inspired mostly by "Getting Things Done".
+It is inspired mostly by &ldquo;Getting Things Done&rdquo;.
 Maybe I will find use for them later.
 
 These templates set up the outline. Here is a table of what they do:
 
-| Entry    | Text Content | File        | Top Headline |
-|----------|--------------|-------------|--------------|
-| Todo     | "\* TODO"    | inbox.org   | Tasks        |
-| research | "\* RSCH"    | inbox.org   | Research     |
-| idea     | "\* IDEA"    | inbox.org   | Ideas        |
-| event    | "\* EVENT"   | tickler.org | N/A          |
-| read     | "\* READ""   | inbox.org   | N/A          |
+| Entry    | Text Content                 | File        | Top Headline |
+|----------|------------------------------|-------------|--------------|
+| Todo     | &ldquo;\* TODO&rdquo;        | inbox.org   | Tasks        |
+| research | &ldquo;\* RSCH&rdquo;        | inbox.org   | Research     |
+| idea     | &ldquo;\* IDEA&rdquo;        | inbox.org   | Ideas        |
+| event    | &ldquo;\* EVENT&rdquo;       | tickler.org | N/A          |
+| read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
 
 ```emacs-lisp
 (after! (org-modern)
@@ -760,7 +760,7 @@ Easy way to toggle
       :n "SPC m z" #'xenops-mode)
 ```
 
-Increase the preview image sizes so that they're readable.
+Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
 (setq xenops-math-image-scale-factor 1.35
@@ -803,14 +803,14 @@ Suppress the complaining `yasnippet` tends to do when it directly edits the buff
 [ink](https://github.com/foxfriday/ink) is a package that allows for fast insertion of inkspace figures into `latex-mode` and `org-mode` buffers.
 
 By default, `ink` embeds `.png` files into `org-mode` files.
-I wanted to emulate Castel's [inkscape workflow](https://castel.dev/post/lecture-notes-2/) for inserting Inkscape figures into LaTeX files quickly, and `ink` gets us close, but not quite there.
+I wanted to emulate Castel&rsquo;s [inkscape workflow](https://castel.dev/post/lecture-notes-2/) for inserting Inkscape figures into LaTeX files quickly, and `ink` gets us close, but not quite there.
 This configuration lets me get what I want, by allowing insertion of a `.pdf_tex` file into documents, which will allow for adjustment of fonts on the fly as we export to PDF.
 The behavior should insert a LaTeX snippet with a new figure containing a `.pdf_tex` file, while also providing an `org-mode` link to a png to be viewed inline in the org buffer.
 
 The `ink-insert-org-combined` function inserts a LaTeX figure with the `pdf_tex` exported version of the `svg` file so that it is sensitive to LaTeX formatting changes.
 It also puts a second `png` version in a `:noex:` drawer.
 This `:noex:` drawer is a general notation that I use to withhold some portions of an org document from being exported.
-In this case, we use this drawer because I'd still like to see the image of the figure inline, but don't want it exported twice.
+In this case, we use this drawer because I&rsquo;d still like to see the image of the figure inline, but don&rsquo;t want it exported twice.
 
 ```emacs-lisp
 (use-package! ink
