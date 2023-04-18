@@ -16,7 +16,7 @@ type = "post"
 
 - [The Yoneda Lemma](#the-yoneda-lemma)
 - [The Tensor-Hom Adjunction](#the-tensor-hom-adjunction)
-- [Classification of commutative Frobenius algbebras](#classification-of-commutative-frobenius-algbebras)
+- [Classification of commutative Frobenius algebras by TQFTs](#classification-of-commutative-frobenius-algebras-by-tqfts)
 
 </div>
 <!--endtoc-->
@@ -50,7 +50,7 @@ Given an \\( (R,S) \\)-bimodule \\( X \\), a right \\( R \\)-module \\( Y \\), a
 as abelian groups.
 
 
-## Classification of commutative Frobenius algbebras {#classification-of-commutative-frobenius-algbebras}
+## Classification of commutative Frobenius algebras by TQFTs {#classification-of-commutative-frobenius-algebras-by-tqfts}
 
 <details>
 <summary>For a field \( k \), there is an equivalence of categories \( \mathsf{2TQFT}_k \simeq \mathsf{cFrob}_k \) of 2-dimensional topological quantum field theories and commutative Frobenius algebras.</summary>
