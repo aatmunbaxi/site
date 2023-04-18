@@ -24,14 +24,5 @@
       <description>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</description>
     </item>
     
-    <item>
-      <title>日本語</title>
-      <link>https://aatmunbaxi.github.io/misc/nihongo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://aatmunbaxi.github.io/misc/nihongo/</guid>
-      <description>ここで日本語に関して勉強したり読んだりするものを話す。</description>
-    </item>
-    
   </channel>
 </rss>

@@ -107,6 +107,7 @@ Table of Contents
 #+end_summary
 #+toc: headlines 1
 #+end_details
+
 Here are some of my favorite theorems. Click on the statements for some injected commentary.
 
 *** The Yoneda Lemma
@@ -135,10 +136,16 @@ For a field \( k \), there is an equivalence of categories \( \mathsf{2TQFT}_k \
 
 *Comments:* This was the first result I learned that expressed how some classical tensor algebras arise as categorical constructions. Essential to this equivalence is the classification of closed 1-dimensional manifolds and how well behaved the category \( \mathsf{2Cob} \) is. A significant amount of work is needed to even hypothesize a higher dimensional analogue. This is the cobordism hypothesis, proposed by Baez and Dolan.
 #+end_details
-** 日本語 :japanese:hobby:
+* 日本語コーナー
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: misc
-:EXPORT_HUGO_MENU: :menu misc
-:EXPORT_FILE_NAME: nihongo
+:EXPORT_HUGO_SECTION: nihongo
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
 :END:
+** 日本語コーナー
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: nihongo
+:EXPORT_HUGO_MENU: :menu main
+:EXPORT_FILE_NAME: _index
+:END:
+
 ここで日本語に関して勉強したり読んだりするものを話す。
