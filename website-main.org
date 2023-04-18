@@ -1,6 +1,7 @@
 #+hugo_base_dir: /home/aatmun/websites/personal/
 #+hugo_weight: auto
 #+bibliography: std-references.bib
+
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
@@ -62,6 +63,13 @@ Here I record some things that I've learned along the way.
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: doom-config
 :END:
+#+attr_html: :class toc-class
+#+begin_details
+#+begin_summary
+*Table of Contents*
+#+end_summary
+#+toc: headlines 2 local
+#+end_details
 #+include: ~/.doom.d/config.org
 * Misc
 :PROPERTIES:
@@ -88,8 +96,16 @@ Some stuff that doesn't really fit anywhere else.
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
 :EXPORT_FILE_NAME: fav_theorems
-:EXPORT_OPTIONS: toc:2
 :END:
+#+begin_export css
+<style>*{font-size: x-large;}</style>
+#+end_export
+#+begin_details
+#+begin_summary
+Table of Contents
+#+end_summary
+#+toc: headlines 1
+#+end_details
 Here are some of my favorite theorems. Click on the statements for some injected commentary.
 
 *** The Yoneda Lemma

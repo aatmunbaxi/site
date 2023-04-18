@@ -6,6 +6,10 @@ weight = 2003
 type = "post"
 +++
 
+<details>
+<summary>Table of Contents</summary>
+<div class="details">
+
 <div class="ox-hugo-toc toc">
 
 <div class="heading">Table of Contents</div>
@@ -16,6 +20,8 @@ type = "post"
 
 </div>
 <!--endtoc-->
+</div>
+</details>
 
 Here are some of my favorite theorems. Click on the statements for some injected commentary.
 

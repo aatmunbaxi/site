@@ -7,6 +7,62 @@ weight = 2002
 type = "post"
 +++
 
+<details class="toc-class">
+<summary><b>Table of Contents</b></summary>
+<div class="details">
+
+<div class="ox-hugo-toc toc local">
+
+- [Intro](#intro)
+- [Housekeeping](#housekeeping)
+- [Font](#font)
+- [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
+    - [Doom Dashboard](#doom-dashboard)
+    - [Fancy Splash Image](#fancy-splash-image):ARCHIVE:
+    - [Custom Faces](#custom-faces)
+    - [Setting Colors](#setting-colors)
+    - [Hook](#hook)
+- [Global](#global)
+- [`embark`](#embark)
+- [`vertico`](#vertico)
+- [`org-mode`](#org-mode)
+    - [Some variables](#some-variables)
+    - [Hooks](#hooks)
+    - [Appearance](#appearance)
+- [`bibtex`](#bibtex)
+- [`org-super-agenda`](#org-super-agenda)
+- [`org-modern`](#org-modern)
+    - [Agenda](#agenda)
+    - [PDF Export Process](#pdf-export-process)
+    - [Keybinds](#keybinds)
+    - [Export Settings](#export-settings)
+- [`helm-bibtex`](#helm-bibtex)
+- [`org-ref`](#org-ref)
+- [`org-noter`](#org-noter)
+- [`org-roam`](#org-roam):ARCHIVE:
+- [`org-capture`](#org-capture)
+- [`pdf-view-mode`](#pdf-view-mode)
+    - [Keybinds](#keybinds)
+    - [Hooks](#hooks)
+- [`haskell-mode`](#haskell-mode)
+- [`python-mode`](#python-mode)
+    - [Elpy](#elpy)
+- [`xenops-mode`](#xenops-mode)
+- [`yasnippets`](#yasnippets)
+- [`ink`](#ink)
+- [quiver](#quiver)
+- [`org-babel`](#org-babel)
+- [`haskell-mode`](#haskell-mode)
+- [`writeroom-mode`](#writeroom-mode)
+- [`company`](#company)
+- [`ox-hugo`](#ox-hugo)
+
+</div>
+<!--endtoc-->
+</div>
+</details>
+
+
 {{< figure src="/ox-hugo/black-hole.png" >}}
 
 
