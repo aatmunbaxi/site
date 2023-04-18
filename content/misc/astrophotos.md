@@ -11,4 +11,4 @@ type = "post"
 
 <a id="figure--m101"></a>
 
-{{< figure src="/ox-hugo/m101_take2.png" caption="<span class=\"figure-number\">Figure 1: </span>M101, The Pinwheel Galaxy" >}}
+{{< figure src="/ox-hugo/m101_take2.jpg" caption="<span class=\"figure-number\">Figure 1: </span>M101, The Pinwheel Galaxy" >}}

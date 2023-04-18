@@ -1,150 +1,204 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>My DOOM Emacs Configuration | Aatmun Baxi</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.">
-    <meta name="generator" content="Hugo 0.111.3">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
+<html lang="en" dir="auto">
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>My DOOM Emacs Configuration | Aatmun Baxi</title>
+<meta name="keywords" content="emacs, org, hobby">
+<meta name="description" content="Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.">
+<meta name="author" content="Aatmun Baxi">
+<link rel="canonical" href="https://aatmunbaxi.github.io/computing/doom-config/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://aatmunbaxi.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://aatmunbaxi.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://aatmunbaxi.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://aatmunbaxi.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://aatmunbaxi.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
+            .list {
+                background: var(--theme);
+            }
 
-    
-    
-    
-      
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-    
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-    
-    
-    <meta property="og:title" content="My DOOM Emacs Configuration" />
+    </style>
+</noscript><meta property="og:title" content="My DOOM Emacs Configuration" />
 <meta property="og:description" content="Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aatmunbaxi.github.io/computing/doom-config/" /><meta property="article:section" content="computing" />
 
 
-<meta itemprop="name" content="My DOOM Emacs Configuration">
-<meta itemprop="description" content="Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.">
 
-<meta itemprop="wordCount" content="2588">
-<meta itemprop="keywords" content="emacs,org,hobby," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="My DOOM Emacs Configuration"/>
 <meta name="twitter:description" content="Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc."/>
 
-	
-  </head>
 
-  <body class="ma0 avenir bg-near-white">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Computing",
+      "item": "https://aatmunbaxi.github.io/computing/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "My DOOM Emacs Configuration",
+      "item": "https://aatmunbaxi.github.io/computing/doom-config/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "My DOOM Emacs Configuration",
+  "name": "My DOOM Emacs Configuration",
+  "description": "Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.",
+  "keywords": [
+    "emacs", "org", "hobby"
+  ],
+  "articleBody": " Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.\nHousekeeping (setq user-full-name \"Aatmun Baxi\" user-mail-address \"baxiaatmun@gmail.com\") Font (setq doom-font (font-spec :family \"Iosevka Aile\" :style \"Light\" :size 18) doom-variable-pitch-font (font-spec :family \"Iosevka Aile\" :style \"Light\" :size 18) doom-serif-font (font-spec :family \"Iosevka\" :size 18) doom-big-font (font-spec :family \"Iosevka Aile\" :style \"Regular\" :size 24)) Theme, Appearance, General Behavior Set our theme\n(setq doom-theme 'doom-zenburn) Doom Dashboard ;; (setq fancy-splash-image (concat doom-user-dir \"emacs-e-logo.png\")) (setq fancy-splash-image (expand-file-name \"splash/black-hole.png\" doom-user-dir)) Fancy Splash Image ARCHIVE Custom Faces These custom faces will appear later on in the config. We could define them immediately before they are used, but I ran into issues with them not being initialized properly and not being applied if they are defined too close to where they are used. So they’re define here so they get loaded in early.\nFaces for org-super-agenda.\n(defun set-my-faces () (defface todo-event-face `((t :inverse-video t :foreground ,(doom-color 'red)) ) \"\" :group 'org-modern-faces) (defface todo-research-face `((t :inverse-video t :foreground ,(doom-color 'cyan))) \"\" :group 'org-modern-faces) (defface todo-read-face `((t :inverse-video t :foreground ,(doom-color 'teal)) ) \"\" :group 'org-modern-faces) (defface todo-prog-face `((t :inverse-video t :foreground ,(doom-color 'green+3))) \"\" :group 'org-modern-faces) (defface todo-idea-face `((t :inverse-video t :foreground ,(doom-color 'violet))) \"\" :group 'org-modern-faces) (defface todo-wait-face `((t :inverse-video t :foreground ,(doom-color 'orange))) \"\" :group 'org-modern-faces) (defface todo-next-face `((t :inverse-video t :foreground ,(doom-color 'green '256))) \"\" :group 'org-modern-faces) (custom-set-faces! `(org-agenda-date :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold) `(org-agenda-date-weekend :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold) `(org-agenda-date-weekend-today :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold)) (defface super-agenda-due-today-face `((t :background ,(doom-darken 'red 0.5) :underline t)) \"\" :group 'org-super-agenda) (defface super-agenda-today-face `((t :foreground ,(doom-color 'fg) :underline t)) \"\" :group 'org-super-agenda) (defface super-agenda-todo-face `((t :foreground ,(doom-color 'green+4))) \"\" :group 'org-super-agenda ) (defface super-agenda-date-face `((t :foreground ,(doom-color 'fg-1))) \"\" :group 'org-super-agenda ) (defface super-agenda-wait-face `((t :foreground ,(doom-color 'orange))) \"\" :group 'org-super-agenda ) (defface super-agenda-active-task-face `((t :foreground ,(doom-color 'green '256))) \"\" :group 'org-super-agenda ) (defface super-agenda-prog-face `((t :background ,(doom-darken 'green+4 0.5))) \"\" :group 'org-super-agenda ) (defface super-agenda-next-face `((t :background ,(doom-darken (doom-color 'green '256) 0.3))) \"\" :group 'org-super-agenda ) ) (add-hook 'doom-load-theme-hook #'set-my-faces) Setting Colors (custom-set-faces! ;; Super cool macro by the way! `(org-block :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! ;; Super cool macro by the way! `(org-block-begin-line :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! ;; Super cool macro by the way! `(org-block-end-line :background ,(doom-color 'bg-alt ) :extend t)) Hook Define some functions that will update some aspects of our theme dynamically.\n(custom-set-faces! ;; Super cool macro by the way! `(org-block :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! `(org-block-begin-line :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! `(org-block-end-line :background ,(doom-color 'bg-alt ) :extend t)) (defun update-org-faces () (custom-set-faces! ;; Super cool macro by the way! `(org-block :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! `(org-block-begin-line :background ,(doom-color 'bg-alt ) :extend t)) (custom-set-faces! `(org-block-end-line :background ,(doom-color 'bg-alt ) :extend t)) ) (global-pretty-mode t) (setq visual-fill-column-width 120 visual-fill-column-center-text t line-spacing 0.27) Hook them to be executed when theme is loaded\n;; (add-hook 'doom-load-theme-hook #'update-pdf-colors) ;; (add-hook 'doom-load-theme-hook #'update-org-faces) Global Global keybindings\n(evilem-default-keybindings \"SPC\") embark (use-package! embark :bind ((\"C-.\" . embark-act) (\"M-.\" . embark-dwim) (\"C-h B\" . embark-bindings))) vertico vertico is a vertical completion framework. Packages that are more popular and accomplish similar goals are ivy and helm.\n(use-package! vertico :ensure t :init (vertico-mode)) org-mode This section ropes in a number of settings for org-mode. My primary use case for org-mode is to typset documents with mathematical notation in \\LaTeX, but other use cases exist such as literate programming a la this config file.\nSome variables This variable sets default apps that org uses to open certain filetypes.\n(setq org-file-apps (quote ((auto-mode . emacs) (\"\\\\.m\\\\'\" . default) (\"\\\\.?html?\\\\'\" . /usr/bin/firefox) (\"\\\\.pdf\\\\'\" . emacs)))) Set our variable for org-journal.\n(setq org-journal-dir \"~/Documents/org/journal\") By default, the org-preview-latex-default-process doesn’t play well with tikz pictures. To fix this, we use imagemagick instead.\n(setq org-preview-latex-default-process 'imagemagick) (after! org (setq org-directory \"~/Documents/org\") (setq org-agenda-files '( \"~/Documents/org/inbox.org\" \"~/Documents/org/gtd.org\" \"~/Documents/org/tickler.org\"))) TODO keywords will be used in org-agenda and stylized by org-modern later on.\n(after! org (setq org-todo-keywords ; This overwrites the default Doom org-todo-keywords '((sequence \"TODO(t)\" ; A task that is ready to be tackled \"NEXT(n)\" ; This task is actionable \"PROG(g)\" ; A task in progress \"PROJ(p)\" ; A project \"RSCH(r)\" ; A task that neeeds to be researched \"IDEA(i)\" ; An idea \"EVENT(e)\" ; An event \"READ(R)\" ; Thing to read \"WAIT(w)\" ; This task is waiting on someone/thing \"|\" ; The pipe necessary to separate \"active\" states and \"inactive\" states \"DONE(d)\" ; Task has been completed \"CANCELLED(c)\" )) ; Task has been cancelled ) ) (after! org (setq org-structure-template-alist ' ((\"a\" . \"export ascii\") (\"c\" . \"center\") (\"C\" . \"comment\") (\"e\" . \"equation\") (\"E\" . \"export\") (\"h\" . \"export html\") (\"l\" . \"export latex\") (\"q\" . \"quote\") (\"s\" . \"src\") (\"v\" . \"verse\")) )) Hooks These will be activated when org-mode is opened.\n(add-hook 'org-mode-hook #'mixed-pitch-mode) (add-hook 'org-mode-hook #'turn-on-org-cdlatex) (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1))) ;; (add-hook 'org-mode-hook #'org-modern-mode) (add-hook 'org-agenda-finalize-hook #'org-modern-agenda) (add-hook 'org-mode-hook #'visual-fill-column-mode) (add-hook 'org-mode-hook #'evil-tex-mode) ;; (defun set-my-org-margins () ;; \"Set margins for org\" ;; (setq left-margin-width 7) ;; (setq right-margin-width 7)) ;; (add-hook 'org-mode-hook 'set-my-org-margins) ;; (setq-hook! 'org-mode-hook left-margin-width 7) ;; (setq-hook! 'org-mode-hook right-margin-width 7) Appearance Specify sizes of org headlines by level.\n(custom-set-faces! '(org-level-1 :inherit outline-1 :height 2.0) '(org-level-2 :inherit outline-2 :height 1.8) '(org-level-3 :inherit outline-3 :height 1.5) '(org-level-4 :inherit outline-4 :height 1.2) '(org-level-5 :inherit outline-5 :height 1.0)) This makes the background of inline code blocks the same as the normal background color, because apparently I value form over function.\n;; (custom-set-faces! ;; `(org-block ;; :background ,(doom-lighten 'bg-alt 0.1) :extend t)) ;; (custom-set-faces! ;; `(org-block-begin-line ;; :background ,(doom-lighten 'bg-alt 0.1) :extend t)) ;; (custom-set-faces! ;; `(org-block-end-line ;; :background ,(doom-lighten 'bg-alt 0.1) :extend t)) Startup with all trees folded and format some org features\n(use-package! org :config (setq org-startup-folded t ;; Start org with all headings folded org-startup-indented nil org-startup-with-inline-images t ;; Start with inline images showing org-fontify-whole-heading-line t ;; Fontify various lines org-fontify-done-headline t ;; ..=.. org-fontify-quote-and-verse-blocks nil org-ellipsis \"  \" ;; Change folded ellipsis character org-image-actual-width 400 ;; Size of inline images org-hide-emphasis-markers t ;; Hide ==,//,** emphasis markers org-indent-mode nil ) ) I use some of my own block names in typsetting math, so we make sure that these blocks have the face we just defined applied properly.\n;; (setq org-protecting-blocks '(\"src\" \"example\" \"export\" \"theorem\" \"proposition\" \"proof\" \"lemma\" \"corollary\")) bibtex Bibtex is a bibliography package used for \\LaTeX. We configure some of its settings here.\n(setq LaTeX-always-use-Biber t) (setq bibtex-dialect 'biblatex) (setq bibtex-completion-bibliography \"~/Documents/bib/reference-texts.bib\") org-super-agenda (after! org (use-package! org-super-agenda :init (org-super-agenda-mode) :config (require 'doom-themes) (custom-set-faces! `(org-super-agenda-header :background \"bg\" :underline t :height 1.1 )) (setq org-super-agenda-groups '( (:name \"Tasks\" :todo (\"NEXT\" \"TODO\" ) :face 'super-agenda-todo-face) (:habit t) (:name \"Waiting Tasks\" :face 'super-agenda-active-task-face :todo (\"WAIT\")) (:name \"Events\" :todo \"EVENT\") )) ) ) org-modern We will set custom faces for each of the TODO keywords in the above list. Some modifications were made to the following reference.\n(setq org-modern-block-fringe 5) (after! org (use-package! org-modern :demand t :hook (org-mode . org-modern-mode) :config (setq org-modern-todo-faces '( (\"PROG\" . 'todo-prog-face) (\"NEXT\" . 'todo-next-face) (\"WAIT\" . 'todo-wait-face) (\"RSCH\" . 'todo-research-face) (\"PROJ\" . (:inherit org-modern-todo)) (\"READ\" . 'todo-read-face) (\"IDEA\" . 'todo-idea-face) (\"EVENT\" . 'todo-event-face) )) (global-org-modern-mode) ;; (setq org-modern-block-name 'modern-block-name) ) ) (after! org (require 'org-indent) (org-indent-mode -1) ) Agenda (setq org-agenda-skip-scheduled-if-done t) (setq org-agenda-skip-deadline-if-done t) (setq org-agenda-start-day \"-1d\") (setq org-agenda-todo-ignore-scheduled t) PDF Export Process This PDF export process ensures that bibliographies are properly exported, making use of biblatex.\n(setq org-latex-pdf-process (list \"latexmk -shell-escape -bibtex -f -pdf %f\")) Keybinds (map! :map org-mode-map :i \"C-c ]\" #'org-ref-insert-link :i \"C-c [\" #'org-ref-insert-ref-link :n \"z o\" #'+org/open-all-folds :n \"z M\" #'+org/close-all-folds :nvi \"M-m\" #'org-next-visible-heading :nvi \"M-p\" #'org-previous-visible-heading :nvi \"M-l\" #'org-latex-preview ) Export Settings Disable export of TODO keywords (setq org-export-with-todo-keywords nil) Hide image links from export ARCHIVE noex Drawers Sometimes I have text in an org document that I want to see while editing, but don’t want it exported to the final document such as PDF. This setting excludes all drawers carrying the name noex from being exported to the final output. Word by word, this variable says “export all drawers that don’t have the name noex”\n(setq org-export-with-drawers '(not \"noex\")) This setting applies to all org files, but can be overwritten on a per-file basis in the :options header.\nCleanup org-directory of log files from export \\LaTeX generates a bunch of log files and extraneous files during its compilation process which can really clutter the compile directory quickly. This code adds the relevant file extensions to org’s log file extension list, and so it will clean them up after the export process is finish.\n\\LaTeX:\n;; (setq org-latex-logfiles-extensions ;; (quote ;; (\"lof\" \"lot\" \"tex~\" \"aux\" \"idx\" \"log\" \"out\" \"toc\" \"nav\" \"snm\" \"vrb\" \"dvi\" \"fdb_latexmk\" \"blg\" \"brf\" \"fls\" \"entoc\" \"ps\" \"spl\" \"run.xml\" \"bcf\"))) helm-bibtex helm-bibtex is a package that provides tools for bibliography management with the helm completion framework.\nhelm-bibtex does not have this issue, hence I use it.\n(use-package! helm-bibtex :config (setq bibtex-completion-bibliography \"~/Documents/bib/reference-texts.bib\" bibtex-completion-library-path '(\"~/Documents/books\" \"~/Documents/articles\") bibtex-completion-notes-path \"~/Documents/org/general-notes.org\" bibtex-completion-notes-template-multiple-files \"* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \\n\\nSee [[cite:\u0026${=key=}]]\\n\" bibtex-completion-additional-search-fields '(keywords) bibtex-completion-display-formats '((article . \"${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}\") (inbook . \"${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}\") (incollection . \"${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}\") (inproceedings . \"${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}\") (t . \"${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}\")) )) org-ref org-ref is a useful package to simplify and unify the addition of citations to documents.\n(use-package! org-ref :after org :ensure t :init (require 'bibtex) (require 'org-ref-helm) ;; (require 'org-ref-ivy) (with-eval-after-load 'ox (defun my/org-ref-process-buffer--html (backend) \"Preprocess `org-ref' citations to HTML format. Do this only if the export backend is `html' or a derivative of that.\" ;; `ox-hugo' is derived indirectly from `ox-html'. ;; ox-hugo \u003c- ox-blackfriday \u003c- ox-md \u003c- ox-html (when (org-export-derived-backend-p backend 'html) (org-ref-process-buffer 'html)))) (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html) :config (setq org-ref-default-bibliography \"~/Documents/bib/reference-texts.bib\" org-ref-pdf-directory '(\"~/Documents/books\" \"~/Documents/articles\") org-ref-insert-link-function 'org-ref-insert-link-hydra/body org-ref-insert-cite-function 'org-ref-cite-insert-helm org-ref-insert-ref-function 'org-ref-insert-ref-link bibtex-autokey-year-length 4 bibtex-autokey-name-year-separator \"-\" bibtex-autokey-year-title-separator \"-\" bibtex-autokey-titleword-separator \"-\" bibtex-autokey-titlewords 2 bibtex-autokey-titlewords-stretch 1 bibtex-autokey-titleword-length 5) ) org-noter (use-package! org-noter :defer f :config (setq org-noter-always-create-frame t)) org-roam ARCHIVE org-capture Used mostly in tight integration with the agenda, capture templates let me capture snippets of org text and quickly refile them to worry about later. They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state. It is inspired mostly by “Getting Things Done”. Maybe I will find use for them later.\nThese templates set up the outline. Here is a table of what they do:\nEntry Text Content File Top Headline Todo “* TODO” inbox.org Tasks research “* RSCH” inbox.org Research idea “* IDEA” inbox.org Ideas event “* EVENT” tickler.org N/A read “* READ”“ inbox.org N/A (after! (org-modern) (use-package! org-capture :config (setq org-refile-targets '((\"~/Documents/org/gtd.org\" :maxlevel . 1) (\"~/Documents/org/inbox.org\" :maxlevel . 1) (\"~/Documents/org/tickler.org\" :maxlevel . 1) (\"~/Documents/org/maybe.org\" :maxlevel . 1) (\"~/Documents/org/topology2.org\" :maxlevel . 2) (\"~/Documents/org/alggeo2.org\" :maxlevel . 2) (\"~/Documents/org/algtop2.org\" :maxlevel . 2) )) (setq org-capture-templates '( (\"t\" \"Todo\" entry (file \"~/Documents/org/inbox.org\") \"* TODO %?\\n %i\\n %a #+created: %t\") (\"r\" \"research\" entry (file \"~/Documents/org/inbox.org\") \"* RSCH %?\\n %i\\n %a #+created: %t\") (\"i\" \"idea\" entry (file \"~/Documents/org/inbox.org\") \"* IDEA %?\\n %i\\n %a #+created: %t\") (\"e\" \"event\" entry (file \"~/Documents/org/tickler.org\") \"* EVENT %?\\n %i\\n #+created: %t\") (\"R\" \"read\" entry (file \"~/Documents/org/inbox.org\" ) \"* READ %?\\n %i\\n #+created: %t\") )) ) ) pdf-view-mode Keybinds (map! :map pdf-view-mode-map \"M-m\" #'pdf-view-auto-slice-minor-mode \"M-f\" #'pdf-view-themed-minor-mode) Hooks (add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode) (add-hook 'pdf-tools-enabled-hook 'pdf-view-auto-slice-minor-mode) haskell-mode (setq haskell-compile-command \"ghc -Wall -ferror-spans -fforce-recomp -dynamic -c %s\") python-mode Elpy (elpy-enable) xenops-mode xenops-mode is a \\LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files. It is a more feature-rich replacement for org-latex-preview.\nEasy way to toggle\n(map! :map org-mode-map :n \"SPC m z\" #'xenops-mode :map LaTeX-mode-map :n \"SPC m z\" #'xenops-mode) Increase the preview image sizes so that they’re readable.\n(setq xenops-math-image-scale-factor 1.35 xenops-reveal-on-entry nil ) yasnippets This section is taken from the ideas and code in this article: LaTeX Input for the Impatient Scholar.\nThis function allows for auto expanding of snippets.\n(require 'yasnippet) (defun my/yas-try-expanding-auto-snippets () (when (bound-and-true-p yas-minor-mode) (let ((yas-buffer-local-condition ''(require-snippet-condition . auto))) (yas-expand)))) Then actually implement the auto expansion.\n(add-hook 'post-self-insert-hook #'my/yas-try-expanding-auto-snippets) Suppress the complaining yasnippet tends to do when it directly edits the buffer.\n(with-eval-after-load 'warnings (cl-pushnew '(yasnippet backquote-change) warning-suppress-types :test 'equal)) ink ink is a package that allows for fast insertion of inkspace figures into latex-mode and org-mode buffers.\nBy default, ink embeds .png files into org-mode files. I wanted to emulate Castel’s inkscape workflow for inserting Inkscape figures into LaTeX files quickly, and ink gets us close, but not quite there. This configuration lets me get what I want, by allowing insertion of a .pdf_tex file into documents, which will allow for adjustment of fonts on the fly as we export to PDF. The behavior should insert a LaTeX snippet with a new figure containing a .pdf_tex file, while also providing an org-mode link to a png to be viewed inline in the org buffer.\nThe ink-insert-org-combined function inserts a LaTeX figure with the pdf_tex exported version of the svg file so that it is sensitive to LaTeX formatting changes. It also puts a second png version in a :noex: drawer. This :noex: drawer is a general notation that I use to withhold some portions of an org document from being exported. In this case, we use this drawer because I’d still like to see the image of the figure inline, but don’t want it exported twice.\n(use-package! ink :config ;; These flags export all the necessary file formats (setq ink-flags-custom (list \"--export-area-drawing\" \"--export-dpi 100\" \"--export-type=png,pdf\" \"--export-latex\" \"--export-overwrite\")) (setq ink-flags-options (list (cons 'latex-mode ink-flags-latex) (cons 'org-mode ink-flags-custom) (cons 'markdown-mode ink-flags-png))) ;; This variable inserts both the LaTeX fragment to insert ;; the .pdf_tex file and commented org-mode link to let us view ;; the image inline in the org buffer (setq ink-insert-org-combined \"\\n\\\\begin{figure}[H] \\\\centering \\\\def\\\\svgscale{0.5} \\\\subimport{%s}{%s.pdf_tex} \\\\caption{} \\\\label{fig:%s}\\n\\\\end{figure}\\n:noex:\\n[[file:%1$s/%2$s.png]]\\n:END:\\n\") (setq ink-insert-options (list (cons 'latex-mode ink-insert-latex) (cons 'org-mode ink-insert-org-combined) (cons 'markdown-mode ink-insert-md)))) Set keybindings to insert inkscape figures\n(map! :map org-mode-map :n \"SPC i i\" #'ink-make-figure) quiver Related to ink in its use case, but not exactly the same is quiver [Dependency]. This is a program to easily and interactively create commutative diagrams using the tikz-cd LaTeX package. All we need is a function to interactively insert open the program.\n(defun open-quiver-local () \"Open quiver program locally\" (interactive) (start-process \"open-quiver\" nil \"firefox\" \"--new-window\" \"/home/aatmun/working/quiver/src/index.html\")) (defun open-quiver-web () \"Open quiver program on the web\" (interactive) (start-process \"open-quiver\" nil \"firefox\" \"--new-window\" \"https://q.uiver.app\")) (map! :map org-mode-map :prefix \"SPC i c\" :nv \"l\" #'open-quiver-local :nv \"w\" #'open-quiver-web) org-babel (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t) (haskell . t) (jupyter . t))) haskell-mode (add-hook 'haskell-mode-hook #'hindent-mode) (add-hook 'haskell-mode-hook #'lsp-ui-mode) writeroom-mode writeroom-mode is a distraction-free editing mode.\n(after! xenops (use-package! writeroom-mode :init (defun fix-writeroom-xenops-on () (require 'xenops) (progn (xenops-increase-size) (xenops-increase-size) (xenops-increase-size)) (setq xenops-math-image-scale-factor 2.0) )) (defun fix-writeroom-xenops-off () (require 'xenops) (progn (xenops-decrease-size) (xenops-decrease-size) (xenops-decrease-size)) (setq xenops-math-image-scale-factor 1.35) ) :config (add-hook 'writeroom-mode-enable-hook #'fix-writeroom-xenops-on) (add-hook 'writeroom-mode-disable-hook #'fix-writeroom-xenops-off) ) company Disable company in org-mode.\n(setq company-global-modes '(not org-mode)) ox-hugo ox-hugo is an org export tool to Hugo-compatible markdown files for easy publishing to static websites.\n",
+  "wordCount" : "2588",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Aatmun Baxi"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aatmunbaxi.github.io/computing/doom-config/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aatmun Baxi",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://aatmunbaxi.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
-    
-   
-  
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Aatmun Baxi
-      
-    </a>
-    <div class="flex-l items-center">
-      
+</script>
 
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/computing/" title="Computing page">
-              Computing
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/math/" title="Math page">
-              Math
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/misc/" title="Misc page">
-              Misc
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/nihongo/" title="日本語コーナー page">
-              日本語コーナー
-            </a>
-          </li>
-          
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://aatmunbaxi.github.io" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://aatmunbaxi.github.io/computing/" title="Computing">
+                    <span>Computing</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://aatmunbaxi.github.io/math/" title="Math">
+                    <span>Math</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://aatmunbaxi.github.io/misc/" title="Misc">
+                    <span>Misc</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://aatmunbaxi.github.io/nihongo/" title="日本語コーナー">
+                    <span>日本語コーナー</span>
+                </a>
+            </li>
         </ul>
-      
-      
-<div class="ananke-socials">
-  
-</div>
+    </nav>
+</header>
+<main class="main">
 
-    </div>
-  </div>
-</nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        COMPUTING
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
+<article class="post-single">
+  <header class="post-header">
     
-  </div>
+    <h1 class="post-title">
+      My DOOM Emacs Configuration
+    </h1>
+    <div class="post-meta">Aatmun Baxi
 
-
-      <h1 class="f1 athelas mt3 mb1">My DOOM Emacs Configuration</h1>
-      
-      <p class="tracked">
-        By <strong>Aatmun Baxi</strong>
-      </p>
-      
-      
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><details class="toc-class">
+</div>
+  </header> 
+  <div class="post-content"><details class="toc-class">
 <summary><b>Table of Contents</b></summary>
 <div class="details">
 <div class="ox-hugo-toc toc local">
@@ -212,28 +266,29 @@
 <!--endtoc-->
 </div>
 </details>
-<figure><img src="/ox-hugo/black-hole.png"/>
+<figure>
+    <img loading="lazy" src="/ox-hugo/black-hole.png"/> 
 </figure>
 
-<h2 id="intro">Intro</h2>
+<h2 id="intro">Intro<a hidden class="anchor" aria-hidden="true" href="#intro">#</a></h2>
 <p>This config file is organized by mode and/or package.
 Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</p>
-<h2 id="housekeeping">Housekeeping</h2>
+<h2 id="housekeeping">Housekeeping<a hidden class="anchor" aria-hidden="true" href="#housekeeping">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq <span style="color:#a6e22e">user-full-name</span> <span style="color:#e6db74">&#34;Aatmun Baxi&#34;</span>
 </span></span><span style="display:flex;"><span>      user-mail-address <span style="color:#e6db74">&#34;baxiaatmun@gmail.com&#34;</span>)
-</span></span></code></pre></div><h2 id="font">Font</h2>
+</span></span></code></pre></div><h2 id="font">Font<a hidden class="anchor" aria-hidden="true" href="#font">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq doom-font (<span style="color:#a6e22e">font-spec</span> :family <span style="color:#e6db74">&#34;Iosevka Aile&#34;</span> :style <span style="color:#e6db74">&#34;Light&#34;</span> :size <span style="color:#ae81ff">18</span>)
 </span></span><span style="display:flex;"><span>      doom-variable-pitch-font (<span style="color:#a6e22e">font-spec</span> :family <span style="color:#e6db74">&#34;Iosevka Aile&#34;</span> :style <span style="color:#e6db74">&#34;Light&#34;</span> :size <span style="color:#ae81ff">18</span>)
 </span></span><span style="display:flex;"><span>      doom-serif-font (<span style="color:#a6e22e">font-spec</span> :family <span style="color:#e6db74">&#34;Iosevka&#34;</span> :size <span style="color:#ae81ff">18</span>)
 </span></span><span style="display:flex;"><span>      doom-big-font (<span style="color:#a6e22e">font-spec</span> :family <span style="color:#e6db74">&#34;Iosevka Aile&#34;</span> :style <span style="color:#e6db74">&#34;Regular&#34;</span> :size <span style="color:#ae81ff">24</span>))
-</span></span></code></pre></div><h2 id="theme-appearance-general-behavior">Theme, Appearance, General Behavior</h2>
+</span></span></code></pre></div><h2 id="theme-appearance-general-behavior">Theme, Appearance, General Behavior<a hidden class="anchor" aria-hidden="true" href="#theme-appearance-general-behavior">#</a></h2>
 <p>Set our theme</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq doom-theme <span style="color:#e6db74">&#39;doom-zenburn</span>)
-</span></span></code></pre></div><h3 id="doom-dashboard">Doom Dashboard</h3>
+</span></span></code></pre></div><h3 id="doom-dashboard">Doom Dashboard<a hidden class="anchor" aria-hidden="true" href="#doom-dashboard">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (setq fancy-splash-image (concat doom-user-dir &#34;emacs-e-logo.png&#34;))</span>
 </span></span><span style="display:flex;"><span>(setq fancy-splash-image (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;splash/black-hole.png&#34;</span> doom-user-dir))
-</span></span></code></pre></div><h3 id="fancy-splash-image">Fancy Splash Image <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span></h3>
-<h3 id="custom-faces">Custom Faces</h3>
+</span></span></code></pre></div><h3 id="fancy-splash-image">Fancy Splash Image <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span><a hidden class="anchor" aria-hidden="true" href="#fancy-splash-image">#</a></h3>
+<h3 id="custom-faces">Custom Faces<a hidden class="anchor" aria-hidden="true" href="#custom-faces">#</a></h3>
 <p>These custom faces will appear later on in the config.
 We could define them immediately before they are used, but I ran into issues with them not being initialized properly and not being applied if they are defined too close to where they are used.
 So they’re define here so they get loaded in early.</p>
@@ -290,7 +345,7 @@ So they’re define here so they get loaded in early.</p>
 </span></span><span style="display:flex;"><span>  )
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;doom-load-theme-hook</span> <span style="color:#a6e22e">#&#39;</span>set-my-faces)
-</span></span></code></pre></div><h3 id="setting-colors">Setting Colors</h3>
+</span></span></code></pre></div><h3 id="setting-colors">Setting Colors<a hidden class="anchor" aria-hidden="true" href="#setting-colors">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-faces! <span style="color:#75715e">;; Super cool macro by the way!</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>(org-block
 </span></span><span style="display:flex;"><span>    :background <span style="color:#f92672">,</span>(doom-color <span style="color:#e6db74">&#39;bg-alt</span> ) :extend <span style="color:#66d9ef">t</span>))
@@ -300,7 +355,7 @@ So they’re define here so they get loaded in early.</p>
 </span></span><span style="display:flex;"><span>(custom-set-faces! <span style="color:#75715e">;; Super cool macro by the way!</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>(org-block-end-line
 </span></span><span style="display:flex;"><span>    :background <span style="color:#f92672">,</span>(doom-color <span style="color:#e6db74">&#39;bg-alt</span> ) :extend <span style="color:#66d9ef">t</span>))
-</span></span></code></pre></div><h3 id="hook">Hook</h3>
+</span></span></code></pre></div><h3 id="hook">Hook<a hidden class="anchor" aria-hidden="true" href="#hook">#</a></h3>
 <p>Define some functions that will update some aspects of our theme dynamically.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-faces! <span style="color:#75715e">;; Super cool macro by the way!</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>(org-block
@@ -331,26 +386,26 @@ So they’re define here so they get loaded in early.</p>
 </span></span></code></pre></div><p>Hook them to be executed when theme is loaded</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;doom-load-theme-hook #&#39;update-pdf-colors)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;doom-load-theme-hook #&#39;update-org-faces)</span>
-</span></span></code></pre></div><h2 id="global">Global</h2>
+</span></span></code></pre></div><h2 id="global">Global<a hidden class="anchor" aria-hidden="true" href="#global">#</a></h2>
 <p>Global keybindings</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(evilem-default-keybindings <span style="color:#e6db74">&#34;SPC&#34;</span>)
-</span></span></code></pre></div><h2 id="embark"><code>embark</code></h2>
+</span></span></code></pre></div><h2 id="embark"><code>embark</code><a hidden class="anchor" aria-hidden="true" href="#embark">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package! embark
 </span></span><span style="display:flex;"><span>  :bind
 </span></span><span style="display:flex;"><span>  ((<span style="color:#e6db74">&#34;C-.&#34;</span> <span style="color:#f92672">.</span> embark-act)
 </span></span><span style="display:flex;"><span>   (<span style="color:#e6db74">&#34;M-.&#34;</span> <span style="color:#f92672">.</span> embark-dwim)
 </span></span><span style="display:flex;"><span>   (<span style="color:#e6db74">&#34;C-h B&#34;</span> <span style="color:#f92672">.</span> embark-bindings)))
-</span></span></code></pre></div><h2 id="vertico"><code>vertico</code></h2>
+</span></span></code></pre></div><h2 id="vertico"><code>vertico</code><a hidden class="anchor" aria-hidden="true" href="#vertico">#</a></h2>
 <p><a href="https://github.com/minad/vertico">vertico</a> is a vertical completion framework.
 Packages that are more popular and accomplish similar goals are <code>ivy</code> and <code>helm</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package! vertico
 </span></span><span style="display:flex;"><span>  :ensure <span style="color:#66d9ef">t</span>
 </span></span><span style="display:flex;"><span>  :init
 </span></span><span style="display:flex;"><span>  (vertico-mode))
-</span></span></code></pre></div><h2 id="org-mode"><code>org-mode</code></h2>
+</span></span></code></pre></div><h2 id="org-mode"><code>org-mode</code><a hidden class="anchor" aria-hidden="true" href="#org-mode">#</a></h2>
 <p>This section ropes in a number of settings for <code>org-mode</code>.
 My primary use case for <code>org-mode</code> is to typset documents with mathematical notation in  \LaTeX, but other use cases exist such as literate programming a la this config file.</p>
-<h3 id="some-variables">Some variables</h3>
+<h3 id="some-variables">Some variables<a hidden class="anchor" aria-hidden="true" href="#some-variables">#</a></h3>
 <p>This variable sets default apps that org uses to open certain filetypes.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>          (setq org-file-apps
 </span></span><span style="display:flex;"><span>           (quote
@@ -400,7 +455,7 @@ To fix this, we use <code>imagemagick</code> instead.</p>
 </span></span><span style="display:flex;"><span>                   (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;src&#34;</span>)
 </span></span><span style="display:flex;"><span>                   (<span style="color:#e6db74">&#34;v&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;verse&#34;</span>))
 </span></span><span style="display:flex;"><span>                  ))
-</span></span></code></pre></div><h3 id="hooks">Hooks</h3>
+</span></span></code></pre></div><h3 id="hooks">Hooks<a hidden class="anchor" aria-hidden="true" href="#hooks">#</a></h3>
 <p>These will be activated when <code>org-mode</code> is opened.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>          (add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>mixed-pitch-mode)
 </span></span><span style="display:flex;"><span>          (add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>turn-on-org-cdlatex)
@@ -417,7 +472,7 @@ To fix this, we use <code>imagemagick</code> instead.</p>
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e">;; (add-hook &#39;org-mode-hook &#39;set-my-org-margins)</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e">;; (setq-hook! &#39;org-mode-hook left-margin-width 7)</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e">;; (setq-hook! &#39;org-mode-hook right-margin-width 7)</span>
-</span></span></code></pre></div><h3 id="appearance">Appearance</h3>
+</span></span></code></pre></div><h3 id="appearance">Appearance<a hidden class="anchor" aria-hidden="true" href="#appearance">#</a></h3>
 <p>Specify sizes of org headlines by level.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-faces!
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(org-level-1 :inherit outline-1 :height <span style="color:#ae81ff">2.0</span>)
@@ -452,13 +507,13 @@ To fix this, we use <code>imagemagick</code> instead.</p>
 </span></span><span style="display:flex;"><span>  )
 </span></span></code></pre></div><p>I use some of my own block names in typsetting math, so we make sure that these blocks have the face we just defined applied properly.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (setq org-protecting-blocks &#39;(&#34;src&#34; &#34;example&#34; &#34;export&#34; &#34;theorem&#34; &#34;proposition&#34; &#34;proof&#34; &#34;lemma&#34; &#34;corollary&#34;))</span>
-</span></span></code></pre></div><h2 id="bibtex"><code>bibtex</code></h2>
+</span></span></code></pre></div><h2 id="bibtex"><code>bibtex</code><a hidden class="anchor" aria-hidden="true" href="#bibtex">#</a></h2>
 <p>Bibtex is a bibliography package used for \LaTeX.
 We configure some of its settings here.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>              (setq LaTeX-always-use-Biber <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>              (setq bibtex-dialect <span style="color:#e6db74">&#39;biblatex</span>)
 </span></span><span style="display:flex;"><span>              (setq bibtex-completion-bibliography <span style="color:#e6db74">&#34;~/Documents/bib/reference-texts.bib&#34;</span>)
-</span></span></code></pre></div><h2 id="org-super-agenda"><code>org-super-agenda</code></h2>
+</span></span></code></pre></div><h2 id="org-super-agenda"><code>org-super-agenda</code><a hidden class="anchor" aria-hidden="true" href="#org-super-agenda">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(after! org
 </span></span><span style="display:flex;"><span>  (use-package! org-super-agenda
 </span></span><span style="display:flex;"><span>    :init
@@ -486,7 +541,7 @@ We configure some of its settings here.</p>
 </span></span><span style="display:flex;"><span>            ))
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>  )
-</span></span></code></pre></div><h2 id="org-modern"><code>org-modern</code></h2>
+</span></span></code></pre></div><h2 id="org-modern"><code>org-modern</code><a hidden class="anchor" aria-hidden="true" href="#org-modern">#</a></h2>
 <p>We will set custom faces for each of the TODO keywords in the above list.
 Some modifications were made to the following <a href="https://discourse.doomemacs.org/t/change-style-of-idea-in-org-mode/3041/4">reference.</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-modern-block-fringe <span style="color:#ae81ff">5</span>)
@@ -515,15 +570,15 @@ Some modifications were made to the following <a href="https://discourse.doomema
 </span></span><span style="display:flex;"><span>  (require <span style="color:#e6db74">&#39;org-indent</span>)
 </span></span><span style="display:flex;"><span>  (org-indent-mode <span style="color:#ae81ff">-1</span>)
 </span></span><span style="display:flex;"><span>  )
-</span></span></code></pre></div><h3 id="agenda">Agenda</h3>
+</span></span></code></pre></div><h3 id="agenda">Agenda<a hidden class="anchor" aria-hidden="true" href="#agenda">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-skip-scheduled-if-done <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>(setq org-agenda-skip-deadline-if-done <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>(setq org-agenda-start-day <span style="color:#e6db74">&#34;-1d&#34;</span>)
 </span></span><span style="display:flex;"><span>(setq org-agenda-todo-ignore-scheduled <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h3 id="pdf-export-process">PDF Export Process</h3>
+</span></span></code></pre></div><h3 id="pdf-export-process">PDF Export Process<a hidden class="anchor" aria-hidden="true" href="#pdf-export-process">#</a></h3>
 <p>This PDF export process ensures that bibliographies are properly exported, making use of <code>biblatex</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-latex-pdf-process (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;latexmk -shell-escape -bibtex -f -pdf %f&#34;</span>))
-</span></span></code></pre></div><h3 id="keybinds">Keybinds</h3>
+</span></span></code></pre></div><h3 id="keybinds">Keybinds<a hidden class="anchor" aria-hidden="true" href="#keybinds">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(map! :map org-mode-map
 </span></span><span style="display:flex;"><span>      :i <span style="color:#e6db74">&#34;C-c ]&#34;</span> <span style="color:#a6e22e">#&#39;</span>org-ref-insert-link
 </span></span><span style="display:flex;"><span>      :i <span style="color:#e6db74">&#34;C-c [&#34;</span> <span style="color:#a6e22e">#&#39;</span>org-ref-insert-ref-link
@@ -532,24 +587,24 @@ Some modifications were made to the following <a href="https://discourse.doomema
 </span></span><span style="display:flex;"><span>      :nvi <span style="color:#e6db74">&#34;M-m&#34;</span> <span style="color:#a6e22e">#&#39;</span>org-next-visible-heading
 </span></span><span style="display:flex;"><span>      :nvi <span style="color:#e6db74">&#34;M-p&#34;</span> <span style="color:#a6e22e">#&#39;</span>org-previous-visible-heading
 </span></span><span style="display:flex;"><span>      :nvi <span style="color:#e6db74">&#34;M-l&#34;</span> <span style="color:#a6e22e">#&#39;</span>org-latex-preview )
-</span></span></code></pre></div><h3 id="export-settings">Export Settings</h3>
-<h4 id="disable-export-of-todo-keywords">Disable export of TODO keywords</h4>
+</span></span></code></pre></div><h3 id="export-settings">Export Settings<a hidden class="anchor" aria-hidden="true" href="#export-settings">#</a></h3>
+<h4 id="disable-export-of-todo-keywords">Disable export of TODO keywords<a hidden class="anchor" aria-hidden="true" href="#disable-export-of-todo-keywords">#</a></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-export-with-todo-keywords <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><h4 id="hide-image-links-from-export">Hide image links from export <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span></h4>
-<h4 id="noex-drawers"><code>noex</code>  Drawers</h4>
+</span></span></code></pre></div><h4 id="hide-image-links-from-export">Hide image links from export <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span><a hidden class="anchor" aria-hidden="true" href="#hide-image-links-from-export">#</a></h4>
+<h4 id="noex-drawers"><code>noex</code>  Drawers<a hidden class="anchor" aria-hidden="true" href="#noex-drawers">#</a></h4>
 <p>Sometimes I have text in an org document that I want to see while editing, but don’t want it exported to the final document such as PDF.
 This setting excludes all drawers carrying the name <code>noex</code>  from being exported to the final output.
 Word by word, this variable says “export all drawers that <em>don’t</em> have the name <code>noex</code>”</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-export-with-drawers <span style="color:#f92672">&#39;</span>(not <span style="color:#e6db74">&#34;noex&#34;</span>))
 </span></span></code></pre></div><p>This setting applies to all org files, but can be overwritten on a per-file basis in the <code>:options</code> header.</p>
-<h4 id="cleanup-org-directory-of-log-files-from-export">Cleanup <code>org-directory</code> of log files from export</h4>
+<h4 id="cleanup-org-directory-of-log-files-from-export">Cleanup <code>org-directory</code> of log files from export<a hidden class="anchor" aria-hidden="true" href="#cleanup-org-directory-of-log-files-from-export">#</a></h4>
 <p>\LaTeX generates a bunch of log files and extraneous files during its compilation process which can really clutter the compile directory quickly.
 This code adds the relevant file extensions to org’s log file extension list, and so it will clean them up after the export process is finish.</p>
 <p>\LaTeX:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (setq org-latex-logfiles-extensions</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">;;       (quote</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">;;        (&#34;lof&#34; &#34;lot&#34; &#34;tex~&#34; &#34;aux&#34; &#34;idx&#34; &#34;log&#34; &#34;out&#34; &#34;toc&#34; &#34;nav&#34; &#34;snm&#34; &#34;vrb&#34; &#34;dvi&#34; &#34;fdb_latexmk&#34; &#34;blg&#34; &#34;brf&#34; &#34;fls&#34; &#34;entoc&#34; &#34;ps&#34; &#34;spl&#34;  &#34;run.xml&#34; &#34;bcf&#34;)))</span>
-</span></span></code></pre></div><h2 id="helm-bibtex"><code>helm-bibtex</code></h2>
+</span></span></code></pre></div><h2 id="helm-bibtex"><code>helm-bibtex</code><a hidden class="anchor" aria-hidden="true" href="#helm-bibtex">#</a></h2>
 <p><code>helm-bibtex</code> is a package that provides tools for bibliography management with the <code>helm</code> completion framework.</p>
 <p><code>helm-bibtex</code> does not have this issue, hence I use it.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package! helm-bibtex
@@ -567,7 +622,7 @@ This code adds the relevant file extensions to org’s log file extension list, 
 </span></span><span style="display:flex;"><span>      (inproceedings <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">t</span>             <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}&#34;</span>))
 </span></span><span style="display:flex;"><span>    ))
-</span></span></code></pre></div><h2 id="org-ref"><code>org-ref</code></h2>
+</span></span></code></pre></div><h2 id="org-ref"><code>org-ref</code><a hidden class="anchor" aria-hidden="true" href="#org-ref">#</a></h2>
 <p><code>org-ref</code> is a useful package to simplify and unify the addition of citations to documents.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package! org-ref
 </span></span><span style="display:flex;"><span>  :after org
@@ -601,13 +656,13 @@ This code adds the relevant file extensions to org’s log file extension list, 
 </span></span><span style="display:flex;"><span>          bibtex-autokey-titlewords-stretch <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>          bibtex-autokey-titleword-length <span style="color:#ae81ff">5</span>)
 </span></span><span style="display:flex;"><span>  )
-</span></span></code></pre></div><h2 id="org-noter"><code>org-noter</code></h2>
+</span></span></code></pre></div><h2 id="org-noter"><code>org-noter</code><a hidden class="anchor" aria-hidden="true" href="#org-noter">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package! org-noter
 </span></span><span style="display:flex;"><span>  :defer f
 </span></span><span style="display:flex;"><span>  :config
 </span></span><span style="display:flex;"><span>  (setq org-noter-always-create-frame <span style="color:#66d9ef">t</span>))
-</span></span></code></pre></div><h2 id="org-roam"><code>org-roam</code> <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span></h2>
-<h2 id="org-capture"><code>org-capture</code></h2>
+</span></span></code></pre></div><h2 id="org-roam"><code>org-roam</code> <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span><a hidden class="anchor" aria-hidden="true" href="#org-roam">#</a></h2>
+<h2 id="org-capture"><code>org-capture</code><a hidden class="anchor" aria-hidden="true" href="#org-capture">#</a></h2>
 <p>Used mostly in tight integration with the <code>agenda</code>, capture templates let me capture snippets of org text and quickly refile them to worry about later.
 They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
 It is inspired mostly by “Getting Things Done”.
@@ -680,20 +735,20 @@ Maybe I will find use for them later.</p>
 </span></span><span style="display:flex;"><span>             ))
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>  )
-</span></span></code></pre></div><h2 id="pdf-view-mode"><code>pdf-view-mode</code></h2>
-<h3 id="keybinds">Keybinds</h3>
+</span></span></code></pre></div><h2 id="pdf-view-mode"><code>pdf-view-mode</code><a hidden class="anchor" aria-hidden="true" href="#pdf-view-mode">#</a></h2>
+<h3 id="keybinds">Keybinds<a hidden class="anchor" aria-hidden="true" href="#keybinds">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(map! :map pdf-view-mode-map
 </span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;M-m&#34;</span> <span style="color:#a6e22e">#&#39;</span>pdf-view-auto-slice-minor-mode
 </span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;M-f&#34;</span> <span style="color:#a6e22e">#&#39;</span>pdf-view-themed-minor-mode)
-</span></span></code></pre></div><h3 id="hooks">Hooks</h3>
+</span></span></code></pre></div><h3 id="hooks">Hooks<a hidden class="anchor" aria-hidden="true" href="#hooks">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;pdf-tools-enabled-hook</span> <span style="color:#e6db74">&#39;pdf-view-themed-minor-mode</span>)
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;pdf-tools-enabled-hook</span> <span style="color:#e6db74">&#39;pdf-view-auto-slice-minor-mode</span>)
-</span></span></code></pre></div><h2 id="haskell-mode"><code>haskell-mode</code></h2>
+</span></span></code></pre></div><h2 id="haskell-mode"><code>haskell-mode</code><a hidden class="anchor" aria-hidden="true" href="#haskell-mode">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq haskell-compile-command <span style="color:#e6db74">&#34;ghc -Wall -ferror-spans -fforce-recomp -dynamic -c %s&#34;</span>)
-</span></span></code></pre></div><h2 id="python-mode"><code>python-mode</code></h2>
-<h3 id="elpy">Elpy</h3>
+</span></span></code></pre></div><h2 id="python-mode"><code>python-mode</code><a hidden class="anchor" aria-hidden="true" href="#python-mode">#</a></h2>
+<h3 id="elpy">Elpy<a hidden class="anchor" aria-hidden="true" href="#elpy">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(elpy-enable)
-</span></span></code></pre></div><h2 id="xenops-mode"><code>xenops-mode</code></h2>
+</span></span></code></pre></div><h2 id="xenops-mode"><code>xenops-mode</code><a hidden class="anchor" aria-hidden="true" href="#xenops-mode">#</a></h2>
 <p><code>xenops-mode</code> is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
 It is a more feature-rich replacement for <code>org-latex-preview</code>.</p>
 <p>Easy way to toggle</p>
@@ -705,7 +760,7 @@ It is a more feature-rich replacement for <code>org-latex-preview</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq xenops-math-image-scale-factor <span style="color:#ae81ff">1.35</span>
 </span></span><span style="display:flex;"><span>      xenops-reveal-on-entry <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>      )
-</span></span></code></pre></div><h2 id="yasnippets"><code>yasnippets</code></h2>
+</span></span></code></pre></div><h2 id="yasnippets"><code>yasnippets</code><a hidden class="anchor" aria-hidden="true" href="#yasnippets">#</a></h2>
 <p>This section is taken from the ideas and code in this article: <a href="https://karthinks.com/software/latex-input-for-impatient-scholars/">LaTeX Input for the Impatient Scholar</a>.</p>
 <p>This function allows for auto expanding of snippets.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;yasnippet</span>)
@@ -719,7 +774,7 @@ It is a more feature-rich replacement for <code>org-latex-preview</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;warnings</span>
 </span></span><span style="display:flex;"><span>  (cl-pushnew <span style="color:#f92672">&#39;</span>(yasnippet backquote-change) warning-suppress-types
 </span></span><span style="display:flex;"><span>              :test <span style="color:#e6db74">&#39;equal</span>))
-</span></span></code></pre></div><h2 id="ink"><code>ink</code></h2>
+</span></span></code></pre></div><h2 id="ink"><code>ink</code><a hidden class="anchor" aria-hidden="true" href="#ink">#</a></h2>
 <p><a href="https://github.com/foxfriday/ink">ink</a> is a package that allows for fast insertion of inkspace figures into <code>latex-mode</code> and <code>org-mode</code> buffers.</p>
 <p>By default, <code>ink</code> embeds <code>.png</code> files into <code>org-mode</code> files.
 I wanted to emulate Castel’s <a href="https://castel.dev/post/lecture-notes-2/">inkscape workflow</a> for inserting Inkscape figures into LaTeX files quickly, and <code>ink</code> gets us close, but not quite there.
@@ -758,7 +813,7 @@ In this case, we use this drawer because I’d still like to see the image of th
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(map! :map org-mode-map
 </span></span><span style="display:flex;"><span>      :n <span style="color:#e6db74">&#34;SPC i i&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">#&#39;</span>ink-make-figure)
-</span></span></code></pre></div><h2 id="quiver">quiver</h2>
+</span></span></code></pre></div><h2 id="quiver">quiver<a hidden class="anchor" aria-hidden="true" href="#quiver">#</a></h2>
 <p>Related to <code>ink</code> in its use case, but not exactly the same is <a href="https://github.com/varkor/quiver">quiver</a> [Dependency].
 This is a program to easily and interactively create commutative diagrams using the <code>tikz-cd</code> LaTeX package.
 All we need is a function to interactively insert open the program.</p>
@@ -777,17 +832,17 @@ All we need is a function to interactively insert open the program.</p>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">#&#39;</span>open-quiver-local
 </span></span><span style="display:flex;"><span>      :nv <span style="color:#e6db74">&#34;w&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">#&#39;</span>open-quiver-web)
-</span></span></code></pre></div><h2 id="org-babel"><code>org-babel</code></h2>
+</span></span></code></pre></div><h2 id="org-babel"><code>org-babel</code><a hidden class="anchor" aria-hidden="true" href="#org-babel">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(org-babel-do-load-languages
 </span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#39;org-babel-load-languages</span>
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>((emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>   (python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>   (haskell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>   (jupyter <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
-</span></span></code></pre></div><h2 id="haskell-mode"><code>haskell-mode</code></h2>
+</span></span></code></pre></div><h2 id="haskell-mode"><code>haskell-mode</code><a hidden class="anchor" aria-hidden="true" href="#haskell-mode">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;haskell-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hindent-mode)
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;haskell-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>lsp-ui-mode)
-</span></span></code></pre></div><h2 id="writeroom-mode"><code>writeroom-mode</code></h2>
+</span></span></code></pre></div><h2 id="writeroom-mode"><code>writeroom-mode</code><a hidden class="anchor" aria-hidden="true" href="#writeroom-mode">#</a></h2>
 <p><code>writeroom-mode</code> is a distraction-free editing mode.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(after! xenops
 </span></span><span style="display:flex;"><span>  (use-package! writeroom-mode
@@ -813,69 +868,97 @@ All we need is a function to interactively insert open the program.</p>
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;writeroom-mode-enable-hook</span> <span style="color:#a6e22e">#&#39;</span>fix-writeroom-xenops-on)
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;writeroom-mode-disable-hook</span> <span style="color:#a6e22e">#&#39;</span>fix-writeroom-xenops-off)
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="company"><code>company</code></h2>
+</span></span></code></pre></div><h2 id="company"><code>company</code><a hidden class="anchor" aria-hidden="true" href="#company">#</a></h2>
 <p>Disable company in <code>org-mode</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq company-global-modes <span style="color:#f92672">&#39;</span>(not org-mode))
-</span></span></code></pre></div><h2 id="ox-hugo"><code>ox-hugo</code></h2>
+</span></span></code></pre></div><h2 id="ox-hugo"><code>ox-hugo</code><a hidden class="anchor" aria-hidden="true" href="#ox-hugo">#</a></h2>
 <p><code>ox-hugo</code> is an <code>org</code> export tool to Hugo-compatible markdown files for easy publishing to static websites.</p>
-<ul class="pa0">
-  
-   <li class="list di">
-     <a href="/tags/emacs/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">emacs</a>
-   </li>
-  
-   <li class="list di">
-     <a href="/tags/org/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">org</a>
-   </li>
-  
-   <li class="list di">
-     <a href="/tags/hobby/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">hobby</a>
-   </li>
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
 
 
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/misc/astrophotos/">Astrophotos</a>
-        </li>
-	    
-    </ul>
-</div>
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://aatmunbaxi.github.io/" >
-    &copy;  Aatmun Baxi 2023 
-  </a>
-    <div>
-<div class="ananke-socials">
-  
-</div>
-</div>
   </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://aatmunbaxi.github.io/tags/emacs/">emacs</a></li>
+      <li><a href="https://aatmunbaxi.github.io/tags/org/">org</a></li>
+      <li><a href="https://aatmunbaxi.github.io/tags/hobby/">hobby</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://aatmunbaxi.github.io">Aatmun Baxi</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 
 <script type="text/javascript"
 src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+</body>
 
-  </body>
 </html>
