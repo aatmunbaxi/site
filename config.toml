@@ -1,4 +1,4 @@
-baseURL = 'https://aatmunbaxi.github.io'
+baseURL = 'https://aatmunbaxi.netlify.app'
 languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'PaperMod'
