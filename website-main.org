@@ -34,6 +34,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 - Astrophotography. Check my images [[*Astrophotos][here]]
 - Learning japanese through immersion
 
+#+print_bibliography:
 * Math
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
