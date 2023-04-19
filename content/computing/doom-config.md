@@ -1,6 +1,7 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
+lastmod = 2023-04-18T17:03:17-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
@@ -322,6 +323,8 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
                      "EVENT(e)"           ; An event
                      "READ(R)"           ; Thing to read
                      "WAIT(w)"           ; This task is waiting on someone/thing
+
+                     "DRAFT(d)"           ; Draft tag for ox-hugo
                      "|"                 ; The pipe necessary to separate "active" states and "inactive" states
                      "DONE(d)"           ; Task has been completed
                      "CANCELLED(c)" ))  ; Task has been cancelled

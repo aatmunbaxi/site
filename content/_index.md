@@ -1,6 +1,7 @@
 +++
 title = "Home"
 author = ["Aatmun Baxi"]
+lastmod = 2023-04-19T09:08:20-05:00
 draft = false
 weight = -1000
 +++
@@ -23,7 +24,7 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 ### Education {#education}
 
 -   PhD Mathematics, Texas A&amp;M University (upcoming)
--   MS Mathematics, Texas A&amp;M University (in progess)
+-   MS Mathematics, Texas A&amp;M University (in progress)
 -   BS Mathematics, UCLA 2021
 
 

@@ -1,8 +1,9 @@
 #+hugo_base_dir: /home/aatmun/websites/personal/
 #+hugo_weight: auto
+#+hugo_auto_set_lastmod: t
 #+bibliography: ~/Documents/bib/reference-texts.bib
-#+options: ':t
-
+#+options: ':t todo:nil date:t
+#+startup: logdone
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
@@ -26,7 +27,7 @@ Currently I am an MS student in mathematics at Texas A&M University.
 - /Dune/
 *** Education
 - PhD Mathematics, Texas A&M University (upcoming)
-- MS Mathematics, Texas A&M University (in progess)
+- MS Mathematics, Texas A&M University (in progress)
 - BS Mathematics, UCLA 2021
 
 *** Hobbies
@@ -34,7 +35,6 @@ Currently I am an MS student in mathematics at Texas A&M University.
 - Astrophotography. Check my images [[*Astrophotos][here]]
 - Learning japanese through immersion
 
-#+print_bibliography:
 * Math
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
@@ -170,3 +170,5 @@ For a field \( k \), there is an equivalence of categories \( \mathsf{2TQFT}_k \
 :END:
 
 ここで日本語に関して勉強したり読んだりするものを話す。
+
+* Drafts and Ideas
