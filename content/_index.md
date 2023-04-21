@@ -1,7 +1,7 @@
 +++
 title = "Home"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-19T09:08:20-05:00
+lastmod = 2023-04-20T22:04:30-05:00
 draft = false
 weight = -1000
 +++
@@ -10,7 +10,7 @@ weight = -1000
 
 Currently I am an MS student in mathematics at Texas A&amp;M University.
 
-**Interests:** Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
+**Interests:** Broad, but particularly things in category theory and algebraic geometry.
 
 
 ### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}

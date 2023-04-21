@@ -1,7 +1,7 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-18T17:03:17-05:00
+lastmod = 2023-04-20T22:04:31-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
@@ -40,7 +40,7 @@ type = "post"
 - [`helm-bibtex`](#helm-bibtex)
 - [`org-ref`](#org-ref)
 - [`org-noter`](#org-noter)
-- [`org-roam`](#org-roam):ARCHIVE:
+- [`org-roam`](#org-roam)
 - [`org-capture`](#org-capture)
 - [`pdf-view-mode`](#pdf-view-mode)
     - [Keybinds](#keybinds)
@@ -224,7 +224,7 @@ Define some functions that will update some aspects of our theme dynamically.
 
 (setq visual-fill-column-width 120
       visual-fill-column-center-text t
-      line-spacing 0.27)
+      line-spacing 0.4)
 ```
 
 Hook them to be executed when theme is loaded
@@ -324,7 +324,7 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
                      "READ(R)"           ; Thing to read
                      "WAIT(w)"           ; This task is waiting on someone/thing
 
-                     "DRAFT(d)"           ; Draft tag for ox-hugo
+                     "DRAFT(D)"           ; Draft tag for ox-hugo
                      "|"                 ; The pipe necessary to separate "active" states and "inactive" states
                      "DONE(d)"           ; Task has been completed
                      "CANCELLED(c)" ))  ; Task has been cancelled
@@ -663,7 +663,68 @@ This code adds the relevant file extensions to org&rsquo;s log file extension li
 ```
 
 
-## `org-roam` <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span> {#org-roam}
+## `org-roam` {#org-roam}
+
+`org-roam` is a package to keep a digital zettelkasten, and is a method to take atomic notes and build a &rsquo;second brain&rsquo;.
+
+```emacs-lisp
+(use-package! org-roam
+  :custom
+  (org-roam-directory "~/Documents/org/roam")
+  (org-roam-dailies-directory "~/Documents/org/roam/daily")
+
+  :config
+  ;; If you're using a vertical completion framework, you
+  ;; might want a more informative completion interface
+  ;; (org-roam-db-autosync-mode +1)
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (defun tag-new-node-as-draft ()
+    (org-roam-tag-add '("draft")))
+  (defun remove-draft-tag ()
+    (org-roam-tag-remove '("draft")))
+  (add-hook 'org-roam-capture-new-node-hook #'tag-new-node-as-draft)
+  (require 'org-roam-protocol)
+  )
+(setq org-roam-capture-templates '(
+                                   ("d" "default" plain
+                                   "%?"
+                                   :if-new (file+head "daily/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                   :unnarrowed t)
+                                   ("m" "math concept" plain
+                                   "%?"
+                                   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                   :unnarrowed t)
+                                   ("p" "permanent" plain
+                                   "%?"
+                                   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                   :unnarrowed t)
+
+                ))
+
+(add-hook 'org-mode-hook #'turn-on-org-cdlatex)
+(add-hook 'org-roam-mode-hook #'turn-on-org-cdlatex)
+
+;;(use-package! websocket
+  ;;:after org-roam)
+
+;;(use-package! org-roam-ui
+  ;;:after org-roam ;; or :after org
+  ;;;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;;;         if you don't care about startup time, use
+  ;;;;  :hook (after-init . org-roam-ui-mode)
+  ;;:config
+  ;;(setq org-roam-ui-sync-theme t
+        ;;org-roam-ui-follow t
+        ;;org-roam-ui-update-on-save t
+        ;;org-roam-ui-open-on-start t))
+```
+
+**Update**: I haven&rsquo;t quite found this package to be super useful with a workflow like mine.
+The use of this package is on hold for now.
 
 
 ## `org-capture` {#org-capture}

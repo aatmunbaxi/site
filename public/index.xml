@@ -6,11 +6,11 @@
     <description>Recent content in Home on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Apr 2023 09:08:20 -0500</lastBuildDate><atom:link href="https://aatmunbaxi.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Apr 2023 22:04:30 -0500</lastBuildDate><atom:link href="https://aatmunbaxi.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Astrophotos</title>
       <link>https://aatmunbaxi.netlify.app/misc/astrophotos/</link>
-      <pubDate>Tue, 18 Apr 2023 17:03:18 -0500</pubDate>
+      <pubDate>Thu, 20 Apr 2023 22:04:32 -0500</pubDate>
       
       <guid>https://aatmunbaxi.netlify.app/misc/astrophotos/</guid>
       <description>As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.
@@ -21,16 +21,16 @@ Details It’s been a while since I took this image, but I belive it total aroun
     <item>
       <title>My DOOM Emacs Configuration</title>
       <link>https://aatmunbaxi.netlify.app/computing/doom-config/</link>
-      <pubDate>Tue, 18 Apr 2023 17:03:17 -0500</pubDate>
+      <pubDate>Thu, 20 Apr 2023 22:04:31 -0500</pubDate>
       
       <guid>https://aatmunbaxi.netlify.app/computing/doom-config/</guid>
-      <description>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam:ARCHIVE: org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</description>
+      <description>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam org-capture pdf-view-mode Keybinds Hooks haskell-mode python-mode Elpy xenops-mode yasnippets ink quiver org-babel haskell-mode writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</description>
     </item>
     
     <item>
       <title>Some Theorems</title>
       <link>https://aatmunbaxi.netlify.app/misc/fav_theorems/</link>
-      <pubDate>Tue, 18 Apr 2023 17:03:20 -0500</pubDate>
+      <pubDate>Thu, 20 Apr 2023 22:04:32 -0500</pubDate>
       
       <guid>https://aatmunbaxi.netlify.app/misc/fav_theorems/</guid>
       <description>Table of Contents Table of Contents The Yoneda Lemma The Tensor-Hom Adjunction Classification of commutative Frobenius algebras by TQFTs Here are some of my favorite theorems. Click on the statements for some injected commentary.

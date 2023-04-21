@@ -3,5 +3,9 @@ languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'PaperMod'
 
+disableThemeToggle = true
+[params]
+  defaultTheme = "dark"
+
 [markup.goldmark.renderer]
   unsafe = true

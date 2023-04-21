@@ -1,7 +1,7 @@
 +++
 title = "Math"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-18T17:03:14-05:00
+lastmod = 2023-04-20T22:04:30-05:00
 draft = false
 weight = 2001
 [menu]

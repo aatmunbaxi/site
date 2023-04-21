@@ -4,6 +4,11 @@
 #+bibliography: ~/Documents/bib/reference-texts.bib
 #+options: ':t todo:nil date:t
 #+startup: logdone
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
@@ -18,7 +23,7 @@
 :END:
 Currently I am an MS student in mathematics at Texas A&M University.
 
-*Interests:* Broad, includes category theory, functorial quantum field theories, and algebraic geometry.
+*Interests:* Broad, but particularly things in category theory and algebraic geometry.
 
 *** What I'm Reading
 - /Basic Algebraic Geometry 2/ [[cite:&shafarevichBasicAlgebraicGeometry2013]]
@@ -119,9 +124,7 @@ The uneven illumination on the bottom left of the image is due to a strange refl
 :EXPORT_HUGO_SECTION: misc
 :EXPORT_FILE_NAME: fav_theorems
 :END:
-#+begin_export css
-<style>*{font-size: x-large;}</style>
-#+end_export
+
 #+begin_details
 #+begin_summary
 Table of Contents
