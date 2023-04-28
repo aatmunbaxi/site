@@ -5,10 +5,6 @@
 #+options: ':t todo:nil date:t
 #+startup: logdone
 
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
-
-
-
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
@@ -26,9 +22,8 @@ Currently I am an MS student in mathematics at Texas A&M University.
 *Interests:* Broad, but particularly things in category theory and algebraic geometry.
 
 *** What I'm Reading
-- /Basic Algebraic Geometry 2/ [[cite:&shafarevichBasicAlgebraicGeometry2013]]
-  - For reference, /Algebraic Geometry/ [[cite:&hartshorneAlgebraicGeometry1977]] and /The Rising Sea/ [[cite:&vakilRisingSea2017]]
 - /Tensor Categories/ [[cite:&etingofTensorCategories2015]]
+- /Introduction to Lie Algebras and Representation Theory/ [[cite:&humphreysIntroductionLieAlgebras1973]]
 - /Dune/
 *** Education
 - PhD Mathematics, Texas A&M University (upcoming)
@@ -64,6 +59,100 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 :END:
 I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
 Here I record some things that I've learned along the way.
+
+** Emacs =org-mode= for LaTeX :emacs:org:hobby:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: computing
+:EXPORT_FILE_NAME: emacs-to-type-LaTeX
+:END:
+About four years ago, my brother introduced me to Linux and free and open source software.
+Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation.
+I then stumbled across Gilles Castel's [[https://castel.dev/post/lecture-notes-1/][article on typing LaTeX with vim]], and I was amazed.
+
+For those who don't know, typing LaTeX by default is a terrible experience.
+/Terrible./
+Using a program like vim with plugins made typing LaTeX so frictionless that I immediately dove into the world of extensible text editors.
+I got more than I bargained for, but the payoff of effortless typesetting of math drove me to stick with it.
+I finally replicated most of Castel's setup, and thought I had seen it all.
+
+Then I found emacs org-mode.
+
+#+begin_export hugo
+<style>
+aside {
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #7a7c7d;
+}
+
+aside > p {
+    margin: 0.5rem;
+}
+</style>
+#+end_export
+#+begin_aside
+#+begin_quote
+GNU Emacs [is] a sort of hybrid between Windows Notepad, a monolithic-kernel operating system, and the International Space Station.
+
+---Steve Yegge
+#+end_quote
+#+end_aside
+Vim, the program I had been using for easy LaTeX input, has had a longstanding "rivalry" with another editor called GNU Emacs.
+Since spending time with both programs, I've found this "rivalry" a bit silly.
+Vim and emacs are different programs designed with different use cases in mind with different philosophies.
+They just happen to be text editors.
+Comparing vim and emacs is a bit like comparing a bicycle to a tank simply because they can move people around quicker than by foot.
+
+In any case, what brought me to emacs was org-mode.
+Org-mode is a major mode of emacs, encompassing everything from marking up basic text files and exporting to PDF, keeping an agenda, and literally everything else you could imagine needing when it comes to typing documents of any sort.
+Many think of it as souped-up markdown, but this is a disservice to its utility.
+It's so powerful, I could probably find a way to make it do my laundry[fn:1].
+
+What initially drove me to org-mode was the function =org-LaTeX-preview=.
+In contrast to vim, emacs is a graphical program, which allows the program to /display images of compiled LaTeX over the text buffer you're editing./
+Let's see what that looks like.
+
+Org-mode is plaintext, so the raw text file you're editing might look something like this.
+
+#+begin_example
+**Hermitian Metrics
+We'd like an analogue of Riemannian manifolds but "complexified".
+Recall that a metric \( g \) is a \( 2\times 2 \) symmetric matrix at a point.
+The complex analogue of "symmetric" is Hermitian, which motivates the following definition:
+
+*Definition:* A /Hermitian metric/ on a complex manifold with local coordinates \( (z^1,\ldots , z^m) \) is a tensor field
+\begin{equation*}
+h_{j \overline{k}} dz^j\otimes dz^{\overline{k}}
+\end{equation*}
+where \( h_{j \overline{k}} \) varies smoothly, and is positive definite and Hermitian at each point \( z \).
+The form
+\begin{equation*}
+\omega = \frac{i}{2} h_{j \overline{k}} dz^j\wedge dz^{\overline{k}}
+\end{equation*}
+is called the /Kahler form/ of the metric.
+A complex manifold with a Hermitian metric is called a /Hermitian manifold/.
+#+end_example
+
+Here is this same snippet of text, but viewed in emacs, with all the org goodies activated.
+[[~/Pictures/website/org-LaTeX-goodies-ex.png]]
+
+Notice how the compiled LaTeX appears inline, and the font size is variable for the heading.
+These inline LaTeX previews are what pulled me to org-mode, and with the help of some third party programs like =xenops-mode=[fn:2], these previews render asynchronously as I continue typing.
+
+There are many moving parts to this puzzle, but videos speak louder than words, so here is a quick demo.
+#+caption: Sped up 30%
+[[~/Videos/emacs-math-demo.gif]]
+
+I could write more about how I achieved this setup, but others that are much smarter than me already have.
+
+
+[fn:1] My [[*My DOOM Emacs Configuration][DOOM Emacs Config]] is typed in org-mode thanks to its literate programming abilities. In fact, this entire website is just one big org-mode file.
+
+[fn:2] With org version 9.7, =xenops-mode= will be wholly unnecessary thanks to a new default =org-LaTeX-preview= function. See a demo [[https://www.youtube.com/watch?v=n-AfvuV-bYo&t=376s][here]].
 
 ** My DOOM Emacs Configuration :emacs:org:hobby:
 :PROPERTIES:

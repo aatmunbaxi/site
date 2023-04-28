@@ -1,7 +1,7 @@
 +++
 title = "Home"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-20T22:04:30-05:00
+lastmod = 2023-04-28T17:05:38-05:00
 draft = false
 weight = -1000
 +++
@@ -15,9 +15,8 @@ Currently I am an MS student in mathematics at Texas A&amp;M University.
 
 ### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}
 
--   _Basic Algebraic Geometry 2_ (<a href="#citeproc_bib_item_3">Shafarevich 2013</a>)
-    -   For reference, _Algebraic Geometry_ (<a href="#citeproc_bib_item_2">Hartshorne 1977</a>) and _The Rising Sea_ (<a href="#citeproc_bib_item_4">Vakil 2017</a>)
 -   _Tensor Categories_ (<a href="#citeproc_bib_item_1">Etingof et al. 2015</a>)
+-   _Introduction to Lie Algebras and Representation Theory_ (<a href="#citeproc_bib_item_2">Humphreys 1973</a>)
 -   _Dune_
 
 

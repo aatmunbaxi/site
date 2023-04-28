@@ -1,10 +1,10 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-20T22:04:31-05:00
+lastmod = 2023-04-28T17:05:41-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
-weight = 2002
+weight = 2003
 type = "post"
 +++
 
@@ -24,6 +24,7 @@ type = "post"
     - [Setting Colors](#setting-colors)
     - [Hook](#hook)
 - [Global](#global)
+- [`evil`](#evil)
 - [`embark`](#embark)
 - [`vertico`](#vertico)
 - [`org-mode`](#org-mode)
@@ -43,17 +44,16 @@ type = "post"
 - [`org-roam`](#org-roam)
 - [`org-capture`](#org-capture)
 - [`pdf-view-mode`](#pdf-view-mode)
-    - [Keybinds](#keybinds)
+    - [Keybindings](#keybindings)
     - [Hooks](#hooks)
 - [`haskell-mode`](#haskell-mode)
+    - [Hooks](#hooks)
 - [`python-mode`](#python-mode)
     - [Elpy](#elpy)
-- [`xenops-mode`](#xenops-mode)
 - [`yasnippets`](#yasnippets)
 - [`ink`](#ink)
 - [quiver](#quiver)
 - [`org-babel`](#org-babel)
-- [`haskell-mode`](#haskell-mode)
 - [`writeroom-mode`](#writeroom-mode)
 - [`company`](#company)
 - [`ox-hugo`](#ox-hugo)
@@ -84,10 +84,10 @@ Each mode has their own subsection for common configuration patterns such as key
 ## Font {#font}
 
 ```emacs-lisp
-(setq doom-font (font-spec :family "Iosevka Aile" :style "Light" :size 18)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :style "Light" :size 18)
-      doom-serif-font (font-spec :family "Iosevka" :size 18)
-      doom-big-font (font-spec :family "Iosevka Aile" :style "Regular" :size 24))
+(setq doom-font (font-spec :family "Iosevka" :style "Light" :size 21)
+      doom-variable-pitch-font (font-spec :family "Iosevka" :style "Regular" :size 21)
+      doom-serif-font (font-spec :family "Iosevka Slab" :size 21)
+      doom-big-font (font-spec :family "Iosevka" :style "Regular" :size 24))
 ```
 
 
@@ -222,9 +222,8 @@ Define some functions that will update some aspects of our theme dynamically.
 
 (global-pretty-mode t)
 
-(setq visual-fill-column-width 120
-      visual-fill-column-center-text t
-      line-spacing 0.4)
+(setq visual-fill-column-width 100
+      visual-fill-column-center-text t)
 ```
 
 Hook them to be executed when theme is loaded
@@ -241,6 +240,47 @@ Global keybindings
 
 ```emacs-lisp
 (evilem-default-keybindings "SPC")
+```
+
+```emacs-lisp
+(setq default-line-spacing 0.0)
+(setq line-spacing default-line-spacing)
+```
+
+```emacs-lisp
+(defun my/toggle-line-spacing ()
+  "Toggle line spacing between no extra space to extra half line height.
+URL `http://ergoemacs.org/emacs/emacs_toggle_line_spacing.html'
+Version 2015-12-17"
+  (interactive)
+  (if (eq default-line-spacing line-spacing)
+      (setq line-spacing 0.5) ; add 0.5 height between lines
+    (setq line-spacing default-line-spacing)   ; no extra heigh between lines
+    )
+  (redraw-frame (selected-frame)))
+```
+
+```emacs-lisp
+(map! :map org-mode-map
+      :n "SPC t m" #'my/toggle-line-spacing)
+```
+
+
+## `evil` {#evil}
+
+
+#### `evil-owl` {#evil-owl}
+
+evil-owl lets you view your marks in-buffer before jumping to them.
+
+```emacs-lisp
+(use-package! evil-owl
+  :config
+  (require 'posframe)
+  (setq evil-owl-display-method 'posframe
+        evil-owl-extra-posframe-args '(:width 50 :height 20)
+        evil-owl-max-string-length 50)
+  (evil-owl-mode))
 ```
 
 
@@ -279,33 +319,33 @@ My primary use case for `org-mode` is to typset documents with mathematical nota
 This variable sets default apps that org uses to open certain filetypes.
 
 ```emacs-lisp
-          (setq org-file-apps
-           (quote
-            ((auto-mode . emacs)
-             ("\\.m\\'" . default)
-             ("\\.?html?\\'" . /usr/bin/firefox)
-             ("\\.pdf\\'" . emacs))))
+(setq org-file-apps
+      (quote
+       ((auto-mode . emacs)
+        ("\\.m\\'" . default)
+        ("\\.?html?\\'" . /usr/bin/firefox)
+        ("\\.pdf\\'" . emacs))))
 ```
 
 Set our variable for `org-journal`.
 
 ```emacs-lisp
-          (setq org-journal-dir "~/Documents/org/journal")
+(setq org-journal-dir "~/Documents/org/journal")
 ```
 
 By default, the `org-preview-latex-default-process` doesn&rsquo;t play well with tikz pictures.
 To fix this, we use `imagemagick` instead.
 
 ```emacs-lisp
-          (setq org-preview-latex-default-process 'imagemagick)
+(setq org-preview-latex-default-process 'imagemagick)
 ```
 
 ```emacs-lisp
-          (after! org
-          (setq org-directory "~/Documents/org")
-            (setq org-agenda-files '( "~/Documents/org/inbox.org"
-                                    "~/Documents/org/gtd.org"
-                                    "~/Documents/org/tickler.org")))
+(after! org
+  (setq org-directory "~/Documents/org")
+  (setq org-agenda-files '( "~/Documents/org/inbox.org"
+                            "~/Documents/org/gtd.org"
+                            "~/Documents/org/tickler.org")))
 ```
 
 TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on.
@@ -362,17 +402,7 @@ These will be activated when `org-mode` is opened.
           (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
           (add-hook 'org-mode-hook #'visual-fill-column-mode)
           (add-hook 'org-mode-hook #'evil-tex-mode)
-```
-
-```emacs-lisp
-          ;; (defun set-my-org-margins ()
-          ;;   "Set margins for org"
-          ;;   (setq left-margin-width 7)
-          ;;   (setq right-margin-width 7))
-
-          ;; (add-hook 'org-mode-hook 'set-my-org-margins)
-          ;; (setq-hook! 'org-mode-hook left-margin-width 7)
-          ;; (setq-hook! 'org-mode-hook right-margin-width 7)
+          (add-hook 'org-mode-hook #'org-appear-mode)
 ```
 
 
@@ -387,20 +417,6 @@ Specify sizes of org headlines by level.
   '(org-level-3 :inherit outline-3 :height 1.5)
   '(org-level-4 :inherit outline-4 :height 1.2)
   '(org-level-5 :inherit outline-5 :height 1.0))
-```
-
-This makes the background of inline code blocks the same as the normal background color, because apparently I value form over function.
-
-```emacs-lisp
-  ;; (custom-set-faces!
-  ;;   `(org-block
-  ;;     :background ,(doom-lighten 'bg-alt 0.1) :extend t))
-  ;; (custom-set-faces!
-  ;;   `(org-block-begin-line
-  ;;     :background ,(doom-lighten 'bg-alt 0.1) :extend t))
-  ;; (custom-set-faces!
-  ;;   `(org-block-end-line
-  ;;     :background ,(doom-lighten 'bg-alt 0.1) :extend t))
 ```
 
 Startup with all trees folded and format some org features
@@ -420,12 +436,6 @@ Startup with all trees folded and format some org features
         org-indent-mode nil
         )
   )
-```
-
-I use some of my own block names in typsetting math, so we make sure that these blocks have the face we just defined applied properly.
-
-```emacs-lisp
-;; (setq org-protecting-blocks '("src" "example" "export" "theorem" "proposition" "proof" "lemma" "corollary"))
 ```
 
 
@@ -687,44 +697,47 @@ This code adds the relevant file extensions to org&rsquo;s log file extension li
   )
 (setq org-roam-capture-templates '(
                                    ("d" "default" plain
-                                   "%?"
-                                   :if-new (file+head "daily/%<%Y%m%d%H%M%S>-${slug}.org"
-                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
-                                   :unnarrowed t)
+                                    "%?"
+                                    :if-new (file+head "daily/%<%Y%m%d%H%M%S>-${slug}.org"
+                                                       "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                    :unnarrowed t)
                                    ("m" "math concept" plain
-                                   "%?"
-                                   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
-                                   :unnarrowed t)
+                                    "%?"
+                                    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                       "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                    :unnarrowed t)
                                    ("p" "permanent" plain
-                                   "%?"
-                                   :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                      "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
-                                   :unnarrowed t)
+                                    "%?"
+                                    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                       "#+title: ${title}\n#+last_modified: %U\n#+setupfile: /home/aatmun/Documents/org/latex_template.org\n\n")
+                                    :unnarrowed t)
 
-                ))
+                                   ))
 
 (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
 (add-hook 'org-roam-mode-hook #'turn-on-org-cdlatex)
 
-;;(use-package! websocket
-  ;;:after org-roam)
+(use-package! websocket
+  :after org-roam)
 
-;;(use-package! org-roam-ui
-  ;;:after org-roam ;; or :after org
-  ;;;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-  ;;;;         a hookable mode anymore, you're advised to pick something yourself
-  ;;;;         if you don't care about startup time, use
-  ;;;;  :hook (after-init . org-roam-ui-mode)
-  ;;:config
-  ;;(setq org-roam-ui-sync-theme t
-        ;;org-roam-ui-follow t
-        ;;org-roam-ui-update-on-save t
-        ;;org-roam-ui-open-on-start t))
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+  ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;; a hookable mode anymore, you're advised to pick something yourself
+  ;; if you don't care about startup time, use
+  ;; :hook (      after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 ```
 
-**Update**: I haven&rsquo;t quite found this package to be super useful with a workflow like mine.
-The use of this package is on hold for now.
+```emacs-lisp
+(map! :map
+      :ni
+      "C-c n r i" #'org-roam-node-insert)
+```
 
 
 ## `org-capture` {#org-capture}
@@ -776,7 +789,7 @@ These templates set up the outline. Here is a table of what they do:
 ## `pdf-view-mode` {#pdf-view-mode}
 
 
-### Keybinds {#keybinds}
+### Keybindings {#keybindings}
 
 ```emacs-lisp
 (map! :map pdf-view-mode-map
@@ -800,6 +813,14 @@ These templates set up the outline. Here is a table of what they do:
 ```
 
 
+### Hooks {#hooks}
+
+```emacs-lisp
+(add-hook 'haskell-mode-hook #'hindent-mode)
+(add-hook 'haskell-mode-hook #'lsp-ui-mode)
+```
+
+
 ## `python-mode` {#python-mode}
 
 
@@ -807,29 +828,6 @@ These templates set up the outline. Here is a table of what they do:
 
 ```emacs-lisp
 (elpy-enable)
-```
-
-
-## `xenops-mode` {#xenops-mode}
-
-`xenops-mode` is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
-It is a more feature-rich replacement for `org-latex-preview`.
-
-Easy way to toggle
-
-```emacs-lisp
-(map! :map org-mode-map
-      :n "SPC m z" #'xenops-mode
-      :map LaTeX-mode-map
-      :n "SPC m z" #'xenops-mode)
-```
-
-Increase the preview image sizes so that they&rsquo;re readable.
-
-```emacs-lisp
-(setq xenops-math-image-scale-factor 1.35
-      xenops-reveal-on-entry nil
-      )
 ```
 
 
@@ -950,14 +948,6 @@ All we need is a function to interactively insert open the program.
    (python . t)
    (haskell . t)
    (jupyter . t)))
-```
-
-
-## `haskell-mode` {#haskell-mode}
-
-```emacs-lisp
-(add-hook 'haskell-mode-hook #'hindent-mode)
-(add-hook 'haskell-mode-hook #'lsp-ui-mode)
 ```
 
 

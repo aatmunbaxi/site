@@ -32,7 +32,7 @@ features = [
   "multilingual",
   "social-icons",
   "minified-assets",
-  "theme-toggle",
+ "theme-toggle",
   "menu-location-indicator",
   "scroll-to-top",
   "search"

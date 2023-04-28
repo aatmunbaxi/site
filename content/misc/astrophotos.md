@@ -1,7 +1,7 @@
 +++
 title = "Astrophotos"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-20T22:04:32-05:00
+lastmod = 2023-04-28T17:05:42-05:00
 tags = ["astro", "hobby"]
 draft = false
 weight = 2002

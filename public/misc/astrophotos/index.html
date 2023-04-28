@@ -30,34 +30,6 @@ Details It’s been a while since I took this image, but I belive it total aroun
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
 </noscript><meta property="og:title" content="Astrophotos" />
 <meta property="og:description" content="As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.
 M101: Pinwheel Galaxy Figure 1: M101, The Pinwheel Galaxy
@@ -65,7 +37,7 @@ Details It’s been a while since I took this image, but I belive it total aroun
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aatmunbaxi.netlify.app/misc/astrophotos/" /><meta property="article:section" content="misc" />
 
-<meta property="article:modified_time" content="2023-04-20T22:04:32-05:00" />
+<meta property="article:modified_time" content="2023-04-28T17:05:42-05:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Astrophotos"/>
@@ -108,7 +80,7 @@ Details It’s been a while since I took this image, but I belive it total aroun
   "wordCount" : "222",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "2023-04-20T22:04:32-05:00",
+  "dateModified": "2023-04-28T17:05:42-05:00",
   "author":[{
     "@type": "Person",
     "name": "Aatmun Baxi"
@@ -129,43 +101,13 @@ Details It’s been a while since I took this image, but I belive it total aroun
 </script>
 </head>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
+<body class=" dark" id="top">
 
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://aatmunbaxi.netlify.app" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
             </div>
         </div>
         <ul id="menu">
@@ -200,7 +142,7 @@ Details It’s been a while since I took this image, but I belive it total aroun
     <h1 class="post-title">
       Astrophotos
     </h1>
-    <div class="post-meta"><span title='2023-04-20 22:04:32 -0500 CDT'>April 20, 2023</span>&nbsp;·&nbsp;Aatmun Baxi
+    <div class="post-meta"><span title='2023-04-28 17:05:42 -0500 CDT'>April 28, 2023</span>&nbsp;·&nbsp;222 words&nbsp;·&nbsp;Aatmun Baxi
 
 </div>
   </header> 
@@ -303,18 +245,6 @@ Details It’s been a while since I took this image, but I belive it total aroun
             mybutton.style.opacity = "0";
         }
     };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
 
 </script>
 

@@ -1,7 +1,7 @@
 +++
 title = "Some Theorems"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-20T22:04:32-05:00
+lastmod = 2023-04-28T17:05:43-05:00
 draft = false
 weight = 2003
 type = "post"
