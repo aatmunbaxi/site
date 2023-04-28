@@ -1,7 +1,7 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:05:41-05:00
+lastmod = 2023-04-28T17:10:36-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2003

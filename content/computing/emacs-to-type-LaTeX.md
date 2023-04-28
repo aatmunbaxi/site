@@ -1,7 +1,7 @@
 +++
 title = "Emacs org-mode for LaTeX"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:05:39-05:00
+lastmod = 2023-04-28T17:10:34-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
@@ -81,7 +81,7 @@ A complex manifold with a Hermitian metric is called a /Hermitian manifold/.
 ```
 
 Here is this same snippet of text, but viewed in emacs, with all the org goodies activated.
-![](~/Pictures/website/org-LaTeX-goodies-ex.png)
+![](/ox-hugo/org-latex-goodies-ex.png)
 
 Notice how the compiled LaTeX appears inline, and the font size is variable for the heading.
 These inline LaTeX previews are what pulled me to org-mode, and with the help of some third party programs like `xenops-mode`[^fn:2], these previews render asynchronously as I continue typing.
