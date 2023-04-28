@@ -1,7 +1,7 @@
 +++
 title = "Computing"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:18:22-05:00
+lastmod = 2023-04-28T17:22:05-05:00
 draft = false
 weight = 2001
 type = "post"

@@ -1,7 +1,7 @@
 +++
 title = "Emacs org-mode for LaTeX"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:18:22-05:00
+lastmod = 2023-04-28T17:22:06-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
@@ -55,7 +55,7 @@ Org-mode is a major mode of emacs, encompassing everything from marking up basic
 Many think of it as souped-up markdown, but this is a disservice to its utility.
 It&rsquo;s so powerful, I could probably find a way to make it do my laundry[^fn:1].
 
-What initially drove me to org-mode was the function `org-LaTeX-preview`.
+What initially drove me to org-mode was the function `org-latex-preview`.
 In contrast to vim, emacs is a graphical program, which allows the program to _display images of compiled LaTeX over the text buffer you&rsquo;re editing._
 Let&rsquo;s see what that looks like.
 

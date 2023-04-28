@@ -1,7 +1,7 @@
 +++
 title = "日本語コーナー"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:18:26-05:00
+lastmod = 2023-04-28T17:22:09-05:00
 draft = false
 weight = 2001
 type = "post"
