@@ -1,7 +1,7 @@
 +++
 title = "Emacs org-mode for LaTeX"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:10:34-05:00
+lastmod = 2023-04-28T17:18:22-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2002
@@ -47,7 +47,7 @@ aside > p {
 Vim, the program I had been using for easy LaTeX input, has had a longstanding &ldquo;rivalry&rdquo; with another editor called GNU Emacs.
 Since spending time with both programs, I&rsquo;ve found this &ldquo;rivalry&rdquo; a bit silly.
 Vim and emacs are different programs designed with different use cases in mind with different philosophies.
-They just happen to be text editors.
+They just _happen_ to both be text editors.
 Comparing vim and emacs is a bit like comparing a bicycle to a tank simply because they can move people around quicker than by foot.
 
 In any case, what brought me to emacs was org-mode.
@@ -93,4 +93,4 @@ There are many moving parts to this puzzle, but videos speak louder than words, 
 I could write more about how I achieved this setup, but others that are much smarter than me already have.
 
 [^fn:1]: My [DOOM Emacs Config]({{< relref "doom-config" >}}) is typed in org-mode thanks to its literate programming abilities. In fact, this entire website is just one big org-mode file.
-[^fn:2]: With org version 9.7, `xenops-mode` will be wholly unnecessary thanks to a new default `org-LaTeX-preview` function. See a demo [here](https://www.youtube.com/watch?v=n-AfvuV-bYo&t=376s).
+[^fn:2]: With org version 9.7, `xenops-mode` will be wholly unnecessary thanks to a new default `org-latex-preview` function. See a demo [here](https://www.youtube.com/watch?v=n-AfvuV-bYo&t=376s).

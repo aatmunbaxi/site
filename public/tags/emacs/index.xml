@@ -6,11 +6,11 @@
     <description>Recent content in emacs on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Apr 2023 17:10:36 -0500</lastBuildDate><atom:link href="https://aatmunbaxi.netlify.app/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Apr 2023 17:18:24 -0500</lastBuildDate><atom:link href="https://aatmunbaxi.netlify.app/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs org-mode for LaTeX</title>
       <link>https://aatmunbaxi.netlify.app/computing/emacs-to-type-latex/</link>
-      <pubDate>Fri, 28 Apr 2023 17:10:34 -0500</pubDate>
+      <pubDate>Fri, 28 Apr 2023 17:18:22 -0500</pubDate>
       
       <guid>https://aatmunbaxi.netlify.app/computing/emacs-to-type-latex/</guid>
       <description>About four years ago, my brother introduced me to Linux and free and open source software. Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation. I then stumbled across Gilles Castel’s article on typing LaTeX with vim, and I was amazed.
@@ -20,7 +20,7 @@ For those who don’t know, typing LaTeX by default is a terrible experience. Te
     <item>
       <title>My DOOM Emacs Configuration</title>
       <link>https://aatmunbaxi.netlify.app/computing/doom-config/</link>
-      <pubDate>Fri, 28 Apr 2023 17:10:36 -0500</pubDate>
+      <pubDate>Fri, 28 Apr 2023 17:18:24 -0500</pubDate>
       
       <guid>https://aatmunbaxi.netlify.app/computing/doom-config/</guid>
       <description>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global evil embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam org-capture pdf-view-mode Keybindings Hooks haskell-mode Hooks python-mode Elpy yasnippets ink quiver org-babel writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</description>
