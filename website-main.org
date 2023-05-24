@@ -17,7 +17,7 @@
 :EXPORT_HUGO_SECTION:
 :EXPORT_HUGO_MENU: :menu main
 :END:
-Currently I am an MS student in mathematics at Texas A&M University.
+Currently I am a PhD student in mathematics at Texas A&M University.
 
 *Interests:* Broad, but particularly things in category theory and algebraic geometry.
 
@@ -26,14 +26,19 @@ Currently I am an MS student in mathematics at Texas A&M University.
 - /Introduction to Lie Algebras and Representation Theory/ [[cite:&humphreysIntroductionLieAlgebras1973]]
 - /Dune/
 *** Education
-- PhD Mathematics, Texas A&M University (upcoming)
-- MS Mathematics, Texas A&M University (in progress)
+- PhD Mathematics, Texas A&M University (in-progress)
+- MS Mathematics, Texas A&M University (2023)
 - BS Mathematics, UCLA 2021
 
+*** Conferences
+- LAWRGe 2023 @ USC
 *** Hobbies
+- Programming small projects to learn new languages
 - Soccer. Specifically, Liverpool FC
 - Astrophotography. Check my images [[*Astrophotos][here]]
 - Learning japanese through immersion
+- Free software, such as emacs
+  - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in emacs
 
 * Math
 :PROPERTIES:
@@ -60,7 +65,7 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
 Here I record some things that I've learned along the way.
 
-** Emacs =org-mode= for LaTeX :emacs:org:hobby:
+** Emacs =org-mode= for LaTeX :emacs:org:hobby:productivity:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: emacs-to-type-LaTeX
@@ -221,7 +226,7 @@ Table of Contents
 #+toc: headlines 1
 #+end_details
 
-Here are some of my favorite theorems. Click on the statements for some injected commentary.
+Here are some of my favorite theorems. Click on the statements for some commentary.
 
 *** The Yoneda Lemma
 #+begin_details

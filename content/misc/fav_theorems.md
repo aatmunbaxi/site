@@ -1,7 +1,7 @@
 +++
 title = "Some Theorems"
 author = ["Aatmun Baxi"]
-lastmod = 2023-04-28T17:22:09-05:00
+lastmod = 2023-05-23T22:43:48-05:00
 draft = false
 weight = 2003
 type = "post"
@@ -24,7 +24,7 @@ type = "post"
 </div>
 </details>
 
-Here are some of my favorite theorems. Click on the statements for some injected commentary.
+Here are some of my favorite theorems. Click on the statements for some commentary.
 
 
 ## The Yoneda Lemma {#the-yoneda-lemma}
