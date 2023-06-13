@@ -1,7 +1,7 @@
 +++
 title = "LAWRGe 2023 Notes"
 author = ["Aatmun Baxi"]
-lastmod = 2023-06-12T19:57:21-05:00
+tags = ["math", "conference", "notes"]
 draft = false
 weight = 2002
 +++

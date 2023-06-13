@@ -1,7 +1,6 @@
 +++
 title = "Emacs org-mode for LaTeX"
 author = ["Aatmun Baxi"]
-lastmod = 2023-06-12T19:57:21-05:00
 tags = ["emacs", "org", "hobby", "productivity"]
 draft = false
 weight = 2002

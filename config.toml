@@ -7,7 +7,6 @@ disableThemeToggle = true
 
 [params]
   defaultTheme = "dark"
-  disableThemeToggle = true
   ShowWordCount = true
 
 [markup.goldmark.renderer]

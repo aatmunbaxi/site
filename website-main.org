@@ -1,6 +1,5 @@
 #+hugo_base_dir: /home/aatmun/websites/personal/
 #+hugo_weight: auto
-#+hugo_auto_set_lastmod: t
 #+bibliography: ~/Documents/bib/reference-texts.bib
 #+options: ':t todo:nil date:t
 #+startup: logdone
@@ -51,7 +50,7 @@ Currently I am a PhD student in mathematics at Texas A&M University.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
-** LAWRGe 2023 Notes
+** LAWRGe 2023 Notes :math:conference:notes:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: LAWRGe_2023_notes
@@ -179,7 +178,7 @@ I could write more about how I achieved this setup, but others that are much sma
 #+toc: headlines 2 local
 #+end_details
 #+include: ~/.doom.d/config.org
-** DRAFT From Brain to Binary: The Bliss of Declarative Programming :programming:
+** Declarative Programming for UltraFast™ Brain-to-Binary
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: brain_to_binary_bliss_of_decla_prog
@@ -228,6 +227,7 @@ Since declarative programs tend to read closer to natural language, it's possibl
 Having several people with several dialects working on a single project can be a challenge.
 Oftentimes for the sake of team cohesion and ease of debugging, a unified style-guide for large projects is preferred.
 
+Despite this, I will continue to prefer declarative programming for quick implementations, only moving to imperative when I think more control is needed.
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
