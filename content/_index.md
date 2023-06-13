@@ -1,7 +1,7 @@
 +++
 title = "Home"
 author = ["Aatmun Baxi"]
-lastmod = 2023-05-23T22:43:45-05:00
+lastmod = 2023-06-12T19:57:18-05:00
 draft = false
 weight = -1000
 +++
@@ -23,7 +23,7 @@ Currently I am a PhD student in mathematics at Texas A&amp;M University.
 ### Education {#education}
 
 -   PhD Mathematics, Texas A&amp;M University (in-progress)
--   MS Mathematics, Texas A&amp;M University (2023)
+-   MS Mathematics, Texas A&amp;M University 2023
 -   BS Mathematics, UCLA 2021
 
 
@@ -34,7 +34,7 @@ Currently I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### Hobbies {#hobbies}
 
--   Programming small projects to learn new languages
+-   Programming small projects to learn new languages. I&rsquo;m currently interested in Haskell and Rust
 -   Soccer. Specifically, Liverpool FC
 -   Astrophotography. Check my images [here]({{< relref "astrophotos" >}})
 -   Learning japanese through immersion

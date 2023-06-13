@@ -1,7 +1,7 @@
 +++
 title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
-lastmod = 2023-05-23T22:43:46-05:00
+lastmod = 2023-06-12T19:57:23-05:00
 tags = ["emacs", "org", "hobby"]
 draft = false
 weight = 2003
@@ -56,6 +56,7 @@ type = "post"
 - [`elfeed`](#elfeed)
 - [`frog-jump`](#frog-jump)
 - [`beacon`](#beacon)
+- [Something](#something)
 
 </div>
 <!--endtoc-->
@@ -183,9 +184,9 @@ Here I write some custom functionality, like writing functions for convenience&r
   (interactive)
   (+vertico/find-file-in "~/Documents/books/"))
 
-(defun find-org-file ()
-  (interactive)
-  (+vertico/find-file-in org-directory))
+(defun find-org-file (fl)
+  (interactive (list (org-find-file--choose-file)))
+  (find-file fl))
 ```
 
 I open book fairly often, so I want to make this function accessible quickly.
@@ -231,13 +232,15 @@ These are keybinds that should work in all modes.
   (redraw-frame (selected-frame)))
 ```
 
-| Key       | Function                 | Desc.                         |
-|-----------|--------------------------|-------------------------------|
-| `SPC t m` | `my/toggle-line-spacing` | Toggle increased line spacing |
+| Key       | Function                 | Desc.                          |
+|-----------|--------------------------|--------------------------------|
+| `SPC t m` | `my/toggle-line-spacing` | Toggle increased line spacing  |
+| `C-c a`   | `spell-fu-word-add`      | Add current word to dictionary |
 
 ```emacs-lisp
 (map! :map org-mode-map
       :n "SPC t m" #'my/toggle-line-spacing)
+(map! :ni "C-c a" #' spell-fu-word-add)
 ```
 
 
@@ -1064,3 +1067,6 @@ Disable company in `org-mode`.
 ```emacs-lisp
 (beacon-mode 1)
 ```
+
+
+## Something {#something}
