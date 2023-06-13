@@ -187,7 +187,7 @@ Recently I've been messing around with different programming languages and branc
 In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
 
 As a mathematician by trade, the usefulness of programming was never lost on me.
-From my time with C++ and Python, I had developed a (not unreasonable) notion that programming was all about telling computers /what/ to do.
+From my time with C++ and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done..
 This changed when I learned of the functional programming paradigm, or more generally, declarative-style languages.
 
 Suppose we wanted to write a function =fun= that takes in a non-negative integer and returns the sum of squares of numbers between 0 and that integer.

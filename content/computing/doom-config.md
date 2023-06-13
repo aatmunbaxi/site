@@ -662,26 +662,10 @@ It is a more feature-rich replacement for `org-latex-preview`.
 Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
-(setq xenops-math-image-scale-factor 1.25
+(setq xenops-math-image-scale-factor 1.0
       xenops-reveal-on-entry nil
       )
 ```
-
-Using the fact that svgs are just glorified xml, this function will be used to change the background and foreground color of all generated latex previews in the `xenops` cache directory.
-
-```emacs-lisp
-(defun change-xenops-svg-colors ()
-  "Change the background and foreground colors of SVG files in DIR."
-    (call-process "/bin/bash" nil nil t "-c" (concat "find \"/home/aatmun/.emacs.d/.local/cache/xenops/cache\"  -type f -name \"*.svg\" -exec xmlstarlet ed -L -u \"//*[local-name()='rect']/@fill\" -v '" (doom-color 'bg) "' -u \"//*[local-name()='g']/@fill\"  -v '" (doom-color 'fg) "' {}  \\; -exec sed -i \"s/\\\"/'/g\" {} \\;")))
-```
-
-Since the above function should be used when we change themes, hook it to changing the theme
-
-```emacs-lisp
-;; (add-hook 'doom-load-theme-hook #'change-xenops-svg-colors)
-```
-
-This attempt didn&rsquo;t work.
 
 
 ## `org-journal` {#org-journal}
