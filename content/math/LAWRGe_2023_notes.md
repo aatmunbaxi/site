@@ -39,6 +39,12 @@ weight = 2002
     - [Schematic SUSY](#schematic-susy)
     - [Twists](#twists)
     - [What happens when you twist](#what-happens-when-you-twist)
+- [Lecture 9: Wed Jun 14 10:46:24 2023](#lecture-9-wed-jun-14-10-46-24-2023)
+    - [Recall](#recall)
+    - [2d \\( A \\)-model](#2d-a-model)
+    - [2d \\( B \\)-model](#2d-b-model)
+    - [3d \\( A \\)-model](#3d-a-model)
+    - [Example of 3d Mirror Symmetry](#example-of-3d-mirror-symmetry)
 
 </div>
 <!--endtoc-->
@@ -821,3 +827,171 @@ In dimensions \\(0, 1,2,3 \\) oriented manifolds \\( \Sigma \\) (or really to a 
             -   \\( \mathcal{D}\_{\mathcal{A}}Z^{i +} =0 \\).
 
     The \\( B \\)-twist often gets treated as algebraic geometry
+
+
+## Lecture 9: Wed Jun 14 10:46:24 2023 {#lecture-9-wed-jun-14-10-46-24-2023}
+
+
+### Recall {#recall}
+
+We had \\( X \\) a hyperKahler manifold (typically a quaternionic vector space) with a \\( G \\)-action by a Lie group \\( G \\).
+This situation reduced to 3d TQFTs \\( Z\_{3dA, X // / G} \\), and \\(  Z\_{3dB, X // / G}  \\).
+An example of mirror symmetry happens with \\( (U(1) , \mathbb{H}) \leftrightarrow (\bullet, \mathbb{H}) \\) for \\(  Z\_{3dA, X // / G}  \cong    Z\_{3dB, X // / G}   \\), respectively.
+
+
+### 2d \\( A \\)-model {#2d-a-model}
+
+Let \\( X \\) be a Kahler manifold.
+The Cauchy-Riemann equation says that \\( \varphi : \Sigma \to X \\) satisfies \\( \overline{\partial} \varphi =0 \\).
+Consider the case \\( \Sigma = S^{1 }\times  \mathbf{R} \\).
+You can rewrite the CR equation in the following way: consider \\( \varphi : S^1 \times  \mathbf{R} \to X \\) as a map \\( \mathbf{R} \to \operatorname{Map}(S^1, X)  \\).
+The CR equation then has the form
+
+\begin{equation}
+\label{eq:14}
+\frac{\partial \varphi}{\partial t } + g^{\\#}(\alpha (\varphi))=0.
+\end{equation}
+
+The collection \\( \operatorname{Map}(S^1, X) \\) has a metric, and \\( g^{\\#} : \Omega^1 \to T \\).
+The space \\( \operatorname{Map}(S^1, X) \\) has a closed \\( 1 \\)-form \\( \alpha \\) (in some cases \\( \alpha  = dS \\) is exact with \\( S \\) a _symplectic action functional_).
+In this case the CR eqn is the gradient flow equations for \\( S \\).
+
+We encounter gradient flow equations in Morse theory.
+The state space \\(  Z\_{2dA, X}(S^1)   \\) is the Morse homology of \\( S:  \operatorname{Map}(S^1, X) \to \mathbf{R} \\).
+(Though \\( S \\) might not be Morse).
+
+Consider the specific case where \\( X = T^{\*}Y \\) where \\( Y \\) is a Riemannian manifold.
+In this case, \\( S = \int\_{S'} p(s) dq(s) \\) for \\( s\in S' \\).
+Here \\( q : S^1 \to Y \\) and \\( p\in \Gamma(S', q^{\*} T^{\*}Y) \\).
+We can perturb \\( S \\) by adding \\( \frac{1}{2} \int(p(s),p(s)) ds \\).
+Then
+
+\begin{equation\*}
+\widetilde{S} = S + \frac{1}{2}\int |p(s)|^2 ds = \frac{1}{2}\int |p(s) + q'(s)|^2ds - \frac{1}{2} \int|q'(s)|^2ds
+\end{equation\*}
+
+If one sets \\( p = -q' \\) identifying by the metric, the Morse homology of \\( \widetilde{S} \\) will reduce to Morse homology of the last term, an energy functional \\( LY \to \mathbf{R} \\).
+The claim is that Morse homology of the functional is the homology of the space \\( Y \\).
+The upshot: \\(  Z\_{2dA, T^{\*}Y }(S^1) = H\_{\bullet}(Y)  \\).
+
+
+### 2d \\( B \\)-model {#2d-b-model}
+
+We will consider the case when \\( X =V \\) is a complex vector space, and \\( \Sigma \\) is a surface.
+Classical solutions of the QFT on \\( \Sigma \\) are locally constant maps \\( \Sigma \to V \oplus V^{\*}[1] \\).
+Here by locally constant maps we mean the chain complex \\( C^{\bullet} (\Sigma, V\oplus V^{\*}[1]) \\).
+
+Consider again \\( \Sigma = S^1 \times  \mathbf{R}  \\).
+Then get \\( C^{\bullet}(S^1 , V \oplus V^{\*}[1]) \cong T^{\*}C^{\bullet}(S^1,V) \\), which means the cotangent bundle of the latter vector space, which is just the space plus its dual.
+The latter is called _phase space_ of the theory.
+To get the state space, should apply a quantization procedure from the lore of quantum mechanics.
+The reason we take algebraic (polynomial) functions is because the \\( B \\)-model is &ldquo;algebraic&rdquo; in nature.
+One could take other kinds of functions in a different flavor of QFT.
+Then, \\(   Z\_{2dB, V }(S^1) = \operatorname{Sym}(C\_{\bullet}(S^1, V^{\*}))   \\).
+
+On the first day we saw that the state space was a Hodge cohomology.
+
+\begin{align\*}
+\label{eq:15}
+ Z\_{2dB, V }(S^1) &= \operatorname{Sym}(C\_{\bullet}(S^1, V^{\*}))   \\\\
+                  &= \bigoplus\_{p,q}^{}H^p (V, \Omega^q)
+\end{align\*}
+
+in which \\( p=0 \\) is the only nonzero case.
+
+
+### 3d \\( A \\)-model {#3d-a-model}
+
+Let \\( W \\) be a quaternionic vector space.
+Say \\( N \\) is a Riemannian \\( 3 \\)-manifold with spin structure.
+The classical solutions are solutions of the Dirac equation \\( \slashed\nabla \varphi =0 \\) for some spinor field \\( \varphi \in \Gamma(N, \mathcal{S}\_{N} \otimes \_{\mathbb{H}} W) \\).
+
+Take \\( N = \Sigma \times  \mathbf{R} \\).
+We want a spin structure on \\( N \\), which by the exercises we can construct from a spin structure on \\( \Sigma \\).
+The Dirac equation on \\( N \\) becomes an equation on \\( \varphi : \mathbf{R} \to \Gamma(\Sigma, \mathcal{S}\_{\Sigma} \otimes \_{ \mathbf{C}} W) \\).
+This equation becomes a gradient flow equation.
+The space
+\\(\Gamma( \Sigma , \mathcal{S}\_{N} \otimes  \mathbf{C} W)\\) has a metric and closed 1-form \\( \alpha \\), and the Dirac equation becomes a gradient flow equation.
+We can repeat the computation in the 2d case.
+
+Consider the special case \\( W = V \otimes\_{\mathbf{C}} \mathbb{H} \\) the cotangent matter case.
+In this instance, the state space is
+
+\begin{equation}
+\label{eq:17}
+ Z\_{3dA, W}(\Sigma) = H\_{\bullet}( H^0(\Sigma, V))
+\end{equation}
+
+the homology of the space of global sections.
+
+Now say \\( G \\) is a Lie group acting on \\( V \\) as a unitary representation, and \\( G\_{\mathbf{C}} \\) is the complexification.
+Let \\( \mathcal{M}\_{G,V}( \Sigma) \\) be the moduli space of pairs of \\( G\_{\mathbf{C}} \\)-holomorphic bundles \\( P \\) on \\( \Sigma \\), and holomorphic sections \\( \varphi \\) of \\( P^G \times V \\).
+
+**Remark**: \\( \mathcal{M}\_{G,V}(\Sigma) \\) is the moduli space of solutions of symplectic vortex equations from yesterday.
+
+Then
+
+\begin{equation}
+\label{eq:18}
+  Z\_{3dA, V \otimes  \_{\mathbf{C}} \mathbb{H} / / / G} = H\_{\bullet}( \mathcal{M}\_{G,V}( \Sigma)).
+\end{equation}
+
+If you take \\( \Sigma = S^2 \\), then
+
+\begin{equation\*}
+Z\_{3dA, V \otimes  \_{\mathbf{C}} \mathbb{H} / / / G}
+\end{equation\*}
+
+is the functions on BFN definition of Coulomb branch.
+
+
+### Example of 3d Mirror Symmetry {#example-of-3d-mirror-symmetry}
+
+
+#### \\( A \\)-model {#a-model}
+
+Consider \\( (U(1), \mathbb{H})\leftrightarrow (\*, \mathbb{H}) \\).
+There is an isomorphism of state spaces
+
+\begin{equation}
+\label{eq:19}
+ Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) \cong   Z\_{3dB, \mathbb{H} }  (\Sigma).
+\end{equation}
+
+Let \\( V = \mathbf{C}, G = U(1), G\_{\mathbf{C}} = \operatorname{GL}(1, \mathbf{C}) \\).
+Then \\( \mathcal{M}\_{G,V} ( \Sigma)  \\) consists of holomorphic line bundles \\( \mathcal{L} \to \Sigma \\) and a nonzero holomorphic section of these bundles.
+The requirement to be nonzero is a technical necessity to make this a scheme.
+You can consider
+
+\begin{equation\*}
+ \mathcal{M}\_{G,V}(\Sigma) = \operatorname{Sym}(\Sigma)  = \bigsqcup\_{d \geqslant 0}^{} \operatorname{Sym}^d(\Sigma).
+\end{equation\*}
+
+**Proposition:** \\( H\_{\bullet}( \operatorname{Sym}^d(\Sigma)) = \operatorname{Sym}^d( H\_{\bullet}(\Sigma)) \\).
+
+Thus,
+
+\begin{equation}
+\label{eq:20}
+ Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma)  = \bigoplus\_{d \geqslant 0}^{} \operatorname{Sym}^d(H\_{\bullet}(\Sigma)) = \operatorname{Sym}(H\_{\bullet}(\Sigma)).
+\end{equation}
+
+
+#### 3d \\( B \\)-model {#3d-b-model}
+
+We can repeat the setup from the last section.
+If we do the same stuff,
+
+\begin{equation}
+\label{eq:21}
+Z\_{3dB, W}(\Sigma) = \operatorname{Sym}(C\_{\bullet}(\Sigma , V^{\*})).
+\end{equation}
+
+As promised, they match:
+
+\begin{equation\*}
+\label{eq:22}
+ Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) = \bigoplus\_{d \geqslant 0}^{} H\_{\bullet}(\operatorname{Sym}^d(\Sigma )) \cong \operatorname{Sym}(H\_{\bullet}(\Sigma)) = Z\_{3dB, W}(\Sigma)
+\end{equation\*}
+
+This is an example of 3d mirrory symmetry.

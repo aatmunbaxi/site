@@ -86,7 +86,7 @@ Each mode has their own subsection for common configuration patterns such as key
 (setq doom-font (font-spec :family "JetBrains Mono" :style "ExtraLight" :size 18)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :style "ExtraLight" :size 18)
       doom-serif-font (font-spec :family "Iosevka Slab" :size 20)
-      doom-big-font (font-spec :family "JetBrains MOno" :style "Regular" :size 24))
+      doom-big-font (font-spec :family "JetBrains Mono" :style "Regular" :size 24))
 ```
 
 
