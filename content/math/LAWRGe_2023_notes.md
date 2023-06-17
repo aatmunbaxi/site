@@ -45,6 +45,23 @@ weight = 2002
     - [2d \\( B \\)-model](#2d-b-model)
     - [3d \\( A \\)-model](#3d-a-model)
     - [Example of 3d Mirror Symmetry](#example-of-3d-mirror-symmetry)
+- [Lecture 10: Wed Jun 14 12:48:31 2023](#lecture-10-wed-jun-14-12-48-31-2023)
+    - [The Affine Grassmannian](#the-affine-grassmannian)
+    - [BFN Coulomb Branch](#bfn-coulomb-branch)
+- [Lecture 11: Wed Jun 14 15:55:18 2023](#lecture-11-wed-jun-14-15-55-18-2023)
+    - [Moduli Space of vacua](#moduli-space-of-vacua)
+    - [Quantum vacua](#quantum-vacua)
+    - [Examples of Higgs and Coulomb Branches](#examples-of-higgs-and-coulomb-branches)
+- [Lecture 12: Wed Jun 14 18:05:37 2023](#lecture-12-wed-jun-14-18-05-37-2023)
+    - [\\( \Omega\\) -background and quantization](#omega-background-and-quantization)
+    - [The \\( A \\)-model](#the-a-model)
+- [Lecture 13: Thu Jun 15 10:46:45 2023](#lecture-13-thu-jun-15-10-46-45-2023)
+    - [Review](#review)
+    - [Computations in Dualities](#computations-in-dualities)
+    - [Mirror Symmetry](#mirror-symmetry)
+- [Lecture 14: Thu Jun 15 13:05:02 2023](#lecture-14-thu-jun-15-13-05-02-2023)
+    - [Quantizing the \\( B \\)-twisted Higgs branch](#quantizing-the-b-twisted-higgs-branch)
+- [Lecture 15: Fri Jun 16 10:44:46 2023](#lecture-15-fri-jun-16-10-44-46-2023)
 
 </div>
 <!--endtoc-->
@@ -995,3 +1012,705 @@ As promised, they match:
 \end{equation\*}
 
 This is an example of 3d mirrory symmetry.
+
+
+## Lecture 10: Wed Jun 14 12:48:31 2023 {#lecture-10-wed-jun-14-12-48-31-2023}
+
+This lecture will discuss the affine Grassmannian and the BFN Coulomb branch.
+
+
+### The Affine Grassmannian {#the-affine-grassmannian}
+
+Our groups will always be \\( G = \operatorname{GL}, \operatorname{SL}, \operatorname{PGL}, \prod\_{k}^{}\operatorname{GL}\_{k} \\).
+For \\( A \\) a ring, we can look at \\( G(A) \\) the \\( A \\) points of \\( G \\).
+Let \\( O \subset K \\) be \\( \mathbf{C} \\)-algebras, \\( G(K) / G(O) \\) with \\( K \\) usually \\( \operatorname{Frac} O \\) and \\( O = \mathbf{C}[[t]] \\).
+The quotient space is often noted \\( \operatorname{Gr}\_G \\) the affine Grassmannian.
+
+**Example:**
+
+-   Fix \\( T \subset G \\) a maximal torus with action on the coset space \\( \operatorname{Gr}\_G \\).
+    The fixed points can be identified with coweights \\( \operatorname{Gr}^T = P^{\vee} \\)  where \\( P^{\vee} \\) is the coweight lattice of \\( G \\): \\( \operatorname\*{Hom}(\mathbf{C}^{\dagger}, T) \\).
+    Every coweight \\( \lambda\in P^{\vee} \\) has \\( \lambda(t) \equiv t^{\lambda} \in \operatorname{Gr}\_G  \\).
+    The \\( G(O) \\)-orbits through \\( t^{\lambda} \\) stratify \\( \operatorname{Gr}\_G = \bigsqcup\_{(P^{\vee})^+}^{} \operatorname{Gr}\_G^{\lambda} \\), where \\( \operatorname{Gr}\_G^{\lambda} = G(O)t^{\lambda} \\), indexed over the dominant coweights.
+
+    As a moduli space, we can describe \\( \operatorname{Gr}\_{G} \\) as
+
+\begin{equation}
+\label{eq:16}
+\left\\{ ( P, \varphi) : P \to \mathbb{D} = \operatorname{Spec}O \text{ principal }G \substack{- bundle\\\ trivialized away \\\from 0} \right\\}.
+\end{equation}
+
+The condition says that \\( \varphi :P|\_{ \mathbb{D}^{\times }} \to P|\_0|\_{\mathbb{D}^{\times }} \\) where \\( \mathbb{D}^{\times } = \operatorname{Spec} K \\).
+
+When \\( G = \operatorname{GL}\_n \\), \\( \operatorname{Gr}\_g = \left\\{ (P,\varphi)\mid P  \text{ rank }n \text{ vector bundle trivable on }\mathbb{D}^{\times } \right\\} \\).
+There is another lattice description:
+
+\begin{equation}
+\label{eq:23}
+ \operatorname{Gr}\_{G}  = \left\\{ O \text{- lattices of rank n in }K^n \right\\}.
+\end{equation}
+
+An \\( O \\)-lattice is a free \\( O \\)-module space \\( L \\) such that \\( L \otimes  \_O K \cong K^{n} \\).
+For example, \\( g\in G(K) \\) has associated \\( GO^n \\) (called the &ldquo;standard lattice&rdquo;).
+On a pair \\( (P, \varphi)  \\), we associate \\( H^0(\mathbb{D}, P)\subset H^{0}( \mathbb{D}^{\times }, P\_0) = K^n \\).
+
+For a rank \\( 0 \\) example, take \\( G = \operatorname{GL}\_1 \\).
+Then
+
+\begin{equation\*}
+  \operatorname{Gr}\_{G}  = \mathbf{C}^{\times }(K)  / \mathbf{C}^{\times } = K^{\times } /\left\\{ \underbrace{u}\_{\neq 0} + t \underbrace{p(t)}\_{=0} \right\\}
+\end{equation\*}
+
+We can write any element of \\( K^{\times } \\) as \\( t^nq(t) \\) for some integer \\( n \\), where \\( q(t)=0 \\).
+
+
+### BFN Coulomb Branch {#bfn-coulomb-branch}
+
+The BFN Coulomb branch is built out of a \\( G \\) gauge group and its action on \\( N \\).
+\\( N \\) is the &ldquo;matter&rdquo;.
+
+Step 1 is to construct an algebra
+
+\begin{equation}
+\label{eq:25}
+A(G,N) = H\_{\bullet} (\underbrace{\operatorname{Map}(\mathbb{B}, \left[ \frac{N}{G} \right]}\_{M})).
+\end{equation}
+
+\\( \mathbb{B} \\) is the &ldquo;bubble&rdquo; or &ldquo;raviolo&rdquo;.
+The Coulomb branch associated to this gauge and matter is
+
+\begin{equation}
+\label{eq:26}
+\mathcal{M}\_C(G,N) = \operatorname{Spec}(A (G,N))
+\end{equation}
+
+\\( \mathbb{B} \\) is the bubble \\( \mathbb{D} \cup\_{ D^{\times }} \mathbb{D} \\) analogous to the construction of the affine line with double origin.
+We get the algebraic structure corresponding to stacking bubbles \\( \mathbb{B}\mathbb{B} = \mathbb{D}^1\cup\_{\mathbb{D}^{\times }} \mathbb{D}^2 \cup\_{\mathbb{D}^{\times }} \mathbb{D}^2\\).
+This double bubble admits three different maps into each disk, this gives a way to multiply.
+
+To understand the maps, we can describe it as
+
+\begin{equation\*}
+\left\\{ ( \mathcal{P}, S) \mid \mathcal{P} \xrightarrow{p}  \mathbb{B}\xrightarrow{s}  N\_P := N^G \times P \right\\} = \left\\{ (\mathcal{P}\_1, \mathcal{P}\_2, \varphi , s)\mid \mathcal{P}\_i \to \mathbb{D}, \varphi : \mathcal{P}\_1|\_{\mathbb{D}^{\times }} \xrightarrow{\sim } \mathcal{P}\_2|\_{\mathbb{D}^{\times }} \right\\}
+\end{equation\*}
+
+where we can extend \\( \overline{\varphi } : S \to \mathbf{R} \\)
+
+We can trivialize \\( \mathcal{P}\_2 \\) to get the space
+
+\begin{equation}
+\label{eq:28}
+\mathcal{R}\_{G,N} = \left\\{ ( \mathcal{P}, \varphi,s)\mid \mathcal{P}\to \mathbb{D}, \varphi \text{ a triv and }s \text{ a section} \right\\}
+\end{equation}
+
+and we impose that \\( \varphi s \\) extends to \\( \mathbb{D} \to N\_{\mathcal{P}\_0} \cong N \otimes  O \\).
+
+**Fact:** \\( M \cong \mathcal{R}\_{G,N}/ G(O) \\).
+Then
+
+\begin{equation}
+\label{eq:29}
+A(G,N) = H\_{\bullet}( \mathcal{R}\_{G,N} / G(O)) = H^{G(O)}\_{\bullet}( \mathcal{R}\_{G,N}).
+\end{equation}
+
+We now want to understand the product structure on \\( A(G,N) \\).
+Instead of \\( \mathcal{R}\_{G,N} \\), we will look at the slightly bigger space
+
+\begin{equation\*}
+ T\_{G,N}  = \left\\{ (\mathcal{P}, \varphi,s)\mid \mathcal{P}\to \mathbb{D}, \varphi \text{ a triv}, s \text{ a section} \right\\}.
+\end{equation\*}
+
+Note there is no requirement for \\( \varphi s \\) to lift.
+The space \\( T\_{G,N} \to  \operatorname{Gr}\_{G}  \\)  is a vector bundle and it is a resolution of \\( N \otimes  O \\).
+This is in analogy with the Springer resolution \\( T^{\*}  G/B \to \mathcal{N} \\), but we don&rsquo;t really care much about it.
+
+Set \\( T\_{G,N} \otimes \_{N \otimes K} T\_{G,N} = Z\_{G,N} \\).
+Then \\( Z\_{G,N} / G(K) \cong \mathcal{R}\_{G,N} / G(O) \\) has again a description
+
+\begin{equation}
+\label{eq:30}
+\left\\{ (g\_1 , [g\_2], s)\mid s\in N \otimes  O , g\_2 \in N \otimes  O, s\in N \otimes  O, g\_1 s\in N \otimes  O \right\\}.
+\end{equation}
+
+Again this space admits maps \\( g\_1 s \to ([g\_1g\_2, g\_1s]) \\), \\( N \otimes O \to ([g\_1, g\_1s]) \\), and \\( g\_2 \to ([g\_2 ,s]) \\).
+
+For example, take \\(N = \mathbf{C}^m\\), \\( G = \mathbf{C}^{\times } \\) with weight \\( -1 \\).
+Then the coweight space \\( P^{\vee} = \mathbf{Z}\\) giving stratification \\(  \operatorname{Gr}\_{G}  = \bigsqcup\_{n\in \mathbf{Z}}^{} t^n \\).
+We can map \\( \mathcal{R} \_{G,N}\to  \operatorname{Gr}\_{G}  \\) and lookin on \\( \mathcal{R}\_{G,N} = \bigsqcup\_{n\in \mathbf{Z}}^{} \mathcal{R}^n\_{G,N} \\) with each
+
+\begin{equation}
+\label{eq:31}
+\mathcal{R}^{n}\_{G,N} = \left\\{ t^n \right\\} \times  \left\\{ (t ^{-1} O \cap O)^m \right\\}
+\end{equation}
+
+Working out
+
+\begin{align\*}
+ r\_n &= [ \mathcal{R}\_{G,N}^n]\in H^{G(O)}\_{\bullet}( \mathcal{R}\_{G,N}) \\\\
+ &= \bigoplus H^{G(O)} ( \mathcal{R}\_{G,N}^n) \\\\
+ &= \bigoplus H^{G(O)} (pt) \otimes  r\_n \\\\
+ &= \bigoplus \mathbf{C}[w]r\_n.
+\end{align\*}
+
+So to compute the product \\( r\_1 r\_{-1} \\), it becomes
+
+\begin{align\*}
+\label{eq:32}
+r\_1r\_{-1} &= \left[ t \times t ^{-1}O^m \cap O^m \right]\left[ \frac{t ^{-1} \times  t O^m \cap O^{m}}{t O^m} \right]\\\\
+          &= \left[ \frac{O^m}{t O^m} \right]r\_0 \\\\
+          &= \left[ N \right] r\_0\\\\
+          &= w^m r \_{0}.
+\end{align\*}
+
+This relation gives everything we want to know about \\( A\_{G,N} \\).
+That is
+
+\begin{equation}
+\label{eq:33}
+A\_{G,N} = \mathbf{C}[w] [r\_1 , r\_{-1}]/ (r\_1r\_{-1} - w^m r\_0).
+\end{equation}
+
+Thus
+
+\begin{equation}
+\label{eq:34}
+\operatorname{Spec} A\_{G,N} = A\_{m-1}
+\end{equation}
+
+a Kleinian singularity.
+
+
+## Lecture 11: Wed Jun 14 15:55:18 2023 {#lecture-11-wed-jun-14-15-55-18-2023}
+
+We last left off with
+
+\begin{align\*}
+A &\in V\_{3 \mathbf{R}}^E \otimes \_{ \mathbf{R}} \mathfrak{g} \quad\quad \text{connection}\\\\
+\Phi &\in V\_{3, \mathbf{R}} \otimes  \_{\mathbf{R}} \mathfrak{g} \quad\quad \text{gaugeinos} \\\\
+\lambda &\in \Pi  \left( V\_2^C \otimes  V\_2^H \otimes  V\_2^E \otimes \mathfrak{g} \right)\\\\
+Z &\in W \otimes V\_2^H\quad\quad \text{matter} \\\\
+\Psi &\in \Pi \left( W \otimes  V\_2 ^C \otimes V\_2^{E} \right)\quad\quad \text{fermionic fields}.
+\end{align\*}
+
+The plan for today is to discuss the moduli space of SUSY vacua.
+
+
+### Moduli Space of vacua {#moduli-space-of-vacua}
+
+The classical moduli space of SUSY vacua in any SUSY QFT on some \\( \mathbf{R}^d \\).
+Schematically this is the set of boundary conditions near \\( \infty \\) that
+
+1.  Allow finite energy solutions to the equations of motion in the interior
+2.  Are fixed points of <span class="underline">all</span> \\( Q \\)&rsquo;s
+
+These imply
+\\( \left\\{ Q,Q \right\\}=\partial \\) which implies \\( \partial (-)=0 \\) implying the field is constant.
+We know \\( QA \sim \lambda \\) and \\( QZ \sim \Psi \\), so that \\( \lambda = \Psi = 0 \\), which is why no one speaks of fermions in the moduli space of vacua.
+
+To the bosons, \\( Q\lambda \sim F  + d\_A \Phi +\left[ \Phi, \Phi \right] + \mu \\), and \\( Q \Psi \sim d\_A Z + \Phi Z \\).
+Classical vacuum equations are
+
+\begin{align\*}
+\label{eq:24}
+\mu^m(Z) &=0 \\\\
+\rho( \Phi ^{\dot{m}})Z &= 0 \\\\
+\left[ \Phi^{\dot{m}} , \Phi^{\dot{n}} \right]&= 0.
+\end{align\*}
+
+There are at least two types of solutions: a classical Higgs branch and classical Coulomb branch
+
+\begin{align\*}
+\mathcal{M}\_H^{\mathrm{class}} & = \left\\{ \Phi =0, \mu=0 \right\\} / G = W / / /G \\\\
+\mathcal{M}\_C^{\mathrm{class}} & = \left\\{ Z =0, [\Phi , \Phi]=0 \right\\} / G  \\\\
+                               & \cong \mathfrak{t}^3 / \mathrm{Weyl}.
+\end{align\*}
+
+The Higgs branch is hyperKahler.
+The former has an \\( \operatorname{SU}(2)\_H \\) action, while the latter has a \\( \operatorname{SU}(2)\_C \\) action rotating the 3 copies of Cartan algebra \\( \mathfrak{t} \\).
+This is not yet hyperKahler though, but we expect(?) it to be.
+
+
+### Quantum vacua {#quantum-vacua}
+
+In QFT, \\( \mu^m \\) is replaced with expectation value.
+So a vacuum is a boundary condition for fields at \\( \infty \\) on \\( \mathbf{R} \\) such that
+
+\begin{align\*}
+\left\langle \mathcal{O} \mathcal{O}' \mathcal{O}'' \right\rangle\_{\mathrm{vac}} &= ??
+\end{align\*}
+
+In QFT on a compact manifold, one should sum over topological types of gauge bundles.
+Boundary conditions at \\(\infty\\) on \\( \mathbf{R}^3 \\) should include a choice of topological type of \\( G \\) bundle on \\( S^2\_{\infty} (= \partial \mathbf{R}^3) \\).
+
+Better yet, we can sum over all topological types with some specified weight.
+The upshot of this is, at a generic point on the Coulomb branch \\( \mathcal{M}\_C \\) (where the other boundary conditions have been fixed \\( Z=0 \\), \\( \Phi \\) is generic), the weight for summing bundles is a point \\( \gamma \\) of \\( T^{\vee} \\) the dual torus.
+
+If \\( \Phi^{\dot{m}} \\) are diagonal with generic eigenvalues, their stabilizer is \\( T \subset G \\).
+So at \\( \infty \\) we get a gauge bundle on \\( S^2\_{\infty} \\) with structure reduced to \\( T \\).
+Such bundles are classified by \\( \pi\_1(T) \\) (the _cocharacter lattice_ of the group).
+
+\begin{equation}
+\label{eq:35}
+\sum\_{n\in \pi\_1(T)}^{} \left\langle \cdots \right\rangle \gamma(n)
+\end{equation}
+
+So we need to choose \\( \gamma \in \operatorname\*{Hom}(\operatorname{cochar}(G) , U(1))\simeq T^{\vee} \simeq (S^r)^{\operatorname{rk}G} \\).
+
+For example, if \\( G = U(1) \\), the bundles are classified by integers \\( n \in \mathbf{Z} \\) and \\( \gamma\in \mathbf{R} / 2\pi \mathbf{Z} \simeq T^{\vee} \\)
+and the expression would be
+
+\begin{equation}
+\label{eq:36}
+\sum\_{n\in \mathbf{Z}}^{} \left\langle \cdots \right\rangle\_{n} e^{i \gamma n}.
+\end{equation}
+
+The effect of this tiny extra bit of information is that the quantum Coulomb branch has a map \\( T^{\vee} \dashrightarrow \mathcal{M}\_C \to \mathfrak{t}^3 / \mathrm{Weyl} \\).
+
+
+### Examples of Higgs and Coulomb Branches {#examples-of-higgs-and-coulomb-branches}
+
+The Higgs and Coulomb branches intersect at least at a point.
+\\( \mathcal{M}\_C, \mathcal{M}\_H \\) are in general singular hyperKahler manifolds with \\( \operatorname{SU}(2)\_C, \operatorname{SU}(2)\_H \\) actions, respectively.
+In mirror 3d gauge theories:
+
+\begin{align\*}
+\mathcal{M}\_C^{!} &\simeq \mathcal{M}\_H \\\\
+\mathcal{M}\_H^{!} &\simeq \mathcal{M}\_C.
+\end{align\*}
+
+
+## Lecture 12: Wed Jun 14 18:05:37 2023 {#lecture-12-wed-jun-14-18-05-37-2023}
+
+
+### \\( \Omega\\) -background and quantization {#omega-background-and-quantization}
+
+Recall from Pavel&rsquo;s lectures that in a 3d field theory \\( Z(S^2)  \\) is an \\( E\_3 \\)-algebra.
+This means for every \\( n \\), there&rsquo;s a set of maps \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3) ) \otimes  Z(S^2)^{\otimes  n} \to Z(S^2) \\), or \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3))\to \operatorname\*{Hom}(Z(S)^{\otimes  n}, Z(S^2)) \\).
+In particular, when \\( n=2 \\), there&rsquo;s a &ldquo;multiplication map&rdquo;.
+This product is homotopy-commutative.
+For example \\( \operatorname{Conf}\_2( \mathbf{R}^2) \sim S^2 \\), by taking the vector between two points at unit norm, producing a homotopy equivalence.
+Additionally, the product at the north and south poles are homotopty equivalent via a path, hence homologically the same.
+
+You can also take the fundamental class and apply the second south pole multiplication \\( \alpha\_2 \\): \\( \alpha\_2( [S^2]) : Z(S^2)^{\otimes  2} \to Z(S^2) \\) as a degree \\( 2 \\) map.
+This we will denote \\( \left\\{ -,- \right\\} \\) as a Poisson bracket.
+The exercises show that the product give \\(H\_{\bullet}( Z(S^2) )\\) the structure of a \\( P\_3 \\)-algebra.
+
+Choose a copy of \\( S^1 \subseteq \operatorname{SO}(3) \\).
+There is a natural map \\( C\_{\bullet}(S^1) \to C\_{\bullet}(\operatorname{SO}(3)) \to \operatorname{End}(Z(S^2)) \\).
+The way we can choose \\( S^1 \\) is to pick an axis and rotate \\( \operatorname{SO}(3) \\) about the axis.
+Then one can consider the space of \\( S^1 \\) invariants
+
+\begin{equation}
+\label{eq:37}
+Z(S^2)^{S^1} = \operatorname{Hom}\_{C\_{\bullet}(S^1)}( \mathbf{C} , Z(S^2)).
+\end{equation}
+
+We can ask: _what sort of object is this?_
+
+Review of \\( S^1 \\)-invariants.
+
+Some facts
+
+1.  For any vector space with \\( S^1 \\)-action \\( V \\), \\( V^{S^1} \\) is a module \\( \mathbf{C}[ h] \\) where \\( h \\) is degree \\( 2 \\).
+2.  \\( S^1 \\) acting on \\( X \\) means \\( C\_{\bullet}(S^1)  \\) acts on \\( C\_{\bullet}(X) \\).
+    Then \\( C\_{\bullet}(X)^{S^1} =: C\_{\bullet}^{S^1}(X) \\).
+
+Now we can take
+
+\begin{equation}
+\label{eq:38}
+C\_{\bullet}^{S^1}( \operatorname{Conf}\_n(\mathbf{R}^3)) \otimes (Z(S^2)^{S^1})^{\otimes  n} \to Z(S^2)^{S^1}.
+\end{equation}
+
+We would now intuitively expect the north and south pole multiplications to no longer be the same.
+This is because we are now forced to stay on the axis we chose.
+So for a computation, what is \\( C\_{\bullet}^{S^1}(S^2) \\)?
+
+**Facts**:
+
+1.  If \\( S^1 \\) acts freely on \\( X \\), and \\( T < S^1 \\), then the equivariant action \\( C\_{\bullet}^{T}(X) = C\_{\bullet}^{T / S^1}(X / S^1) \\).
+2.  We can also view \\( S^2 \\) as \\( \mathbb{P^{1}} \\).
+    Then we have \\(\mathbf{C}^2\hookleftarrow  S^3 \to \mathbb{P}^1  \\).
+    It has been shown that given \\( S^1 \subset S^1 \times  S^1 \\): \\( H\_{0}^{S^1 \times  S^1 \times S^1}(\mathbf{C}^2)\xrightarrow{i^{\*}} H\_{0}^{S^1 \times S^1}( S^3) \to H\_{0}^{S^1}( \mathbb{P}^1) \\) is surjective where the first map is induced by Poincare duality.
+    But the first group is \\( \mathbf{C}[x\_1, x\_2] \\).
+    So there is a map \\( \mathbf{C}[h] \to \mathbf{C}[x\_1, x\_2] \\) by \\( h \mapsto x\_1 - x\_2 \\).
+
+3.  Suppose we have a torus \\( T  \\) acting on \\( V \\) a vector space.
+    Also suppose there is a fixed \\( W \subset V \\) subspace.
+    Then \\( [W]\in H\_0^{S^1}(V) \\) is computed as \\( \operatorname{eu}^T(V/W)\cdot [V] \\) (?).
+
+Recall we have
+
+\begin{equation}
+\label{eq:39}
+\mathbf{C}^2 \hookleftarrow S^3 \to S^2 = S^3 / \Delta S^3
+\end{equation}
+
+with an action of \\( S^1 \times  S^1 \\) action on \\( S^3 \\).
+Let&rsquo;s find where \\( [ \mathbf{C} \times  0 ] , [ 0 \times  \mathbf{C}] \\) go.
+We claim they go to the north and south pole, respectively.
+In homogeneous coordinates of \\( \mathbb{P}^1 \\), they&rsquo;d go to \\( [1,0] \\) and \\( [0,1] \\).
+
+We know that \\( [ \mathbf{C} \times  0 ] \cdot [ 0 \times  \mathbf{C}]  \mapsto \emptyset\\).
+Recall we had \\( \mathbf{C}[x\_1, x\_2] = H\_0^{S^1 \times S^1}(pt) \\) from the passage to homology.
+When we quotient by each term and take weights, we&rsquo;re left with \\( x\_2,x\_1 \\) respectively.
+So the image of the product of the two is \\( 0 \\), so \\( x\_1x\_2 \mapsto \emptyset \\).
+So \\( \mathbf{C}[x\_1, x\_2] / \left\langle x\_1x\_2 \right\rangle \\) is the equivariant cohomology \\(H^{S^1}(S^2)\\).
+If you work everything out you figure out \\( h \mapsto x\_1 - x\_2 \\).
+
+Back to our example, we find that \\( \star\_N - \star\_S =h \left\\{- ,- \right\\} \\) where \\( \star\_i \\) is the multiplication at the point \\( i\in S^2 \\).
+So when \\( h \mapsto 0 \\), we get something commutative.
+In summary, we find that the \\( S^1 \\)-invariant ring map \\( \mathbf{C}[h]\to Z(S^1)^{S^1} \\) quantizes the Poisson algebra.
+
+
+### The \\( A \\)-model {#the-a-model}
+
+Recall that \\( Z\_A(S^2)= C\_{\bullet}( \operatorname{Maps}( \mathbb{B} , N /G)) \\) from the BFN construction.
+What we learned today is that
+
+\begin{equation}
+\label{eq:40}
+Z\_A(S^2)^{S^1} = C\_{\bullet}^{S^1}(\operatorname{Maps}(\mathbb{B}, N/G))
+\end{equation}
+
+where this \\( S^1 \\) acts be rotating the bubble.
+
+Example when \\( N=0 \\) assuming \\( G = U(1) \\):
+In this case
+
+\begin{equation\*}
+(\operatorname{Bun}\_G( \mathbb{B}) =)\operatorname{Maps}( \mathbb{B} , BG)=  G[[t]] \backslash G((t)) / G[[t]]
+\end{equation\*}
+
+The easiest way to incorporate ---- is to look at
+
+\begin{equation}
+\label{eq:41}
+\mathbf{C}^{\times } \rtimes G[ [ t ] ]\backslash\mathbf{C}^{\times } \rtimes G((t)) / \mathbf{C}^{\times } \rtimes G[[t]] = \mathbf{C}^{\times }\backslash G[ [t]] \backslash G((t)) / G[ [t]]
+\end{equation}
+
+Fact: The preceding space has two different maps to \\( pt / \mathbf{C}\rtimes G[ [t]] \\), sending either the left side to a point, or the right side to a point.
+These give two separate maps
+
+\begin{equation}
+\label{eq:42}
+H\_{S^1 \times G}^{\bullet}(pt) \xrightarrow{p\_{L}^{\*}, p\_R^{\*}} H\_0 ^{S^1}( \operatorname{Bun}\_G(\mathbb{B})).
+\end{equation}
+
+Fact: \\( (s,1) \cdot (1,t^n) = (1, t^ns^n) (s,1) \\).
+This implies that on the \\( t^n \\) component of \\( \operatorname{Bun}\_G(\mathbb{B}) \\), \\( p\_l^{\*}(x) = p\_R^{\*}(x) + p\_R^{\*}(nh) \\).
+
+Fact: \\( x\cdot a = p\_L^{\*}(a) \\) and \\( a \cdot x = p\_R^{\*}a \\).
+
+We also have \\( H\_3^{S^1}( \operatorname{Bun}\_G(\mathbb{B})) = \bigoplus\_{n}^{}H\_n^{S^1 \times G}(pt)\cdot t^n \\).
+
+Moreover,
+
+\begin{equation}
+\label{eq:43}
+x t^n - t^n x = p\_L^{\*}(x) t^n - p\_R^{\*}(x) t^n = n h t^n.
+\end{equation}
+
+So when \\( h=0 \\), \\( x,t^n \\) commute.
+
+Then
+
+\begin{equation}
+\label{eq:44}
+Z\_A(S^2)^{S^1}=C\_{\bullet}^{S^1}( \operatorname{Bun}\_G(\mathbb{B})) = \mathbf{C}\left\langle h, xt^{\pm 1} \right\rangle
+\end{equation}
+
+where \\( [h,x] = [t,h]=0 \\) and \\( [t,x]=ht \\).
+
+
+#### Trick {#trick}
+
+This space \\( \operatorname{Maps}( \mathbb{B} , N /G) / \mathbf{C}^{\times }\rtimes G = R\_{G,N} / \mathbf{C}^{\times } \rtimes G \\).
+
+Then
+
+\begin{equation}
+\label{eq:45}
+R\_{G,N} \xrightarrow{L}  T\_{G,N} \leftrightarrow  \operatorname{Gr}\_G
+\end{equation}
+
+where the right side maps are bundle maps and section.
+It is a cool fact that
+
+\begin{equation}
+\label{eq:46}
+C\_{\bullet}^{S^1}(R\_{G,N} / \operatorname{Gr}) \to C\_{\bullet}^{S^1}(\operatorname{BUn}\_G(\mathbb{B}))
+\end{equation}
+
+is an algebra homomorphism.
+
+For example when \\( N = \mathbf{C}\\), \\( G \subset \mathbf{C}^{\times } \\),  we have
+
+\begin{equation}
+\label{eq:48}
+t^n \times t^n \mathbf{C}[ [t]] \hookrightarrow \bigsqcup t^n \times  t^n \mathbf{C}[ [t]] \hookleftarrow \bigsqcup t^n \times  \left\\{ 0 \right\\}
+\end{equation}
+
+So
+
+\begin{equation}
+\label{eq:49}
+t^n \times  \mathbf{C}[[t] ] \mapsto \operatorname{eu}^T \left( t^n \mathbf{C}[ [t]] / t^n \mathbf{C}( (t))\cap \mathbf{C} ( (t)) \right).
+\end{equation}
+
+
+## Lecture 13: Thu Jun 15 10:46:45 2023 {#lecture-13-thu-jun-15-10-46-45-2023}
+
+
+### Review {#review}
+
+So far we&rsquo;ve considered 3d \\( \mathcal{N}=4 \\) gauge theories labeled by a compact Lie group \\( G \\) and \\( W = T^{\*} V \\) (sometimes) a hyperKahler representation of \\( G \\).
+Physical QFTs are representations \\( \mathcal{T}\_{G,V} \\) with action of \\( \operatorname{SU}(2) \_E \otimes \operatorname{SU}(2)\_H \otimes  \operatorname{SU}(2)\_C\\).
+We&rsquo;ve hinted towards gauge theories that are related to each other by 3d mirror symmetry, which means that the QFTs are equivalent at infinitely low energy up to a swapping of \\( \operatorname{SU}(2)\_H , \operatorname{SU}(2)\_C \\).
+
+Compare this situation with 2d \\( \mathcal{N}=(2,2) \\) \\( \sigma \\)-models (\\( \equiv 2\mod 4\\) means it comes in a pair).
+This model is labeled by Calabi-Yau manifolds, so one gets a 2d QFT \\( \mathcal{T}\_{\mathcal{X}} \\) with an action by the SUSY algebra \\( \rtimes U(1)\_E \times  U(1)\_V \times  U(1)\_A \\).
+There exist CY manifolds \\( \mathcal{X}^{\vee} \\) such that their QFTs are equivalent up to swapping of \\( U(1)\_V, U(1)\_A \\).
+This is the basis of 2d mirror symmetry.
+
+
+### Computations in Dualities {#computations-in-dualities}
+
+In any physical duality (equivalence of QFTs) you can compute physical quantities (observables) on both sides of the duality and try to match them.
+One might be interested in (at a low level) the moduli space of vacua, partition functions on closed manifolds, state spaces, expectation values (AKA correlation functions) of operators.
+In practice these things are impossibly difficult to compute, so historically very simple examples are worked out in great detail to try and get a handle on even the smallest toy case.
+We can characterize these computations mathematically and recover or predict new math or new physics.
+
+There is some hope though, because many of the computations can be captured by twists.
+In other words, they live in the cohomology of various nilpotent elements of the SUSY algebra.
+In our case, SUSY acted on \\( \mathcal{T}\_{G,N} \\) and had two supercharges \\( \mathcal{O}\_A , \mathcal{O}\_{B} \\).
+One expects for each 3d \\( \mathcal{N}=4 \\) theory QFT functors \\( Z\_{G,V}^A, Z^B\_{G,V} \\) such that for a mirror pair \\(  Z\_{G',V'}^A, Z^B\_{G',V'}  \\) that \\( Z\_{G,V}^A\simeq Z\_{G' ,V'}^B \\) and likewise for the original \\( B \\)-model.
+
+On Tuesday Pavel said that
+
+\begin{equation}
+\label{eq:50}
+Z\_{U(1) , \mathbf{C}}^A(M ^3) = \text{SW invariants of 3-manifold}
+\end{equation}
+
+Meng-Taubes theorem says that \\( \operatorname{Tor}(M^3) \cong Z\_{1, \mathbf{C}}^B(M^3) \\).
+Yesterday we saw state space
+
+\begin{equation}
+\label{eq:51}
+Z\_{U(1) , \mathbf{C}}^A(M ^3) (\Sigma\_g) = H^{\bullet}( \text{symp vrtx eqns on } \Sigma\_g) = \operatorname{Sym}^{\bullet}(H^{\bullet}(\Sigma\_g))
+\end{equation}
+
+By mirror symmetry, this is equivalent to
+
+\begin{equation\*}
+ Z\_{1, \mathbf{C}}^B ( \Sigma\_g)\_{\mathrm{Roz-Witten}}= H\_{ \overline{\partial}}^{0,0}\left(T^{\*} \mathbf{C} , \bigwedge^{\bullet} (T^{(1,0)\*})^{\oplus g}  T^{\*} \mathbf{C}\right).
+\end{equation\*}
+
+And
+
+\begin{equation}
+\label{eq:52}
+Z\_{G,V}^A( S^2) \simeq \mathbf{C}[ \mathcal{M}\_C],\quad Z\_{G,V}^B(S ^2) \simeq  \mathbf{C}[ \mathcal{M}\_{H}]
+\end{equation}
+
+One can get the first equivalence by expressing \\( S^2 \\) as a raviolo.
+
+How does one compute \\( Z\_{G,V}^B(S ^2) \\)?
+Like
+
+\begin{align\*}
+Z\_{G,V}^B(S ^2) &= H\_{ \overline{\partial}}^{0,0}( \text{solns to }Q\_B \text{ eqns of motion on }S^2) / G\_{ \mathbf{C}}
+\end{align\*}
+
+The \\( Q\_B \\) equations of motion are flatness equations.
+We have a flat \\( G\_{ \mathbf{C}} \\) connection, and flat sections of an associated \\( T^{\*}V \\)-bundle such that \\( \mu\_{ \mathbf{C}}  \\) vanishes (all assuming a fixed complex structure).
+On \\( S^2 \\), flat connections are trivial, so solutions are constant.
+So this entirely comes down to \\( \mathbf{C} [ \mu\_{\mathbf{C}}(0)] / G\_{ \mathbf{C}} = T^{\*} V / / G\_{ \mathbf{C}} \\).
+
+
+#### Example {#example}
+
+Consider \\( G = U(1) \\) acting on \\( \mathbf{C}^n \\) with weights \\( 1 \\) in each summand.
+So \\( W = T^{\*} \mathbf{C}^{n} \\).
+The Higgs branch \\( \mathcal{M}\_H \\) ends up being the minimal nilpotent branch on \\( \operatorname{SO}(n) \\), and has resolution that looks like \\( O\_{\mathrm{sln}}^{\mathrm{min}}\leftarrow T^{\*} \mathbb{P}^{n-1} \\).
+The Coulomb branch \\( \mathcal{M}\_C \\) looks like \\( T^{\*} \mathbf{C}  / \mathbf{Z}/n \\).
+
+
+### Mirror Symmetry {#mirror-symmetry}
+
+Suppose \\( G \\) acting on \\( V \\) is an abelian theory (e.g. \\(  G = U(1)^r \\), \\( V = \mathbf{C}^n \\)) with weights encoded in an integral matrix.
+If \\( G \\) acts faithfully, there is a \\( (n-r) \times n \\) matrix inducing a SES
+
+\begin{equation}
+\label{eq:53}
+0 \to \mathbf{Z}^r \to \mathbf{Z}^n \to \mathbf{Z}^{n-r} \to 0
+\end{equation}
+
+The mirror theory is the action of \\( G^{!} = U(1)^{n-r} \\) acting on \\( V^{!} = \mathbf{C}^n \\) with weights \\( \tau^T \\).
+This theory has a SES dual to the one of the original.
+
+
+## Lecture 14: Thu Jun 15 13:05:02 2023 {#lecture-14-thu-jun-15-13-05-02-2023}
+
+Last time we say \\( \mathbf{C} [h]\to Z(S ^2)^{S^1} \\) as a module where \\( |h| =2 \\).
+When \\( h =0 \\), this recovers \\( Z(S ^2) \\), which is a \\( P\_3 \\)-algebra, which means it has a Poisson bracket of degree \\( 2 \\) and a commutative product, and it satisfies the Leibniz rule.
+Generally \\( Z( S ^2)^{S^1} \\) is an \\( E\_1 \\)-algebra, which is an ordinary homotopy associative algebra which is not usually commutative.
+We learned that it had the property that when we take the Lie bracket of two elements \\( [a,b] \\), we get \\( h \left\\{ -,- \right\\} \\) the old Poisson bracket.
+
+In the \\( A \\)-twist, \\( Z^{A}(S^1)^{S^1} = H^{S^1}( \operatorname{Maps}( \mathbb{B} , N /G)) \\), which had some other possibly nicer ways to write down.
+
+
+### Quantizing the \\( B \\)-twisted Higgs branch {#quantizing-the-b-twisted-higgs-branch}
+
+We want to ask _what is the analogue in the \\( B \\)-twist?_
+We saw last lecture that \\( Z(S^2) = \mathbf{C}[ \mathcal{M}\_H] / G\_{ \mathbf{C}}  \\) the space of maps on the Higgs branch modulo gauge transformation.
+Where \\( \mathcal{M}\_H = \mathcal{M}\_{ \mathbf{C}} ^{-1}(0) \\).
+What is the noncommutative version \\( Z^B(S^2)^{S^1} \\)?
+
+In order to study function on \\( W = T^{\*} N \\), we can use the natural quantization \\( D\_h(N) \to  \mathbf{C} [ T^{\*} N] \\).
+We have \\( D\_h( \mathbf{C}^n) = \mathbf{C} [h] \left\langle x\_{1} , \ldots , x\_{n} , \partial\_{1} , \ldots , \partial\_{n} \right\rangle\\) satisfying \\( [\partial\_i , x\_j] = \delta\_{ij}h \\).
+We can view this as a subset of \\( \operatorname{End}\_{ \mathbf{C}} ( \mathcal{O}\_N) \\) (the structure sheaf \\( \mathcal{O}\_N \\)) generated by the function on \\( N \\) acting by multiplication and by vector fields.
+
+Suppose we have an action of \\( G \\) on a smooth variety \\( X \\).
+By differentiating, we get a map \\( \mathfrak{g} \to T^{\*}X \\).
+If we take the universal enveloping algebra \\( U(\mathfrak{g}) \\), get a map \\( U( \mathfrak{g}) \xrightarrow{\mu\_{h}^{\*}}  D\_h(X) \\).
+The bracket in the enveloping algebra satisfies \\( [v\_1,  v\_2] = \left[ v\_1,v\_2 \right]\_{\mathrm{Lie}} h \\).
+It is a fact that \\( \mu\_0^{\*} = \mu^{\*} \\).
+
+Now \\( Z^B(S^2)^{S^1} \cong \left( D\_h(N) / D\_h(N)\mu^{\*}\_h(\mathfrak{g}) \right)^G \\).
+The second term in \\( \mathbf{C}\_{h}[ \mathcal{M}\_H] \\).
+
+
+## Lecture 15: Fri Jun 16 10:44:46 2023 {#lecture-15-fri-jun-16-10-44-46-2023}
+
+We will talk about \\( Z(S^1) \\).
+Justin will talk about \\( Z(\*) \\) of a point, then for the last lecture we&rsquo;ll wrap up.
+In 3d TQFTs in physics \\( Z(S^1) \\) is called the _category of line operators_.
+It is a linear category, the objects of this category &ldquo;compactify holes on surfaces&rdquo;.
+To every surface with firmed up holes, it assigns a vector space.
+In particular, \\( Z(S^2 \setminus \left\\{ N,S \right\\}) \\) labeled by \\( L\_1, L\_2 \\), defines \\( \operatorname\*{Hom}(L\_1, L\_2) \\).
+In other words, if you think of this as a cobordism between circles, this is the \\( \operatorname\*{Hom}(-,-) \\) functor.
+
+Moreover \\( Z(S^1)  \\) is an \\( E\_2 \\)-category, AKA a braided tensor category.
+\\( Z(D \setminus D \sqcup D) : Z(S^1) \times  Z(S^1) \to Z(S^1) \\) defines the tensor product.
+The braiding comes from the 3d cobordism which is a big ball with cylinders drilled out crossing over inside the ball.
+Finally, \\( Z(S^1) \\) has a distinguished identity object \\( \mathbb{1} \\) for the tensor product defined as \\( Z( disk) \\), which is called the &ldquo;identity line&rdquo; or &ldquo;trivial line&rdquo;.
+You can view the disk as a cobordism between the empty \\( 1 \\)-manifold and the circle (the cup construction) which defines a map \\( \mathbf{C} \to \mathbb{1} \\).
+
+We&rsquo;ve talked about circle actions on local operators which we took equivariants of.
+Similarly we can &ldquo;quantize&rdquo; the category and deform it from an \\( E\_2 \\)-category to just a category.
+
+We can recover \\( Z( \mathrm{all surfaces, 3-mans}) \\) from \\( Z(S^1) \\).
+
+\begin{align\*}
+Z(S^2) &= Z(D^2\cup D^2) \\\\
+&= \operatorname\*{Hom}\_{Z(S^1)}(Z(D^2), Z(D^2)) \\\\
+&= \operatorname{End}( \mathbb{1}) \\\\
+&= \mathbf{C} [ \mathcal{M}\_{\mathrm{vac}}].
+\end{align\*}
+
+Applying Yoneda, we can use \\( \operatorname\*{Hom}\_{Z(S^1)}( -, \mathbb{1}) : Z(S^1) \to \mathbf{C}[ \mathcal{M}\_{\mathrm{Vac}}]-mod \\) is  \\( Z(S^1) \\) maps to \\( D^b \mathsf{Coh}(\mathcal{M}\_{\mathrm{vac}}^{\mathrm{aff}}) \\).
+If \\( \mathcal{M}\_{\mathrm{vac}} \\) is smooth, this should be an equivalence.
+
+\begin{align\*}
+Z(T^2)&= Z(\text{ cylinder w ends identified})\\\\
+&= \text{"trace of Hom"} \\\\
+&= HH\_0 Z(S^1).
+\end{align\*}
+
+The Hochschild homology of the category.
+
+From \\( G,W \\) gauge theories
+
+1.  Roughly solve \\( A,B \\)-twisted eqns of motions (look for \\( Q\_A \\) or \\( Q\_B \\) fixed points) on the circle and quantize
+    1.  \\( A: \\) take a Fukaya category (roughly speaking)
+    2.  \\( B \\): take coherent sheaves (roughly speaking)
+
+
+#### B Twist {#b-twist}
+
+Suppose we have a Lie group \\( G \\) acting on \\( T^{\*}V = V \oplus  V^{\*} \\).
+\\( V \\) will have column vectors \\( x^i \\) and \\( V^{\*} \\) will have row vectors \\( y\_i \\).
+\\( \phi : G \to U(V) \\).
+Remember that
+
+\begin{align\*}
+Q\_B(pt) &=0 \implies \mathcal{F}\_{\mathcal{A}}=0 \text{ for complexified }G\_{\mathbf{C}}- \text{connection}\\\\
+d\_{\mathcal{A}} \vec{X} &= d\_{ \mathcal{A} }\vec{Y} = 0 \\\\
+\mu\_{\mathcal{M}}(X,Y) &= \rho^{\*}(X,Y)=0.
+\end{align\*}
+
+This is all replaced with complexified \\( G\_{\mathbf{C}} \\) gauge transformations to avoid the additional reality condition.
+
+In a neighborhood of \\( S^1 \\), the only info in \\( \mathcal{A} \\) is the holonomy.
+Fix a basepoint \\( p\in S^1 \\), let \\( g = \operatorname{Hol}\_{S^1\_p}( \mathcal{A} )\in G\_{\mathbf{C}} \\).
+
+Let \\( X\_p , Y\_p \\) be the values at \\( p \\).
+Being flat implies \\( g X\_p = X\_p, Y\_p g ^{-1} = Y\_p \\).
+Then we still have the moment map constraint \\( \mu\_{\mathbf{C}}=0 \\).
+These remaining equations are equivalent to \\( dW =0 \\) taking the critical locus of a function \\( W : G\_{ \mathbf{C}} \times V \times V^{\*} \to \mathbf{C} \\) taking \\( (g,X,Y) \mapsto Y\cdot (\rho(g)-1) X \\).
+
+So solutions to equations of motion on a circle are equivalent to function \\( G\_{ \mathbf{C}} \times  V \times V^{\*} \to \mathbf{C} \\) such that \\( dW=0 \\) modulo certain gauge transformations.
+The next step is to take coherent sheaves on this locus.
+
+**Claim:** \\( Z\_{G,V}^B \simeq \operatorname{MF}^G (G\_{\mathbf{C}} \times V \times V^{\*}, W) \\) the category of matrix factorizations.
+
+When \\( G=1, V= \mathbf{C} \\),
+
+\begin{equation}
+\label{eq:54}
+Z\_{G,V}^B(S^1) =  D^b \mathsf{Coh}(T^{\*}  \mathbf{C}).
+\end{equation}
+
+The unit object \\( \mathbb{1} = \mathcal{O}\_{T^{\*} \mathbf{C}} \\) the structure sheaf, with \\( \operatorname{End}( \mathbb{1} ) = \mathbf{C}[T^{\*} \mathbf{C}] \\).
+And
+\begin{equation\*}
+Z(T^2) = HH<sub>&bull;</sub>(D^b \mathsf{Coh}(T<sup>\*</sup> \mathbf{C})) = \mathbf{C}\left[X,Y, \frac{\partial}{\partial  X} , \frac{\partial}{\partial Y}\right]
+\end{equation\*}.
+
+
+#### A-twist {#a-twist}
+
+Let \\( G,V \\) be a gauge theory again.
+Recall the equations of motion in the \\( A \\)-twist are Dirac equations.
+In a neighborhood of \\( S^1 \\), \\( D^{\*} = \operatorname{Spec} \mathbf{C}((t)) \\).
+Solutions to \\( Q\_A \\) EOM on \\( D^{\*} \\) are \\( \simeq T^{\*} \left( V((z)) / G\_{\mathbf{C}}((z)) \right) \\).
+So
+
+\begin{equation}
+\label{eq:55}
+Z^A\_{G,V} (S^1) := D-mod^{ G\_{\mathbf{C}}((z)) }(V((z)))
+\end{equation}
+
+the category of \\( D \\)-modules on the loop space.
+
+This category has basic objects labeled by \\( L,H \\) where \\( L \subset V((z)) \\) a subspace of the algebraic loop space and \\( H \subset G((z)) \\) is a subgroup that stabilizes \\( L \\).
+The category has
+
+\begin{multline\*}
+\operatorname\*{Hom}((L,H), (L', H'))= H\_{\bullet}(L'/H' \times \_{V((z))/G((z)) L/H}) \\\ = H'\backslash H\_{\bullet} \left\\{ (X,X',g)\in L \times  L' \times G\_{\mathbf{C}}((z))\mid X' = gX \right\\} / H
+\end{multline\*}
+
+where \\( H\_{\bullet} \\) is Borel-Moore homology.
+
+The unit object
+
+\begin{equation}
+\label{eq:56}
+\mathbb{1} = (V[[z]] , G\_{\mathbf{C}}[[z]])
+\end{equation}
+
+And \\( \operatorname{End}(\mathbb{1}) = \mathbf{C} [ \mathcal{M}\_C] \\).
+
+**Theorem:** \\( Z\_{1, \mathbf{C}}^A (S^1) \simeq  \\) a de Rham version of the \\( B \\)-twisted category \\( Z\_{U(1), \mathbf{C}}^B(S^1) \\).
+
+**Theorem:** Abelian \\( G \\) acting on \\( V \\) faithfully has
+
+\begin{align\*}
+\label{eq:57}
+Z\_{G,V}^B (S^1)^{\text{fin supp on }G\_{\mathbf{C}}} &\simeq D^B( \text{VOA modules}) \\\\
+&\simeq \text{other A category fo VOA modules} \subset Z^A\_{G',V'}(S^1).
+\end{align\*}
+
+At present no analogous mirror symmetry statements about nonabelian gauge theories are known.

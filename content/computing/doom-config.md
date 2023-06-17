@@ -22,6 +22,7 @@ type = "post"
     - [Custom Functionality](#custom-functionality)
 - [Global keybindings](#global-keybindings)
 - [`evil`](#evil)
+    - [Keybinds](#keybinds)
 - [`embark`](#embark)
 - [`org-mode`](#org-mode)
     - [Some variables](#some-variables)
@@ -55,7 +56,7 @@ type = "post"
 - [`elfeed`](#elfeed)
 - [`frog-jump`](#frog-jump)
 - [`beacon`](#beacon)
-- [Something](#something)
+- [`org-cdlatex`](#org-cdlatex)
 
 </div>
 <!--endtoc-->
@@ -244,6 +245,15 @@ These are keybinds that should work in all modes.
 
 
 ## `evil` {#evil}
+
+
+### Keybinds {#keybinds}
+
+This keybinding allows escaping of `evil-insert-state` with quickly pressing `jk`.
+
+```emacs-lisp
+(setq-default evil-escape-key-sequence "jk")
+```
 
 
 #### `evil-owl` {#evil-owl}
@@ -896,6 +906,7 @@ Suppress the complaining `yasnippet` tends to do when it directly edits the buff
 (with-eval-after-load 'warnings
   (cl-pushnew '(yasnippet backquote-change) warning-suppress-types
               :test 'equal))
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 ```
 
 
@@ -1052,4 +1063,8 @@ Disable company in `org-mode`.
 ```
 
 
-## Something {#something}
+## `org-cdlatex` {#org-cdlatex}
+
+```emacs-lisp
+(add-to-list 'cdlatex-math-modify-alist '(?o "\\operatorname" nil t t nil))
+```
