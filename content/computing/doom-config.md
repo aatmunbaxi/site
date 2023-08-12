@@ -185,7 +185,7 @@ Here I write some custom functionality, like writing functions for convenience&r
   (+vertico/find-file-in "~/Documents/books/"))
 
 (defun find-org-file (fl)
-  (interactive (list (org-find-file--choose-file)))
+  (interactive (list (org-roam--list-files-find "find" org-directory)))
   (find-file fl))
 ```
 
@@ -1064,7 +1064,3 @@ Disable company in `org-mode`.
 
 
 ## `org-cdlatex` {#org-cdlatex}
-
-```emacs-lisp
-(add-to-list 'cdlatex-math-modify-alist '(?o "\\operatorname" nil t t nil))
-```

@@ -14,8 +14,6 @@ Currently I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}
 
--   _Tensor Categories_ (<a href="#citeproc_bib_item_1">Etingof et al. 2015</a>)
--   _Introduction to Lie Algebras and Representation Theory_ (<a href="#citeproc_bib_item_2">Humphreys 1973</a>)
 -   _Dune_
 
 
@@ -33,9 +31,9 @@ Currently I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### Hobbies {#hobbies}
 
--   Programming small projects to learn new languages. I&rsquo;m currently interested in Haskell and Rust
+-   Programming and learning new programming languages. I&rsquo;m currently interested in Haskell and Rust
 -   Soccer. Specifically, Liverpool FC
 -   Astrophotography. Check my images [here]({{< relref "astrophotos" >}})
 -   Learning japanese through immersion
--   Free software, such as emacs
-    -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in emacs
+-   Free (as in freedom) software, such as GNU emacs
+    -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in GNU emacs
