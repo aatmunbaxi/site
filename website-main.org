@@ -47,13 +47,13 @@ Currently I am a PhD student in mathematics at Texas A&M University.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
-** LAWRGe 2023 Notes :math:conference:notes:
+** LAWRGe 2023 Notes :math:conference:notes:noexport:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: LAWRGe_2023_notes
 :END:
 #+toc: headlines 2 local
-#+include: ~/Documents/org/LAWRGe.org
+# #+include: ~/Documents/org/LAWRGe.org
 * Computing
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing

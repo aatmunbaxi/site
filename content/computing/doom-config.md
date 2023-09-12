@@ -18,6 +18,7 @@ type = "post"
 - [Font](#font)
 - [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
     - [Doom Dashboard](#doom-dashboard)
+    - [Modeline](#modeline)
     - [Custom Faces](#custom-faces)
     - [Custom Functionality](#custom-functionality)
 - [Global keybindings](#global-keybindings)
@@ -51,7 +52,7 @@ type = "post"
 - [`yasnippets`](#yasnippets)
 - [`ink`](#ink)
 - [quiver](#quiver)
-- [`org-babel`](#org-babel)
+- [`org-babel`](#org-babel):ARCHIVE:
 - [`company`](#company)
 - [`elfeed`](#elfeed)
 - [`frog-jump`](#frog-jump)
@@ -76,8 +77,7 @@ Each mode has their own subsection for common configuration patterns such as key
 ## Housekeeping {#housekeeping}
 
 ```emacs-lisp
-(setq user-full-name "Aatmun Baxi"
-      user-mail-address "baxiaatmun@gmail.com")
+(setq user-full-name "Aatmun Baxi")
 ```
 
 
@@ -94,7 +94,8 @@ Each mode has their own subsection for common configuration patterns such as key
 ## Theme, Appearance, General Behavior {#theme-appearance-general-behavior}
 
 ```emacs-lisp
-(setq doom-theme 'doom-monokai-pro)
+(setq catppuccin-flavor 'mocha)
+(setq doom-theme 'catppuccin)
 ```
 
 
@@ -102,6 +103,40 @@ Each mode has their own subsection for common configuration patterns such as key
 
 ```emacs-lisp
 (setq fancy-splash-image (expand-file-name "splash/doom-emacs-filled.png" doom-user-dir))
+```
+
+
+### Modeline {#modeline}
+
+```emacs-lisp
+(display-battery-mode)
+(display-time-mode)
+(use-package! doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-height 40)
+  (doom-modeline-bar-width 10)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-icon t)
+  (doom-modeline-major-mode-color-icon t)
+  (doom-modeline-buffer-file-name-style 'auto)
+  (doom-modeline-buffer-state-icon t)
+  (doom-modeline-buffer-modification-icon t)
+  (doom-modeline-minor-modes nil)
+  (doom-modeline-enable-word-count nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-indent-info nil)
+  (doom-modeline-checker-simple-format nil)
+  (doom-modeline-vcs-max-length 12)
+  (doom-modeline-env-version nil)
+  (doom-modeline-github-timer nil)
+  (doom-modeline-hud nil)
+  (doom-modeline-time-icon t)
+  (doom-modeline-buffer-name t)
+  (doom-modeline-battery t)
+  (doom-modeline-time t)
+  (doom-modeline-always-visible-segments '(mu4e))
+  )
 ```
 
 
@@ -183,10 +218,14 @@ Here I write some custom functionality, like writing functions for convenience&r
 (defun find-book ()
   (interactive)
   (+vertico/find-file-in "~/Documents/books/"))
+```
 
-(defun find-org-file (fl)
-  (interactive (list (org-roam--list-files-find "find" org-directory)))
-  (find-file fl))
+```emacs-lisp
+(defun find-org-file ()
+  "Interactively select and open a .org file from a directory."
+  (interactive)
+  (+vertico/find-file-in org-directory))
+
 ```
 
 I open book fairly often, so I want to make this function accessible quickly.
@@ -264,6 +303,7 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
 
 ```emacs-lisp
 (use-package! evil-owl
+  :defer t
   :config
   (require 'posframe)
   (setq evil-owl-display-method 'posframe
@@ -277,6 +317,7 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
 
 ```emacs-lisp
 (use-package! embark
+  :defer t
   :bind
   (("C-." . embark-act)
    ("M-." . embark-dwim)
@@ -417,6 +458,17 @@ Startup with all trees folded and format some org features
   )
 ```
 
+```emacs-lisp
+;; (use-package! procress
+;;   ;; :straight (:host github :repo "haji-ali/procress")
+;;   :commands procress-auctex-mode
+;;   :init
+;;   (add-hook 'LaTeX-mode-hook #'procress-auctex-mode)
+;;   (add-hook 'org-mode-hook #'procress-auctex-mode)
+;;   :config
+;;   (procress-load-default-svg-images))
+```
+
 
 ## `bibtex` {#bibtex}
 
@@ -441,26 +493,30 @@ We configure some of its settings here.
         org-agenda-block-separator nil
         org-agenda-compact-blocks nil
         org-agenda-start-day nil ;; i.e. today
-        org-agenda-span 1)
+        org-agenda-span 7)
   (custom-set-faces!
     `(org-super-agenda-header
-      :background "bg" :overline t :height 1.2))
+      :background "bg" :height 1.3)
+    `(org-super-agenda-date-face
+      :overline t :height 1.4 :foreground ,(doom-color 'teal))
+    `(org-agenda-date
+      :overline t :height 1.4 :background ,(doom-color 'teal)))
   (setq org-agenda-custom-commands
         '(("s" "Super view"
            ((agenda "" ((org-super-agenda-groups
                          '((:name "Due Today❗"
                             :deadline today
                             :order 0)
-                           (:name "Todo ✍️"
+                           (:name "Todo ✍"
                             :todo ("PROG" "WAIT" "NEXT")
                             :and (:todo "TODO" :scheduled today)
                             :and (:todo "TODO" :deadline today)
                             :habit t
                             :order 2)
-                           (:name "Coming up 🕙"
-                            :scheduled future
-                            :deadline future
-                            :order 3)))))
+                           ;; (:name "Coming up 🕙"
+                           ;;  :deadline future
+                           ;;  :order 3)
+                           ))))
             (alltodo ""
                      ((org-agenda-overriding-header "")
                       (org-super-agenda-groups
@@ -535,7 +591,8 @@ Some modifications were made to the following [reference.](https://discourse.doo
 This PDF export process ensures that bibliographies are properly exported, making use of `biblatex`.
 
 ```emacs-lisp
-(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+(setq org-latex-pdf-process (list "latexmk -cd -shell-escape -bibtex -f -pdfxe  %f"))
+(setq org-latex-listings 'minted)
 ```
 
 
@@ -586,26 +643,17 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 
 ## `helm-bibtex` {#helm-bibtex}
 
-`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework.
-
-`helm-bibtex` does not have this issue, hence I use it.
+`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework. `helm-bibtex` does not have this issue, hence I use it.
 
 ```emacs-lisp
 (use-package! helm-bibtex
+  :defer t
   :config
-  (setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib"
-    bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
-    bibtex-completion-notes-path "~/Documents/org/general-notes.org"
-    bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-
-    bibtex-completion-additional-search-fields '(keywords)
-    bibtex-completion-display-formats
-    '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-      (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-      (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-      (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-      (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-    ))
+  (setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib" bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
+        bibtex-completion-notes-path "~/Documents/org/general-notes.org"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}") (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}") (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
 ```
 
 
@@ -672,7 +720,7 @@ It is a more feature-rich replacement for `org-latex-preview`.
 Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
-(setq xenops-math-image-scale-factor 1.0
+(setq xenops-math-image-scale-factor 1.4
       xenops-reveal-on-entry nil
       )
 ```
@@ -722,7 +770,7 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (setq org-roam-capture-templates '(
                                      ("h" "default" plain
                                       "%?"
-                                      :if-new (file+head "daily/%<%Y%m%d%H%M%S>-${slug}.org"
+                                      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                                                          "#+title: ${title}\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
 
@@ -747,6 +795,7 @@ Increase the preview image sizes so that they&rsquo;re readable.
   :after org-roam)
 
 (use-package! org-roam-ui
+  :defer t
   :after org-roam ;; or :after org
   ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
   ;; a hookable mode anymore, you're advised to pick something yourself
@@ -812,9 +861,6 @@ These templates set up the outline. Here is a table of what they do:
                                ("~/Documents/org/inbox.org" :maxlevel . 1)
                                ("~/Documents/org/tickler.org" :maxlevel . 1)
                                ("~/Documents/org/maybe.org" :maxlevel . 1)
-                               ("~/Documents/org/topology2.org" :maxlevel . 2)
-                               ("~/Documents/org/alggeo2.org" :maxlevel . 2)
-                               ("~/Documents/org/algtop2.org" :maxlevel . 2)
                                ))
     (setq org-capture-templates
           '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
@@ -827,9 +873,16 @@ These templates set up the outline. Here is a table of what they do:
               "* EVENT  %?\n  %i\n #+created: %t")
              ("R" "read" entry (file "~/Documents/org/inbox.org" )
               "* READ  %?\n  %i\n #+created: %t")
-             ))
+             ("m" "Email workflow")
+             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
+              "* TODO Follow up with %:fromname on %a\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
+             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
+              "* TODO %? \nSCHEDULED: %t\nReference: %a\n\n%i")
+             ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
+              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
     )
-  )
+)
+
 ```
 
 
@@ -926,6 +979,7 @@ In this case, we use this drawer because I&rsquo;d still like to see the image o
 
 ```emacs-lisp
 (use-package! ink
+  :defer t
   :config
   ;; These flags export all the necessary file formats
   (setq ink-flags-custom (list "--export-area-drawing"
@@ -998,16 +1052,7 @@ All we need is a function to interactively insert open the program.
 ```
 
 
-## `org-babel` {#org-babel}
-
-```emacs-lisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (haskell . t)
-   (jupyter . t)))
-```
+## `org-babel` <span class="tag"><span class="ARCHIVE">ARCHIVE</span></span> {#org-babel}
 
 
 ## `company` {#company}
@@ -1047,6 +1092,7 @@ Disable company in `org-mode`.
   )
 
 (use-package! frog-jump-buffer
+  :defer t
   :config
   (setq frog-jump-buffer-include-current-buffer nil)
   (dolist (regexp '("TAGS" "compile-log\\*$" "^compile-Log\\*" "Compile-log\\*"  "-debug\\*$" "^\\:" "errors\\*$" "^\\*Backtrace" "-ls\\*$" "\\*scratch\\*" "stderr\\*$" "^\\*Flymake" "^\\*vc" "^\\*Warnings" "^\\*eldoc" "\\^*Shell Command" "^\\*Xenops" "^\\*Messages" "\\*doom\\*" ))
