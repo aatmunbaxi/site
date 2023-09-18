@@ -19,11 +19,12 @@ type = "post"
 - [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
     - [Doom Dashboard](#doom-dashboard)
     - [Modeline](#modeline)
+    - [Global Appearance](#global-appearance)
     - [Custom Faces](#custom-faces)
     - [Custom Functionality](#custom-functionality)
 - [Global keybindings](#global-keybindings)
 - [`evil`](#evil)
-    - [Keybinds](#keybinds)
+    - [`evil-owl`](#evil-owl)
 - [`embark`](#embark)
 - [`org-mode`](#org-mode)
     - [Some variables](#some-variables)
@@ -95,7 +96,7 @@ Each mode has their own subsection for common configuration patterns such as key
 
 ```emacs-lisp
 (setq catppuccin-flavor 'mocha)
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'doom-flatwhite)
 ```
 
 
@@ -109,8 +110,6 @@ Each mode has their own subsection for common configuration patterns such as key
 ### Modeline {#modeline}
 
 ```emacs-lisp
-(display-battery-mode)
-(display-time-mode)
 (use-package! doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
@@ -137,6 +136,15 @@ Each mode has their own subsection for common configuration patterns such as key
   (doom-modeline-time t)
   (doom-modeline-always-visible-segments '(mu4e))
   )
+(add-hook! 'doom-modeline-mode-hook #'display-battery-mode)
+(add-hook! 'doom-modeline-mode-hook #'display-time-mode)
+```
+
+
+### Global Appearance {#global-appearance}
+
+```emacs-lisp
+(setq display-line-numbers-type nil)
 ```
 
 
@@ -170,25 +178,28 @@ Similarly, the third block sets the faces for the super-agenda.
 
   (custom-set-faces!
     `(org-agenda-date
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold)
+      :foreground ,(doom-color 'violet) :height 1.3 :weight bold :slant italic)
 
     `(org-agenda-date-weekend
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold)
+      :foreground ,(doom-color 'violet) :height 1.3 :weight light :slant italic)
 
-    `(org-agenda-date-weekend-today
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold))
+    `(org-agenda-date-today
+      :foreground ,(doom-color 'violet) :height 1.3 :weight bold :slant italic)
+
+    `(org-modern-tag
+      :background ,(doom-color 'base1) :foreground ,(doom-color 'fw-base1)))
 
   (defface super-agenda-due-today-face
-    `((t :background ,(doom-darken 'red 0.5) :underline t)) "" :group 'org-super-agenda)
+    `((t :background ,(doom-color 'red) :underline t :inverse-video t)) "" :group 'org-super-agenda)
 
   (defface super-agenda-today-face
-    `((t :foreground ,(doom-color 'fg) :underline t)) "" :group 'org-super-agenda)
+    `((t :foreground ,(doom-color 'fg) :underline t :slant italic)) "" :group 'org-super-agenda )
 
   (defface super-agenda-todo-face
     `((t :foreground ,(doom-color 'green+4)))  "" :group 'org-super-agenda )
 
   (defface super-agenda-date-face
-    `((t :foreground ,(doom-color 'fg-1)))  "" :group 'org-super-agenda )
+    `((t :foreground ,(doom-color 'fg-1)) :slant italic )  "" :group 'org-super-agenda )
 
   (defface super-agenda-wait-face
     `((t :foreground ,(doom-color 'orange)))  "" :group 'org-super-agenda )
@@ -286,16 +297,7 @@ These are keybinds that should work in all modes.
 ## `evil` {#evil}
 
 
-### Keybinds {#keybinds}
-
-This keybinding allows escaping of `evil-insert-state` with quickly pressing `jk`.
-
-```emacs-lisp
-(setq-default evil-escape-key-sequence "jk")
-```
-
-
-#### `evil-owl` {#evil-owl}
+### `evil-owl` {#evil-owl}
 
 `evil-owl` lets you view your marks in a posframe in the buffer before you commit to jumping to them.
 
@@ -309,7 +311,22 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
   (setq evil-owl-display-method 'posframe
         evil-owl-extra-posframe-args '(:width 50 :height 20)
         evil-owl-max-string-length 50)
-  (evil-owl-mode))
+
+  (setq evil-owl-register-groups
+        `(("Named"     . ,(cl-loop for c from ?a to ?z collect c))
+          ("Numbered"  . ,(cl-loop for c from ?0 to ?9 collect c))
+          ("Special"   . (?\" ?* ?+ ?-))
+          ("Read-only" . (?% ?# ?/ ?: ?.))))
+
+  (setq evil-owl-mark-groups
+        `(("Named Local"  . ,(cl-loop for c from ?a to ?z collect c))
+          ("Named Global" . ,(cl-loop for c from ?A to ?Z collect c))
+          ("Numbered"     . ,(cl-loop for c from ?0 to ?9 collect c))
+          ("Special"      . (?\[ ?\] ?< ?> ?^ ?\( ?\) ?{ ?}))))
+  (setq evil-owl-local-mark-format " %m: [l: %-5l, c: %-5c]\n    %s")
+  (setq evil-owl-global-mark-format " %m: [l: %-5l, c: %-5c] %b\n    %s")
+
+  )
 ```
 
 
@@ -354,7 +371,7 @@ By default, the `org-preview-latex-default-process` doesn&rsquo;t play well with
 To fix this, we use `imagemagick` instead.
 
 ```emacs-lisp
-(setq org-preview-latex-default-process 'imagemagick)
+(setq org-preview-latex-default-process 'dvisvgm)
 ```
 
 ```emacs-lisp
@@ -407,6 +424,10 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
         ))
 ```
 
+```emacs-lisp
+(setq org-attach-id-dir "~/Documents/org/.attach/")
+```
+
 
 ### Hooks {#hooks}
 
@@ -416,13 +437,12 @@ These will be activated when `org-mode` is opened.
 (defun my/org-hooks ()
   (mixed-pitch-mode)
   (org-cdlatex-mode)
-  (display-line-numbers-mode -1)
-  (visual-fill-column-mode)
   (evil-tex-mode)
   (org-appear-mode)
+  (evil-owl-mode)
   )
 
-(add-hook 'org-mode-hook  'my/org-hooks)
+(add-hook! 'org-mode-hook  #'my/org-hooks)
 ```
 
 
@@ -458,17 +478,6 @@ Startup with all trees folded and format some org features
   )
 ```
 
-```emacs-lisp
-;; (use-package! procress
-;;   ;; :straight (:host github :repo "haji-ali/procress")
-;;   :commands procress-auctex-mode
-;;   :init
-;;   (add-hook 'LaTeX-mode-hook #'procress-auctex-mode)
-;;   (add-hook 'org-mode-hook #'procress-auctex-mode)
-;;   :config
-;;   (procress-load-default-svg-images))
-```
-
 
 ## `bibtex` {#bibtex}
 
@@ -485,22 +494,32 @@ We configure some of its settings here.
 ## `org-super-agenda` {#org-super-agenda}
 
 ```emacs-lisp
+(setq org-agenda-format-date (lambda (date) (concat "\n"
+                                                    (make-string (window-width) 9472)
+                                                    "\n"
+                                                    (org-agenda-format-date-aligned date))))
+```
+
+```emacs-lisp
 (use-package! org-super-agenda
-  :config
-  (require 'doom-themes)
+  :init
+  ;; (require 'doom-themes)
   (require 'org-modern)
   (setq org-agenda-include-deadlines t
         org-agenda-block-separator nil
         org-agenda-compact-blocks nil
         org-agenda-start-day nil ;; i.e. today
-        org-agenda-span 7)
+        org-agenda-span 4)
   (custom-set-faces!
     `(org-super-agenda-header
-      :background "bg" :height 1.3)
-    `(org-super-agenda-date-face
-      :overline t :height 1.4 :foreground ,(doom-color 'teal))
+      :background ,(doom-color 'bg) :foreground ,(doom-color 'red) :weight ultra-bold :slant italic :height 1.2)
     `(org-agenda-date
-      :overline t :height 1.4 :background ,(doom-color 'teal)))
+      :height 1.5  :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base2) :slant normal :weight ultra-light)
+    `(org-agenda-date-today
+      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base1) :slant italic :weight ultrabold)
+    `(org-agenda-date-weekend
+      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg) :slant normal :weight ultra-light))
+  :config
   (setq org-agenda-custom-commands
         '(("s" "Super view"
            ((agenda "" ((org-super-agenda-groups
@@ -513,28 +532,24 @@ We configure some of its settings here.
                             :and (:todo "TODO" :deadline today)
                             :habit t
                             :order 2)
-                           ;; (:name "Coming up 🕙"
-                           ;;  :deadline future
-                           ;;  :order 3)
                            ))))
             (alltodo ""
                      ((org-agenda-overriding-header "")
                       (org-super-agenda-groups
                        '(
-                         (:name "On Campus 🏫"
-                          :tag ("@campus" "@blocker")
-                          :order 5)
-
                          (:name "Maybe / To Read 🤔"
                           :todo ("IDEA" "READ" "MAYBE")
                           :order 10)
 
-                         (:discard (:children nil))
-
                          (:name "Unscheduled"
                           :children ("TODO" "DONE")
                           :and (:scheduled nil :deadline nil)
-                          :order 6)))))))))
+                          :order 6)
+
+                         (:discard (:children nil))
+                         ))))))))
+)
+(after! org-super-agenda
   (org-super-agenda-mode))
 ```
 
@@ -649,11 +664,15 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 (use-package! helm-bibtex
   :defer t
   :config
-  (setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib" bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
+  (setq bibtex-completion-bibliography '("~/Documents/bib/reference-texts.bib" "~/Documents/bib/reference-articles.bib")
+        bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
         bibtex-completion-notes-path "~/Documents/org/general-notes.org"
         bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
         bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}") (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}") (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
+        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+                                            (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+                                            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+                                            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
 ```
 
 
@@ -664,7 +683,7 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 ```emacs-lisp
 (use-package! org-ref
   :after org
-  :ensure t
+  :defer t
   :init
   (require 'bibtex)
   (require 'org-ref-helm)
@@ -721,8 +740,7 @@ Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
 (setq xenops-math-image-scale-factor 1.4
-      xenops-reveal-on-entry nil
-      )
+      xenops-reveal-on-entry nil)
 ```
 
 
@@ -737,7 +755,7 @@ Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
 (use-package! org-noter
-  :defer f
+  :defer t
   :config
   (setq org-noter-always-create-frame t))
 ```
@@ -749,6 +767,7 @@ Increase the preview image sizes so that they&rsquo;re readable.
 
 ```emacs-lisp
 (use-package! org-roam
+  :defer  t
   :custom
   (org-roam-directory "~/Documents/org/roam")
 
@@ -756,10 +775,10 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (defun my/org-roam-hooks ()
     (xenops-mode)
     (org-cdlatex-mode)
-    )
+    (xenops-dwim))
 
-  (add-hook 'org-roam-capture-new-node-hook 'my/org-roam-hooks)
-  (add-hook 'org-roam-find-file-hook 'my/org-roam-hooks)
+  (add-hook! 'org-roam-capture-new-node-hook #'my/org-roam-hooks)
+  (add-hook! 'org-roam-find-file-hook #'my/org-roam-hooks)
   (setq org-roam-node-display-template
         (concat "${title:*} "
                 (propertize "${tags:40}" 'face 'org-modern-tag)))
@@ -792,11 +811,12 @@ Increase the preview image sizes so that they&rsquo;re readable.
   )
 
 (use-package! websocket
+  :defer t
   :after org-roam)
 
 (use-package! org-roam-ui
   :defer t
-  :after org-roam ;; or :after org
+  :after org  ;; or :after org
   ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
   ;; a hookable mode anymore, you're advised to pick something yourself
   ;; if you don't care about startup time, use
@@ -856,11 +876,13 @@ These templates set up the outline. Here is a table of what they do:
 ```emacs-lisp
 (after! (org-modern)
   (use-package! org-capture
+    :defer t
     :config
     (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
                                ("~/Documents/org/inbox.org" :maxlevel . 1)
                                ("~/Documents/org/tickler.org" :maxlevel . 1)
                                ("~/Documents/org/maybe.org" :maxlevel . 1)
+                               ("~/Documents/org/notes.org" :maxlevel . 2)
                                ))
     (setq org-capture-templates
           '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
@@ -881,7 +903,7 @@ These templates set up the outline. Here is a table of what they do:
              ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
               "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
     )
-)
+  )
 
 ```
 
@@ -940,7 +962,7 @@ This section is taken from the ideas and code in this article: [LaTeX Input for 
 This function allows for auto expanding of snippets.
 
 ```emacs-lisp
-(require 'yasnippet)
+;; (require 'yasnippet)
 (defun my/yas-try-expanding-auto-snippets ()
   (when (bound-and-true-p yas-minor-mode)
     (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))

@@ -7,19 +7,19 @@ weight = -1000
 
 ## About Me {#about-me}
 
-Currently I am a PhD student in mathematics at Texas A&amp;M University.
+I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr. [Eric Rowell](https://www.math.tamu.edu/~rowell/).
 
-**Interests:** Broad, but particularly things in category theory and algebraic geometry.
+**Interests:** Fusion and modular categories and their classification. Some random things in algebraic geometry.
 
 
 ### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}
 
--   _Dune_
+-   _Tensor Categories_
 
 
 ### Education {#education}
 
--   PhD Mathematics, Texas A&amp;M University (in-progress)
+-   PhD Mathematics, Texas A&amp;M University (in progress)
 -   MS Mathematics, Texas A&amp;M University 2023
 -   BS Mathematics, UCLA 2021
 
@@ -31,9 +31,9 @@ Currently I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### Hobbies {#hobbies}
 
--   Programming and learning new programming languages. I&rsquo;m currently interested in Haskell and Rust
--   Soccer. Specifically, Liverpool FC
+-   Programming and learning new programming languages. I&rsquo;m currently working in the rust programming language.
+-   Liverpool FC
 -   Astrophotography. Check my images [here]({{< relref "astrophotos" >}})
 -   Learning japanese through immersion
--   Free (as in freedom) software, such as GNU emacs
+-   Free (as in freedom) software
     -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in GNU emacs
