@@ -8,76 +8,42 @@ weight = 2002
 
 <div class="ox-hugo-toc toc local">
 
-- [Info](#info)
-- [Lecture 1: Mon Jun 12 11:05:22 2023](#lecture-1-mon-jun-12-11-05-22-2023)
-    - [Preliminaries](#preliminaries)
-    - [Extending up/down](#extending-up-down)
-    - [Boundary Conditions](#boundary-conditions)
-- [Lecture 2: Mon Jun 12 13:04:01 2023](#lecture-2-mon-jun-12-13-04-01-2023)
-    - [Summary of previous lecture](#summary-of-previous-lecture)
-    - [2d Mirror Symmetry](#2d-mirror-symmetry)
-    - [Gerstenhaber algebra](#gerstenhaber-algebra)
-- [Lecture 3: Mon Jun 12 16:07:19 2023](#lecture-3-mon-jun-12-16-07-19-2023)
-    - [Goals](#goals)
-    - [Field Theories](#field-theories)
-    - [Supersymmetric Field Theories](#supersymmetric-field-theories)
-    - [Twisting](#twisting)
-- [Lecture 4: Mon Jun 12 18:02:13 2023](#lecture-4-mon-jun-12-18-02-13-2023)
-    - [Gauge Theories](#gauge-theories)
-    - [Hyper-Kahler manifolds](#hyper-kahler-manifolds)
-- [Lecture 5: Tue Jun 13 10:34:03 2023](#lecture-5-tue-jun-13-10-34-03-2023)
-    - [The Gauged Gromov-Witten Invariant](#the-gauged-gromov-witten-invariant)
-- [Lecture 6: Tue Jun 13 12:44:10 2023](#lecture-6-tue-jun-13-12-44-10-2023)
-    - [Topological Interpretation](#topological-interpretation)
-    - [Connection to SW Invariants](#connection-to-sw-invariants)
-- [Lecture 7: Tue Jun 13 15:44:00 2023](#lecture-7-tue-jun-13-15-44-00-2023)
-    - [Review](#review)
-    - [Moment Maps](#moment-maps)
-    - [Supersymmetry](#supersymmetry)
-    - [Fields](#fields)
-- [Lecture 8: Tue Jun 13 18:01:16 2023](#lecture-8-tue-jun-13-18-01-16-2023)
-    - [Schematic SUSY](#schematic-susy)
-    - [Twists](#twists)
-    - [What happens when you twist](#what-happens-when-you-twist)
-- [Lecture 9: Wed Jun 14 10:46:24 2023](#lecture-9-wed-jun-14-10-46-24-2023)
-    - [Recall](#recall)
-    - [2d \\( A \\)-model](#2d-a-model)
-    - [2d \\( B \\)-model](#2d-b-model)
-    - [3d \\( A \\)-model](#3d-a-model)
-    - [Example of 3d Mirror Symmetry](#example-of-3d-mirror-symmetry)
-- [Lecture 10: Wed Jun 14 12:48:31 2023](#lecture-10-wed-jun-14-12-48-31-2023)
-    - [The Affine Grassmannian](#the-affine-grassmannian)
-    - [BFN Coulomb Branch](#bfn-coulomb-branch)
-- [Lecture 11: Wed Jun 14 15:55:18 2023](#lecture-11-wed-jun-14-15-55-18-2023)
-    - [Moduli Space of vacua](#moduli-space-of-vacua)
-    - [Quantum vacua](#quantum-vacua)
-    - [Examples of Higgs and Coulomb Branches](#examples-of-higgs-and-coulomb-branches)
-- [Lecture 12: Wed Jun 14 18:05:37 2023](#lecture-12-wed-jun-14-18-05-37-2023)
-    - [\\( \Omega\\) -background and quantization](#omega-background-and-quantization)
-    - [The \\( A \\)-model](#the-a-model)
-- [Lecture 13: Thu Jun 15 10:46:45 2023](#lecture-13-thu-jun-15-10-46-45-2023)
-    - [Review](#review)
-    - [Computations in Dualities](#computations-in-dualities)
-    - [Mirror Symmetry](#mirror-symmetry)
-- [Lecture 14: Thu Jun 15 13:05:02 2023](#lecture-14-thu-jun-15-13-05-02-2023)
-    - [Quantizing the \\( B \\)-twisted Higgs branch](#quantizing-the-b-twisted-higgs-branch)
-- [Lecture 15: Fri Jun 16 10:44:46 2023](#lecture-15-fri-jun-16-10-44-46-2023)
+- [LAWRGe Workshop](#lawrge-workshop)
+    - [Info](#info)
+    - [Lecture 1: Mon Jun 12 11:05:22 2023](#lecture-1-mon-jun-12-11-05-22-2023)
+    - [Lecture 2: Mon Jun 12 13:04:01 2023](#lecture-2-mon-jun-12-13-04-01-2023)
+    - [Lecture 3: Mon Jun 12 16:07:19 2023](#lecture-3-mon-jun-12-16-07-19-2023)
+    - [Lecture 4: Mon Jun 12 18:02:13 2023](#lecture-4-mon-jun-12-18-02-13-2023)
+    - [Lecture 5: Tue Jun 13 10:34:03 2023](#lecture-5-tue-jun-13-10-34-03-2023)
+    - [Lecture 6: Tue Jun 13 12:44:10 2023](#lecture-6-tue-jun-13-12-44-10-2023)
+    - [Lecture 7: Tue Jun 13 15:44:00 2023](#lecture-7-tue-jun-13-15-44-00-2023)
+    - [Lecture 8: Tue Jun 13 18:01:16 2023](#lecture-8-tue-jun-13-18-01-16-2023)
+    - [Lecture 9: Wed Jun 14 10:46:24 2023](#lecture-9-wed-jun-14-10-46-24-2023)
+    - [Lecture 10: Wed Jun 14 12:48:31 2023](#lecture-10-wed-jun-14-12-48-31-2023)
+    - [Lecture 11: Wed Jun 14 15:55:18 2023](#lecture-11-wed-jun-14-15-55-18-2023)
+    - [Lecture 12: Wed Jun 14 18:05:37 2023](#lecture-12-wed-jun-14-18-05-37-2023)
+    - [Lecture 13: Thu Jun 15 10:46:45 2023](#lecture-13-thu-jun-15-10-46-45-2023)
+    - [Lecture 14: Thu Jun 15 13:05:02 2023](#lecture-14-thu-jun-15-13-05-02-2023)
+    - [Lecture 15: Fri Jun 16 10:44:46 2023](#lecture-15-fri-jun-16-10-44-46-2023)
 
 </div>
 <!--endtoc-->
 
 
-## Info {#info}
+## LAWRGe Workshop {#lawrge-workshop}
+
+
+### Info {#info}
 
 Mirror symmetry and 3d topological quantum field theories (TQFTs)
 
 [Workshop website](https://sites.google.com/view/lawrge2023/)
 
 
-## Lecture 1: Mon Jun 12 11:05:22 2023 {#lecture-1-mon-jun-12-11-05-22-2023}
+### Lecture 1: Mon Jun 12 11:05:22 2023 {#lecture-1-mon-jun-12-11-05-22-2023}
 
 
-### Preliminaries {#preliminaries}
+#### Preliminaries {#preliminaries}
 
 **TQFT:** One starts with a cobordism, a manifold with boundary with disjoint union decomposition \\( \partial W = M\sqcup N \\).
 Usual notions of framed, oriented, unoriented, etc apply to the boundary decomposition.
@@ -107,7 +73,7 @@ The definition expresses a lot of things, such as \\( Z( M\_1\sqcup M\_2) \cong 
 -   Given \\( M \xrightarrow{W}  N \\), \\( Z(W) : Z(M) \to Z(N) \\) corresponds to a _transition amplitude_, or \\( S \\)-matrix.
 
 
-### Extending up/down {#extending-up-down}
+#### Extending up/down {#extending-up-down}
 
 Suppose we start with some closed \\( d \\)-manifold \\( M \\) which is a union of two manifolds with boundary \\( \Sigma \\).
 The partition function \\( Z(M) \\) is a composite of morphisms \\( \mathbf{C} \to Z( \Sigma) \to \mathbf{C} \\).
@@ -138,7 +104,7 @@ Then \\( C\_{\bullet}(\operatorname{Diff}(M)) \\) as an algebra under the Pontja
 There will be an exercise about what happens on \\( M = S^1 \\), where \\( \operatorname{Diff}^{\mathrm{or}}(S^1) \sim S^1 \\), and \\( \operatorname{MCG}(S^1) = \star \\) a point.
 
 
-### Boundary Conditions {#boundary-conditions}
+#### Boundary Conditions {#boundary-conditions}
 
 Given a TQFT \\( Z : \mathsf{Cob}\_{d,d-1}^{\mathrm{or}} \to \mathsf{Vec} \\) and \\( M \\) a \\( d \\)-manifold with boundary.
 A map \\( Z(M) : Z( \partial M) \to \mathbf{C} \\) induces a boundary condition \\( Z^{\partial} \\) to \\( Z \\).
@@ -151,17 +117,17 @@ We can consider \\( Z^{\partial}(\text{point}) : \mathbf{1} \to Z(\text{point}) 
 This category contains all boundary conditions, as we are just picking out a vector.
 
 
-## Lecture 2: Mon Jun 12 13:04:01 2023 {#lecture-2-mon-jun-12-13-04-01-2023}
+### Lecture 2: Mon Jun 12 13:04:01 2023 {#lecture-2-mon-jun-12-13-04-01-2023}
 
 
-### Summary of previous lecture {#summary-of-previous-lecture}
+#### Summary of previous lecture {#summary-of-previous-lecture}
 
 As a reminder, a TQFT is some kind of functor \\( Z : \mathsf{Bord}\_d^{\mathrm{or}} \to \mathcal{C} \\) which may or may not have some more enriched structure.
 
 _Mirror symmetry_ is an equivalence of two kinds of TQFTs.
 
 
-### 2d Mirror Symmetry {#2d-mirror-symmetry}
+#### 2d Mirror Symmetry {#2d-mirror-symmetry}
 
 Given a symplectic manifold \\( M \\), there is a 2d TQFT \\( Z\_{2dA,M} : \mathsf{Bord}^{\mathrm{or}}\_2 \to \mathsf{Cat} \\), called the **2-dimensional \\( A \\)-model**.
 Given a complex algebraic manifold \\( M \\), there is another 2d TQFT \\( Z\_{2dB, M} : \mathsf{Bord}\_2^{\mathrm{or}} \to \mathsf{Cat} \\) called the **2-dimensional \\( B \\)-model**.
@@ -172,94 +138,95 @@ Mirror symmetry is an equivalence \\( Z\_{2dA,M} \cong Z\_{2dB,M} \\).
 3d mirror symmetry says something analogous.
 
 
-### Gerstenhaber algebra {#gerstenhaber-algebra}
+#### Gerstenhaber algebra {#gerstenhaber-algebra}
+
+<!--list-separator-->
+
+-  Local operators
+
+    Recall we wanted to make sense of the partition function with some boundary condition, or a _defect_.
+    Currently, let the defect on the boundary be just a point.
+    We want to say something akin to &ldquo;everything away from the defect is the original TQFT, but at the defect it could be different&rdquo;.
+
+    **Definition:** A _local operator_ in a TQFT \\( Z \\) is a vector \\( \mathcal{O} \in Z(S^{d-1}) \\).
+
+    Let \\( M \\) be a \\( d \\)-manifold, and consider a knot \\( K \\) inside \\( M \\).
+    The boundary of a neighborhood of the knot is \\( S^{d-2} \times S^1 \\), with neighborhood \\( S^{d-2} \times D \\).
+    \\( Z(M\_{\mathcal{O}}) \\) is a composite
+
+    \begin{equation\*}
+     \mathbf{C} \xrightarrow{Z(\ldots\_{K})}  Z(S^{d-2} \times S^1) \xrightarrow{Z(\text{complement})} \mathbf{C}  .
+    \end{equation\*}
+
+    **Definition:** The vector space of line operators is \\( Z(S^{d-2} \times  S^1) \\).
+    Imagine now we cut \\( M \\) along some submanifold \\( N \\) so it cuts the knot \\( K \\).
+    The &ldquo;local line operators&rdquo; give objects of \\( Z(S^{d-2}) \\).
+    To a \\( d-1 \\)-manifold \\( N \\) with defect points \\( \mathcal{O} \in N \\), \\( Z(N) \\) is a composite of
+
+    \begin{equation\*}
+    \mathbf{C} \xrightarrow{Z(\ldots\_{\mathcal{O}})}  Z(S^{d-2}) \xrightarrow{Z(N \setminus pt)}  \mathbf{C}.
+    \end{equation\*}
+
+    The upshot is that line operators give objects of \\( Z(S^{d-2}) \\) as a category of line operators.
+
+    We can introduce algebraic structures on \\( Z(S^{d-1}), Z(S^{d-2}) \\).
+
+    Say \\( D \\) is a \\( d \\)-dimensional ball, and consider an embedding of \\( D^{\sqcup k} \hookrightarrow D \\).
+    To this embedding we can create a cobordism \\( D: (S^{d-1})^{\sqcup k} \to S^{d-1} \\).
+    Thus, if we have a TQFT, from this induced cobordism, we get an operation \\( Z(S^{d-2})^{\otimes  k} \to Z(S^{d-1}) \\) taking \\( k \\) local operators and giving a local operator
+    Now consider the space of embeddings of \\( k \\)-balls \\( \mathbb{E}^{\mathrm{f r}}\_d (k) \\) given the Whitney topology.
+    If \\( Z(S^{d-1}) \\) is a chain complex, then we get \\( C\_{\bullet}( \mathbb{E}^{\mathrm{ f r}}\_d(k))  \otimes  Z(S^{d-1})^{\otimes  k} \to Z(S^{d-1}) \\)
+    Then we get a co
+
+    \begin{equation}
+    \label{eq:1}
+     \mathbb{E}^{\mathrm{f r}}\_d (k) \to \operatorname\*{Hom}((S^{d-1})^{\otimes k} , S^{d-1}) \xrightarrow{Z} \operatorname{Hom}\_{\mathsf{Ch}}(Z(S^d-1)^{\otimes k} , Z(S^{d-1}))
+    \end{equation}
+
+    Now suppose we nest balls inside the embedded balls.
+    We can combine all nested operations into \\(  \mathbb{E}^{\mathrm{f r}}\_d \\) as an _operad_.
+    The upshot is that \\( Z(S^{d-1}) \\) is an \\(  \mathbb{E}^{\mathrm{f r}}\_d \\)-algebra.
+
+    Let&rsquo;s introduce \\( \mathbb{E}\_d(k) = \operatorname{Emb}^{\mathrm{f r}}(D^{\sqcup k} , D) \\) the collection of framed embeddings.
+
+    **Proposition:** \\( \mathbb{E}\_d(k) \simeq \operatorname{Conf}\_k( \mathbf{R}^d) \\) the space of configurations of \\( k \\) points in \\( \mathbf{R}^d \\).
+    For the framed version \\(  \mathbb{E}^{\mathrm{f r}}\_d (k)  \simeq \operatorname{SO}(d) ^k \times \mathbb{E}\_d(k) \\).
+
+    What now is \\( H\_{\bullet}( \mathbb{E}\_d(k) ^{\mathrm{f r}} , \mathbf{C}) \\)?
+
+    **Definition:** a \\( \mathbb{P}\_d \\)-algebra is a chain complex \\( A \\) with graded commutative multiplication \\( m : A \otimes  A \to A \\) and a Lie bracket \\( \left\\{ -,- \right\\}: A \otimes  A \to A[1-d] \\) satisfying the super-Leibniz rule.
+
+    Such algebras have an operad.
+    Let \\( \mathbb{P}\_d(k) \\) be the graded vector space of \\( k \\)-ary operations on a \\( \mathbb{P}\_d \\)-algebra.
+    For example, \\( \mathbb{P}\_d(1) = \mathbf{C} \\), and \\( \mathbb{P}\_d(2) = \mathbf{C}m \oplus \mathbf{C}\left\\{ -,- \right\\}[d-1] \\).
+    A \\( \mathbb{P}\_2 \\)-algebra is called a _dg Poisson algebra_.
+
+    **Proposition:** \\( H\_{\bullet}(  \mathbb{E}^{\mathrm{f r}}\_d (k) ) \cong \mathbb{P}\_d(k) \\) for \\( d \geqslant 2 \\).
+
+    The upshot is that if we start with some \\( d \\)-TQFT valued in chain complexes, and look at \\( H^{\bullet}(Z(S^{d-1}) )\\), then this is a \\( \mathbb{P}\_d \\)-algebra.
+
+    The example we will be interested in is \\( d=3 \\).
+    We have \\( H^{\bullet}(Z(S^2))  \\) is a \\( \mathbb{P}\_3 \\)-algebra with Poisson bracket of degree \\( -2 \\).
+    Recall that \\( Z(S^{d-2}) \\) is the category of line operators.
+    This carries an \\(  \mathbb{E}^{\mathrm{f r}}\_{d-1}   \\)-algebra structure.
+
+    -   \\( \mathbb{E}\_2 \\)-category is a braided monoidal category
+    -   \\( \mathbb{E}\_1 \\)-category is a monoidal category
+    -   \\( \mathbb{E}\_2^{\mathrm{f r}} \\) is called a balanced monoidal category
+
+    In the case \\( d=3 \\), \\( Z(S^1) \\) the category of line operators is a braided, balanced monoidal category.
 
 
-#### Local operators {#local-operators}
-
-Recall we wanted to make sense of the partition function with some boundary condition, or a _defect_.
-Currently, let the defect on the boundary be just a point.
-We want to say something akin to &ldquo;everything away from the defect is the original TQFT, but at the defect it could be different&rdquo;.
-
-**Definition:** A _local operator_ in a TQFT \\( Z \\) is a vector \\( \mathcal{O} \in Z(S^{d-1}) \\).
-
-Let \\( M \\) be a \\( d \\)-manifold, and consider a knot \\( K \\) inside \\( M \\).
-The boundary of a neighborhood of the knot is \\( S^{d-2} \times S^1 \\), with neighborhood \\( S^{d-2} \times D \\).
-\\( Z(M\_{\mathcal{O}}) \\) is a composite
-
-\begin{equation\*}
- \mathbf{C} \xrightarrow{Z(\ldots\_{K})}  Z(S^{d-2} \times S^1) \xrightarrow{Z(\text{complement})} \mathbf{C}  .
-\end{equation\*}
-
-**Definition:** The vector space of line operators is \\( Z(S^{d-2} \times  S^1) \\).
-Imagine now we cut \\( M \\) along some submanifold \\( N \\) so it cuts the knot \\( K \\).
-The &ldquo;local line operators&rdquo; give objects of \\( Z(S^{d-2}) \\).
-To a \\( d-1 \\)-manifold \\( N \\) with defect points \\( \mathcal{O} \in N \\), \\( Z(N) \\) is a composite of
-
-\begin{equation\*}
-\mathbf{C} \xrightarrow{Z(\ldots\_{\mathcal{O}})}  Z(S^{d-2}) \xrightarrow{Z(N \setminus pt)}  \mathbf{C}.
-\end{equation\*}
-
-The upshot is that line operators give objects of \\( Z(S^{d-2}) \\) as a category of line operators.
-
-We can introduce algebraic structures on \\( Z(S^{d-1}), Z(S^{d-2}) \\).
-
-Say \\( D \\) is a \\( d \\)-dimensional ball, and consider an embedding of \\( D^{\sqcup k} \hookrightarrow D \\).
-To this embedding we can create a cobordism \\( D: (S^{d-1})^{\sqcup k} \to S^{d-1} \\).
-Thus, if we have a TQFT, from this induced cobordism, we get an operation \\( Z(S^{d-2})^{\otimes  k} \to Z(S^{d-1}) \\) taking \\( k \\) local operators and giving a local operator
-Now consider the space of embeddings of \\( k \\)-balls \\( \mathbb{E}^{\mathrm{f r}}\_d (k) \\) given the Whitney topology.
-If \\( Z(S^{d-1}) \\) is a chain complex, then we get \\( C\_{\bullet}( \mathbb{E}^{\mathrm{ f r}}\_d(k))  \otimes  Z(S^{d-1})^{\otimes  k} \to Z(S^{d-1}) \\)
-Then we get a co
-
-\begin{equation}
-\label{eq:1}
- \mathbb{E}^{\mathrm{f r}}\_d (k) \to \operatorname\*{Hom}((S^{d-1})^{\otimes k} , S^{d-1}) \xrightarrow{Z} \operatorname{Hom}\_{\mathsf{Ch}}(Z(S^d-1)^{\otimes k} , Z(S^{d-1}))
-\end{equation}
-
-Now suppose we nest balls inside the embedded balls.
-We can combine all nested operations into \\(  \mathbb{E}^{\mathrm{f r}}\_d \\) as an _operad_.
-The upshot is that \\( Z(S^{d-1}) \\) is an \\(  \mathbb{E}^{\mathrm{f r}}\_d \\)-algebra.
-
-Let&rsquo;s introduce \\( \mathbb{E}\_d(k) = \operatorname{Emb}^{\mathrm{f r}}(D^{\sqcup k} , D) \\) the collection of framed embeddings.
-
-**Proposition:** \\( \mathbb{E}\_d(k) \simeq \operatorname{Conf}\_k( \mathbf{R}^d) \\) the space of configurations of \\( k \\) points in \\( \mathbf{R}^d \\).
-For the framed version \\(  \mathbb{E}^{\mathrm{f r}}\_d (k)  \simeq \operatorname{SO}(d) ^k \times \mathbb{E}\_d(k) \\).
-
-What now is \\( H\_{\bullet}( \mathbb{E}\_d(k) ^{\mathrm{f r}} , \mathbf{C}) \\)?
-
-**Definition:** a \\( \mathbb{P}\_d \\)-algebra is a chain complex \\( A \\) with graded commutative multiplication \\( m : A \otimes  A \to A \\) and a Lie bracket \\( \left\\{ -,- \right\\}: A \otimes  A \to A[1-d] \\) satisfying the super-Leibniz rule.
-
-Such algebras have an operad.
-Let \\( \mathbb{P}\_d(k) \\) be the graded vector space of \\( k \\)-ary operations on a \\( \mathbb{P}\_d \\)-algebra.
-For example, \\( \mathbb{P}\_d(1) = \mathbf{C} \\), and \\( \mathbb{P}\_d(2) = \mathbf{C}m \oplus \mathbf{C}\left\\{ -,- \right\\}[d-1] \\).
-A \\( \mathbb{P}\_2 \\)-algebra is called a _dg Poisson algebra_.
-
-**Proposition:** \\( H\_{\bullet}(  \mathbb{E}^{\mathrm{f r}}\_d (k) ) \cong \mathbb{P}\_d(k) \\) for \\( d \geqslant 2 \\).
-
-The upshot is that if we start with some \\( d \\)-TQFT valued in chain complexes, and look at \\( H^{\bullet}(Z(S^{d-1}) )\\), then this is a \\( \mathbb{P}\_d \\)-algebra.
-
-The example we will be interested in is \\( d=3 \\).
-We have \\( H^{\bullet}(Z(S^2))  \\) is a \\( \mathbb{P}\_3 \\)-algebra with Poisson bracket of degree \\( -2 \\).
-Recall that \\( Z(S^{d-2}) \\) is the category of line operators.
-This carries an \\(  \mathbb{E}^{\mathrm{f r}}\_{d-1}   \\)-algebra structure.
-
--   \\( \mathbb{E}\_2 \\)-category is a braided monoidal category
--   \\( \mathbb{E}\_1 \\)-category is a monoidal category
--   \\( \mathbb{E}\_2^{\mathrm{f r}} \\) is called a balanced monoidal category
-
-In the case \\( d=3 \\), \\( Z(S^1) \\) the category of line operators is a braided, balanced monoidal category.
+### Lecture 3: Mon Jun 12 16:07:19 2023 {#lecture-3-mon-jun-12-16-07-19-2023}
 
 
-## Lecture 3: Mon Jun 12 16:07:19 2023 {#lecture-3-mon-jun-12-16-07-19-2023}
-
-
-### Goals {#goals}
+#### Goals {#goals}
 
 -   What is supersymmetry?
 -   What is a topological twist?
 
 
-### Field Theories {#field-theories}
+#### Field Theories {#field-theories}
 
 Regardless of how we model a (quantum) field theory, it will always involve dg (differential graded) linear algebra.
 i.e. some \\( \mathcal{E} \\) a graded vector space over \\( \mathbf{C} \\) and differential \\( d \\) (satisfying \\( d ^2=0\\) of degree \\( 1 \\))
@@ -278,7 +245,7 @@ If \\( \mathfrak{g} \\) is a Lie algebra, we can equip \\( \mathcal{E} \\) with 
 -   Complexified \\(  \mathfrak{g} \_{\mathbf{C}} = \mathfrak{so}(k, \mathbf{C}) \rtimes \mathbf{C}^4 \\), in case we don&rsquo;t want to worry about choice of signature
 
 
-### Supersymmetric Field Theories {#supersymmetric-field-theories}
+#### Supersymmetric Field Theories {#supersymmetric-field-theories}
 
 Let \\( n \\) be a dimension.
 **Defintion:** A field theory \\(( \mathcal{E}, d )\\) is an \\( n \\)-dimensional _supersymmetric_ theory with supersymmetry \\( \Sigma \\) if \\( \mathcal{E} \\) carries an additional \\( \mathbf{Z}/2 \\)-grading (so in total \\( \mathbf{Z} \times \mathbf{Z}/2 \\)-graded) and \\( d \\) has bidegree \\( (1,0) \\) wrt this grading and \\( (\mathcal{E},d) \\) has an \\( \mathfrak{is o}(n , \mathbf{C})  = \mathfrak{so}(n, \mathbf{C}) \rtimes \mathbf{C}^n \\) action that lifts to an action of the **super Poincare algebra** associated to \\( \Sigma \\).
@@ -313,7 +280,7 @@ The group \\( O(W) \\) (the orthogonal group) acts on the super Poincare algebra
 These are called \\( R \\)-symmetries.
 
 
-### Twisting {#twisting}
+#### Twisting {#twisting}
 
 Let \\( ( \mathcal{E},d) \\) be acted on by \\( \mathfrak{siso}(n  | \Sigma) \\), the super Poincare algebra with odd part \\( \Sigma \\).
 Let \\( Q \in \Sigma \\), and suppose \\( \left[ Q,Q \right]=0 \\).
@@ -335,10 +302,10 @@ The twisted theory \\( ( \mathcal{E}\_Q , d\_Q) \\) is called a _topological twi
 and \\( \mathbb{P} \operatorname{Nilp} = (\operatorname{Nilp} \setminus 0 )/ \mathbf{C}^{\times } \\).
 
 
-## Lecture 4: Mon Jun 12 18:02:13 2023 {#lecture-4-mon-jun-12-18-02-13-2023}
+### Lecture 4: Mon Jun 12 18:02:13 2023 {#lecture-4-mon-jun-12-18-02-13-2023}
 
 
-### Gauge Theories {#gauge-theories}
+#### Gauge Theories {#gauge-theories}
 
 3d \\( \mathcal{N}=4 \\) theories became a subject of interest in the mid 90s as a dimension reduction of 4d \\( \mathcal{N}=2 \\) theories.
 Something that came up from this study was the discovery of 3d mirror symmetry.
@@ -358,7 +325,7 @@ Some specializations of this concept:
     1.  Cotangent matter, so \\( W = T^{\*}V = V \oplus V^{\*} \\) where \\( V \\) is a complex representation of \\( G \\)
 
 
-### Hyper-Kahler manifolds {#hyper-kahler-manifolds}
+#### Hyper-Kahler manifolds {#hyper-kahler-manifolds}
 
 **Definition:** A _hyper-Kahler manifold_ \\( \mathcal{X} \\) is a Riemannian manifold \\(( \mathcal{X}, \gamma )\\) with a \\( \mathbb{P}^1 \\) of Kahler structures compatible with \\( \gamma \\).
 Typically, \\( \mathbb{P}^1 \\) is viewed as a the sphere in \\( \mathbf{R}^3 \\) with basis \\( I,J,K \\).
@@ -400,7 +367,7 @@ Then
 Then a linear 3d \\( \mathcal{N}=4 \\) gauge theory is \\( G , W \cong \mathbf{C}^{2n} \\), and \\( \rho : G \to U \operatorname{Sp}(n) \\).
 
 
-## Lecture 5: Tue Jun 13 10:34:03 2023 {#lecture-5-tue-jun-13-10-34-03-2023}
+### Lecture 5: Tue Jun 13 10:34:03 2023 {#lecture-5-tue-jun-13-10-34-03-2023}
 
 Idea: if you have a compact Lie group \\( G \\) and a quaternionic representation \\( W \\) of \\( G \\), you can associate 3d TQFTs \\( Z\_{3dA}, Z\_{3dB} \\).
 If \\( (G,W) \\) is a 3d mirror to another pair \\( (G', W') \\), then the \\( A \\) model \\(  Z\_{3dA} \\) and \\( B \\) model \\( Z\_{3dB'} \\) will be equivalent
@@ -414,132 +381,134 @@ If \\( (G,W) \\) is a 3d mirror to another pair \\( (G', W') \\), then the \\( A
 </div>
 
 
-### The Gauged Gromov-Witten Invariant {#the-gauged-gromov-witten-invariant}
-
-
-#### 2d Case {#2d-case}
-
-To start with an easier case, consider a 2d \\( A \\)-model:
-Let \\( G \\) be a compact Lie group with an identification \\( \mathfrak{g} \cong  g^{\*}\\), and \\( W  \\) a unitary \\( G \\)-representation (or more generally, \\( W \\) is some hyper-Kahler manifold with a \\( G \\)-action).
-Recall a unitary \\( G \\)-representation is a Hermitian vector space \\( W \\) and a homomorphism \\( G \to U(W) \\).
-Then \\( Z\_{3dA, W/ /G} \\) is a 2d TQFT, with \\(  Z\_{3dA, W //G} ( \Sigma) \\) the _gauged Gromov-Witten invariant of \\( W \\)_, which counts the solutions of some PDE on \\( \Sigma \\), where \\( \Sigma \\) is some Riemann surface.
-(The vanilla GW invariant is when \\( G \\) is trivial.)
-The PDE in question is called the symplectic vortex equation.
-Before we write it, let&rsquo;s introduce a function
-
-\begin{align\*}
-\label{eq:4}
-\mu : W &\to \mathfrak{g}^{\*} \\\\
-v &\mapsto \frac{1}{2}(xv,v)
-\end{align\*}
-
-where \\( x\in \mathfrak{g} \\).
-\\( \mu \\) is a **moment map** for the \\( G \\)-action on \\( W \\).
-
-Choose a principal \\( G \\)-bundle \\( P \to \Sigma \\) and a connection \\( \nabla \\) a connection on \\( P \\), and a smooth section \\( \varphi \in \Gamma(\Sigma , P^G \times W) \\).
-The symplectic vortex equations are
-
-\begin{align\*}
-\overline{\partial} \varphi &= 0\in \Omega^{0,1}(\Sigma , P^G \times  W) \\\\
-\star F + \mu(\varphi) &= 0 \in \Omega^0(\Sigma, \operatorname{ad} P).
-\end{align\*}
-
-We recall \\( \operatorname{ad}P = P^G \times \mathfrak{g}\to \Sigma \\) is the adjoint bundle.
-The gauged GW invariant counts solutions of these equations modulo gauge transformations.
-The dimension of the moduli space of solutions is
-
-\begin{equation}
-\label{eq:5}
-d = (2-2g)(\dim\_{\mathbf{C}} W - \dim  G) + 2\deg (P^G \times W).
-\end{equation}
-
-**Remarks**
-
--   If \\( G \\) is trivial, no principal bundle is here, the second equation drops out, and the first equation just says that \\( \varphi \\) is a holomorphic map.
--   If \\( W=0 \\), then the first equation drops out, and the second equation just says that the curvature of the connection is zero.
-    In general there are few flat connections compared to non-flat connections, but it is a theorem in this case that the moduli space of flat \\( G \\)-bundles is identified with the space of holomorphic \\( G\_{\mathbf{C}} \\)-bundles, the complexified \\( G \\)-bundles
-
-
-#### 3d case {#3d-case}
-
-Again in the 3d case there will be a pair of equations.
-Fix again a compact Lie group \\( G \\), \\( W \\) a quaternionic representation of \\( G \\).
-Recall that \\( \operatorname{Spin}(3) = \operatorname{SU}(2) \to \operatorname{SO}(3) \\), which can be thought of as unit quaternions.
-If we have \\( u\in \mathbb{H} \\) a unit quaternion, it acts on \\( \operatorname{Im} \mathbb{H}  = \mathbf{R}^3 \\) by conjugation.
-Let \\( \mathcal{S} = \mathbb{H} \\) the spin representation by action \\( u\cdot x = ux \\).
-There is a natural map \\( c : V \otimes \mathcal{S}\to \mathcal{S} \\) where \\( V = \im \mathbb{H} \\).
-This is a map of \\( \operatorname{Spin}(3) \\)-representations called _Clifford multiplication_.
-
-A _spin structure_ on a Riemannian \\( 3 \\)-manifold \\( N \\) is a \\( \operatorname{Spin}(3) \\)-bundle \\( P \to N \\) with an identification \\( P^{\operatorname{Spin}(3)} \times V\cong TN \\) compatible with metrics.
-The spinor bundle associated to the spinor representation is \\( \mathcal{S}\_N = P^{\operatorname{Spin}(3)} \times \mathcal{S} \\).
-Spin structures are obstructed by \\( w\_2(N) \in H^2(N, \mathbf{Z} /2) \\) the second Stiefel-Whitney class.
-The set of spin structures has a free transitive action by \\( H^1(N , \mathbf{Z}/2) \\).
+#### The Gauged Gromov-Witten Invariant {#the-gauged-gromov-witten-invariant}
 
 <!--list-separator-->
 
--  Dirac operator
+-  2d Case
 
-    Let \\( \varphi\in \Gamma(N , \mathcal{S}\_n \otimes \_{\mathbb{H}} W) \\).
-    Given the Riemannian structure, we have the LV connection on \\( P \\), so we can take the covariant derivative \\( \nabla \varphi \in \Omega^1(W, \mathcal{S}\_N \otimes \_{\mathbb{H}} W ) \\).
-    We can rewrite the latter collection as \\( \Gamma(N, P^{\operatorname{Spin}(3)} \times  (V \otimes \_{\mathbb{H}} \mathcal{S} \otimes \_{\mathbb{H}} W)) \\) which has the Clifford multiplication mapping to
-
-    \begin{equation}
-    \label{eq:6}
-    \Gamma(N , P^{\operatorname{Spin}(3)} \times  (\mathcal{S} \otimes \_{\mathbb{H}} W)) = \Gamma(N , \mathcal{S}\_n \otimes  \_{\mathbb{H}} W).
-    \end{equation}
-
-    This composite is called the **Dirac operator** \\( \slashed \nabla \varphi \\).
-    The equation \\( \slashed \nabla \varphi =0 \\) is the **Dirac equation**.
-
-    Now let \\( W =0 \\).
-    Let \\( P \\) be a principal \\( G \\)-bundle, \\( \nabla \\) a connection on \\( P \\), and \\( \sigma \in \Gamma(N, \operatorname{ad} P) \\).
-    The **Bogomolny equation** is
-
-    \begin{equation}
-    \label{eq:7}
-    \star F + \nabla \sigma =0 \in \Omega^1(N , \operatorname{ad} P).
-    \end{equation}
-
-    It is a fact that if \\( N \\) is closed, \\( \nabla \sigma =0 \\).
-
-<!--list-separator-->
-
--  Sieberg-Witten Equations
-
-    Now lets introduce the Seiberg-Witten equation.
-    The Seiberg-Witten equation happens usually when \\( G = U(1), W = \mathbb{H} \\).
-    Let&rsquo;s introduce \\( \operatorname{Spin}^G(3) = \left( \operatorname{Spin}(3) \times  G \right) / \pm 1 \\), i.e. \\( -1\in G \\) acts by \\( -1 \\) on \\( W \\).
-
-    A relevant notion is the structure \\( \operatorname{Spin}^{\mathbf{C}}(4) = \operatorname{Spin}^{U(1)}(t) = \left( \operatorname{SU}(2) \times U(1) \right)/ \pm 1 = U(2) \\).
-    Set \\( \overline{G} = G / \pm 1 \\), \\( \overline{P} = P^G \times \overline{G} \\).
-    The data that go into the Seiberg-Witten equations consists of
-
-    -   a principal \\( \operatorname{Spin}^G(3) \\)-bundle \\( P \to N \\) with identification \\( P^{\operatorname{Spin}^G(3)} \times  V \cong TN \\)
-    -   a connection \\( \nabla  \\) on \\( \overline{P} \\) along with the LC connection on \\( P \\)
-    -   \\( \sigma \in (N , \operatorname{ad} P) \\)
-    -   \\( \varphi\in \Gamma(N, P^{\operatorname{Spin}^G(3)} \times W) \\).
-
-    The actual equations are then
+    To start with an easier case, consider a 2d \\( A \\)-model:
+    Let \\( G \\) be a compact Lie group with an identification \\( \mathfrak{g} \cong  g^{\*}\\), and \\( W  \\) a unitary \\( G \\)-representation (or more generally, \\( W \\) is some hyper-Kahler manifold with a \\( G \\)-action).
+    Recall a unitary \\( G \\)-representation is a Hermitian vector space \\( W \\) and a homomorphism \\( G \to U(W) \\).
+    Then \\( Z\_{3dA, W/ /G} \\) is a 2d TQFT, with \\(  Z\_{3dA, W //G} ( \Sigma) \\) the _gauged Gromov-Witten invariant of \\( W \\)_, which counts the solutions of some PDE on \\( \Sigma \\), where \\( \Sigma \\) is some Riemann surface.
+    (The vanilla GW invariant is when \\( G \\) is trivial.)
+    The PDE in question is called the symplectic vortex equation.
+    Before we write it, let&rsquo;s introduce a function
 
     \begin{align\*}
-    \slashed \nabla \varphi &= 0\\\\
-    \star F + \nabla \sigma + \mu(\varphi) &= 0
+    \label{eq:4}
+    \mu : W &\to \mathfrak{g}^{\*} \\\\
+    v &\mapsto \frac{1}{2}(xv,v)
     \end{align\*}
 
-    \\( \mu \\) is the correct analogue of the moment map as in the 2d case.
+    where \\( x\in \mathfrak{g} \\).
+    \\( \mu \\) is a **moment map** for the \\( G \\)-action on \\( W \\).
 
-    One fact is that the linearization is elliptic, and the index of the elliptic operator is \\( 0 \\).
+    Choose a principal \\( G \\)-bundle \\( P \to \Sigma \\) and a connection \\( \nabla \\) a connection on \\( P \\), and a smooth section \\( \varphi \in \Gamma(\Sigma , P^G \times W) \\).
+    The symplectic vortex equations are
+
+    \begin{align\*}
+    \overline{\partial} \varphi &= 0\in \Omega^{0,1}(\Sigma , P^G \times  W) \\\\
+    \star F + \mu(\varphi) &= 0 \in \Omega^0(\Sigma, \operatorname{ad} P).
+    \end{align\*}
+
+    We recall \\( \operatorname{ad}P = P^G \times \mathfrak{g}\to \Sigma \\) is the adjoint bundle.
+    The gauged GW invariant counts solutions of these equations modulo gauge transformations.
+    The dimension of the moduli space of solutions is
+
+    \begin{equation}
+    \label{eq:5}
+    d = (2-2g)(\dim\_{\mathbf{C}} W - \dim  G) + 2\deg (P^G \times W).
+    \end{equation}
+
+    **Remarks**
+
+    -   If \\( G \\) is trivial, no principal bundle is here, the second equation drops out, and the first equation just says that \\( \varphi \\) is a holomorphic map.
+    -   If \\( W=0 \\), then the first equation drops out, and the second equation just says that the curvature of the connection is zero.
+        In general there are few flat connections compared to non-flat connections, but it is a theorem in this case that the moduli space of flat \\( G \\)-bundles is identified with the space of holomorphic \\( G\_{\mathbf{C}} \\)-bundles, the complexified \\( G \\)-bundles
 
 <!--list-separator-->
 
--  The \\( U(1) \\) Case
+-  3d case
 
-    Consider the case where \\( W = \mathbb{H} \\) and \\( G = U(1) \\).
-    In this case the spin structure is \\( \operatorname{Spin} ^{ \mathbf{C}} \\) on \\( N \\), which has a free transitive action by \\( h\in H^2(N , \mathbf{Z}) \\).
-    Then for \\( c\in \operatorname{Spin}^{ \mathbf{C}} \\) we get a \\( c + h\in \operatorname{Spin}^{ \mathbf{C}} \\), and \\( \operatorname{SW}\_N( c) \\) counts the solutions.
+    Again in the 3d case there will be a pair of equations.
+    Fix again a compact Lie group \\( G \\), \\( W \\) a quaternionic representation of \\( G \\).
+    Recall that \\( \operatorname{Spin}(3) = \operatorname{SU}(2) \to \operatorname{SO}(3) \\), which can be thought of as unit quaternions.
+    If we have \\( u\in \mathbb{H} \\) a unit quaternion, it acts on \\( \operatorname{Im} \mathbb{H}  = \mathbf{R}^3 \\) by conjugation.
+    Let \\( \mathcal{S} = \mathbb{H} \\) the spin representation by action \\( u\cdot x = ux \\).
+    There is a natural map \\( c : V \otimes \mathcal{S}\to \mathcal{S} \\) where \\( V = \im \mathbb{H} \\).
+    This is a map of \\( \operatorname{Spin}(3) \\)-representations called _Clifford multiplication_.
+
+    A _spin structure_ on a Riemannian \\( 3 \\)-manifold \\( N \\) is a \\( \operatorname{Spin}(3) \\)-bundle \\( P \to N \\) with an identification \\( P^{\operatorname{Spin}(3)} \times V\cong TN \\) compatible with metrics.
+    The spinor bundle associated to the spinor representation is \\( \mathcal{S}\_N = P^{\operatorname{Spin}(3)} \times \mathcal{S} \\).
+    Spin structures are obstructed by \\( w\_2(N) \in H^2(N, \mathbf{Z} /2) \\) the second Stiefel-Whitney class.
+    The set of spin structures has a free transitive action by \\( H^1(N , \mathbf{Z}/2) \\).
+
+    <!--list-separator-->
+
+    -  Dirac operator
+
+        Let \\( \varphi\in \Gamma(N , \mathcal{S}\_n \otimes \_{\mathbb{H}} W) \\).
+        Given the Riemannian structure, we have the LV connection on \\( P \\), so we can take the covariant derivative \\( \nabla \varphi \in \Omega^1(W, \mathcal{S}\_N \otimes \_{\mathbb{H}} W ) \\).
+        We can rewrite the latter collection as \\( \Gamma(N, P^{\operatorname{Spin}(3)} \times  (V \otimes \_{\mathbb{H}} \mathcal{S} \otimes \_{\mathbb{H}} W)) \\) which has the Clifford multiplication mapping to
+
+        \begin{equation}
+        \label{eq:6}
+        \Gamma(N , P^{\operatorname{Spin}(3)} \times  (\mathcal{S} \otimes \_{\mathbb{H}} W)) = \Gamma(N , \mathcal{S}\_n \otimes  \_{\mathbb{H}} W).
+        \end{equation}
+
+        This composite is called the **Dirac operator** \\( \slashed \nabla \varphi \\).
+        The equation \\( \slashed \nabla \varphi =0 \\) is the **Dirac equation**.
+
+        Now let \\( W =0 \\).
+        Let \\( P \\) be a principal \\( G \\)-bundle, \\( \nabla \\) a connection on \\( P \\), and \\( \sigma \in \Gamma(N, \operatorname{ad} P) \\).
+        The **Bogomolny equation** is
+
+        \begin{equation}
+        \label{eq:7}
+        \star F + \nabla \sigma =0 \in \Omega^1(N , \operatorname{ad} P).
+        \end{equation}
+
+        It is a fact that if \\( N \\) is closed, \\( \nabla \sigma =0 \\).
+
+    <!--list-separator-->
+
+    -  Sieberg-Witten Equations
+
+        Now lets introduce the Seiberg-Witten equation.
+        The Seiberg-Witten equation happens usually when \\( G = U(1), W = \mathbb{H} \\).
+        Let&rsquo;s introduce \\( \operatorname{Spin}^G(3) = \left( \operatorname{Spin}(3) \times  G \right) / \pm 1 \\), i.e. \\( -1\in G \\) acts by \\( -1 \\) on \\( W \\).
+
+        A relevant notion is the structure \\( \operatorname{Spin}^{\mathbf{C}}(4) = \operatorname{Spin}^{U(1)}(t) = \left( \operatorname{SU}(2) \times U(1) \right)/ \pm 1 = U(2) \\).
+        Set \\( \overline{G} = G / \pm 1 \\), \\( \overline{P} = P^G \times \overline{G} \\).
+        The data that go into the Seiberg-Witten equations consists of
+
+        -   a principal \\( \operatorname{Spin}^G(3) \\)-bundle \\( P \to N \\) with identification \\( P^{\operatorname{Spin}^G(3)} \times  V \cong TN \\)
+        -   a connection \\( \nabla  \\) on \\( \overline{P} \\) along with the LC connection on \\( P \\)
+        -   \\( \sigma \in (N , \operatorname{ad} P) \\)
+        -   \\( \varphi\in \Gamma(N, P^{\operatorname{Spin}^G(3)} \times W) \\).
+
+        The actual equations are then
+
+        \begin{align\*}
+        \slashed \nabla \varphi &= 0\\\\
+        \star F + \nabla \sigma + \mu(\varphi) &= 0
+        \end{align\*}
+
+        \\( \mu \\) is the correct analogue of the moment map as in the 2d case.
+
+        One fact is that the linearization is elliptic, and the index of the elliptic operator is \\( 0 \\).
+
+    <!--list-separator-->
+
+    -  The \\( U(1) \\) Case
+
+        Consider the case where \\( W = \mathbb{H} \\) and \\( G = U(1) \\).
+        In this case the spin structure is \\( \operatorname{Spin} ^{ \mathbf{C}} \\) on \\( N \\), which has a free transitive action by \\( h\in H^2(N , \mathbf{Z}) \\).
+        Then for \\( c\in \operatorname{Spin}^{ \mathbf{C}} \\) we get a \\( c + h\in \operatorname{Spin}^{ \mathbf{C}} \\), and \\( \operatorname{SW}\_N( c) \\) counts the solutions.
 
 
-## Lecture 6: Tue Jun 13 12:44:10 2023 {#lecture-6-tue-jun-13-12-44-10-2023}
+### Lecture 6: Tue Jun 13 12:44:10 2023 {#lecture-6-tue-jun-13-12-44-10-2023}
 
 Recall we constructed the Seiberg-Witten invariant of a manifold, which counts the solutions to a system of PDEs.
 Fix some \\( c\_0 \in \operatorname{Sim}^{ \mathbf{C}} \\) on \\( N \\), let \\( H = H\_1( N, \mathbf{Z} ) \cong H^2(N , \mathbf{Z}) \\).
@@ -550,80 +519,82 @@ If we mod out by \\( H \\), we can get a number independent of the choice of spi
 This all holds for the \\( A \\)-model
 
 
-### Topological Interpretation {#topological-interpretation}
+#### Topological Interpretation {#topological-interpretation}
 
 Now what is \\( Z\_{3dB, W / / / G} (N)\\)?
 
+<!--list-separator-->
 
-#### Reidemeister Torsion {#reidemeister-torsion}
+-  Reidemeister Torsion
 
-**Historical note:**
-There is a class of \\( 3 \\)-manifolds called _lens spaces_ \\( L(p,q) \\), which ones are homotopy equivalent?
-Which ones are homeomorphic?
-There exist examples of homotopy equivalent lens spaces that are not homeomorphic, distinguished by their R torsion.
+    **Historical note:**
+    There is a class of \\( 3 \\)-manifolds called _lens spaces_ \\( L(p,q) \\), which ones are homotopy equivalent?
+    Which ones are homeomorphic?
+    There exist examples of homotopy equivalent lens spaces that are not homeomorphic, distinguished by their R torsion.
 
-Let \\( N \\) be a finite connected CW complex with basepoint \\(x\\), \\( R \\) a commutative ring, \\( k \\) a field, and \\( R \to k \\) a homomorphism.
-Say \\( \mathcal{L}  \\) is a free, finite rank \\( R \\)-module which is a representation \\( \rho: \pi\_1(N) \to \operatorname{GL}\_R(\mathcal{L}) \\)
-Say \\( \tilde{N}\to N \\) is a universal cover, and lift the CW structure to \\( \tilde{N} \\).
-e.g. we can lift the 1-cell structure of \\( S^1 \\) to \\( \mathbf{R} \\) by taking the points to the \\( \mathbf{Z} \\)-lattice, and the 1-cell lifts to the intervals between the \\( \mathbf{Z} \\)-points.
+    Let \\( N \\) be a finite connected CW complex with basepoint \\(x\\), \\( R \\) a commutative ring, \\( k \\) a field, and \\( R \to k \\) a homomorphism.
+    Say \\( \mathcal{L}  \\) is a free, finite rank \\( R \\)-module which is a representation \\( \rho: \pi\_1(N) \to \operatorname{GL}\_R(\mathcal{L}) \\)
+    Say \\( \tilde{N}\to N \\) is a universal cover, and lift the CW structure to \\( \tilde{N} \\).
+    e.g. we can lift the 1-cell structure of \\( S^1 \\) to \\( \mathbf{R} \\) by taking the points to the \\( \mathbf{Z} \\)-lattice, and the 1-cell lifts to the intervals between the \\( \mathbf{Z} \\)-points.
 
-Consider \\( C\_{\bullet}( \widetilde{N} , \mathbf{Z}) \\) the chain complex of cells of the universal cover endowed with the action of \\( \pi\_1( N) \\).
-Thus this is a chain complex of \\( \mathbf{Z}[ \pi\_1(N) ] \\)-modules.
-Define \\(  C\_{\bullet} (N , \mathcal{L}) =  C\_{\bullet} ( \widetilde{N}, \mathbf{Z}) \otimes \_{\mathbf{Z}[ \pi\_1(N) ]} \mathcal{L} \\) twisting the coefficients by the representation.
-Assume \\(  C\_{\bullet} (N , \mathcal{L})\otimes \_R k \\) is acyclic, i.e. the homology is trivial
+    Consider \\( C\_{\bullet}( \widetilde{N} , \mathbf{Z}) \\) the chain complex of cells of the universal cover endowed with the action of \\( \pi\_1( N) \\).
+    Thus this is a chain complex of \\( \mathbf{Z}[ \pi\_1(N) ] \\)-modules.
+    Define \\(  C\_{\bullet} (N , \mathcal{L}) =  C\_{\bullet} ( \widetilde{N}, \mathbf{Z}) \otimes \_{\mathbf{Z}[ \pi\_1(N) ]} \mathcal{L} \\) twisting the coefficients by the representation.
+    Assume \\(  C\_{\bullet} (N , \mathcal{L})\otimes \_R k \\) is acyclic, i.e. the homology is trivial
 
-<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+    <style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
 
-<div class="org-center">
+    <div class="org-center">
 
-**Goal:** To define a torsion \\( \tau(N, \mathcal{L})\in k^{\times } /\sim \\) with \\( \sim \\) to be defined.
+    **Goal:** To define a torsion \\( \tau(N, \mathcal{L})\in k^{\times } /\sim \\) with \\( \sim \\) to be defined.
 
-</div>
+    </div>
 
-You could think of this as a &ldquo;determinant&rdquo; of \\( d \\) in the chain complex.
+    You could think of this as a &ldquo;determinant&rdquo; of \\( d \\) in the chain complex.
 
-Fact: there exists a homotopy \\( h:  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k  \to  C\_{\bullet + 1}(N , \mathcal{L})\otimes \_R k  \\) such that \\( dh + hd = \operatorname{id} \\) called the _contracting homotopy_.
+    Fact: there exists a homotopy \\( h:  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k  \to  C\_{\bullet + 1}(N , \mathcal{L})\otimes \_R k  \\) such that \\( dh + hd = \operatorname{id} \\) called the _contracting homotopy_.
 
-Consider \\( d+h : C\_{\mathrm{even}}(N , \mathcal{L}) \otimes  \_{R }k  \to C\_{\mathrm{odd}}(N , \mathcal{L})\otimes  \_{R }k \\).
-Fact: It is an isomorphism.
-We want to compute its &ldquo;determinant&rdquo;.
-First we should give bases for \\(  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k \\).
-Choose
+    Consider \\( d+h : C\_{\mathrm{even}}(N , \mathcal{L}) \otimes  \_{R }k  \to C\_{\mathrm{odd}}(N , \mathcal{L})\otimes  \_{R }k \\).
+    Fact: It is an isomorphism.
+    We want to compute its &ldquo;determinant&rdquo;.
+    First we should give bases for \\(  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k \\).
+    Choose
 
--   \\( R \\)-basis of \\( \mathcal{L} \\)
--   ordering of \\( d \\)-cells of \\( N \\) for all \\( d \\)
--   a Turaev spider
+    -   \\( R \\)-basis of \\( \mathcal{L} \\)
+    -   ordering of \\( d \\)-cells of \\( N \\) for all \\( d \\)
+    -   a Turaev spider
 
-**Definition:** A Turaev spider on \\( N \\) is a path from \\( x \\) to every cell in \\( N \\).
+    **Definition:** A Turaev spider on \\( N \\) is a path from \\( x \\) to every cell in \\( N \\).
 
-Given these choices,
+    Given these choices,
 
-\begin{equation}
-\label{eq:8}
- C\_{\bullet} ( \widetilde{N} , \mathbf{Z}) = \bigoplus\_{d\text{-cells}}^{} \mathbf{Z}(\pi\_1(N)).
-\end{equation}
+    \begin{equation}
+    \label{eq:8}
+     C\_{\bullet} ( \widetilde{N} , \mathbf{Z}) = \bigoplus\_{d\text{-cells}}^{} \mathbf{Z}(\pi\_1(N)).
+    \end{equation}
 
-Adding in the basis of \\( \mathcal{L} \\) gives a basis of the \\( R \\)-module \\(  C\_{\bullet} (N , \mathcal{L}) =  C\_{\bullet} ( \widetilde{N} , \mathbf{Z}) \otimes \_{\mathbf{Z} [ \pi\_1(N)]} \mathcal{L} \\).
-This implies the \\( \det (d+h) \in k^{\times } /  (R^{\times } \det(H\_1(N , \mathbf{Z}))) \\).
-Varying the first two choices pushes us around by a factor of \\( R^{\times } \\), while changing the choice of Turaev spider pushes us around by the determinant of a map induced from the homology group.
-This \\( \det (d+h) \\) is called the Reidemeister torsion, and is well defined up to these choices.
+    Adding in the basis of \\( \mathcal{L} \\) gives a basis of the \\( R \\)-module \\(  C\_{\bullet} (N , \mathcal{L}) =  C\_{\bullet} ( \widetilde{N} , \mathbf{Z}) \otimes \_{\mathbf{Z} [ \pi\_1(N)]} \mathcal{L} \\).
+    This implies the \\( \det (d+h) \in k^{\times } /  (R^{\times } \det(H\_1(N , \mathbf{Z}))) \\).
+    Varying the first two choices pushes us around by a factor of \\( R^{\times } \\), while changing the choice of Turaev spider pushes us around by the determinant of a map induced from the homology group.
+    This \\( \det (d+h) \\) is called the Reidemeister torsion, and is well defined up to these choices.
+
+<!--list-separator-->
+
+-  Milnor Torsion
+
+    Assume \\(H = H\_1(N, \mathbf{Z}) \\) has no torsion of rank \\( r \\).
+    Take \\( R = \mathbf{Z}[H] = \mathbf{Z}[ t\_1^{\pm 1} , \ldots , t\_r^{\pm 1}] \\), and \\( k = \mathbf{Q}(H) = \mathbf{Q}(t\_{1} , \ldots , t\_{r}) \\).
+    Let \\( \mathcal{L} = R \\) and \\( \rho: \pi\_1(N)\to H\_1(N , \mathbf{Z}) \to \mathcal{L} \\).
+    Let \\( Z(H)^{\times } = \pm H \\).
+    We get that \\( \tau(N)\in \mathbf{Q}(H) / \pm H  \\) called the _Milnor torsion_.
+
+    Example:
+
+    -   For \\( S^1  \\), \\(H\_1(S^1) = \mathbf{Z}\\), so \\( \tau(S^1) = \frac{1}{1-t} \\).
+    -   \\( \tau(S^1 \times  S^2) = \tau(S^1) = \frac{1}{1-t} \\).
 
 
-#### Milnor Torsion {#milnor-torsion}
-
-Assume \\(H = H\_1(N, \mathbf{Z}) \\) has no torsion of rank \\( r \\).
-Take \\( R = \mathbf{Z}[H] = \mathbf{Z}[ t\_1^{\pm 1} , \ldots , t\_r^{\pm 1}] \\), and \\( k = \mathbf{Q}(H) = \mathbf{Q}(t\_{1} , \ldots , t\_{r}) \\).
-Let \\( \mathcal{L} = R \\) and \\( \rho: \pi\_1(N)\to H\_1(N , \mathbf{Z}) \to \mathcal{L} \\).
-Let \\( Z(H)^{\times } = \pm H \\).
-We get that \\( \tau(N)\in \mathbf{Q}(H) / \pm H  \\) called the _Milnor torsion_.
-
-Example:
-
--   For \\( S^1  \\), \\(H\_1(S^1) = \mathbf{Z}\\), so \\( \tau(S^1) = \frac{1}{1-t} \\).
--   \\( \tau(S^1 \times  S^2) = \tau(S^1) = \frac{1}{1-t} \\).
-
-
-### Connection to SW Invariants {#connection-to-sw-invariants}
+#### Connection to SW Invariants {#connection-to-sw-invariants}
 
 Two Turaev spiders \\( S\_1,S\_2 \\) are _equivalent_ if \\( S\_1 - S\_2 =0  \\) in \\( H\_1(N , \mathbf{Z}) \\).
 A theorem of Turaev says that if \\( N \\) is a closed oriented \\( 3 \\)-manifold, there is a natural isomorphism between \\( \left\\{ \text{spiders} \right\\} \\) and \\( \left\\{ \operatorname{Spin}^{ \mathbf{C}}\text{ structures} \right\\} \\).
@@ -644,10 +615,10 @@ The theorem then provides an equivalence between the 3d TQFTs.
 This is an example of mirror symmetry of \\( (U(1), \mathbb{H})\leftrightarrow (\bullet,  \mathbb{H}) \\).
 
 
-## Lecture 7: Tue Jun 13 15:44:00 2023 {#lecture-7-tue-jun-13-15-44-00-2023}
+### Lecture 7: Tue Jun 13 15:44:00 2023 {#lecture-7-tue-jun-13-15-44-00-2023}
 
 
-### Review {#review}
+#### Review {#review}
 
 The goal of this lecture is write down fields and susy actions.
 As a reminder of yesterday, hyper-Kahler manifolds are Riemannian manifolds who have a \\( \mathbb{P}^1 \\) worth of Kahler structures parameterized by the sphere \\( S^2 \\) in coordinates \\( I,J,K \\).
@@ -656,7 +627,7 @@ Gauge groups in these field theories will act as subgroups of this group.
 In order to write down equations of motion for fields, we need a notion of a moment map.
 
 
-### Moment Maps {#moment-maps}
+#### Moment Maps {#moment-maps}
 
 **Definition:** A continuous HK \\( G \\)-action on a HK \\( W \\) comes with a \\( \mathbb{P}^1 \\)-worth of moment maps: functions \\( W \to \mathfrak{g}^{\*} \\) such that \\( V = \omega\_I d\mu\_J = \omega\_J ^{-1} d\mu\_K =\cdots \\) where \\( V \\) is the vector field generating the \\( G \\)-action.
 Like with coordinates, there are moment maps for each complex structure \\( \mu\_I, \mu\_J, \mu\_K \\).
@@ -682,7 +653,7 @@ Note \\( V\_2 \otimes  V\_2 \cong V\_3 \oplus V\_1 \\), The map that goes from t
 The other intertwiner map that goes from the former to \\( V\_3 \\) is called \\( \sigma \\), the matrix elements of which are the Pauli matrices.
 
 
-### Supersymmetry {#supersymmetry}
+#### Supersymmetry {#supersymmetry}
 
 Recall the 3d \\( \mathcal{N}=4 \\) susy algebra is \\( 3+8 \\)-dimensional, even and odd dimension respectively, and is a representation of \\( \operatorname{SU}(2)\_E = \operatorname{Spin}(3)\_E \\).
 It is a representation of \\( \operatorname{SU}(2)\_E \times  \operatorname{SU}(2)\_H \times  \operatorname{SU}(2)\_C \\) and has bracket
@@ -700,7 +671,7 @@ The susy algebra lives inside an extension of itself by \\( \operatorname{SU}(2)
 3d mirror symmetry is nothing but the swapping of the last two copies of \\( \operatorname{SU}(2) \\) in the formulation.
 
 
-### Fields {#fields}
+#### Fields {#fields}
 
 Fix a gauge theory labelled by \\( G \\) and a hyper-Kahler vector space \\( W \\), and \\( \rho : G \to U \operatorname{Sp}(W) \\).
 We want to describe gauge theory on \\( \mathbf{R}^3 \\).
@@ -712,7 +683,7 @@ Fix a trivial principal \\( G \\)-bundle \\( \mathcal{E} \\) on \\( \mathbf{R}^3
 There is a connection \\( A = A\_{\mu}dx^{\mu} \\) on \\( \mathcal{E} \\) living in sections of \\( \mathfrak{g} \otimes V^E\_{3, \mathbf{R}} \\).
 
 
-## Lecture 8: Tue Jun 13 18:01:16 2023 {#lecture-8-tue-jun-13-18-01-16-2023}
+### Lecture 8: Tue Jun 13 18:01:16 2023 {#lecture-8-tue-jun-13-18-01-16-2023}
 
 Fix a gauge theory with data \\( G, W , \rho : G \to U \operatorname{Sp}(W) \\).
 
@@ -728,7 +699,7 @@ Also
 Here, \\( \Pi  \\) means parity shift in the sense of a supervector space.
 
 
-### Schematic SUSY {#schematic-susy}
+#### Schematic SUSY {#schematic-susy}
 
 The supercharges act on matter by
 \\( QA \sim \lambda \\), \\( Q \Phi \sim \lambda \\), \\( Q \lambda \sim F + d\_A \Phi + [\Phi, \Phi] + \mu(Z)  \\), \\( QZ \sim \Psi \\), \\( Q\Psi \sim \partial\_A Z + \Phi Z \\).
@@ -767,96 +738,100 @@ Q\_{\alpha}^{a\dot{a}}\Psi\_{\beta}^{\dot{b} i} &= \mathbb{D}\_{\alpha\beta}^{\d
 \end{align\*}
 
 
-### Twists {#twists}
-
-
-#### Step 1 {#step-1}
-
-The first step in twisting is to choose a \\( Q \in SUSY \\) such that \\( Q ^2=0\\) and \\( \im \left\\{ Q,- \right\\} \\) is surjective onto the even part.
-
-There are two \\( \mathbb{P}^1 \\) families of such twists.
-One \\( \mathbf{C}\mathbb{P}^1 \\) of \\( A \\)-twists:
-
-\begin{equation}
-\label{eq:12}
-Q\_A^{\dot{a}} = \delta\_{\alpha}^a Q\_{\alpha}^{a \dot{a}}= Q\_+^{+ \dot{a}} + Q\_-^{- \dot{a}}
-\end{equation}
-
-These are linear combos of \\( \dot{a} = +,- \\) modulo scaling with an \\( \operatorname{SU}(2)\_C \\) action.
-Choose \\( Q\_A = Q\_A^{\dot{+}} \\).
-Then
-
-\begin{equation}
-\label{eq:13}
-Q\_B^a = \delta\_{\dot{a}}^{\alpha}Q\_{\alpha}^{a \dot{a}} = Q\_+^{a +} + Q\_-^{a \dot{-}}
-\end{equation}
-
-choosing \\( Q\_B = Q\_B^+ \\).
-The act of choosing is the statement that topological twists do not see the full hyper-Kahler structure.
-
-
-#### Step 2 {#step-2}
-
-The next step is to globalize from \\( \mathbf{R}^3 \\) to a curved 3-manifold \\( M \\).
-The field theory is still a representation of \\( Q\_{A,B} \\) on curved space if we identify \\( A : V\_2^H \cong V\_{2,\mathrm{spin}}^E \\) for the \\( A \\)-twist, and \\( B: V\_2^C \cong V\_{2, \mathrm{spin}}^E \\) for the \\( B \\)-model, respectively.
-
-The new local symmetry group in the twist is for the \\( A \\)-twist: \\( \operatorname{SU}(2)'\_E\xhookrightarrow{\Delta} \operatorname{SU}(2)\_E \times \operatorname{SU}(2)\_H \times \operatorname{U}(1)\_{C} \\).
-In the \\( B \\)-twist: \\( \operatorname{SU}(2)'\_E \xhookrightarrow{\Delta} \operatorname{SU}(2)\_E \times  \operatorname{SU}(2)\_{C} \times \operatorname{U}(1)\_{H} \\)
-
-
-#### Final Step {#final-step}
-
-The final step is currently being worked on: to populate the functorial TQFT view an populate it with objects extracted from the data presented in this lecture.
-
-In dimensions \\(0, 1,2,3 \\) oriented manifolds \\( \Sigma \\) (or really to a thickened version \\( \Sigma \times D^{3-k} \\)) want a quantization \\( \sim Z(\Sigma^k) \\) of \\( Q\_{A,B} \\) fixed points of fields on \\( \Sigma^k \times D^{3-k} \\).
-
-
-### What happens when you twist {#what-happens-when-you-twist}
-
-
-#### Fixed Points {#fixed-points}
+#### Twists {#twists}
 
 <!--list-separator-->
 
--  \\( A \\)-twist
+-  Step 1
 
-    A choice of \\( Q\_A \lambda =0 \\) and \\( Q\_A\Psi =0 \\) implies for the even fields
+    The first step in twisting is to choose a \\( Q \in SUSY \\) such that \\( Q ^2=0\\) and \\( \im \left\\{ Q,- \right\\} \\) is surjective onto the even part.
 
-    -   \\( \mu(Z)\_m dx^m\\) in \\(\mathfrak{g} \otimes  V\_{3, \mathbf{R}}^{E'} \\)
-    -   \\( Z^{i a}\in W \otimes \_{\mathbf{C}} V\_2^{E'} \\)
-    -   \\( \Phi^{ \dot{m}} \sim \sigma = \Phi^{\dot{3}} \\), \\( \varphi = \Phi^i + i \Phi ^{\dot{2}} \\) in \\( \mathfrak{g}, \mathfrak{g}\_{\mathbf{C}} \\), respectively
-    -   \\( \star F + d\_A \sigma + \mu(Z) = 0 \\)
-    -   \\(\partial\_{ab} Z^{ia} = 0\\)
-    -   \\( \left[ \varphi, \varphi^+ \right]=0 \\)
-    -   \\( \rho(\varphi) Z = 0 \\)
+    There are two \\( \mathbb{P}^1 \\) families of such twists.
+    One \\( \mathbf{C}\mathbb{P}^1 \\) of \\( A \\)-twists:
+
+    \begin{equation}
+    \label{eq:12}
+    Q\_A^{\dot{a}} = \delta\_{\alpha}^a Q\_{\alpha}^{a \dot{a}}= Q\_+^{+ \dot{a}} + Q\_-^{- \dot{a}}
+    \end{equation}
+
+    These are linear combos of \\( \dot{a} = +,- \\) modulo scaling with an \\( \operatorname{SU}(2)\_C \\) action.
+    Choose \\( Q\_A = Q\_A^{\dot{+}} \\).
+    Then
+
+    \begin{equation}
+    \label{eq:13}
+    Q\_B^a = \delta\_{\dot{a}}^{\alpha}Q\_{\alpha}^{a \dot{a}} = Q\_+^{a +} + Q\_-^{a \dot{-}}
+    \end{equation}
+
+    choosing \\( Q\_B = Q\_B^+ \\).
+    The act of choosing is the statement that topological twists do not see the full hyper-Kahler structure.
 
 <!--list-separator-->
 
--  \\( B \\)-twist
+-  Step 2
 
-    A choice of \\( Q\_B \lambda =0 \\) and \\( Q\_B\Psi =0 \\) implies
+    The next step is to globalize from \\( \mathbf{R}^3 \\) to a curved 3-manifold \\( M \\).
+    The field theory is still a representation of \\( Q\_{A,B} \\) on curved space if we identify \\( A : V\_2^H \cong V\_{2,\mathrm{spin}}^E \\) for the \\( A \\)-twist, and \\( B: V\_2^C \cong V\_{2, \mathrm{spin}}^E \\) for the \\( B \\)-model, respectively.
 
-    -   \\( \Phi\_{\dot{m}} d x^{\dot{m}} \in V\_{3, \mathbf{R}}^{E'} \otimes  \_{\mathbf{R}} \mathfrak{g} \\)
-    -   \\( A + i\Phi := \mathcal{A}\in \mathfrak{g}\_{\mathbf{C}} \otimes  V\_{3, \mathbf{R}}^{E'} \\) is a covariant derivative
-        -   \\( \mathcal{F}\_{\mathcal{A}} = 0 \\) complexified curvature
-        -   The new covariant derivative \\( \mathcal{D}\_{\mathcal{A}} \\) obeys \\( \left[ \mathcal{D}\_{\mathcal{A}}, \mathcal{D}\_{\mathcal{A}}^+ \right] = \mu\_{\mathbf{R}} \\)
-            -   \\( \mu\_{ \mathbf{C}}=0 \\)
-            -   \\( \mathcal{D}\_{\mathcal{A}}Z^{i +} =0 \\).
+    The new local symmetry group in the twist is for the \\( A \\)-twist: \\( \operatorname{SU}(2)'\_E\xhookrightarrow{\Delta} \operatorname{SU}(2)\_E \times \operatorname{SU}(2)\_H \times \operatorname{U}(1)\_{C} \\).
+    In the \\( B \\)-twist: \\( \operatorname{SU}(2)'\_E \xhookrightarrow{\Delta} \operatorname{SU}(2)\_E \times  \operatorname{SU}(2)\_{C} \times \operatorname{U}(1)\_{H} \\)
 
-    The \\( B \\)-twist often gets treated as algebraic geometry
+<!--list-separator-->
+
+-  Final Step
+
+    The final step is currently being worked on: to populate the functorial TQFT view an populate it with objects extracted from the data presented in this lecture.
+
+    In dimensions \\(0, 1,2,3 \\) oriented manifolds \\( \Sigma \\) (or really to a thickened version \\( \Sigma \times D^{3-k} \\)) want a quantization \\( \sim Z(\Sigma^k) \\) of \\( Q\_{A,B} \\) fixed points of fields on \\( \Sigma^k \times D^{3-k} \\).
 
 
-## Lecture 9: Wed Jun 14 10:46:24 2023 {#lecture-9-wed-jun-14-10-46-24-2023}
+#### What happens when you twist {#what-happens-when-you-twist}
+
+<!--list-separator-->
+
+-  Fixed Points
+
+    <!--list-separator-->
+
+    -  \\( A \\)-twist
+
+        A choice of \\( Q\_A \lambda =0 \\) and \\( Q\_A\Psi =0 \\) implies for the even fields
+
+        -   \\( \mu(Z)\_m dx^m\\) in \\(\mathfrak{g} \otimes  V\_{3, \mathbf{R}}^{E'} \\)
+        -   \\( Z^{i a}\in W \otimes \_{\mathbf{C}} V\_2^{E'} \\)
+        -   \\( \Phi^{ \dot{m}} \sim \sigma = \Phi^{\dot{3}} \\), \\( \varphi = \Phi^i + i \Phi ^{\dot{2}} \\) in \\( \mathfrak{g}, \mathfrak{g}\_{\mathbf{C}} \\), respectively
+        -   \\( \star F + d\_A \sigma + \mu(Z) = 0 \\)
+        -   \\(\partial\_{ab} Z^{ia} = 0\\)
+        -   \\( \left[ \varphi, \varphi^+ \right]=0 \\)
+        -   \\( \rho(\varphi) Z = 0 \\)
+
+    <!--list-separator-->
+
+    -  \\( B \\)-twist
+
+        A choice of \\( Q\_B \lambda =0 \\) and \\( Q\_B\Psi =0 \\) implies
+
+        -   \\( \Phi\_{\dot{m}} d x^{\dot{m}} \in V\_{3, \mathbf{R}}^{E'} \otimes  \_{\mathbf{R}} \mathfrak{g} \\)
+        -   \\( A + i\Phi := \mathcal{A}\in \mathfrak{g}\_{\mathbf{C}} \otimes  V\_{3, \mathbf{R}}^{E'} \\) is a covariant derivative
+            -   \\( \mathcal{F}\_{\mathcal{A}} = 0 \\) complexified curvature
+            -   The new covariant derivative \\( \mathcal{D}\_{\mathcal{A}} \\) obeys \\( \left[ \mathcal{D}\_{\mathcal{A}}, \mathcal{D}\_{\mathcal{A}}^+ \right] = \mu\_{\mathbf{R}} \\)
+                -   \\( \mu\_{ \mathbf{C}}=0 \\)
+                -   \\( \mathcal{D}\_{\mathcal{A}}Z^{i +} =0 \\).
+
+        The \\( B \\)-twist often gets treated as algebraic geometry
 
 
-### Recall {#recall}
+### Lecture 9: Wed Jun 14 10:46:24 2023 {#lecture-9-wed-jun-14-10-46-24-2023}
+
+
+#### Recall {#recall}
 
 We had \\( X \\) a hyperKahler manifold (typically a quaternionic vector space) with a \\( G \\)-action by a Lie group \\( G \\).
 This situation reduced to 3d TQFTs \\( Z\_{3dA, X // / G} \\), and \\(  Z\_{3dB, X // / G}  \\).
 An example of mirror symmetry happens with \\( (U(1) , \mathbb{H}) \leftrightarrow (\bullet, \mathbb{H}) \\) for \\(  Z\_{3dA, X // / G}  \cong    Z\_{3dB, X // / G}   \\), respectively.
 
 
-### 2d \\( A \\)-model {#2d-a-model}
+#### 2d \\( A \\)-model {#2d-a-model}
 
 Let \\( X \\) be a Kahler manifold.
 The Cauchy-Riemann equation says that \\( \varphi : \Sigma \to X \\) satisfies \\( \overline{\partial} \varphi =0 \\).
@@ -892,7 +867,7 @@ The claim is that Morse homology of the functional is the homology of the space 
 The upshot: \\(  Z\_{2dA, T^{\*}Y }(S^1) = H\_{\bullet}(Y)  \\).
 
 
-### 2d \\( B \\)-model {#2d-b-model}
+#### 2d \\( B \\)-model {#2d-b-model}
 
 We will consider the case when \\( X =V \\) is a complex vector space, and \\( \Sigma \\) is a surface.
 Classical solutions of the QFT on \\( \Sigma \\) are locally constant maps \\( \Sigma \to V \oplus V^{\*}[1] \\).
@@ -917,7 +892,7 @@ On the first day we saw that the state space was a Hodge cohomology.
 in which \\( p=0 \\) is the only nonzero case.
 
 
-### 3d \\( A \\)-model {#3d-a-model}
+#### 3d \\( A \\)-model {#3d-a-model}
 
 Let \\( W \\) be a quaternionic vector space.
 Say \\( N \\) is a Riemannian \\( 3 \\)-manifold with spin structure.
@@ -962,64 +937,66 @@ Z\_{3dA, V \otimes  \_{\mathbf{C}} \mathbb{H} / / / G}
 is the functions on BFN definition of Coulomb branch.
 
 
-### Example of 3d Mirror Symmetry {#example-of-3d-mirror-symmetry}
+#### Example of 3d Mirror Symmetry {#example-of-3d-mirror-symmetry}
+
+<!--list-separator-->
+
+-  \\( A \\)-model
+
+    Consider \\( (U(1), \mathbb{H})\leftrightarrow (\*, \mathbb{H}) \\).
+    There is an isomorphism of state spaces
+
+    \begin{equation}
+    \label{eq:19}
+     Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) \cong   Z\_{3dB, \mathbb{H} }  (\Sigma).
+    \end{equation}
+
+    Let \\( V = \mathbf{C}, G = U(1), G\_{\mathbf{C}} = \operatorname{GL}(1, \mathbf{C}) \\).
+    Then \\( \mathcal{M}\_{G,V} ( \Sigma)  \\) consists of holomorphic line bundles \\( \mathcal{L} \to \Sigma \\) and a nonzero holomorphic section of these bundles.
+    The requirement to be nonzero is a technical necessity to make this a scheme.
+    You can consider
+
+    \begin{equation\*}
+     \mathcal{M}\_{G,V}(\Sigma) = \operatorname{Sym}(\Sigma)  = \bigsqcup\_{d \geqslant 0}^{} \operatorname{Sym}^d(\Sigma).
+    \end{equation\*}
+
+    **Proposition:** \\( H\_{\bullet}( \operatorname{Sym}^d(\Sigma)) = \operatorname{Sym}^d( H\_{\bullet}(\Sigma)) \\).
+
+    Thus,
+
+    \begin{equation}
+    \label{eq:20}
+     Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma)  = \bigoplus\_{d \geqslant 0}^{} \operatorname{Sym}^d(H\_{\bullet}(\Sigma)) = \operatorname{Sym}(H\_{\bullet}(\Sigma)).
+    \end{equation}
+
+<!--list-separator-->
+
+-  3d \\( B \\)-model
+
+    We can repeat the setup from the last section.
+    If we do the same stuff,
+
+    \begin{equation}
+    \label{eq:21}
+    Z\_{3dB, W}(\Sigma) = \operatorname{Sym}(C\_{\bullet}(\Sigma , V^{\*})).
+    \end{equation}
+
+    As promised, they match:
+
+    \begin{equation\*}
+    \label{eq:22}
+     Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) = \bigoplus\_{d \geqslant 0}^{} H\_{\bullet}(\operatorname{Sym}^d(\Sigma )) \cong \operatorname{Sym}(H\_{\bullet}(\Sigma)) = Z\_{3dB, W}(\Sigma)
+    \end{equation\*}
+
+    This is an example of 3d mirrory symmetry.
 
 
-#### \\( A \\)-model {#a-model}
-
-Consider \\( (U(1), \mathbb{H})\leftrightarrow (\*, \mathbb{H}) \\).
-There is an isomorphism of state spaces
-
-\begin{equation}
-\label{eq:19}
- Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) \cong   Z\_{3dB, \mathbb{H} }  (\Sigma).
-\end{equation}
-
-Let \\( V = \mathbf{C}, G = U(1), G\_{\mathbf{C}} = \operatorname{GL}(1, \mathbf{C}) \\).
-Then \\( \mathcal{M}\_{G,V} ( \Sigma)  \\) consists of holomorphic line bundles \\( \mathcal{L} \to \Sigma \\) and a nonzero holomorphic section of these bundles.
-The requirement to be nonzero is a technical necessity to make this a scheme.
-You can consider
-
-\begin{equation\*}
- \mathcal{M}\_{G,V}(\Sigma) = \operatorname{Sym}(\Sigma)  = \bigsqcup\_{d \geqslant 0}^{} \operatorname{Sym}^d(\Sigma).
-\end{equation\*}
-
-**Proposition:** \\( H\_{\bullet}( \operatorname{Sym}^d(\Sigma)) = \operatorname{Sym}^d( H\_{\bullet}(\Sigma)) \\).
-
-Thus,
-
-\begin{equation}
-\label{eq:20}
- Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma)  = \bigoplus\_{d \geqslant 0}^{} \operatorname{Sym}^d(H\_{\bullet}(\Sigma)) = \operatorname{Sym}(H\_{\bullet}(\Sigma)).
-\end{equation}
-
-
-#### 3d \\( B \\)-model {#3d-b-model}
-
-We can repeat the setup from the last section.
-If we do the same stuff,
-
-\begin{equation}
-\label{eq:21}
-Z\_{3dB, W}(\Sigma) = \operatorname{Sym}(C\_{\bullet}(\Sigma , V^{\*})).
-\end{equation}
-
-As promised, they match:
-
-\begin{equation\*}
-\label{eq:22}
- Z\_{3dA, \mathbb{H} // / U(1)} (\Sigma) = \bigoplus\_{d \geqslant 0}^{} H\_{\bullet}(\operatorname{Sym}^d(\Sigma )) \cong \operatorname{Sym}(H\_{\bullet}(\Sigma)) = Z\_{3dB, W}(\Sigma)
-\end{equation\*}
-
-This is an example of 3d mirrory symmetry.
-
-
-## Lecture 10: Wed Jun 14 12:48:31 2023 {#lecture-10-wed-jun-14-12-48-31-2023}
+### Lecture 10: Wed Jun 14 12:48:31 2023 {#lecture-10-wed-jun-14-12-48-31-2023}
 
 This lecture will discuss the affine Grassmannian and the BFN Coulomb branch.
 
 
-### The Affine Grassmannian {#the-affine-grassmannian}
+#### The Affine Grassmannian {#the-affine-grassmannian}
 
 Our groups will always be \\( G = \operatorname{GL}, \operatorname{SL}, \operatorname{PGL}, \prod\_{k}^{}\operatorname{GL}\_{k} \\).
 For \\( A \\) a ring, we can look at \\( G(A) \\) the \\( A \\) points of \\( G \\).
@@ -1064,7 +1041,7 @@ Then
 We can write any element of \\( K^{\times } \\) as \\( t^nq(t) \\) for some integer \\( n \\), where \\( q(t)=0 \\).
 
 
-### BFN Coulomb Branch {#bfn-coulomb-branch}
+#### BFN Coulomb Branch {#bfn-coulomb-branch}
 
 The BFN Coulomb branch is built out of a \\( G \\) gauge group and its action on \\( N \\).
 \\( N \\) is the &ldquo;matter&rdquo;.
@@ -1180,7 +1157,7 @@ Thus
 a Kleinian singularity.
 
 
-## Lecture 11: Wed Jun 14 15:55:18 2023 {#lecture-11-wed-jun-14-15-55-18-2023}
+### Lecture 11: Wed Jun 14 15:55:18 2023 {#lecture-11-wed-jun-14-15-55-18-2023}
 
 We last left off with
 
@@ -1195,7 +1172,7 @@ Z &\in W \otimes V\_2^H\quad\quad \text{matter} \\\\
 The plan for today is to discuss the moduli space of SUSY vacua.
 
 
-### Moduli Space of vacua {#moduli-space-of-vacua}
+#### Moduli Space of vacua {#moduli-space-of-vacua}
 
 The classical moduli space of SUSY vacua in any SUSY QFT on some \\( \mathbf{R}^d \\).
 Schematically this is the set of boundary conditions near \\( \infty \\) that
@@ -1230,7 +1207,7 @@ The former has an \\( \operatorname{SU}(2)\_H \\) action, while the latter has a
 This is not yet hyperKahler though, but we expect(?) it to be.
 
 
-### Quantum vacua {#quantum-vacua}
+#### Quantum vacua {#quantum-vacua}
 
 In QFT, \\( \mu^m \\) is replaced with expectation value.
 So a vacuum is a boundary condition for fields at \\( \infty \\) on \\( \mathbf{R} \\) such that
@@ -1267,7 +1244,7 @@ and the expression would be
 The effect of this tiny extra bit of information is that the quantum Coulomb branch has a map \\( T^{\vee} \dashrightarrow \mathcal{M}\_C \to \mathfrak{t}^3 / \mathrm{Weyl} \\).
 
 
-### Examples of Higgs and Coulomb Branches {#examples-of-higgs-and-coulomb-branches}
+#### Examples of Higgs and Coulomb Branches {#examples-of-higgs-and-coulomb-branches}
 
 The Higgs and Coulomb branches intersect at least at a point.
 \\( \mathcal{M}\_C, \mathcal{M}\_H \\) are in general singular hyperKahler manifolds with \\( \operatorname{SU}(2)\_C, \operatorname{SU}(2)\_H \\) actions, respectively.
@@ -1279,10 +1256,10 @@ In mirror 3d gauge theories:
 \end{align\*}
 
 
-## Lecture 12: Wed Jun 14 18:05:37 2023 {#lecture-12-wed-jun-14-18-05-37-2023}
+### Lecture 12: Wed Jun 14 18:05:37 2023 {#lecture-12-wed-jun-14-18-05-37-2023}
 
 
-### \\( \Omega\\) -background and quantization {#omega-background-and-quantization}
+#### \\( \Omega\\) -background and quantization {#omega-background-and-quantization}
 
 Recall from Pavel&rsquo;s lectures that in a 3d field theory \\( Z(S^2)  \\) is an \\( E\_3 \\)-algebra.
 This means for every \\( n \\), there&rsquo;s a set of maps \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3) ) \otimes  Z(S^2)^{\otimes  n} \to Z(S^2) \\), or \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3))\to \operatorname\*{Hom}(Z(S)^{\otimes  n}, Z(S^2)) \\).
@@ -1363,7 +1340,7 @@ So when \\( h \mapsto 0 \\), we get something commutative.
 In summary, we find that the \\( S^1 \\)-invariant ring map \\( \mathbf{C}[h]\to Z(S^1)^{S^1} \\) quantizes the Poisson algebra.
 
 
-### The \\( A \\)-model {#the-a-model}
+#### The \\( A \\)-model {#the-a-model}
 
 Recall that \\( Z\_A(S^2)= C\_{\bullet}( \operatorname{Maps}( \mathbb{B} , N /G)) \\) from the BFN construction.
 What we learned today is that
@@ -1422,47 +1399,48 @@ Z\_A(S^2)^{S^1}=C\_{\bullet}^{S^1}( \operatorname{Bun}\_G(\mathbb{B})) = \mathbf
 
 where \\( [h,x] = [t,h]=0 \\) and \\( [t,x]=ht \\).
 
+<!--list-separator-->
 
-#### Trick {#trick}
+-  Trick
 
-This space \\( \operatorname{Maps}( \mathbb{B} , N /G) / \mathbf{C}^{\times }\rtimes G = R\_{G,N} / \mathbf{C}^{\times } \rtimes G \\).
+    This space \\( \operatorname{Maps}( \mathbb{B} , N /G) / \mathbf{C}^{\times }\rtimes G = R\_{G,N} / \mathbf{C}^{\times } \rtimes G \\).
 
-Then
+    Then
 
-\begin{equation}
-\label{eq:45}
-R\_{G,N} \xrightarrow{L}  T\_{G,N} \leftrightarrow  \operatorname{Gr}\_G
-\end{equation}
+    \begin{equation}
+    \label{eq:45}
+    R\_{G,N} \xrightarrow{L}  T\_{G,N} \leftrightarrow  \operatorname{Gr}\_G
+    \end{equation}
 
-where the right side maps are bundle maps and section.
-It is a cool fact that
+    where the right side maps are bundle maps and section.
+    It is a cool fact that
 
-\begin{equation}
-\label{eq:46}
-C\_{\bullet}^{S^1}(R\_{G,N} / \operatorname{Gr}) \to C\_{\bullet}^{S^1}(\operatorname{BUn}\_G(\mathbb{B}))
-\end{equation}
+    \begin{equation}
+    \label{eq:46}
+    C\_{\bullet}^{S^1}(R\_{G,N} / \operatorname{Gr}) \to C\_{\bullet}^{S^1}(\operatorname{BUn}\_G(\mathbb{B}))
+    \end{equation}
 
-is an algebra homomorphism.
+    is an algebra homomorphism.
 
-For example when \\( N = \mathbf{C}\\), \\( G \subset \mathbf{C}^{\times } \\),  we have
+    For example when \\( N = \mathbf{C}\\), \\( G \subset \mathbf{C}^{\times } \\),  we have
 
-\begin{equation}
-\label{eq:48}
-t^n \times t^n \mathbf{C}[ [t]] \hookrightarrow \bigsqcup t^n \times  t^n \mathbf{C}[ [t]] \hookleftarrow \bigsqcup t^n \times  \left\\{ 0 \right\\}
-\end{equation}
+    \begin{equation}
+    \label{eq:48}
+    t^n \times t^n \mathbf{C}[ [t]] \hookrightarrow \bigsqcup t^n \times  t^n \mathbf{C}[ [t]] \hookleftarrow \bigsqcup t^n \times  \left\\{ 0 \right\\}
+    \end{equation}
 
-So
+    So
 
-\begin{equation}
-\label{eq:49}
-t^n \times  \mathbf{C}[[t] ] \mapsto \operatorname{eu}^T \left( t^n \mathbf{C}[ [t]] / t^n \mathbf{C}( (t))\cap \mathbf{C} ( (t)) \right).
-\end{equation}
-
-
-## Lecture 13: Thu Jun 15 10:46:45 2023 {#lecture-13-thu-jun-15-10-46-45-2023}
+    \begin{equation}
+    \label{eq:49}
+    t^n \times  \mathbf{C}[[t] ] \mapsto \operatorname{eu}^T \left( t^n \mathbf{C}[ [t]] / t^n \mathbf{C}( (t))\cap \mathbf{C} ( (t)) \right).
+    \end{equation}
 
 
-### Review {#review}
+### Lecture 13: Thu Jun 15 10:46:45 2023 {#lecture-13-thu-jun-15-10-46-45-2023}
+
+
+#### Review {#review}
 
 So far we&rsquo;ve considered 3d \\( \mathcal{N}=4 \\) gauge theories labeled by a compact Lie group \\( G \\) and \\( W = T^{\*} V \\) (sometimes) a hyperKahler representation of \\( G \\).
 Physical QFTs are representations \\( \mathcal{T}\_{G,V} \\) with action of \\( \operatorname{SU}(2) \_E \otimes \operatorname{SU}(2)\_H \otimes  \operatorname{SU}(2)\_C\\).
@@ -1474,7 +1452,7 @@ There exist CY manifolds \\( \mathcal{X}^{\vee} \\) such that their QFTs are equ
 This is the basis of 2d mirror symmetry.
 
 
-### Computations in Dualities {#computations-in-dualities}
+#### Computations in Dualities {#computations-in-dualities}
 
 In any physical duality (equivalence of QFTs) you can compute physical quantities (observables) on both sides of the duality and try to match them.
 One might be interested in (at a low level) the moduli space of vacua, partition functions on closed manifolds, state spaces, expectation values (AKA correlation functions) of operators.
@@ -1528,16 +1506,17 @@ We have a flat \\( G\_{ \mathbf{C}} \\) connection, and flat sections of an asso
 On \\( S^2 \\), flat connections are trivial, so solutions are constant.
 So this entirely comes down to \\( \mathbf{C} [ \mu\_{\mathbf{C}}(0)] / G\_{ \mathbf{C}} = T^{\*} V / / G\_{ \mathbf{C}} \\).
 
+<!--list-separator-->
 
-#### Example {#example}
+-  Example
 
-Consider \\( G = U(1) \\) acting on \\( \mathbf{C}^n \\) with weights \\( 1 \\) in each summand.
-So \\( W = T^{\*} \mathbf{C}^{n} \\).
-The Higgs branch \\( \mathcal{M}\_H \\) ends up being the minimal nilpotent branch on \\( \operatorname{SO}(n) \\), and has resolution that looks like \\( O\_{\mathrm{sln}}^{\mathrm{min}}\leftarrow T^{\*} \mathbb{P}^{n-1} \\).
-The Coulomb branch \\( \mathcal{M}\_C \\) looks like \\( T^{\*} \mathbf{C}  / \mathbf{Z}/n \\).
+    Consider \\( G = U(1) \\) acting on \\( \mathbf{C}^n \\) with weights \\( 1 \\) in each summand.
+    So \\( W = T^{\*} \mathbf{C}^{n} \\).
+    The Higgs branch \\( \mathcal{M}\_H \\) ends up being the minimal nilpotent branch on \\( \operatorname{SO}(n) \\), and has resolution that looks like \\( O\_{\mathrm{sln}}^{\mathrm{min}}\leftarrow T^{\*} \mathbb{P}^{n-1} \\).
+    The Coulomb branch \\( \mathcal{M}\_C \\) looks like \\( T^{\*} \mathbf{C}  / \mathbf{Z}/n \\).
 
 
-### Mirror Symmetry {#mirror-symmetry}
+#### Mirror Symmetry {#mirror-symmetry}
 
 Suppose \\( G \\) acting on \\( V \\) is an abelian theory (e.g. \\(  G = U(1)^r \\), \\( V = \mathbf{C}^n \\)) with weights encoded in an integral matrix.
 If \\( G \\) acts faithfully, there is a \\( (n-r) \times n \\) matrix inducing a SES
@@ -1551,7 +1530,7 @@ The mirror theory is the action of \\( G^{!} = U(1)^{n-r} \\) acting on \\( V^{!
 This theory has a SES dual to the one of the original.
 
 
-## Lecture 14: Thu Jun 15 13:05:02 2023 {#lecture-14-thu-jun-15-13-05-02-2023}
+### Lecture 14: Thu Jun 15 13:05:02 2023 {#lecture-14-thu-jun-15-13-05-02-2023}
 
 Last time we say \\( \mathbf{C} [h]\to Z(S ^2)^{S^1} \\) as a module where \\( |h| =2 \\).
 When \\( h =0 \\), this recovers \\( Z(S ^2) \\), which is a \\( P\_3 \\)-algebra, which means it has a Poisson bracket of degree \\( 2 \\) and a commutative product, and it satisfies the Leibniz rule.
@@ -1561,7 +1540,7 @@ We learned that it had the property that when we take the Lie bracket of two ele
 In the \\( A \\)-twist, \\( Z^{A}(S^1)^{S^1} = H^{S^1}( \operatorname{Maps}( \mathbb{B} , N /G)) \\), which had some other possibly nicer ways to write down.
 
 
-### Quantizing the \\( B \\)-twisted Higgs branch {#quantizing-the-b-twisted-higgs-branch}
+#### Quantizing the \\( B \\)-twisted Higgs branch {#quantizing-the-b-twisted-higgs-branch}
 
 We want to ask _what is the analogue in the \\( B \\)-twist?_
 We saw last lecture that \\( Z(S^2) = \mathbf{C}[ \mathcal{M}\_H] / G\_{ \mathbf{C}}  \\) the space of maps on the Higgs branch modulo gauge transformation.
@@ -1582,7 +1561,7 @@ Now \\( Z^B(S^2)^{S^1} \cong \left( D\_h(N) / D\_h(N)\mu^{\*}\_h(\mathfrak{g}) \
 The second term in \\( \mathbf{C}\_{h}[ \mathcal{M}\_H] \\).
 
 
-## Lecture 15: Fri Jun 16 10:44:46 2023 {#lecture-15-fri-jun-16-10-44-46-2023}
+### Lecture 15: Fri Jun 16 10:44:46 2023 {#lecture-15-fri-jun-16-10-44-46-2023}
 
 We will talk about \\( Z(S^1) \\).
 Justin will talk about \\( Z(\*) \\) of a point, then for the last lecture we&rsquo;ll wrap up.
@@ -1627,90 +1606,92 @@ From \\( G,W \\) gauge theories
     1.  \\( A: \\) take a Fukaya category (roughly speaking)
     2.  \\( B \\): take coherent sheaves (roughly speaking)
 
+<!--list-separator-->
 
-#### B Twist {#b-twist}
+-  B Twist
 
-Suppose we have a Lie group \\( G \\) acting on \\( T^{\*}V = V \oplus  V^{\*} \\).
-\\( V \\) will have column vectors \\( x^i \\) and \\( V^{\*} \\) will have row vectors \\( y\_i \\).
-\\( \phi : G \to U(V) \\).
-Remember that
+    Suppose we have a Lie group \\( G \\) acting on \\( T^{\*}V = V \oplus  V^{\*} \\).
+    \\( V \\) will have column vectors \\( x^i \\) and \\( V^{\*} \\) will have row vectors \\( y\_i \\).
+    \\( \phi : G \to U(V) \\).
+    Remember that
 
-\begin{align\*}
-Q\_B(pt) &=0 \implies \mathcal{F}\_{\mathcal{A}}=0 \text{ for complexified }G\_{\mathbf{C}}- \text{connection}\\\\
-d\_{\mathcal{A}} \vec{X} &= d\_{ \mathcal{A} }\vec{Y} = 0 \\\\
-\mu\_{\mathcal{M}}(X,Y) &= \rho^{\*}(X,Y)=0.
-\end{align\*}
+    \begin{align\*}
+    Q\_B(pt) &=0 \implies \mathcal{F}\_{\mathcal{A}}=0 \text{ for complexified }G\_{\mathbf{C}}- \text{connection}\\\\
+    d\_{\mathcal{A}} \vec{X} &= d\_{ \mathcal{A} }\vec{Y} = 0 \\\\
+    \mu\_{\mathcal{M}}(X,Y) &= \rho^{\*}(X,Y)=0.
+    \end{align\*}
 
-This is all replaced with complexified \\( G\_{\mathbf{C}} \\) gauge transformations to avoid the additional reality condition.
+    This is all replaced with complexified \\( G\_{\mathbf{C}} \\) gauge transformations to avoid the additional reality condition.
 
-In a neighborhood of \\( S^1 \\), the only info in \\( \mathcal{A} \\) is the holonomy.
-Fix a basepoint \\( p\in S^1 \\), let \\( g = \operatorname{Hol}\_{S^1\_p}( \mathcal{A} )\in G\_{\mathbf{C}} \\).
+    In a neighborhood of \\( S^1 \\), the only info in \\( \mathcal{A} \\) is the holonomy.
+    Fix a basepoint \\( p\in S^1 \\), let \\( g = \operatorname{Hol}\_{S^1\_p}( \mathcal{A} )\in G\_{\mathbf{C}} \\).
 
-Let \\( X\_p , Y\_p \\) be the values at \\( p \\).
-Being flat implies \\( g X\_p = X\_p, Y\_p g ^{-1} = Y\_p \\).
-Then we still have the moment map constraint \\( \mu\_{\mathbf{C}}=0 \\).
-These remaining equations are equivalent to \\( dW =0 \\) taking the critical locus of a function \\( W : G\_{ \mathbf{C}} \times V \times V^{\*} \to \mathbf{C} \\) taking \\( (g,X,Y) \mapsto Y\cdot (\rho(g)-1) X \\).
+    Let \\( X\_p , Y\_p \\) be the values at \\( p \\).
+    Being flat implies \\( g X\_p = X\_p, Y\_p g ^{-1} = Y\_p \\).
+    Then we still have the moment map constraint \\( \mu\_{\mathbf{C}}=0 \\).
+    These remaining equations are equivalent to \\( dW =0 \\) taking the critical locus of a function \\( W : G\_{ \mathbf{C}} \times V \times V^{\*} \to \mathbf{C} \\) taking \\( (g,X,Y) \mapsto Y\cdot (\rho(g)-1) X \\).
 
-So solutions to equations of motion on a circle are equivalent to function \\( G\_{ \mathbf{C}} \times  V \times V^{\*} \to \mathbf{C} \\) such that \\( dW=0 \\) modulo certain gauge transformations.
-The next step is to take coherent sheaves on this locus.
+    So solutions to equations of motion on a circle are equivalent to function \\( G\_{ \mathbf{C}} \times  V \times V^{\*} \to \mathbf{C} \\) such that \\( dW=0 \\) modulo certain gauge transformations.
+    The next step is to take coherent sheaves on this locus.
 
-**Claim:** \\( Z\_{G,V}^B \simeq \operatorname{MF}^G (G\_{\mathbf{C}} \times V \times V^{\*}, W) \\) the category of matrix factorizations.
+    **Claim:** \\( Z\_{G,V}^B \simeq \operatorname{MF}^G (G\_{\mathbf{C}} \times V \times V^{\*}, W) \\) the category of matrix factorizations.
 
-When \\( G=1, V= \mathbf{C} \\),
+    When \\( G=1, V= \mathbf{C} \\),
 
-\begin{equation}
-\label{eq:54}
-Z\_{G,V}^B(S^1) =  D^b \mathsf{Coh}(T^{\*}  \mathbf{C}).
-\end{equation}
+    \begin{equation}
+    \label{eq:54}
+    Z\_{G,V}^B(S^1) =  D^b \mathsf{Coh}(T^{\*}  \mathbf{C}).
+    \end{equation}
 
-The unit object \\( \mathbb{1} = \mathcal{O}\_{T^{\*} \mathbf{C}} \\) the structure sheaf, with \\( \operatorname{End}( \mathbb{1} ) = \mathbf{C}[T^{\*} \mathbf{C}] \\).
-And
-\begin{equation\*}
-Z(T^2) = HH<sub>&bull;</sub>(D^b \mathsf{Coh}(T<sup>\*</sup> \mathbf{C})) = \mathbf{C}\left[X,Y, \frac{\partial}{\partial  X} , \frac{\partial}{\partial Y}\right]
-\end{equation\*}.
+    The unit object \\( \mathbb{1} = \mathcal{O}\_{T^{\*} \mathbf{C}} \\) the structure sheaf, with \\( \operatorname{End}( \mathbb{1} ) = \mathbf{C}[T^{\*} \mathbf{C}] \\).
+    And
+    \begin{equation\*}
+    Z(T^2) = HH<sub>&bull;</sub>(D^b \mathsf{Coh}(T<sup>\*</sup> \mathbf{C})) = \mathbf{C}\left[X,Y, \frac{\partial}{\partial  X} , \frac{\partial}{\partial Y}\right]
+    \end{equation\*}.
 
+<!--list-separator-->
 
-#### A-twist {#a-twist}
+-  A-twist
 
-Let \\( G,V \\) be a gauge theory again.
-Recall the equations of motion in the \\( A \\)-twist are Dirac equations.
-In a neighborhood of \\( S^1 \\), \\( D^{\*} = \operatorname{Spec} \mathbf{C}((t)) \\).
-Solutions to \\( Q\_A \\) EOM on \\( D^{\*} \\) are \\( \simeq T^{\*} \left( V((z)) / G\_{\mathbf{C}}((z)) \right) \\).
-So
+    Let \\( G,V \\) be a gauge theory again.
+    Recall the equations of motion in the \\( A \\)-twist are Dirac equations.
+    In a neighborhood of \\( S^1 \\), \\( D^{\*} = \operatorname{Spec} \mathbf{C}((t)) \\).
+    Solutions to \\( Q\_A \\) EOM on \\( D^{\*} \\) are \\( \simeq T^{\*} \left( V((z)) / G\_{\mathbf{C}}((z)) \right) \\).
+    So
 
-\begin{equation}
-\label{eq:55}
-Z^A\_{G,V} (S^1) := D-mod^{ G\_{\mathbf{C}}((z)) }(V((z)))
-\end{equation}
+    \begin{equation}
+    \label{eq:55}
+    Z^A\_{G,V} (S^1) := D-mod^{ G\_{\mathbf{C}}((z)) }(V((z)))
+    \end{equation}
 
-the category of \\( D \\)-modules on the loop space.
+    the category of \\( D \\)-modules on the loop space.
 
-This category has basic objects labeled by \\( L,H \\) where \\( L \subset V((z)) \\) a subspace of the algebraic loop space and \\( H \subset G((z)) \\) is a subgroup that stabilizes \\( L \\).
-The category has
+    This category has basic objects labeled by \\( L,H \\) where \\( L \subset V((z)) \\) a subspace of the algebraic loop space and \\( H \subset G((z)) \\) is a subgroup that stabilizes \\( L \\).
+    The category has
 
-\begin{multline\*}
-\operatorname\*{Hom}((L,H), (L', H'))= H\_{\bullet}(L'/H' \times \_{V((z))/G((z)) L/H}) \\\ = H'\backslash H\_{\bullet} \left\\{ (X,X',g)\in L \times  L' \times G\_{\mathbf{C}}((z))\mid X' = gX \right\\} / H
-\end{multline\*}
+    \begin{multline\*}
+    \operatorname\*{Hom}((L,H), (L', H'))= H\_{\bullet}(L'/H' \times \_{V((z))/G((z)) L/H}) \\\ = H'\backslash H\_{\bullet} \left\\{ (X,X',g)\in L \times  L' \times G\_{\mathbf{C}}((z))\mid X' = gX \right\\} / H
+    \end{multline\*}
 
-where \\( H\_{\bullet} \\) is Borel-Moore homology.
+    where \\( H\_{\bullet} \\) is Borel-Moore homology.
 
-The unit object
+    The unit object
 
-\begin{equation}
-\label{eq:56}
-\mathbb{1} = (V[[z]] , G\_{\mathbf{C}}[[z]])
-\end{equation}
+    \begin{equation}
+    \label{eq:56}
+    \mathbb{1} = (V[[z]] , G\_{\mathbf{C}}[[z]])
+    \end{equation}
 
-And \\( \operatorname{End}(\mathbb{1}) = \mathbf{C} [ \mathcal{M}\_C] \\).
+    And \\( \operatorname{End}(\mathbb{1}) = \mathbf{C} [ \mathcal{M}\_C] \\).
 
-**Theorem:** \\( Z\_{1, \mathbf{C}}^A (S^1) \simeq  \\) a de Rham version of the \\( B \\)-twisted category \\( Z\_{U(1), \mathbf{C}}^B(S^1) \\).
+    **Theorem:** \\( Z\_{1, \mathbf{C}}^A (S^1) \simeq  \\) a de Rham version of the \\( B \\)-twisted category \\( Z\_{U(1), \mathbf{C}}^B(S^1) \\).
 
-**Theorem:** Abelian \\( G \\) acting on \\( V \\) faithfully has
+    **Theorem:** Abelian \\( G \\) acting on \\( V \\) faithfully has
 
-\begin{align\*}
-\label{eq:57}
-Z\_{G,V}^B (S^1)^{\text{fin supp on }G\_{\mathbf{C}}} &\simeq D^B( \text{VOA modules}) \\\\
-&\simeq \text{other A category fo VOA modules} \subset Z^A\_{G',V'}(S^1).
-\end{align\*}
+    \begin{align\*}
+    \label{eq:57}
+    Z\_{G,V}^B (S^1)^{\text{fin supp on }G\_{\mathbf{C}}} &\simeq D^B( \text{VOA modules}) \\\\
+    &\simeq \text{other A category fo VOA modules} \subset Z^A\_{G',V'}(S^1).
+    \end{align\*}
 
-At present no analogous mirror symmetry statements about nonabelian gauge theories are known.
+    At present no analogous mirror symmetry statements about nonabelian gauge theories are known.

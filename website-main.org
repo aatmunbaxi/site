@@ -16,24 +16,24 @@
 :EXPORT_HUGO_SECTION:
 :EXPORT_HUGO_MENU: :menu main
 :END:
-Currently I am a PhD student in mathematics at Texas A&M University.
+I am a PhD student in mathematics at Texas A&M University. My advisor is Dr. [[https://www.math.tamu.edu/~rowell/][Eric Rowell]].
 
-*Interests:* Broad, but particularly things in category theory and algebraic geometry.
+*Interests:* Fusion and modular categories and their classification. Some random things in algebraic geometry.
 
 *** What I'm Reading
-- /Dune/
+- /Tensor Categories/
 *** Education
-- PhD Mathematics, Texas A&M University (in-progress)
+- PhD Mathematics, Texas A&M University (in progress)
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
 *** Conferences
 - LAWRGe 2023 @ USC
 *** Hobbies
-- Programming and learning new programming languages. I'm currently interested in Haskell and Rust
-- Soccer. Specifically, Liverpool FC
+- Programming and learning new programming languages. I'm currently working in the rust programming language.
+- Liverpool FC
 - Astrophotography. Check my images [[*Astrophotos][here]]
 - Learning japanese through immersion
-- Free (as in freedom) software, such as GNU emacs
+- Free (as in freedom) software
   - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in GNU emacs
 
 * Math
@@ -47,13 +47,13 @@ Currently I am a PhD student in mathematics at Texas A&M University.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
-** LAWRGe 2023 Notes :math:conference:notes:noexport:
+** LAWRGe 2023 Notes :math:conference:notes:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: LAWRGe_2023_notes
 :END:
 #+toc: headlines 2 local
-# #+include: ~/Documents/org/LAWRGe.org
+#+include: "~/Documents/org/notes.org::*LAWRGe Workshop"
 * Computing
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
