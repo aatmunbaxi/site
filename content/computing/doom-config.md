@@ -487,7 +487,7 @@ We configure some of its settings here.
 ```emacs-lisp
 (setq LaTeX-always-use-Biber t)
 (setq bibtex-dialect 'biblatex)
-(setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib")
+(setq bibtex-completion-bibliography '("~/Documents/bib/reference-texts.bib" "~/Documents/bib/reference-articles.bib"))
 ```
 
 
@@ -899,7 +899,7 @@ These templates set up the outline. Here is a table of what they do:
              ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
               "* TODO Follow up with %:fromname on %a\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
              ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
-              "* TODO %? \nSCHEDULED: %t\nReference: %a\n\n%i")
+              "* TODO %? \nSCHEDULED: %t\n:PROPERTIES:\nREFERENCE: %a\n:END:\n%i")
              ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
               "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
     )
