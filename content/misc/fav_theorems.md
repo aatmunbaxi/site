@@ -23,8 +23,6 @@ type = "post"
 </div>
 </details>
 
-Here are some of my favorite theorems. Click on the statements for some commentary.
-
 
 ## Modular categories are not determined by their modular data {#modular-categories-are-not-determined-by-their-modular-data}
 

@@ -31,6 +31,7 @@ type = "post"
     - [Hooks](#hooks)
     - [Appearance](#appearance)
 - [`bibtex`](#bibtex)
+- [`org-agenda`](#org-agenda)
 - [`org-super-agenda`](#org-super-agenda)
 - [`org-modern`](#org-modern)
     - [Agenda](#agenda)
@@ -491,20 +492,10 @@ We configure some of its settings here.
 ```
 
 
-## `org-super-agenda` {#org-super-agenda}
+## `org-agenda` {#org-agenda}
 
 ```emacs-lisp
-(setq org-agenda-format-date (lambda (date) (concat "\n"
-                                                    (make-string (window-width) 9472)
-                                                    "\n"
-                                                    (org-agenda-format-date-aligned date))))
-```
-
-```emacs-lisp
-(use-package! org-super-agenda
-  :init
-  ;; (require 'doom-themes)
-  (require 'org-modern)
+(after! org-modern
   (setq org-agenda-include-deadlines t
         org-agenda-block-separator nil
         org-agenda-compact-blocks nil
@@ -519,6 +510,25 @@ We configure some of its settings here.
       :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base1) :slant italic :weight ultrabold)
     `(org-agenda-date-weekend
       :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg) :slant normal :weight ultra-light))
+
+  )
+```
+
+
+## `org-super-agenda` {#org-super-agenda}
+
+```emacs-lisp
+(setq org-agenda-format-date (lambda (date) (concat "\n"
+                                                    (make-string (window-width) 9472)
+                                                    "\n"
+                                                    (org-agenda-format-date-aligned date))))
+```
+
+```emacs-lisp
+(use-package! org-super-agenda
+  :init
+  ;; (require 'doom-themes)
+  ;; (require 'org-modern)
   :config
   (setq org-agenda-custom-commands
         '(("s" "Super view"

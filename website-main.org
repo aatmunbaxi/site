@@ -279,8 +279,6 @@ Table of Contents
 #+toc: headlines 1
 #+end_details
 
-Here are some of my favorite theorems. Click on the statements for some commentary.
-
 *** Modular categories are not determined by their modular data
 #+begin_details
 #+begin_summary
