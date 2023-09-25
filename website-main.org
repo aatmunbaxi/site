@@ -54,6 +54,20 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 :END:
 #+toc: headlines 2 local
 #+include: "~/Documents/org/notes.org::*LAWRGe Workshop"
+** DRAFT Quantum Computing and Modular Categories :math:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: math
+:EXPORT_FILE_NAME: quantum_comp_and_modular_categories
+:END:
+
+Quantum computing is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks.
+
+*** Notes :noexport:
+- quantum computing is not fault tolerant, based on physical limitations and introductions of noise in trapped quantum systems
+- [[id:0adf10d9-1ea5-4db2-a8bb-6641fab04ea3][modular categories]] effectively model systems of anyon quasiparticles, the main ingredient to TQC (Kitaev)
+- TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
+  - This is perhaps its strongest merit
+- 
 * Computing
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
