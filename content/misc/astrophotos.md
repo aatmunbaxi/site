@@ -7,16 +7,6 @@ weight = 2002
 type = "post"
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [M101: Pinwheel Galaxy](#m101-pinwheel-galaxy)
-- [M42: The Orion Nebula](#m42-the-orion-nebula)
-
-</div>
-<!--endtoc-->
-
 As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.
 
 

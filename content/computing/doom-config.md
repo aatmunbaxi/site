@@ -7,63 +7,6 @@ weight = 2003
 type = "post"
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [Intro](#intro)
-- [Housekeeping](#housekeeping)
-- [Font](#font)
-- [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
-    - [Doom Dashboard](#doom-dashboard)
-    - [Modeline](#modeline)
-    - [Global Appearance](#global-appearance)
-    - [Custom Faces](#custom-faces)
-    - [Custom Functionality](#custom-functionality)
-- [Global keybindings](#global-keybindings)
-- [`evil`](#evil)
-    - [`evil-owl`](#evil-owl)
-- [`embark`](#embark)
-- [`org-mode`](#org-mode)
-    - [Some variables](#some-variables)
-    - [Hooks](#hooks)
-    - [Appearance](#appearance)
-- [`bibtex`](#bibtex)
-- [`org-capture`](#org-capture)
-- [`org-agenda`](#org-agenda)
-- [`org-super-agenda`](#org-super-agenda)
-- [`org-modern`](#org-modern)
-    - [Agenda](#agenda)
-    - [PDF Export Process](#pdf-export-process)
-    - [Keybinds](#keybinds)
-    - [Export Settings](#export-settings)
-- [`org-ref`](#org-ref)
-- [`org-roam`](#org-roam)
-    - [`org-roam`](#org-roam)
-    - [`org-roam-bibtex`](#org-roam-bibtex)
-- [`org-journal`](#org-journal)
-- [`org-noter`](#org-noter)
-- [`org-cdlatex`](#org-cdlatex)
-- [`helm-bibtex`](#helm-bibtex)
-- [`xenops-mode`](#xenops-mode)
-- [`pdf-view-mode`](#pdf-view-mode)
-    - [Keybindings](#keybindings)
-    - [Hooks](#hooks)
-- [`haskell-mode`](#haskell-mode)
-    - [Hooks](#hooks)
-- [`python-mode`](#python-mode)
-- [`yasnippets`](#yasnippets)
-- [`ink`](#ink)
-- [quiver](#quiver)
-- [`org-babel`](#org-babel):ARCHIVE:
-- [`company`](#company)
-- [`elfeed`](#elfeed)
-- [`frog-jump`](#frog-jump)
-- [`beacon`](#beacon)
-
-</div>
-<!--endtoc-->
-
 <details class="toc-class">
 <summary><b>Table of Contents</b></summary>
 <div class="details">
@@ -803,7 +746,7 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 
   :config
   (setq   org-ref-default-bibliography "~/Documents/bib/zotero_refs.bib"
-          org-ref-pdf-directory '("~/Documents/books" "~/Documents/bib/articles")
+          org-ref-pdf-directory '("~/Documents/books" "~/Documents/bib/pdfs")
           org-ref-insert-link-function 'org-ref-insert-link-hydra/body
           org-ref-insert-cite-function 'org-ref-cite-insert-helm
           org-ref-insert-ref-function 'org-ref-insert-ref-link

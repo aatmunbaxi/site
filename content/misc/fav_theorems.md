@@ -6,17 +6,6 @@ weight = 2003
 type = "post"
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [Modular categories are not determined by their modular data](#modular-categories-are-not-determined-by-their-modular-data)
-- [Classification of commutative Frobenius algebras by TQFTs](#classification-of-commutative-frobenius-algebras-by-tqfts)
-- [The Yoneda Lemma](#the-yoneda-lemma)
-
-</div>
-<!--endtoc-->
-
 <details>
 <summary>Table of Contents</summary>
 <div class="details">

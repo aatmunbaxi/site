@@ -6,19 +6,6 @@ draft = true
 weight = 2003
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [Introduction](#introduction)
-- [Anyons and their statistics](#anyons-and-their-statistics)
-- [Modular Categories](#modular-categories)
-
-</div>
-<!--endtoc-->
-
-
-
 ## Introduction {#introduction}
 
 Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks.
@@ -84,8 +71,6 @@ Study of braid groups, motion groups, and the unitary representations of these g
 
 We switch gears a bit to discuss the other data of anyon systems, of which there are many.
 The study of braids and their unitary representations will capture how anyons behave with respect to each other, but doesn&rsquo;t capture properties of the particles themselves.
-(<a href="#citeproc_bib_item_1">Kitaev 2006</a>)
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Kitaev, Alexei. 2006. “Anyons in an Exactly Solved Model and beyond.” <i>Annals of Physics</i>, January Special Issue, 321 (1): 2–111. doi:<a href="https://doi.org/10.1016/j.aop.2005.10.005">10.1016/j.aop.2005.10.005</a>.</div>
 </div>

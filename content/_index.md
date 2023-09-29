@@ -5,20 +5,6 @@ draft = false
 weight = -10
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [About Me](#about-me)
-    - [What I&rsquo;m Reading](#what-i-and-rsquo-m-reading)
-    - [Education](#education)
-    - [Conferences](#conferences)
-    - [Hobbies](#hobbies)
-
-</div>
-<!--endtoc-->
-
-
 ## About Me {#about-me}
 
 I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr. [Eric Rowell](https://www.math.tamu.edu/~rowell/).
