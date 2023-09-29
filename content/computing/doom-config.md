@@ -7,6 +7,63 @@ weight = 2003
 type = "post"
 +++
 
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [Intro](#intro)
+- [Housekeeping](#housekeeping)
+- [Font](#font)
+- [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
+    - [Doom Dashboard](#doom-dashboard)
+    - [Modeline](#modeline)
+    - [Global Appearance](#global-appearance)
+    - [Custom Faces](#custom-faces)
+    - [Custom Functionality](#custom-functionality)
+- [Global keybindings](#global-keybindings)
+- [`evil`](#evil)
+    - [`evil-owl`](#evil-owl)
+- [`embark`](#embark)
+- [`org-mode`](#org-mode)
+    - [Some variables](#some-variables)
+    - [Hooks](#hooks)
+    - [Appearance](#appearance)
+- [`bibtex`](#bibtex)
+- [`org-capture`](#org-capture)
+- [`org-agenda`](#org-agenda)
+- [`org-super-agenda`](#org-super-agenda)
+- [`org-modern`](#org-modern)
+    - [Agenda](#agenda)
+    - [PDF Export Process](#pdf-export-process)
+    - [Keybinds](#keybinds)
+    - [Export Settings](#export-settings)
+- [`org-ref`](#org-ref)
+- [`org-roam`](#org-roam)
+    - [`org-roam`](#org-roam)
+    - [`org-roam-bibtex`](#org-roam-bibtex)
+- [`org-journal`](#org-journal)
+- [`org-noter`](#org-noter)
+- [`org-cdlatex`](#org-cdlatex)
+- [`helm-bibtex`](#helm-bibtex)
+- [`xenops-mode`](#xenops-mode)
+- [`pdf-view-mode`](#pdf-view-mode)
+    - [Keybindings](#keybindings)
+    - [Hooks](#hooks)
+- [`haskell-mode`](#haskell-mode)
+    - [Hooks](#hooks)
+- [`python-mode`](#python-mode)
+- [`yasnippets`](#yasnippets)
+- [`ink`](#ink)
+- [quiver](#quiver)
+- [`org-babel`](#org-babel):ARCHIVE:
+- [`company`](#company)
+- [`elfeed`](#elfeed)
+- [`frog-jump`](#frog-jump)
+- [`beacon`](#beacon)
+
+</div>
+<!--endtoc-->
+
 <details class="toc-class">
 <summary><b>Table of Contents</b></summary>
 <div class="details">
@@ -31,6 +88,7 @@ type = "post"
     - [Hooks](#hooks)
     - [Appearance](#appearance)
 - [`bibtex`](#bibtex)
+- [`org-capture`](#org-capture)
 - [`org-agenda`](#org-agenda)
 - [`org-super-agenda`](#org-super-agenda)
 - [`org-modern`](#org-modern)
@@ -38,13 +96,15 @@ type = "post"
     - [PDF Export Process](#pdf-export-process)
     - [Keybinds](#keybinds)
     - [Export Settings](#export-settings)
-- [`helm-bibtex`](#helm-bibtex)
 - [`org-ref`](#org-ref)
-- [`xenops-mode`](#xenops-mode)
+- [`org-roam`](#org-roam)
+    - [`org-roam`](#org-roam)
+    - [`org-roam-bibtex`](#org-roam-bibtex)
 - [`org-journal`](#org-journal)
 - [`org-noter`](#org-noter)
-- [`org-roam`](#org-roam)
-- [`org-capture`](#org-capture)
+- [`org-cdlatex`](#org-cdlatex)
+- [`helm-bibtex`](#helm-bibtex)
+- [`xenops-mode`](#xenops-mode)
 - [`pdf-view-mode`](#pdf-view-mode)
     - [Keybindings](#keybindings)
     - [Hooks](#hooks)
@@ -59,7 +119,6 @@ type = "post"
 - [`elfeed`](#elfeed)
 - [`frog-jump`](#frog-jump)
 - [`beacon`](#beacon)
-- [`org-cdlatex`](#org-cdlatex)
 
 </div>
 <!--endtoc-->
@@ -492,6 +551,58 @@ We configure some of its settings here.
 ```
 
 
+## `org-capture` {#org-capture}
+
+Used mostly in tight integration with the `agenda`, capture templates let me capture snippets of org text and quickly refile them to worry about later.
+They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
+It is inspired mostly by &ldquo;Getting Things Done&rdquo;.
+Maybe I will find use for them later.
+
+These templates set up the outline. Here is a table of what they do:
+
+| Entry    | Text Content                 | File        | Top Headline |
+|----------|------------------------------|-------------|--------------|
+| Todo     | &ldquo;\* TODO&rdquo;        | inbox.org   | Tasks        |
+| research | &ldquo;\* RSCH&rdquo;        | inbox.org   | Research     |
+| idea     | &ldquo;\* IDEA&rdquo;        | inbox.org   | Ideas        |
+| event    | &ldquo;\* EVENT&rdquo;       | tickler.org | N/A          |
+| read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
+
+```emacs-lisp
+(after! (org-modern)
+  (use-package! org-capture
+    :defer t
+    :config
+    (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
+                               ("~/Documents/org/inbox.org" :maxlevel . 1)
+                               ("~/Documents/org/tickler.org" :maxlevel . 1)
+                               ("~/Documents/org/maybe.org" :maxlevel . 1)
+                               ("~/Documents/org/notes.org" :maxlevel . 3)
+                               ))
+    (setq org-capture-templates
+          '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
+              "* TODO  %?\n  %i\n  %a \n#+created: %t")
+             ("r" "research" entry (file "~/Documents/org/inbox.org")
+              "* RSCH  %?\n  %i\n  %a \n#+created: %t")
+             ("i" "idea" entry (file "~/Documents/org/inbox.org")
+              "* IDEA  %?\n  %i\n  %a \n#+created: %t")
+             ("e" "event" entry (file "~/Documents/org/tickler.org")
+              "* EVENT  %?\n  %i\n #+created: %t")
+             ("R" "read" entry (file "~/Documents/org/inbox.org" )
+              "* READ  %?\n  %i\n #+created: %t")
+             ("m" "Email workflow")
+             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
+              "* TODO Follow up with %:fromname on %a\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
+             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
+              "* TODO %? \nSCHEDULED: %t\n:PROPERTIES:\n:REFERENCE: %a\n:END:\n%i")
+             ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
+              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
+    )
+  )
+
+```
+
+
 ## `org-agenda` {#org-agenda}
 
 ```emacs-lisp
@@ -666,34 +777,15 @@ Word by word, this variable says &ldquo;export all drawers that _don&rsquo;t_ ha
 This setting applies to all org files, but can be overwritten on a per-file basis in the `:options` header.
 
 
-## `helm-bibtex` {#helm-bibtex}
-
-`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework. `helm-bibtex` does not have this issue, hence I use it.
-
-```emacs-lisp
-(use-package! helm-bibtex
-  :defer t
-  :config
-  (setq bibtex-completion-bibliography '("~/Documents/bib/reference-texts.bib" "~/Documents/bib/reference-articles.bib")
-        bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
-        bibtex-completion-notes-path "~/Documents/org/general-notes.org"
-        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-        bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-                                            (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-                                            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-                                            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
-```
-
-
 ## `org-ref` {#org-ref}
 
 `org-ref` is a useful package to simplify and unify the addition of citations to documents.
 
 ```emacs-lisp
 (use-package! org-ref
+  :ensure t
   :after org
-  :defer t
+  ;; :defer t
   :init
   (require 'bibtex)
   (require 'org-ref-helm)
@@ -706,11 +798,12 @@ This setting applies to all org files, but can be overwritten on a per-file basi
       ;; ox-hugo <- ox-blackfriday <- ox-md <- ox-html
       (when (org-export-derived-backend-p backend 'html)
         (org-ref-process-buffer 'html))))
+
     (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html)
 
   :config
-  (setq   org-ref-default-bibliography "~/Documents/bib/reference-texts.bib"
-          org-ref-pdf-directory '("~/Documents/books" "~/Documents/articles")
+  (setq   org-ref-default-bibliography "~/Documents/bib/zotero_refs.bib"
+          org-ref-pdf-directory '("~/Documents/books" "~/Documents/bib/articles")
           org-ref-insert-link-function 'org-ref-insert-link-hydra/body
           org-ref-insert-cite-function 'org-ref-cite-insert-helm
           org-ref-insert-ref-function 'org-ref-insert-ref-link
@@ -726,52 +819,10 @@ This setting applies to all org files, but can be overwritten on a per-file basi
 ```
 
 
-## `xenops-mode` {#xenops-mode}
-
-NOTE: This package will be unnecessary soon, as a new implementation of `org-latex-preview` will be available in vanilla Org (most likely 9.7).
-
-`xenops-mode` is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
-It is a more feature-rich replacement for `org-latex-preview`.
-
-<a id="table--xenops-kt"></a>
-
-| Key       | Function      | Desc.                |
-|-----------|---------------|----------------------|
-| `SPC m z` | `xenops-mode` | Starts `xenops-mode` |
-
-```emacs-lisp
-(map! :map org-mode-map
-      :n "SPC m z" #'xenops-mode
-      :map LaTeX-mode-map
-      :n "SPC m z" #'xenops-mode)
-```
-
-Increase the preview image sizes so that they&rsquo;re readable.
-
-```emacs-lisp
-(setq xenops-math-image-scale-factor 1.4
-      xenops-reveal-on-entry nil)
-```
-
-
-## `org-journal` {#org-journal}
-
-```emacs-lisp
-(setq org-journal-file-type 'monthly)
-```
-
-
-## `org-noter` {#org-noter}
-
-```emacs-lisp
-(use-package! org-noter
-  :defer t
-  :config
-  (setq org-noter-always-create-frame t))
-```
-
-
 ## `org-roam` {#org-roam}
+
+
+### `org-roam` {#org-roam}
 
 `org-roam` is a package to keep a digital zettelkasten, and is a method to take atomic notes and build a &rsquo;second brain&rsquo;.
 
@@ -785,7 +836,8 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (defun my/org-roam-hooks ()
     (xenops-mode)
     (org-cdlatex-mode)
-    (xenops-dwim))
+    (xenops-dwim)
+    (org-roam-bibtex-mode))
 
   (add-hook! 'org-roam-capture-new-node-hook #'my/org-roam-hooks)
   (add-hook! 'org-roam-find-file-hook #'my/org-roam-hooks)
@@ -796,14 +848,13 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (require 'org-roam-protocol)
 
+
   (setq org-roam-capture-templates '(
                                      ("h" "default" plain
                                       "%?"
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                                                          "#+title: ${title}\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
-
-
                                      ("d" "definition" plain
                                       "%?"
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
@@ -815,11 +866,18 @@ Increase the preview image sizes so that they&rsquo;re readable.
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                                                          "#+title: ${title}\n#+filetags: :fleeting:\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
+                                     ("r" "reference" plain
+                                      "%?"
+                                      :if-new (file+head "refs/${citekey}.org"
+                                                         "#+title: ${author}: ${title}\n#+filetags: :reference:\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
+                                      :unnarrowed t)
+                                     ("n" "reference notes" plain
+                                      "%?"
+                                      :if-new (file+head "refs/${citekey}.org" "#+title: ${author}: ${title}\n#+filetags: :reference:\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n* Notes\n:PROPERTIES:\n:NOTER_DOCUMENT: ${file}\n:END:\n") :unnarrowed t)
                                      )
 
         )
   )
-
 (use-package! websocket
   :defer t
   :after org-roam)
@@ -866,55 +924,82 @@ By default DOOM offers only keybindings for these functions that work in normal 
 ```
 
 
-## `org-capture` {#org-capture}
-
-Used mostly in tight integration with the `agenda`, capture templates let me capture snippets of org text and quickly refile them to worry about later.
-They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
-It is inspired mostly by &ldquo;Getting Things Done&rdquo;.
-Maybe I will find use for them later.
-
-These templates set up the outline. Here is a table of what they do:
-
-| Entry    | Text Content                 | File        | Top Headline |
-|----------|------------------------------|-------------|--------------|
-| Todo     | &ldquo;\* TODO&rdquo;        | inbox.org   | Tasks        |
-| research | &ldquo;\* RSCH&rdquo;        | inbox.org   | Research     |
-| idea     | &ldquo;\* IDEA&rdquo;        | inbox.org   | Ideas        |
-| event    | &ldquo;\* EVENT&rdquo;       | tickler.org | N/A          |
-| read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
+### `org-roam-bibtex` {#org-roam-bibtex}
 
 ```emacs-lisp
-(after! (org-modern)
-  (use-package! org-capture
-    :defer t
-    :config
-    (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
-                               ("~/Documents/org/inbox.org" :maxlevel . 1)
-                               ("~/Documents/org/tickler.org" :maxlevel . 1)
-                               ("~/Documents/org/maybe.org" :maxlevel . 1)
-                               ("~/Documents/org/notes.org" :maxlevel . 2)
-                               ))
-    (setq org-capture-templates
-          '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
-              "* TODO  %?\n  %i\n  %a \n#+created: %t")
-             ("r" "research" entry (file "~/Documents/org/inbox.org")
-              "* RSCH  %?\n  %i\n  %a \n#+created: %t")
-             ("i" "idea" entry (file "~/Documents/org/inbox.org")
-              "* IDEA  %?\n  %i\n  %a \n#+created: %t")
-             ("e" "event" entry (file "~/Documents/org/tickler.org")
-              "* EVENT  %?\n  %i\n #+created: %t")
-             ("R" "read" entry (file "~/Documents/org/inbox.org" )
-              "* READ  %?\n  %i\n #+created: %t")
-             ("m" "Email workflow")
-             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
-              "* TODO Follow up with %:fromname on %a\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
-             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
-              "* TODO %? \nSCHEDULED: %t\n:PROPERTIES:\nREFERENCE: %a\n:END:\n%i")
-             ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
-              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
-    )
+(use-package! org-roam-bibtex
+  :after org-roam
+  :config
+  (setq orb-file-field-extensions '("pdf" "epub"))
+  (setq orb-preformat-keywords '("citekey" "file" "author" "date"))
   )
 
+```
+
+
+## `org-journal` {#org-journal}
+
+```emacs-lisp
+(setq org-journal-file-type 'monthly)
+```
+
+
+## `org-noter` {#org-noter}
+
+```emacs-lisp
+(use-package! org-noter
+  :defer t
+  :config
+  (setq org-noter-always-create-frame nil))
+```
+
+
+## `org-cdlatex` {#org-cdlatex}
+
+
+## `helm-bibtex` {#helm-bibtex}
+
+`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework. `helm-bibtex` does not have this issue, hence I use it.
+
+```emacs-lisp
+(use-package! helm-bibtex
+  :config
+  (setq bibtex-completion-bibliography '("~/Documents/bib/zotero_refs.bib")
+        bibtex-completion-library-path '("~/Documents/books"  "~/Documents/bib/articles")
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-pdf-field "file"
+        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+                                            (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+                                            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+                                            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
+```
+
+
+## `xenops-mode` {#xenops-mode}
+
+NOTE: This package will be unnecessary soon, as a new implementation of `org-latex-preview` will be available in vanilla Org (most likely 9.7).
+
+`xenops-mode` is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
+It is a more feature-rich replacement for `org-latex-preview`.
+
+<a id="table--xenops-kt"></a>
+
+| Key       | Function      | Desc.                |
+|-----------|---------------|----------------------|
+| `SPC m z` | `xenops-mode` | Starts `xenops-mode` |
+
+```emacs-lisp
+(map! :map org-mode-map
+      :n "SPC m z" #'xenops-mode
+      :map LaTeX-mode-map
+      :n "SPC m z" #'xenops-mode)
+```
+
+Increase the preview image sizes so that they&rsquo;re readable.
+
+```emacs-lisp
+(setq xenops-math-image-scale-factor 1.4
+      xenops-reveal-on-entry nil)
 ```
 
 
@@ -1139,6 +1224,3 @@ Disable company in `org-mode`.
 ```emacs-lisp
 (beacon-mode 1)
 ```
-
-
-## `org-cdlatex` {#org-cdlatex}

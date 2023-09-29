@@ -2,8 +2,22 @@
 title = "Home"
 author = ["Aatmun Baxi"]
 draft = false
-weight = -1000
+weight = -10
 +++
+
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [About Me](#about-me)
+    - [What I&rsquo;m Reading](#what-i-and-rsquo-m-reading)
+    - [Education](#education)
+    - [Conferences](#conferences)
+    - [Hobbies](#hobbies)
+
+</div>
+<!--endtoc-->
+
 
 ## About Me {#about-me}
 
