@@ -74,7 +74,7 @@ Topological quantum computing is a theoretical basis to address both these issue
 *** Anyons and their statistics
 While traditional QC implementations use bosons and fermions for qubits, topological quantum computing (TQC) uses /anyons/.
 Recall that two bosons exchange in a wave function causing a global phase shift \( +1 \) (i.e. \( | \varphi_1 \varphi_2 \rangle = | \varphi_2 \varphi_1 \rangle\)).
-Conversely, fermions exchange with a global phase shift \( -1 \), so \( | \varphi_2 \varphi_2 \rangle = - | \varphi_2 \varphi_1 \rangle \).
+Conversely, fermions exchange with a global phase shift \( -1 \), so \( | \varphi_1 \varphi_2 \rangle = - | \varphi_2 \varphi_1 \rangle \).
 Anyons are type of quasiparticle that allow for more general phase shifts \( e^{i\theta} \) for some value of \( \theta \).
 We recover bosons and fermions at \( \theta= 0 \) and \( \theta=\pi \), respectively.
 Anyons can take any statistics between Bose-Einstein statistics and Fermi-Dirac statistics and beyond, corresponding to values \( 0 \leqslant \theta \leqslant 2\pi \).
@@ -104,7 +104,7 @@ In fact, there are infinitely many: one can wind a particle around the other as 
 #+name: braids
 #+caption: Braids on n=3 strands traced out over time progression.
 #+attr_html:  :width 150%
-[[file:figures/braids.svg]]
+[[file:figures/braids.png]]
 
 At each slice of time, the position of anyons in flatland correspond to points in a plane.
 As we progress time, the trajectories of the anyons trace out paths akin to strands of string.
