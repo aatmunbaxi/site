@@ -80,14 +80,14 @@ A complex manifold with a Hermitian metric is called a /Hermitian manifold/.
 ```
 
 Here is this same snippet of text, but viewed in emacs, with all the org goodies activated.
-![](/ox-hugo/org-latex-goodies-ex.png)
+![](~/Pictures/website/org-latex-goodies-ex.png)
 
 Notice how the compiled LaTeX appears inline, and the font size is variable for the heading.
 These inline LaTeX previews are what pulled me to org-mode, and with the help of some third party programs like `xenops-mode`[^fn:2], these previews render asynchronously as I continue typing.
 
 There are many moving parts to this puzzle, but videos speak louder than words, so here is a quick demo.
 
-{{< figure src="/ox-hugo/emacs-math-demo.gif" caption="<span class=\"figure-number\">Figure 1: </span>Sped up 30%" >}}
+{{< figure src="~/Videos/emacs-math-demo.gif" caption="<span class=\"figure-number\">Figure 1: </span>Sped up 30%" >}}
 
 I could write more about how I achieved this setup, but others that are much smarter than me already have.
 

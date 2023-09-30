@@ -14,7 +14,7 @@ As a fairly new astrophotographer, these images will be quite poor to the discer
 
 <a id="figure--m101"></a>
 
-{{< figure src="/ox-hugo/m101_take2.jpg" caption="<span class=\"figure-number\">Figure 1: </span>M101, The Pinwheel Galaxy" link="/ox-hugo/m101_take2.jpg" >}}
+{{< figure src="~/Pictures/astro/m101_take2.jpg" caption="<span class=\"figure-number\">Figure 1: </span>M101, The Pinwheel Galaxy" link="~/Pictures/astro/m101_take2.jpg" >}}
 
 <details>
 <summary>Details</summary>
@@ -29,7 +29,7 @@ It&rsquo;s been a while since I took this image, but I belive it total around 3 
 
 <a id="figure--m42"></a>
 
-{{< figure src="/ox-hugo/orion_phone_wallpaper.jpg" caption="<span class=\"figure-number\">Figure 2: </span>M42, The Orion Nebula" link="/ox-hugo/orion_phone_wallpaper.jpg" >}}
+{{< figure src="~/Pictures/astro/orion_phone_wallpaper.jpg" caption="<span class=\"figure-number\">Figure 2: </span>M42, The Orion Nebula" link="~/Pictures/astro/orion_phone_wallpaper.jpg" >}}
 
 <details>
 <summary>Details</summary>
