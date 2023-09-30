@@ -94,7 +94,7 @@ I've already alluded to how TQC may be less sensitive to environmental noise tha
 When thinking about how anyons interact with each other, we must think topologically.
 That is, we can do everything up to a "smooth/continuous" deformation.
 In one dimension of space, nothing interesting can happen: we cannot exchange anyons at all.
-In three dimensions of space, every thing is trivial.
+In three dimensions of space, everything is trivial.
 If an anyon moves around another anyon back to its starting position, one can "drag" the path and shrink it simultaneously, so that topologically the path is indistinguishable from the particle not moving at all.
 
 In two dimensions of space, things get more interesting.
