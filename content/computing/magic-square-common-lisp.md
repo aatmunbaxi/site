@@ -25,7 +25,6 @@ type = "post"
 </div>
 <!--endtoc-->
 
-:tangle:   ./magic-square-literate.lisp
 
 
 ## The Problem {#the-problem}
@@ -33,7 +32,7 @@ type = "post"
 The magic square problem is a typical recursion exercise given to students learning programming.
 Since I&rsquo;ve been playing around with common lisp recently, I thought I&rsquo;d use it as an excuse to learn a bit about the language.
 
-A magic square (of size 3) is 3x3 grid of numbers whose rows, columns, and diagonals sum up to the same number.
+A magic square (of size 3) is a 3x3 grid of numbers whose rows, columns, and diagonals sum up to the same number.
 We&rsquo;ll be working with the simple case here, where the grid can only be filled with values `1-9`, so the win condition is when the rows, columns, and diagonals sum up to `15`.
 Our job is to write a program that takes as user in put a grid of 9 numbers, possibly with some values filled out already, and return a solved magic square from those predetermined numbers.
 If the square cannot be solved, we should return `nil`.
