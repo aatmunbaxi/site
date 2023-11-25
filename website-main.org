@@ -1,4 +1,4 @@
-#+hugo_base_dir: /home/aatmun/websites/personal/
+#+hugo_base_dir: /home/aatmun/websites/site/
 #+hugo_weight: auto
 #+bibliography: ~/Documents/bib/reference-articles.bib
 #+options: ':t todo:nil date:t
@@ -246,7 +246,6 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 :END:
 I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
 Here I record some things that I've learned along the way.
-
 ** Emacs =org-mode= for LaTeX :emacs:org:hobby:productivity:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
@@ -404,6 +403,13 @@ Having several people with several dialects working on a single project can be a
 Oftentimes for the sake of team cohesion and ease of debugging, a unified style-guide for large projects is preferred.
 
 Despite this, I will continue to prefer declarative programming for quick implementations, only moving to imperative when I think more control is needed.
+** Solving the Magic Square in Common Lisp :lisp:programming:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: computing
+:EXPORT_FILE_NAME: magic-square-common-lisp
+:END:
+
+#+include: ~/programming/lisp-fun/magic-square.org
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
@@ -557,4 +563,3 @@ This means that this is also a grammatically correct construction:
 Repeat as needed to construct as long of a word as you want.
 Of course, we've long left the issue of pragmatism behind, but still, it's pretty not not not not not not not not not not not not not not not not cool, huh?
 
-* Drafts and Ideas

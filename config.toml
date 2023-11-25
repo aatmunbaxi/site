@@ -1,13 +1,21 @@
 baseURL = 'https://aatmunbaxi.netlify.app'
 languageCode = 'en-us'
-title = 'Aatmun Baxi'
+title = 'My Homepage'
 theme = 'PaperMod'
 
 disableThemeToggle = true
 
+[taxonomies]
+  category = "computing"
+  tag = "tags"
+  series = "series"
+[author]
+  name = "Aatmun Baxi"
+  abstract = "I am a PhD student at Texas A&M University under the direction of Dr. Eric Rowell. I study fusion and modular categories."
 [params]
-  defaultTheme = "dark"
   ShowWordCount = true
 
+[markup.highlight]
+  style = "paraiso-dark"
 [markup.goldmark.renderer]
   unsafe = true

@@ -19,54 +19,39 @@ type = "post"
 - [Theme, Appearance, General Behavior](#theme-appearance-general-behavior)
     - [Doom Dashboard](#doom-dashboard)
     - [Modeline](#modeline)
+    - [Global Appearance](#global-appearance)
     - [Custom Faces](#custom-faces)
     - [Custom Functionality](#custom-functionality)
 - [Global keybindings](#global-keybindings)
-- [`evil`](#evil)
-    - [Keybinds](#keybinds)
-- [`embark`](#embark)
-- [`org-mode`](#org-mode)
-    - [Some variables](#some-variables)
-    - [Hooks](#hooks)
-    - [Appearance](#appearance)
-- [`bibtex`](#bibtex)
-- [`org-super-agenda`](#org-super-agenda)
-- [`org-modern`](#org-modern)
-    - [Agenda](#agenda)
-    - [PDF Export Process](#pdf-export-process)
-    - [Keybinds](#keybinds)
-    - [Export Settings](#export-settings)
-- [`helm-bibtex`](#helm-bibtex)
-- [`org-ref`](#org-ref)
-- [`xenops-mode`](#xenops-mode)
-- [`org-journal`](#org-journal)
-- [`org-noter`](#org-noter)
-- [`org-roam`](#org-roam)
-- [`org-capture`](#org-capture)
-- [`pdf-view-mode`](#pdf-view-mode)
-    - [Keybindings](#keybindings)
-    - [Hooks](#hooks)
-- [`haskell-mode`](#haskell-mode)
-    - [Hooks](#hooks)
-- [`python-mode`](#python-mode)
-- [`yasnippets`](#yasnippets)
-- [`ink`](#ink)
-- [quiver](#quiver)
-- [`org-babel`](#org-babel)
-- [`company`](#company)
-- [`elfeed`](#elfeed)
-- [`frog-jump`](#frog-jump)
-- [`beacon`](#beacon)
-- [`org-cdlatex`](#org-cdlatex)
-- [Email](#email)
-    - [=mu4e](#mu4e)
-    - [smtp](#smtp)
+- [Major Modes and Languages](#major-modes-and-languages)
+    - [`org-mode`](#org-mode)
+    - [`haskell-mode`](#haskell-mode)
+    - [`python-mode`](#python-mode)
+    - [`plantuml`](#plantuml)
+    - [`pdf-view-mode`](#pdf-view-mode)
+    - [`evil`](#evil)
+    - [`lsp`](#lsp)
+- [Packages](#packages)
+    - [`bibtex`](#bibtex)
+    - [`embark`](#embark)
+- [`org` packages](#org-packages)
+    - [`org-ref`](#org-ref)
+    - [`org-roam`](#org-roam)
+    - [`org-noter`](#org-noter)
+    - [`org-super-agenda`](#org-super-agenda)
+    - [CV](#cv)
+- [Misc Packages and Behavior](#misc-packages-and-behavior)
+    - [`helm-bibtex`](#helm-bibtex)
+    - [`xenops-mode`](#xenops-mode)
+    - [`yasnippets`](#yasnippets)
+    - [`ink`](#ink)
+    - [quiver](#quiver)
+    - [`company`](#company)
 
 </div>
 <!--endtoc-->
 </div>
 </details>
-
 
 {{< figure src="/ox-hugo/doom-emacs-filled.png" >}}
 
@@ -86,11 +71,20 @@ Each mode has their own subsection for common configuration patterns such as key
 
 ## Font {#font}
 
+The font distribution on arch linux (my laptop) is named differently from the one on the Ubuntu and distributions of Roboto Mono on the internet, so we conditionally set a `font-spec` accordingly.
+
 ```emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :style "ExtraLight" :size 18)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :style "ExtraLight" :size 18)
-      doom-serif-font (font-spec :family "Iosevka Slab" :size 20)
-      doom-big-font (font-spec :family "JetBrains Mono" :style "Regular" :size 24))
+(setq roboto-mono-thin (if (equal (system-name) "pop-os")
+                           (font-spec :family "Roboto Mono Light" :size 20)
+                         (font-spec :family "Roboto Mono Nerd Font Mono Lt" :size 20)))
+(setq roboto-mono-big (if (equal (system-name) "pop-os")
+                          (font-spec :family "Roboto Mono" :style "Regular" :size 24)
+                        (font-spec :family "Roboto Mono Nerd Font Mono"  :size 24)))
+
+(setq doom-font roboto-mono-thin
+      doom-variable-pitch-font roboto-mono-thin
+      doom-serif-font (font-spec :family "IBM Plex Serif" :size 19)
+      doom-big-font roboto-mono-big)
 ```
 
 
@@ -98,7 +92,9 @@ Each mode has their own subsection for common configuration patterns such as key
 
 ```emacs-lisp
 (setq catppuccin-flavor 'mocha)
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'doom-homage-white)
+;; (after! doom-themes
+;;   (load-theme 'doom-nano-light t))
 ```
 
 
@@ -112,34 +108,57 @@ Each mode has their own subsection for common configuration patterns such as key
 ### Modeline {#modeline}
 
 ```emacs-lisp
-(display-battery-mode)
-(display-time-mode)
-(use-package! doom-modeline
-  :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-height 40)
-  (doom-modeline-bar-width 10)
-  (doom-modeline-icon t)
-  (doom-modeline-major-mode-icon t)
-  (doom-modeline-major-mode-color-icon t)
-  (doom-modeline-buffer-file-name-style 'auto)
-  (doom-modeline-buffer-state-icon t)
-  (doom-modeline-buffer-modification-icon t)
-  (doom-modeline-minor-modes nil)
-  (doom-modeline-enable-word-count nil)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-indent-info nil)
-  (doom-modeline-checker-simple-format nil)
-  (doom-modeline-vcs-max-length 12)
-  (doom-modeline-env-version nil)
-  (doom-modeline-github-timer nil)
-  (doom-modeline-hud nil)
-  (doom-modeline-time-icon t)
-  (doom-modeline-buffer-name t)
-  (doom-modeline-battery t)
-  (doom-modeline-time t)
-  (doom-modeline-always-visible-segments '(mu4e))
-  )
+;; (use-package! doom-modeline
+;;   :hook (after-init . doom-modeline-mode)
+;;   :custom
+;;   (doom-modeline-height 40)
+;;   (doom-modeline-bar-width 10)
+;;   (doom-modeline-icon t)
+;;   (doom-modeline-major-mode-icon t)
+;;   (doom-modeline-major-mode-color-icon t)
+;;   (doom-modeline-buffer-file-name-style 'auto)
+;;   (doom-modeline-buffer-state-icon nil)
+;;   (doom-modeline-buffer-modification-icon nil)
+;;   (doom-modeline-minor-modes nil)
+;;   (doom-modeline-enable-word-count nil)
+;;   (doom-modeline-buffer-encoding nil)
+;;   (doom-modeline-indent-info nil)
+;;   (doom-modeline-checker-simple-format nil)
+;;   (doom-modeline-vcs-max-length 12)
+;;   (doom-modeline-env-version nil)
+;;   (doom-modeline-github-timer nil)
+;;   (doom-modeline-hud nil)
+;;   (doom-modeline-modal nil)
+;;   (doom-modeline-time t)
+;;   (doom-modeline-time-live-icon t)
+;;   (doom-modeline-buffer-name t)
+;;   (doom-modeline-battery t)
+;;   (doom-themes-padded-modeline 5)
+;;   (doom-homage-white-padded-modeline t))
+;;   ;; (doom-modeline-always-visible-segments '(mu4e))
+
+;; (add-hook! 'doom-modeline #'display-battery-mode)
+;; (add-hook! 'doom-modeline #'display-time-mode)
+(add-hook! 'modeline #'display-battery-mode)
+(add-hook! 'modeline #'display-time-mode)
+```
+
+
+### Global Appearance {#global-appearance}
+
+Margins are nice to look at, even if they are impractical ;)
+
+```emacs-lisp
+(setq visual-fill-column-width 100
+      visual-fill-column-center-text t)
+(setq spacious-padding-widths '(:internal-border-width 25 :right-divider-width 10 :scroll-bar-width 5))
+(spacious-padding-mode)
+```
+
+Banish line numbers, because they aren&rsquo;t useful with all the utilities DOOM emacs provides for navigation.
+
+```emacs-lisp
+(setq display-line-numbers-type nil)
 ```
 
 
@@ -173,25 +192,28 @@ Similarly, the third block sets the faces for the super-agenda.
 
   (custom-set-faces!
     `(org-agenda-date
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold)
+      :foreground ,(doom-color 'violet) :height 1.3 :weight bold :slant italic)
 
     `(org-agenda-date-weekend
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold)
+      :foreground ,(doom-color 'violet) :height 1.3 :weight light :slant italic)
 
-    `(org-agenda-date-weekend-today
-      :foreground ,(doom-color 'violet) :height 1.3 :box nil :weight bold))
+    `(org-agenda-date-today
+      :foreground ,(doom-color 'violet) :height 1.3 :weight bold :slant italic)
+
+    `(org-modern-tag
+      :background ,(doom-color 'base1) :foreground ,(doom-color 'fw-base1)))
 
   (defface super-agenda-due-today-face
-    `((t :background ,(doom-darken 'red 0.5) :underline t)) "" :group 'org-super-agenda)
+    `((t :background ,(doom-color 'red) :underline t :inverse-video t)) "" :group 'org-super-agenda)
 
   (defface super-agenda-today-face
-    `((t :foreground ,(doom-color 'fg) :underline t)) "" :group 'org-super-agenda)
+    `((t :foreground ,(doom-color 'fg) :underline t :slant italic)) "" :group 'org-super-agenda )
 
   (defface super-agenda-todo-face
     `((t :foreground ,(doom-color 'green+4)))  "" :group 'org-super-agenda )
 
   (defface super-agenda-date-face
-    `((t :foreground ,(doom-color 'fg-1)))  "" :group 'org-super-agenda )
+    `((t :foreground ,(doom-color 'fg-1)) :slant italic )  "" :group 'org-super-agenda )
 
   (defface super-agenda-wait-face
     `((t :foreground ,(doom-color 'orange)))  "" :group 'org-super-agenda )
@@ -228,7 +250,14 @@ Here I write some custom functionality, like writing functions for convenience&r
   "Interactively select and open a .org file from a directory."
   (interactive)
   (+vertico/find-file-in org-directory))
+```
 
+```emacs-lisp
+
+(defun find-article ()
+  "Interactively select and open an article in zotero pdfs directory."
+  (interactive)
+  (+vertico/find-file-in "~/Documents/bib/pdfs/"))
 ```
 
 I open book fairly often, so I want to make this function accessible quickly.
@@ -236,6 +265,7 @@ I open book fairly often, so I want to make this function accessible quickly.
 | Key       | Function        | Desc.         |
 |-----------|-----------------|---------------|
 | `SPC f b` | `find-book`     | Find book     |
+| `SPC f a` | `find-article`  | Find article  |
 | `SPC f o` | `find-org-file` | Find org file |
 
 ```emacs-lisp
@@ -243,6 +273,10 @@ I open book fairly often, so I want to make this function accessible quickly.
  :desc "Find book"
  :leader
  :nv "f b" #'find-book
+
+ :desc "Find article"
+ :leader
+ :nv "f a" #'find-article
 
  :desc "Find org file"
  :leader
@@ -260,7 +294,7 @@ These are keybinds that should work in all modes.
 ```
 
 ```emacs-lisp
-(setq default-line-spacing 0.0)
+(setq default-line-spacing 0.075)
 (setq line-spacing default-line-spacing)
 ```
 
@@ -283,56 +317,26 @@ These are keybinds that should work in all modes.
 (map! :map org-mode-map
       :n "SPC t m" #'my/toggle-line-spacing)
 (map! :ni "C-c a" #' spell-fu-word-add)
+(map! "M-C-l" #'drag-stuff-right)
 ```
-
-
-## `evil` {#evil}
-
-
-### Keybinds {#keybinds}
-
-This keybinding allows escaping of `evil-insert-state` with quickly pressing `jk`.
 
 ```emacs-lisp
-(setq-default evil-escape-key-sequence "jk")
+(map! "M-C-h" #'drag-stuff-left)
+(map! "M-C-k" #'drag-stuff-up)
+(map! "M-C-j" #'drag-stuff-down)
 ```
 
 
-#### `evil-owl` {#evil-owl}
-
-`evil-owl` lets you view your marks in a posframe in the buffer before you commit to jumping to them.
-
-I don&rsquo;t find myself using marks as often as I should be, but this package has made it easier to do so.
-
-```emacs-lisp
-(use-package! evil-owl
-  :config
-  (require 'posframe)
-  (setq evil-owl-display-method 'posframe
-        evil-owl-extra-posframe-args '(:width 50 :height 20)
-        evil-owl-max-string-length 50)
-  (evil-owl-mode))
-```
+## Major Modes and Languages {#major-modes-and-languages}
 
 
-## `embark` {#embark}
-
-```emacs-lisp
-(use-package! embark
-  :bind
-  (("C-." . embark-act)
-   ("M-." . embark-dwim)
-   ("C-h B" . embark-bindings)))
-```
-
-
-## `org-mode` {#org-mode}
+### `org-mode` {#org-mode}
 
 This section ropes in a number of settings for `org-mode`.
 My primary use case for `org-mode` is to typset documents with mathematical notation in  \LaTeX, but other use cases exist such as literate programming a la this config file.
 
 
-### Some variables {#some-variables}
+#### Some variables {#some-variables}
 
 This variable sets default apps that org uses to open certain filetypes.
 
@@ -348,22 +352,25 @@ This variable sets default apps that org uses to open certain filetypes.
 Set our variable for `org-journal`.
 
 ```emacs-lisp
-(setq org-journal-dir "~/Documents/org/journal")
+(setq org-journal-dir "~/Documents/org/journal/")
 ```
 
 By default, the `org-preview-latex-default-process` doesn&rsquo;t play well with tikz pictures.
 To fix this, we use `imagemagick` instead.
 
 ```emacs-lisp
-(setq org-preview-latex-default-process 'imagemagick)
+(setq org-preview-latex-default-process 'dvisvgm)
 ```
 
 ```emacs-lisp
 (after! org
-  (setq org-directory "~/Documents/org")
+  (setq org-directory "~/Documents/org/")
   (setq org-agenda-files '( "~/Documents/org/inbox.org"
                             "~/Documents/org/gtd.org"
-                            "~/Documents/org/tickler.org")))
+                            "~/Documents/org/tickler.org"
+                            "~/Documents/org/readinglist.org"))
+  (setq org-default-notes-file "~/Documents/org/notes.org")
+  (setq +org-capture-notes-file "inbox.org"))
 ```
 
 TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on.
@@ -408,8 +415,17 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
         ))
 ```
 
+```emacs-lisp
+(setq org-attach-id-dir "~/Documents/org/.attach/")
+```
 
-### Hooks {#hooks}
+```emacs-lisp
+(setq org-latex-pdf-process (list "latexmk -cd -shell-escape -bibtex -f -pdfxe  %f"))
+(setq org-latex-listings 'minted)
+```
+
+
+#### Hooks {#hooks}
 
 These will be activated when `org-mode` is opened.
 
@@ -417,17 +433,15 @@ These will be activated when `org-mode` is opened.
 (defun my/org-hooks ()
   (mixed-pitch-mode)
   (org-cdlatex-mode)
-  (display-line-numbers-mode -1)
-  (visual-fill-column-mode)
   (evil-tex-mode)
   (org-appear-mode)
-  )
+  (evil-owl-mode))
 
-(add-hook 'org-mode-hook  'my/org-hooks)
+(add-hook! 'org-mode-hook  #'my/org-hooks)
 ```
 
 
-### Appearance {#appearance}
+#### Appearance {#appearance}
 
 Specify sizes of org headlines by level.
 
@@ -459,84 +473,128 @@ Startup with all trees folded and format some org features
   )
 ```
 
+
+#### Keybinds {#keybinds}
+
+| Key     | Function                       | Desc.                       |
+|---------|--------------------------------|-----------------------------|
+| `C-c ]` | `org-ref-insert-link`          | Inserts `org-ref` link      |
+| `C-c [` | `org-ref-insert-ref-link`      | Inserts `org-ref` crosslink |
+| `z o`   | `+org/open-all-folds`          | Open all folds              |
+| `z M`   | `+org/close-all-folds`         | Close all folds             |
+| `M-m`   | `org-next-visible-heading`     | Move to next heading        |
+| `M-p`   | `org-previous-visible-heading` | Move to prev. heading       |
+
 ```emacs-lisp
-;; (use-package! procress
-;;   ;; :straight (:host github :repo "haji-ali/procress")
-;;   :commands procress-auctex-mode
-;;   :init
-;;   (add-hook 'LaTeX-mode-hook #'procress-auctex-mode)
-;;   (add-hook 'org-mode-hook #'procress-auctex-mode)
-;;   :config
-;;   (procress-load-default-svg-images))
+(map! :map org-mode-map
+      :i "C-c ]" #'org-ref-insert-link
+      :i "C-c [" #'org-ref-insert-ref-link
+      :n "z o" #'+org/open-all-folds
+      :n "z M" #'+org/close-all-folds
+      :nvi "M-m" #'org-next-visible-heading
+      :nvi "M-p" #'org-previous-visible-heading)
 ```
 
 
-## `bibtex` {#bibtex}
+#### Export Settings {#export-settings}
 
-Bibtex is a bibliography package used for \LaTeX.
-We configure some of its settings here.
+<!--list-separator-->
+
+-  Disable export of TODO keywords
+
+    ```emacs-lisp
+    (setq org-export-with-todo-keywords nil)
+    ```
+
+<!--list-separator-->
+
+-  `noex`  Drawers
+
+    Sometimes I have text in an org document that I want to see while editing, but don&rsquo;t want it exported to the final document such as PDF.
+    This setting excludes all drawers carrying the name `noex`  from being exported to the final output.
+    Word by word, this variable says &ldquo;export all drawers that _don&rsquo;t_ have the name `noex`&rdquo;
+
+    ```emacs-lisp
+    (setq org-export-with-drawers '(not "noex"))
+    ```
+
+    This setting applies to all org files, but can be overwritten on a per-file basis in the `:options` header.
+
+
+#### `org-capture` {#org-capture}
+
+Used mostly in tight integration with the `agenda`, capture templates let me capture snippets of org text and quickly refile them to worry about later.
+They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
+It is inspired mostly by &ldquo;Getting Things Done&rdquo;.
+Maybe I will find use for them later.
+
+These templates set up the outline. Here is a table of what they do:
+
+| Entry    | Text Content                 | File        | Top Headline |
+|----------|------------------------------|-------------|--------------|
+| Todo     | &ldquo;\* TODO&rdquo;        | inbox.org   | Tasks        |
+| research | &ldquo;\* RSCH&rdquo;        | inbox.org   | Research     |
+| idea     | &ldquo;\* IDEA&rdquo;        | inbox.org   | Ideas        |
+| event    | &ldquo;\* EVENT&rdquo;       | tickler.org | N/A          |
+| read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
 
 ```emacs-lisp
-(setq LaTeX-always-use-Biber t)
-(setq bibtex-dialect 'biblatex)
-(setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib")
+(after! (org-modern)
+  (use-package! org-capture
+    :defer t
+    :config
+    (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
+                               ("~/Documents/org/inbox.org" :maxlevel . 1)
+                               ("~/Documents/org/tickler.org" :maxlevel . 1)
+                               ("~/Documents/org/maybe.org" :maxlevel . 1)
+                               ("~/Documents/org/notes.org" :maxlevel . 3)
+                               ))
+    (setq org-capture-templates
+          '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
+              "* TODO %?%i\n%a\n#+created: %t\n")
+             ("r" "research" entry (file "~/Documents/org/inbox.org")
+              "* RSCH %?\n%i\n%a\n#+created: %t\n")
+             ("i" "idea" entry (file "~/Documents/org/readinglist.org")
+              "* IDEA %?\n%i\n%a\n#+created: %t\n")
+             ("e" "event" entry (file "~/Documents/org/tickler.org")
+              "* EVENT %?%i\n#+created: %t\n")
+             ("R" "read" entry (file "~/Documents/org/readinglist.org" )
+              "* READ %?%i\n#+created: %t\n")
+             ("m" "Email workflow")
+             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
+              "* TODO Follow up with %:fromname on %a\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
+             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
+              "* TODO %? \n:PROPERTIES:\n:REFERENCE: %a\n:END:\n%i")
+             ("mr" "Read Later" entry (file"~/Documents/org/readinglist.org")
+              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
+    )
+  )
 ```
 
 
-## `org-super-agenda` {#org-super-agenda}
+#### `org-agenda` {#org-agenda}
 
 ```emacs-lisp
-(use-package! org-super-agenda
-  :config
-  (require 'doom-themes)
-  (require 'org-modern)
+(after! org-modern
   (setq org-agenda-include-deadlines t
         org-agenda-block-separator nil
         org-agenda-compact-blocks nil
         org-agenda-start-day nil ;; i.e. today
-        org-agenda-span 1)
+        org-agenda-span 4)
   (custom-set-faces!
     `(org-super-agenda-header
-      :background "bg" :overline t :height 1.2))
-  (setq org-agenda-custom-commands
-        '(("s" "Super view"
-           ((agenda "" ((org-super-agenda-groups
-                         '((:name "Due Today❗"
-                            :deadline today
-                            :order 0)
-                           (:name "Todo ✍️"
-                            :todo ("PROG" "WAIT" "NEXT")
-                            :and (:todo "TODO" :scheduled today)
-                            :and (:todo "TODO" :deadline today)
-                            :habit t
-                            :order 2)
-                           (:name "Coming up 🕙"
-                            :scheduled future
-                            :deadline future
-                            :order 3)))))
-            (alltodo ""
-                     ((org-agenda-overriding-header "")
-                      (org-super-agenda-groups
-                       '(
-                         (:name "On Campus 🏫"
-                          :tag ("@campus" "@blocker")
-                          :order 5)
-
-                         (:name "Maybe / To Read 🤔"
-                          :todo ("IDEA" "READ" "MAYBE")
-                          :order 10)
-
-                         (:discard (:children nil))
-
-                         (:name "Unscheduled"
-                          :children ("TODO" "DONE")
-                          :and (:scheduled nil :deadline nil)
-                          :order 6)))))))))
-  (org-super-agenda-mode))
+      :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'red) :weight ultra-bold :slant italic :height 1.2)
+    `(org-agenda-date
+      :height 1.5  :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base2) :slant normal :weight ultra-light)
+    `(org-agenda-date-today
+      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base1) :slant italic :weight ultrabold)
+    `(org-agenda-date-weekend
+      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg) :slant normal :weight ultra-light))
+  )
 ```
 
 
-## `org-modern` {#org-modern}
+#### `org-modern` {#org-modern}
 
 We will set custom faces for each of the TODO keywords in the above list.
 Some modifications were made to the following [reference.](https://discourse.doomemacs.org/t/change-style-of-idea-in-org-mode/3041/4)
@@ -572,98 +630,193 @@ Some modifications were made to the following [reference.](https://discourse.doo
   (org-indent-mode -1))
 ```
 
+<!--list-separator-->
 
-### Agenda {#agenda}
+-  Agenda
+
+    ```emacs-lisp
+    (setq org-agenda-skip-scheduled-if-done t)
+    (setq org-agenda-skip-deadline-if-done t)
+    (setq org-agenda-start-day "-1d")
+    (setq org-agenda-todo-ignore-scheduled t)
+    ```
+
+
+#### `org-journal` {#org-journal}
 
 ```emacs-lisp
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-start-day "-1d")
-(setq org-agenda-todo-ignore-scheduled t)
+(setq org-journal-file-type 'monthly)
 ```
 
 
-### PDF Export Process {#pdf-export-process}
-
-This PDF export process ensures that bibliographies are properly exported, making use of `biblatex`.
+### `haskell-mode` {#haskell-mode}
 
 ```emacs-lisp
-(setq org-latex-pdf-process (list "latexmk -cd -shell-escape -bibtex -f -pdfxe  %f"))
-(setq org-latex-listings 'minted)
+(setq haskell-compile-command "ghc -Wall -ferror-spans -fforce-recomp -dynamic -c %s")
 ```
 
 
-### Keybinds {#keybinds}
-
-| Key     | Function                       | Desc.                       |
-|---------|--------------------------------|-----------------------------|
-| `C-c ]` | `org-ref-insert-link`          | Inserts `org-ref` link      |
-| `C-c [` | `org-ref-insert-ref-link`      | Inserts `org-ref` crosslink |
-| `z o`   | `+org/open-all-folds`          | Open all folds              |
-| `z M`   | `+org/close-all-folds`         | Close all folds             |
-| `M-m`   | `org-next-visible-heading`     | Move to next heading        |
-| `M-p`   | `org-previous-visible-heading` | Move to prev. heading       |
+#### Hooks {#hooks}
 
 ```emacs-lisp
-(map! :map org-mode-map
-      :i "C-c ]" #'org-ref-insert-link
-      :i "C-c [" #'org-ref-insert-ref-link
-      :n "z o" #'+org/open-all-folds
-      :n "z M" #'+org/close-all-folds
-      :nvi "M-m" #'org-next-visible-heading
-      :nvi "M-p" #'org-previous-visible-heading)
+(add-hook 'haskell-mode-hook #'hindent-mode)
+(add-hook 'haskell-mode-hook #'lsp-ui-mode)
 ```
 
 
-### Export Settings {#export-settings}
-
-
-#### Disable export of TODO keywords {#disable-export-of-todo-keywords}
+### `python-mode` {#python-mode}
 
 ```emacs-lisp
-(setq org-export-with-todo-keywords nil)
+(add-hook 'python-mode 'elpy-enable)
 ```
 
 
-#### `noex`  Drawers {#noex-drawers}
+### `plantuml` {#plantuml}
 
-Sometimes I have text in an org document that I want to see while editing, but don&rsquo;t want it exported to the final document such as PDF.
-This setting excludes all drawers carrying the name `noex`  from being exported to the final output.
-Word by word, this variable says &ldquo;export all drawers that _don&rsquo;t_ have the name `noex`&rdquo;
+Sometimes I insert `plantuml` diagrams, and emacs needs some configuration to make it work.
 
 ```emacs-lisp
-(setq org-export-with-drawers '(not "noex"))
-```
-
-This setting applies to all org files, but can be overwritten on a per-file basis in the `:options` header.
-
-
-## `helm-bibtex` {#helm-bibtex}
-
-`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework. `helm-bibtex` does not have this issue, hence I use it.
-
-```emacs-lisp
-(use-package! helm-bibtex
-:config
-(setq bibtex-completion-bibliography "~/Documents/bib/reference-texts.bib" bibtex-completion-library-path '("~/Documents/books"  "~/Documents/articles")
-bibtex-completion-notes-path "~/Documents/org/general-notes.org"
-bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-bibtex-completion-additional-search-fields '(keywords)
-bibtex-completion-display-formats '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-(inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-(incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-(t .   "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
+(after! org
+  (setq org-plantuml-path (expand-file-name "/usr/share/plantuml/plantuml.jar"))
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+  (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+  )
 ```
 
 
-## `org-ref` {#org-ref}
+### `pdf-view-mode` {#pdf-view-mode}
+
+
+#### Keybindings {#keybindings}
+
+| Key   | Function                         | Desc.                        |
+|-------|----------------------------------|------------------------------|
+| `M-m` | `pdf-view-auto-slice-minor-mode` | Slice off whitespace of PDFs |
+| `M-f` | `pdf-view-themed-minor-mode`     | Theme PDFs                   |
+
+```emacs-lisp
+(map! :map pdf-view-mode-map
+      "M-m" #'pdf-view-auto-slice-minor-mode
+      "M-f" #'pdf-view-themed-minor-mode)
+```
+
+
+#### Hooks {#hooks}
+
+```emacs-lisp
+(add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
+(add-hook 'pdf-tools-enabled-hook 'pdf-view-auto-slice-minor-mode)
+```
+
+
+### `evil` {#evil}
+
+
+#### `evil-owl` {#evil-owl}
+
+`evil-owl` lets you view your marks in a posframe in the buffer before you commit to jumping to them.
+
+I don&rsquo;t find myself using marks as often as I should be, but this package has made it easier to do so.
+
+```emacs-lisp
+(use-package! evil-owl
+  :defer t
+  :config
+  (require 'posframe)
+  (setq evil-owl-display-method 'posframe
+        evil-owl-extra-posframe-args '(:width 50 :height 20)
+        evil-owl-max-string-length 50)
+
+  (setq evil-owl-register-groups
+        `(("Named"     . ,(cl-loop for c from ?a to ?z collect c))
+          ("Numbered"  . ,(cl-loop for c from ?0 to ?9 collect c))
+          ("Special"   . (?\" ?* ?+ ?-))
+          ("Read-only" . (?% ?# ?/ ?: ?.))))
+
+  (setq evil-owl-mark-groups
+        `(("Named Local"  . ,(cl-loop for c from ?a to ?z collect c))
+          ("Named Global" . ,(cl-loop for c from ?A to ?Z collect c))
+          ("Numbered"     . ,(cl-loop for c from ?0 to ?9 collect c))
+          ("Special"      . (?\[ ?\] ?< ?> ?^ ?\( ?\) ?{ ?}))))
+  (setq evil-owl-local-mark-format " %m: [l: %-5l, c: %-5c]\n    %s")
+  (setq evil-owl-global-mark-format " %m: [l: %-5l, c: %-5c] %b\n    %s")
+
+  )
+```
+
+
+### `lsp` {#lsp}
+
+```emacs-lisp
+(require 'eldoc-box)
+(add-hook! eglot-managed-mode #'eldoc-box-hover-mode t)
+```
+
+
+## Packages {#packages}
+
+
+### `bibtex` {#bibtex}
+
+Bibtex is a bibliography package used for \LaTeX.
+
+```emacs-lisp
+(setq LaTeX-always-use-Biber t)
+(setq bibtex-dialect 'biblatex)
+```
+
+
+### `embark` {#embark}
+
+```emacs-lisp
+(defun my/vsplit-file-open (f)
+  "Opens file in vertically split window"
+  (let ((evil-vsplit-window-right t))
+    (+evil/window-vsplit-and-follow)
+    (find-file f)))
+
+(defun my/hsplit-file-open (f)
+  "Opens file in horizontally split window"
+  (let ((evil-split-window-below t))
+    (+evil/window-split-and-follow)
+    (find-file f)))
+```
+
+Embark lets us act on the contents of minibuffers.
+
+```emacs-lisp
+(use-package! embark
+  :defer t
+  :bind
+  (("C-." . embark-act)
+   ("M-." . embark-dwim)
+   ("C-h B" . embark-bindings)))
+
+(map! :after embark
+
+      :map embark-file-map
+      :desc "Open in vertical split"
+      "v" #'my/vsplit-file-open
+
+      :map embark-file-map
+      :desc "Open in horizontal split"
+      "s" #'my/hsplit-file-open
+      )
+```
+
+
+## `org` packages {#org-packages}
+
+
+### `org-ref` {#org-ref}
 
 `org-ref` is a useful package to simplify and unify the addition of citations to documents.
 
 ```emacs-lisp
 (use-package! org-ref
-  :after org
   :ensure t
+  :after org
+  ;; :defer t
   :init
   (require 'bibtex)
   (require 'org-ref-helm)
@@ -676,11 +829,12 @@ bibtex-completion-display-formats '((article       . "${=has-pdf=:1}${=has-note=
       ;; ox-hugo <- ox-blackfriday <- ox-md <- ox-html
       (when (org-export-derived-backend-p backend 'html)
         (org-ref-process-buffer 'html))))
+
     (add-to-list 'org-export-before-parsing-hook #'my/org-ref-process-buffer--html)
 
   :config
-  (setq   org-ref-default-bibliography "~/Documents/bib/reference-texts.bib"
-          org-ref-pdf-directory '("~/Documents/books" "~/Documents/articles")
+  (setq   org-ref-default-bibliography "~/Documents/bib/zotero_refs.bib"
+          org-ref-pdf-directory '("~/Documents/books" "~/Documents/bib/pdfs")
           org-ref-insert-link-function 'org-ref-insert-link-hydra/body
           org-ref-insert-cite-function 'org-ref-cite-insert-helm
           org-ref-insert-ref-function 'org-ref-insert-ref-link
@@ -696,58 +850,16 @@ bibtex-completion-display-formats '((article       . "${=has-pdf=:1}${=has-note=
 ```
 
 
-## `xenops-mode` {#xenops-mode}
-
-NOTE: This package will be unnecessary soon, as a new implementation of `org-latex-preview` will be available in vanilla Org (most likely 9.7).
-
-`xenops-mode` is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
-It is a more feature-rich replacement for `org-latex-preview`.
-
-<a id="table--xenops-kt"></a>
-
-| Key       | Function      | Desc.                |
-|-----------|---------------|----------------------|
-| `SPC m z` | `xenops-mode` | Starts `xenops-mode` |
-
-```emacs-lisp
-(map! :map org-mode-map
-      :n "SPC m z" #'xenops-mode
-      :map LaTeX-mode-map
-      :n "SPC m z" #'xenops-mode)
-```
-
-Increase the preview image sizes so that they&rsquo;re readable.
-
-```emacs-lisp
-(setq xenops-math-image-scale-factor 1.0
-      xenops-reveal-on-entry nil
-      )
-```
+### `org-roam` {#org-roam}
 
 
-## `org-journal` {#org-journal}
-
-```emacs-lisp
-(setq org-journal-file-type 'monthly)
-```
-
-
-## `org-noter` {#org-noter}
-
-```emacs-lisp
-(use-package! org-noter
-  :defer f
-  :config
-  (setq org-noter-always-create-frame t))
-```
-
-
-## `org-roam` {#org-roam}
+#### `org-roam` {#org-roam}
 
 `org-roam` is a package to keep a digital zettelkasten, and is a method to take atomic notes and build a &rsquo;second brain&rsquo;.
 
 ```emacs-lisp
 (use-package! org-roam
+  ;; :defer  t
   :custom
   (org-roam-directory "~/Documents/org/roam")
 
@@ -755,10 +867,11 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (defun my/org-roam-hooks ()
     (xenops-mode)
     (org-cdlatex-mode)
-    )
+    (xenops-dwim)
+    (org-roam-bibtex-mode))
 
-  (add-hook 'org-roam-capture-new-node-hook 'my/org-roam-hooks)
-  (add-hook 'org-roam-find-file-hook 'my/org-roam-hooks)
+  (add-hook! 'org-roam-capture-new-node-hook #'my/org-roam-hooks)
+  (add-hook! 'org-roam-find-file-hook #'my/org-roam-hooks)
   (setq org-roam-node-display-template
         (concat "${title:*} "
                 (propertize "${tags:40}" 'face 'org-modern-tag)))
@@ -766,35 +879,43 @@ Increase the preview image sizes so that they&rsquo;re readable.
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (require 'org-roam-protocol)
 
+
   (setq org-roam-capture-templates '(
                                      ("h" "default" plain
                                       "%?"
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                         "#+title: ${title}\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
+                                                         "#+title: ${title}\n#+created: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
-
-
                                      ("d" "definition" plain
                                       "%?"
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                         "#+title: ${title}\n#+filetags: :definition:\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
+                                                         "#+title: ${title}\n#+filetags: :definition:\n#+created: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
 
                                      ("f" "fleeting" plain
                                       "%?"
                                       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                         "#+title: ${title}\n#+filetags: :fleeting:\n#+last_modified: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
+                                                         "#+title: ${title}\n#+filetags: :fleeting:\n#+created: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
                                       :unnarrowed t)
+                                     ("r" "reference" plain
+                                      "%?"
+                                      :if-new (file+head "${citekey}.org"
+                                                         "#+title: ${author}: ${title}\n#+filetags: :reference:\n#+created: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n")
+                                      :unnarrowed t)
+                                     ("n" "reference notes" plain
+                                      "%?"
+                                      :if-new (file+head "${citekey}.org" "#+title: ${author}: ${title}\n#+filetags: :reference:\n#+created: %U\n#+setupfile: ~/Documents/org/latex_template.org\n\n* Notes\n:PROPERTIES:\n:NOTER_DOCUMENT: ${file}\n:END:\n") :unnarrowed t)
                                      )
 
         )
   )
-
 (use-package! websocket
+  :defer t
   :after org-roam)
 
 (use-package! org-roam-ui
-  :after org-roam ;; or :after org
+  :defer t
+  :after org  ;; or :after org
   ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
   ;; a hookable mode anymore, you're advised to pick something yourself
   ;; if you don't care about startup time, use
@@ -834,114 +955,138 @@ By default DOOM offers only keybindings for these functions that work in normal 
 ```
 
 
-## `org-capture` {#org-capture}
-
-Used mostly in tight integration with the `agenda`, capture templates let me capture snippets of org text and quickly refile them to worry about later.
-They can of course be used to capture more arbitrary snippets of text and refiled to non-agenda files, but my workflow is still in a young state.
-It is inspired mostly by &ldquo;Getting Things Done&rdquo;.
-Maybe I will find use for them later.
-
-These templates set up the outline. Here is a table of what they do:
-
-| Entry    | Text Content                 | File        | Top Headline |
-|----------|------------------------------|-------------|--------------|
-| Todo     | &ldquo;\* TODO&rdquo;        | inbox.org   | Tasks        |
-| research | &ldquo;\* RSCH&rdquo;        | inbox.org   | Research     |
-| idea     | &ldquo;\* IDEA&rdquo;        | inbox.org   | Ideas        |
-| event    | &ldquo;\* EVENT&rdquo;       | tickler.org | N/A          |
-| read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
+#### `org-roam-bibtex` {#org-roam-bibtex}
 
 ```emacs-lisp
-(after! (org-modern)
-  (use-package! org-capture
-    :config
-    (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
-                               ("~/Documents/org/inbox.org" :maxlevel . 1)
-                               ("~/Documents/org/tickler.org" :maxlevel . 1)
-                               ("~/Documents/org/maybe.org" :maxlevel . 1)
-                               ("~/Documents/org/topology2.org" :maxlevel . 2)
-                               ("~/Documents/org/alggeo2.org" :maxlevel . 2)
-                               ("~/Documents/org/algtop2.org" :maxlevel . 2)
-                               ))
-    (setq org-capture-templates
-          '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
-              "* TODO  %?\n  %i\n  %a \n#+created: %t")
-             ("r" "research" entry (file "~/Documents/org/inbox.org")
-              "* RSCH  %?\n  %i\n  %a \n#+created: %t")
-             ("i" "idea" entry (file "~/Documents/org/inbox.org")
-              "* IDEA  %?\n  %i\n  %a \n#+created: %t")
-             ("e" "event" entry (file "~/Documents/org/tickler.org")
-              "* EVENT  %?\n  %i\n #+created: %t")
-             ("R" "read" entry (file "~/Documents/org/inbox.org" )
-              "* READ  %?\n  %i\n #+created: %t")
-             ("m" "Email workflow")
-             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
-              "* TODO Follow up with %:fromname on %a\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
-             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
-              "* TODO \nSCHEDULED: %t\nReference: %a\n\n%i")
-             ("mr" "Read Later" entry (file"~/Documents/org/inbox.org")
-              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
-    )
-)
-
+(use-package! org-roam-bibtex
+  :after org-roam
+  :config
+  (setq orb-file-field-extensions '("pdf" "epub"))
+  (setq orb-preformat-keywords '("citekey" "file" "author" "date"))
+  )
 ```
 
 
-## `pdf-view-mode` {#pdf-view-mode}
-
-
-### Keybindings {#keybindings}
-
-| Key   | Function                         | Desc.                        |
-|-------|----------------------------------|------------------------------|
-| `M-m` | `pdf-view-auto-slice-minor-mode` | Slice off whitespace of PDFs |
-| `M-f` | `pdf-view-themed-minor-mode`     | Theme PDFs                   |
+### `org-noter` {#org-noter}
 
 ```emacs-lisp
-(map! :map pdf-view-mode-map
-      "M-m" #'pdf-view-auto-slice-minor-mode
-      "M-f" #'pdf-view-themed-minor-mode)
+(use-package! org-noter
+  :defer t
+  :config
+  (setq org-noter-always-create-frame nil))
 ```
 
 
-### Hooks {#hooks}
+### `org-super-agenda` {#org-super-agenda}
 
 ```emacs-lisp
-(add-hook 'pdf-tools-enabled-hook 'pdf-view-themed-minor-mode)
-(add-hook 'pdf-tools-enabled-hook 'pdf-view-auto-slice-minor-mode)
+(setq org-agenda-format-date (lambda (date) (concat "\n"
+                                                    (make-string (window-width) 9472)
+                                                    "\n"
+                                                    (org-agenda-format-date-aligned date))))
+```
+
+```emacs-lisp
+(use-package! org-super-agenda
+  :config
+  (setq org-agenda-custom-commands
+        '(("s" "Super view"
+           ((agenda "" ((org-super-agenda-groups
+                         '((:name "Due Today❗"
+                            :deadline today
+                            :order 0)
+                           (:name "Todo ✍"
+                            :todo ("PROG" "WAIT" "NEXT")
+                            :and (:todo "TODO" :scheduled today)
+                            :and (:todo "TODO" :deadline today)
+                            :habit t
+                            :order )))))
+            (alltodo ""
+                     ((org-agenda-overriding-header "")
+                      (org-super-agenda-groups
+                       '(
+                         (:name "Maybe / To Read 🤔"
+                          :todo ("IDEA" "READ" "MAYBE")
+                          :order 10)
+
+                         (:name "Unscheduled"
+                          :children ("TODO" "DONE")
+                          :and (:scheduled nil :deadline nil)
+                          :order 6)
+
+                         (:discard (:children nil)))))))))))
+(after! org-super-agenda
+  (org-super-agenda-mode))
 ```
 
 
-## `haskell-mode` {#haskell-mode}
+### CV {#cv}
 
 ```emacs-lisp
-(setq haskell-compile-command "ghc -Wall -ferror-spans -fforce-recomp -dynamic -c %s")
+(use-package! ox-modern
+  :load-path "~/working/org-cv/"
+  :init (require 'ox-moderncv)
+  :defer t)
 ```
 
 
-### Hooks {#hooks}
+## Misc Packages and Behavior {#misc-packages-and-behavior}
+
+
+### `helm-bibtex` {#helm-bibtex}
+
+`helm-bibtex` is a package that provides tools for bibliography management with the `helm` completion framework. `helm-bibtex` does not have this issue, hence I use it.
 
 ```emacs-lisp
-(add-hook 'haskell-mode-hook #'hindent-mode)
-(add-hook 'haskell-mode-hook #'lsp-ui-mode)
+(use-package! helm-bibtex
+  :config
+  (setq bibtex-completion-bibliography '("~/Documents/bib/zotero_refs.bib")
+        bibtex-completion-library-path '("~/Documents/books/"  "~/Documents/bib/articles/")
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-pdf-field "file"
+        bibtex-completion-display-formats '((article . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+                                            (inbook . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+                                            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+                                            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}") (t . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))))
 ```
 
 
-## `python-mode` {#python-mode}
+### `xenops-mode` {#xenops-mode}
+
+NOTE: This package will be unnecessary soon, as a new implementation of `org-latex-preview` will be available in vanilla Org (most likely 9.7).
+
+`xenops-mode` is a \LaTeX editing environment that automatically and asynchronously compiles LaTeX dvi files.
+It is a more feature-rich replacement for `org-latex-preview`.
+
+<a id="table--xenops-kt"></a>
+
+| Key       | Function      | Desc.                |
+|-----------|---------------|----------------------|
+| `SPC m z` | `xenops-mode` | Starts `xenops-mode` |
 
 ```emacs-lisp
-(add-hook 'python-mode 'elpy-enable)
+(map! :map org-mode-map
+      :n "SPC m z" #'xenops-mode
+      :map LaTeX-mode-map
+      :n "SPC m z" #'xenops-mode)
+```
+
+Increase the preview image sizes so that they&rsquo;re readable.
+
+```emacs-lisp
+(setq xenops-math-image-scale-factor 1.4
+      xenops-reveal-on-entry nil)
 ```
 
 
-## `yasnippets` {#yasnippets}
+### `yasnippets` {#yasnippets}
 
 This section is taken from the ideas and code in this article: [LaTeX Input for the Impatient Scholar](https://karthinks.com/software/latex-input-for-impatient-scholars/).
 
 This function allows for auto expanding of snippets.
 
 ```emacs-lisp
-(require 'yasnippet)
+;; (require 'yasnippet)
 (defun my/yas-try-expanding-auto-snippets ()
   (when (bound-and-true-p yas-minor-mode)
     (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
@@ -964,7 +1109,7 @@ Suppress the complaining `yasnippet` tends to do when it directly edits the buff
 ```
 
 
-## `ink` {#ink}
+### `ink` {#ink}
 
 [ink](https://github.com/foxfriday/ink) is a package that allows for fast insertion of inkspace figures into `latex-mode` and `org-mode` buffers.
 
@@ -980,6 +1125,7 @@ In this case, we use this drawer because I&rsquo;d still like to see the image o
 
 ```emacs-lisp
 (use-package! ink
+  :defer t
   :config
   ;; These flags export all the necessary file formats
   (setq ink-flags-custom (list "--export-area-drawing"
@@ -1019,7 +1165,7 @@ Set keybindings to insert inkscape figures
 ```
 
 
-## quiver {#quiver}
+### quiver {#quiver}
 
 Related to `ink` in its use case, but not exactly the same is [quiver](https://github.com/varkor/quiver) [Dependency].
 This is a program to easily and interactively create commutative diagrams using the `tikz-cd` LaTeX package.
@@ -1052,165 +1198,10 @@ All we need is a function to interactively insert open the program.
 ```
 
 
-## `org-babel` {#org-babel}
-
-```emacs-lisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (haskell . t)
-   (jupyter . t)))
-```
-
-
-## `company` {#company}
+### `company` {#company}
 
 Disable company in `org-mode`.
 
 ```emacs-lisp
 (setq company-global-modes '(not org-mode))
-```
-
-
-## `elfeed` {#elfeed}
-
-```emacs-lisp
-(setq elfeed-feeds '("https://updates.orgmode.org/feed/updates"
-                     "http://arxiv.org/rss/math.QA"
-                     "https://arxiv.org/list/math.CT"
-                     "https://arxiv.org/list/math.AG"))
-```
-
-
-## `frog-jump` {#frog-jump}
-
-| Key       | Function         | Description                  |
-|-----------|------------------|------------------------------|
-| `SPC b f` | frog-jump-buffer | Open `frog-jump-buffer` menu |
-
-```emacs-lisp
-(map!
-      :desc "Frog jump buffer"
-      :nv "SPC b f" #'frog-jump-buffer)
-```
-
-```emacs-lisp
-(defun my/frog-menu-hook ()
-  (setq-local avy-background nil)
-  )
-
-(use-package! frog-jump-buffer
-  :config
-  (setq frog-jump-buffer-include-current-buffer nil)
-  (dolist (regexp '("TAGS" "compile-log\\*$" "^compile-Log\\*" "Compile-log\\*"  "-debug\\*$" "^\\:" "errors\\*$" "^\\*Backtrace" "-ls\\*$" "\\*scratch\\*" "stderr\\*$" "^\\*Flymake" "^\\*vc" "^\\*Warnings" "^\\*eldoc" "\\^*Shell Command" "^\\*Xenops" "^\\*Messages" "\\*doom\\*" ))
-    (push regexp frog-jump-buffer-ignore-buffers))
-  (add-hook 'frog-menu-after-init-hook 'my/frog-menu-hook)
-  )
-```
-
-
-## `beacon` {#beacon}
-
-```emacs-lisp
-(beacon-mode 1)
-```
-
-
-## `org-cdlatex` {#org-cdlatex}
-
-
-## Email {#email}
-
-
-### =mu4e {#mu4e}
-
-```emacs-lisp
-(require 'epg)
-(setq epg-pinentry-mode 'loopback)
-```
-
-```emacs-lisp
-(use-package! mu4e
-  :load-path "/usr/local/share/emacs-/site-lisp/mu4e"
-  :config
-  (defvar personalemail (replace-regexp-in-string "\n" "" (f-read-text "~/.config/mu4e/personalemail")))
-  (defvar schoolemail (replace-regexp-in-string "\n" "" (f-read-text "~/.config/mu4e/schoolemail")))
-
-  (setq +mu4e-gmail-accounts '(("baxiaatmun@gmail.com" . "/baxiaatmun")
-                               ("abaxi@tamu.edu" . "/tamu" )))
-
-  ; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-index-cleanup nil
-        mu4e-index-lazy-check t)
-
-  ; Refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version) epa-pinentry-mode 'ask)
-  (pinentry-start)
-  (setq mu4e-maildir "~/Documents/mail")
-
-  (setq mu4e-contexts
-         `(
-           ;;Work account
-           ,(make-mu4e-context
-             :name "Personal"
-             :match-func
-             (lambda (msg)
-               (when msg
-                 (string-prefix-p "/baxiaatmun" (mu4e-message-field msg :maildir))))
-
-             :vars '((user-mail-address . "baxiaatmun@gmail.com")
-                     (user-full-name    . "Aatmun Baxi")
-                     (mu4e-drafts-folder  . "/baxiaatmun/[Gmail]/Drafts")
-                     (mu4e-sent-folder  . "/baxiaatmun/[Gmail]/Sent Mail")
-                     (mu4e-refile-folder  . "/baxiaatmun/[Gmail]/All Mail")
-                     (mu4e-compose-signature . "---\nAatmun Baxi")
-                     (mu4e-trash-folder  . "/baxiaatmun/[Gmail]/Trash")
-                     (mu4e-maildir-shortcuts .
-                                             ((:maildir "/baxiaatmun/[Gmail]/Sent Mail" :key ?s)
-                                              (:maildir "/baxiaatmun/Inbox"     :key ?i)
-                                              (:maildir "/baxiaatmun/[Gmail]/Trash"     :key ?t)
-                                              (:maildir "/baxiaatmun/[Gmail]/Drafts"    :key ?d)
-                                              (:maildir "/baxiaatmun/[Gmail]/All Mail"  :key ?a)))
-                     ))
-
-           ;;School account
-           ,(make-mu4e-context
-             :name "School"
-             :match-func
-             (lambda (msg)
-               (when msg
-                 (string-prefix-p "/tamu" (mu4e-message-field msg :maildir))))
-             :vars '((user-mail-address . "abaxi@tamu.edu")
-                     (user-full-name    . "Aatmun Baxi")
-                     (mu4e-drafts-folder  . "/tamu/[Gmail]/Drafts")
-                     (mu4e-sent-folder  . "/tamu/[Gmail]/Sent Mail")
-                     (mu4e-refile-folder  . "/tamu/[Gmail]/All Mail")
-                     (mu4e-trash-folder  . "/tamu/[Gmail]/Trash")
-                     (mu4e-compose-signature . "---\nAatmun Baxi")
-                     (mu4e-maildir-shortcuts .
-                                             (
-                                              (:maildir "/tamu/[Gmail]/Sent Mail" :key ?s)
-                                              (:maildir "/tamu/[Gmail]/Trash"     :key ?t)
-                                              (:maildir "/tamu/Inbox"     :key ?i)
-                                              (:maildir "/tamu/[Gmail]/Drafts"    :key ?d)
-                                              (:maildir "/tamu/[Gmail]/All Mail"  :key ?a)))
-                     ))
-           )))
-
-
-```
-
-
-### smtp {#smtp}
-
-```emacs-lisp
-(after! mu4e
-  (setq sendmail-program (executable-find "msmtp")
-        send-mail-function #'smtpmail-send-it
-        message-sendmail-f-is-evil t
-        message-sendmail-extra-arguments '("--read-envelope-from")
-        message-send-mail-function #'message-send-mail-with-sendmail))
 ```
