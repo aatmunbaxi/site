@@ -3,7 +3,7 @@ title = "Solving the Magic Square in Common Lisp"
 author = ["Aatmun Baxi"]
 tags = ["lisp", "programming"]
 draft = false
-weight = 2005
+weight = 2002
 type = "post"
 +++
 
@@ -33,8 +33,8 @@ The magic square problem is a typical recursion exercise given to students learn
 Since I&rsquo;ve been playing around with common lisp recently, I thought I&rsquo;d use it as an excuse to learn a bit about the language.
 
 A magic square (of size 3) is a 3x3 grid of numbers whose rows, columns, and diagonals sum up to the same number.
-We&rsquo;ll be working with the simple case here, where the grid can only be filled with values `1-9`, so the win condition is when the rows, columns, and diagonals sum up to `15`.
-Our job is to write a program that takes as user in put a grid of 9 numbers, possibly with some values filled out already, and return a solved magic square from those predetermined numbers.
+We&rsquo;ll be working with the simplest case here, where the grid can only be filled with values `1-9`, so the win condition is when the rows, columns, and diagonals sum up to `15`.
+Our job is to write a program that takes as user input a grid of 9 numbers, possibly with some values filled out already, and return a solved magic square from those predetermined numbers.
 If the square cannot be solved, we should return `nil`.
 
 
@@ -44,10 +44,11 @@ We&rsquo;ll model a 3x3 square as a flat list of 9 elements.
 We index row-first.
 For an example, the following table
 
-| 1 | 2 | 3 |
-|---|---|---|
-| 4 | 5 | 6 |
-| 7 | 8 | 9 |
+```text
+1 2 3
+4 5 6
+7 8 9
+```
 
 will be encoded as the list `(1 2 3 4 5 6 7 8 9)`.
 
@@ -68,9 +69,9 @@ This doesn&rsquo;t really require much to do, but it&rsquo;s convenient to have 
 
 ### Converting Between Grids and Flat Lists {#converting-between-grids-and-flat-lists}
 
-The next things we need are the ability to &ldquo;flatten&rdquo; a list and undo the &ldquo;flatten&rdquo;.
-Internally, we&rsquo;ll be mostly processing everything as a 1 dimensional list, but we&rsquo;d like to display the lists in a nicer human readable format as a 2x2 grid.
-For this we&rsquo;ll implement a function to convert the 1 dimensional list into a 2 dimensional grid.
+The next things we need is the ability to &ldquo;flatten&rdquo; a list that encodes a grid.
+Internally, we&rsquo;ll process everything as a 1 dimensional list, but we&rsquo;d like to display and let the user work with the lists in a nicer human readable format as a 3x3 grid.
+For this we&rsquo;ll implement a function to convert the 2 dimensional grid into a 1 dimensional list.
 
 ```lisp
 (defun flatten (list-of-lists)
@@ -87,17 +88,17 @@ We also implement a `transpose` function, whose use will become apparent soon.
 (defun transpose (square)
   "Transposes a square"
   (apply #'append (loop for i :from 0 :to 2 :collect
-                      (apply #'append (loop for j :from 0 :to 2 :collect
-                                           (list (nth (+ i (* j 3)) square)))))))
+                        (apply #'append (loop for j :from 0 :to 2 :collect
+                                              (list (nth (+ i (* j 3)) square)))))))
 ```
 
 Note here that it should be trivial to extend these functions to work on arbitrarily-sized square by doing some logic on the bounds and hard-coded numbers within the function.
+Not that you&rsquo;d want to, there&rsquo;s already 9! (9 factorial) permutations to check with just a 3x3 grid...
 
 
 ### Grabbing Diagonals {#grabbing-diagonals}
 
-Getting the rows and columns of a grid is pretty straightforward, but getting the diagonals requires some work.
-We implement two functions that get the main diagonal and off-diagonal of a grid from a flat list.
+We also implement two functions that get the main diagonal and off-diagonal of a grid from a flat list.
 
 ```lisp
 (defun main-diagonal (square)
@@ -112,8 +113,8 @@ We implement two functions that get the main diagonal and off-diagonal of a grid
 
 ### Checking Win Conditions {#checking-win-conditions}
 
-The win conditions in the 3x3 case are that the sum of all rows, columns, and diagonals equal 15.
-We can check each of these conditions with their own function.
+Now that we have functions to get the rows, columns, and diagonals, we can go about checking win conditions.
+The win conditions in the 3x3 case are that the sum of all rows, columns, and diagonals equal `15`.
 
 ```lisp
 (defun filled? (square)
@@ -147,6 +148,7 @@ We can chain these together to form a final `solved?` function, which checks if 
 ### Range Generation {#range-generation}
 
 This neat little function emulates (to some extent) python&rsquo;s `range` function.
+It makes use of the `loop` macro, which is wonderfully flexible.
 
 ```lisp
 (defun range (max &key (min 0) (step 1))
@@ -164,7 +166,6 @@ Just to aid visually, we&rsquo;ll write a function to print a flat list as a 3x3
 (defun print-square (square)
   (cond ((null square) (print nil))
         (t (format nil "~{~a ~a ~a~%~}" square))))
-
 ```
 
 
@@ -233,7 +234,7 @@ Let&rsquo;s solve a blank one first.
 
 Note the function only returns the first square that it finds to be solved.
 
-We can also find square with pre-filled values and check if a solution is possible.
+We can also solve squares with pre-filled values and check if a solution is possible.
 
 ```lisp
 (print-square (solve (list (list nil nil 4) (list nil nil nil) (list nil nil nil))))

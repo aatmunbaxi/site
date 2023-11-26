@@ -7,3 +7,9 @@
 [submodule "themes/even"]
 	path = themes/even
 	url = https://github.com/olOwOlo/hugo-theme-even
+[submodule "themes/hugo-texify3"]
+	path = themes/hugo-texify3
+	url = https://github.com/michaelneuper/hugo-texify3.git
+[submodule "themes/hugotex"]
+	path = themes/hugotex
+	url = https://github.com/kaisugi/HugoTeX

@@ -3,7 +3,7 @@ title = "My DOOM Emacs Configuration"
 author = ["Aatmun Baxi"]
 tags = ["emacs", "org", "hobby"]
 draft = false
-weight = 2003
+weight = 2005
 type = "post"
 +++
 

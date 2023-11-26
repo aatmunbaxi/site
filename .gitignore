@@ -1,1 +1,6 @@
 /static/ltximg/org-ltximg_005a649a34d4e939e48c0945e1c749742d12a843.png
+/node_modules/
+/package-lock.json
+/package.json
+/static/ltximg/*.png
+/static/ltximg/*.svg

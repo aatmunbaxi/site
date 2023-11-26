@@ -2,7 +2,7 @@
 title = "Declarative Programming for UltraFast™ Brain-to-Binary"
 author = ["Aatmun Baxi"]
 draft = false
-weight = 2004
+weight = 2003
 type = "post"
 +++
 

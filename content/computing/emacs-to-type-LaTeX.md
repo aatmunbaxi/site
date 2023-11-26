@@ -3,7 +3,7 @@ title = "Emacs org-mode for LaTeX"
 author = ["Aatmun Baxi"]
 tags = ["emacs", "org", "hobby", "productivity"]
 draft = false
-weight = 2002
+weight = 2004
 type = "post"
 +++
 
