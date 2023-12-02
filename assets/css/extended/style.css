@@ -25,7 +25,7 @@ aside > p {
     margin: 0.5rem;
 }
 
-post-single > post-content > p {
+p {
     font-size: large;
     font-family: 'Fira Sans', sans-serif;
 }

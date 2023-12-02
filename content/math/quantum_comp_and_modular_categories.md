@@ -4,6 +4,7 @@ author = ["Aatmun Baxi"]
 tags = ["math", "categories"]
 draft = false
 weight = 2003
+type = "post"
 +++
 
 ## Introduction {#introduction}
@@ -36,7 +37,7 @@ I&rsquo;ve already alluded to how TQC may be less sensitive to environmental noi
 
 <a id="figure--anyonexchange"></a>
 
-{{< figure src="/ox-hugo/anyon_exchange.svg" caption="<span class=\"figure-number\">Figure 1: </span>Inequivalent exchanges for identical anyons." width="150%" >}}
+{{< figure src="figures/anyon_exchange.svg" caption="<span class=\"figure-number\">Figure 1: </span>Inequivalent exchanges for identical anyons." width="150%" >}}
 
 When thinking about how anyons interact with each other, we must think topologically.
 That is, we can do everything up to a &ldquo;smooth/continuous&rdquo; deformation.
@@ -51,7 +52,7 @@ In fact, there are infinitely many: one can wind a particle around the other as 
 
 <a id="figure--braids"></a>
 
-{{< figure src="/ox-hugo/braids.png" caption="<span class=\"figure-number\">Figure 2: </span>Braids on n=3 strands traced out over time progression." width="150%" >}}
+{{< figure src="figures/braids.png" caption="<span class=\"figure-number\">Figure 2: </span>Braids on n=3 strands traced out over time progression." width="150%" >}}
 
 At each slice of time, the position of anyons in flatland correspond to points in a plane.
 As we progress time, the trajectories of the anyons trace out paths akin to strands of string.
@@ -86,12 +87,12 @@ Recently, categories enriched with extra structure have been studied due to thei
 Technically speaking, modular categories arose from the study of conformal field theories, which are a kind of quantum field theory that exhibit certain topological invariances.
 
 The definition of a modular category is a bit complex; it is a ribbon fusion category with nondegenerate \\( S \\)-matrix.
-The interested reader can refer to Figure [3](#org53e1cfd) for a tree of what each of these terms imply.
+The interested reader can refer to Figure [3](#orgc57ce0f) for a tree of what each of these terms imply.
 Each property/structure is interesting in its own right.
 
-{{< figure src="/ox-hugo/modular_tree.png" caption="<span class=\"figure-number\">Figure 3: </span>Definition of monoidal category and what each term means. Moving to the right means &ldquo;has this property&rdquo;." >}}
+{{< figure src="../../Documents/books/figures/modular_tree.png" caption="<span class=\"figure-number\">Figure 3: </span>Definition of monoidal category and what each term means. Moving to the right means &ldquo;has this property&rdquo;." >}}
 
-The reader might ask if the &ldquo;braided&rdquo; in Figure [3](#org53e1cfd) is related to the braiding discussed for anyons.
+The reader might ask if the &ldquo;braided&rdquo; in Figure [3](#orgc57ce0f) is related to the braiding discussed for anyons.
 Indeed it is, the braiding in a unitary modular category corresponds to braiding of anyons.
 There is an comprehensive dictionary of the correspondence between unitary modular categories and the physical interpretation of what the data represent.
 (A more detailed dictionary is found in <a href="#citeproc_bib_item_4">Rowell and Wang 2018</a> Table 1).

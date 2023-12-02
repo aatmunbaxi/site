@@ -31,7 +31,7 @@ I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr.
 
 ### Hobbies {#hobbies}
 
--   Programming and learning new programming languages. I&rsquo;m currently working in the rust programming language.
+-   Programming. I&rsquo;m currently working in Rust, Common Lisp, and Python.
 -   Liverpool FC
 -   Astrophotography. Check my images [here]({{< relref "astrophotos" >}})
 -   Learning japanese through immersion

@@ -109,38 +109,36 @@ The font distribution on arch linux (my laptop) is named differently from the on
 
 ```emacs-lisp
 ;; (use-package! doom-modeline
-;;   :hook (after-init . doom-modeline-mode)
-;;   :custom
-;;   (doom-modeline-height 40)
-;;   (doom-modeline-bar-width 10)
-;;   (doom-modeline-icon t)
-;;   (doom-modeline-major-mode-icon t)
-;;   (doom-modeline-major-mode-color-icon t)
-;;   (doom-modeline-buffer-file-name-style 'auto)
-;;   (doom-modeline-buffer-state-icon nil)
-;;   (doom-modeline-buffer-modification-icon nil)
-;;   (doom-modeline-minor-modes nil)
-;;   (doom-modeline-enable-word-count nil)
-;;   (doom-modeline-buffer-encoding nil)
-;;   (doom-modeline-indent-info nil)
-;;   (doom-modeline-checker-simple-format nil)
-;;   (doom-modeline-vcs-max-length 12)
-;;   (doom-modeline-env-version nil)
-;;   (doom-modeline-github-timer nil)
-;;   (doom-modeline-hud nil)
-;;   (doom-modeline-modal nil)
-;;   (doom-modeline-time t)
-;;   (doom-modeline-time-live-icon t)
-;;   (doom-modeline-buffer-name t)
-;;   (doom-modeline-battery t)
-;;   (doom-themes-padded-modeline 5)
-;;   (doom-homage-white-padded-modeline t))
-;;   ;; (doom-modeline-always-visible-segments '(mu4e))
-
+  ;; :hook (after-init . doom-modeline-mode)
+  ;; :custom
+  ;; (doom-modeline-height 40)
+  ;; (doom-modeline-bar-width 10)
+  ;; (doom-modeline-icon t)
+  ;; (doom-modeline-major-mode-icon t)
+  ;; (doom-modeline-major-mode-color-icon t)
+  ;; (doom-modeline-buffer-file-name-style 'auto)
+  ;; (doom-modeline-buffer-state-icon nil)
+  ;; (doom-modeline-buffer-modification-icon nil)
+  ;; (doom-modeline-minor-modes nil)
+  ;; (doom-modeline-enable-word-count nil)
+  ;; (doom-modeline-buffer-encoding nil)
+  ;; (doom-modeline-indent-info nil)
+  ;; (doom-modeline-checker-simple-format nil)
+  ;; (doom-modeline-vcs-max-length 12)
+  ;; (doom-modeline-env-version nil)
+  ;; (doom-modeline-github-timer nil)
+  ;; (doom-modeline-hud nil)
+  ;; (doom-modeline-modal nil)
+  ;; (doom-modeline-time t)
+  ;; (doom-modeline-time-live-icon t)
+  ;; (doom-modeline-buffer-name t)
+  ;; (doom-modeline-battery t)
+  ;; (doom-themes-padded-modeline 5)
+  ;;(doom-homage-white-padded-modeline t)
+  ;; (doom-modeline-always-visible-segments '(mu4e))
+  ;;)
 ;; (add-hook! 'doom-modeline #'display-battery-mode)
 ;; (add-hook! 'doom-modeline #'display-time-mode)
-(add-hook! 'modeline #'display-battery-mode)
-(add-hook! 'modeline #'display-time-mode)
 ```
 
 
@@ -237,50 +235,40 @@ Similarly, the third block sets the faces for the super-agenda.
 
 ### Custom Functionality {#custom-functionality}
 
-Here I write some custom functionality, like writing functions for convenience&rsquo;s sake.
+Macros are fun!
+This block produces functions that let me find files in a particular directory, without having to rewrite the entirety of the function with just a couple things changed.
 
 ```emacs-lisp
-(defun find-book ()
-  (interactive)
-  (+vertico/find-file-in "~/Documents/books/"))
+(defmacro find-in-dir (dir name)
+    `(defun ,(intern (concat "find-in-" name)) ()
+       (interactive)
+       (cd ,dir)
+       (call-interactively 'find-file)))
+
+(find-in-dir "~/Documents/org/" "org")
+(find-in-dir "~/Documents/books/" "books")
+(find-in-dir "~/Documents/bib/pdfs/" "articles")
 ```
 
-```emacs-lisp
-(defun find-org-file ()
-  "Interactively select and open a .org file from a directory."
-  (interactive)
-  (+vertico/find-file-in org-directory))
-```
-
-```emacs-lisp
-
-(defun find-article ()
-  "Interactively select and open an article in zotero pdfs directory."
-  (interactive)
-  (+vertico/find-file-in "~/Documents/bib/pdfs/"))
-```
-
-I open book fairly often, so I want to make this function accessible quickly.
-
-| Key       | Function        | Desc.         |
-|-----------|-----------------|---------------|
-| `SPC f b` | `find-book`     | Find book     |
-| `SPC f a` | `find-article`  | Find article  |
-| `SPC f o` | `find-org-file` | Find org file |
+| Key       | Function           | Desc.         |
+|-----------|--------------------|---------------|
+| `SPC f b` | `find-in-books`    | Find book     |
+| `SPC f a` | `find-in-articles` | Find article  |
+| `SPC f o` | `find-in-org`      | Find org file |
 
 ```emacs-lisp
 (map!
  :desc "Find book"
  :leader
- :nv "f b" #'find-book
+ :nv "f b" #'find-in-books
 
  :desc "Find article"
  :leader
- :nv "f a" #'find-article
+ :nv "f a" #'find-in-articles
 
  :desc "Find org file"
  :leader
- :nv "f o" #'find-org-file)
+ :nv "f o" #'find-in-org)
 ```
 
 
@@ -338,6 +326,9 @@ My primary use case for `org-mode` is to typset documents with mathematical nota
 
 #### Some variables {#some-variables}
 
+-   Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2023-11-30 Thu 10:28] </span></span> <br />
+    dflk
+
 This variable sets default apps that org uses to open certain filetypes.
 
 ```emacs-lisp
@@ -363,14 +354,13 @@ To fix this, we use `imagemagick` instead.
 ```
 
 ```emacs-lisp
-(after! org
-  (setq org-directory "~/Documents/org/")
-  (setq org-agenda-files '( "~/Documents/org/inbox.org"
-                            "~/Documents/org/gtd.org"
-                            "~/Documents/org/tickler.org"
-                            "~/Documents/org/readinglist.org"))
-  (setq org-default-notes-file "~/Documents/org/notes.org")
-  (setq +org-capture-notes-file "inbox.org"))
+(setq org-directory "~/Documents/org/")
+(setq org-agenda-files '( "~/Documents/org/inbox.org"
+                          "~/Documents/org/gtd.org"
+                          "~/Documents/org/tickler.org"
+                          "~/Documents/org/readinglist.org"))
+(setq org-default-notes-file "~/Documents/org/notes.org")
+(setq +org-capture-notes-file "inbox.org")
 ```
 
 TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on.
@@ -401,8 +391,7 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
 ```emacs-lisp
 (after! org
   (setq org-structure-template-alist
-        '
-        (("a" . "export ascii")
+        '(("a" . "export ascii")
          ("c" . "center")
          ("C" . "comment")
          ("e" . "equation")
@@ -411,8 +400,7 @@ TODO keywords will be used in `org-agenda` and stylized by `org-modern` later on
          ("l" . "export latex")
          ("q" . "quote")
          ("s" . "src")
-         ("v" . "verse"))
-        ))
+         ("v" . "verse"))))
 ```
 
 ```emacs-lisp
@@ -539,58 +527,58 @@ These templates set up the outline. Here is a table of what they do:
 | read     | &ldquo;\* READ&rdquo;&ldquo; | inbox.org   | N/A          |
 
 ```emacs-lisp
-(after! (org-modern)
-  (use-package! org-capture
-    :defer t
-    :config
-    (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
-                               ("~/Documents/org/inbox.org" :maxlevel . 1)
-                               ("~/Documents/org/tickler.org" :maxlevel . 1)
-                               ("~/Documents/org/maybe.org" :maxlevel . 1)
-                               ("~/Documents/org/notes.org" :maxlevel . 3)
-                               ))
-    (setq org-capture-templates
-          '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
-              "* TODO %?%i\n%a\n#+created: %t\n")
-             ("r" "research" entry (file "~/Documents/org/inbox.org")
-              "* RSCH %?\n%i\n%a\n#+created: %t\n")
-             ("i" "idea" entry (file "~/Documents/org/readinglist.org")
-              "* IDEA %?\n%i\n%a\n#+created: %t\n")
-             ("e" "event" entry (file "~/Documents/org/tickler.org")
-              "* EVENT %?%i\n#+created: %t\n")
-             ("R" "read" entry (file "~/Documents/org/readinglist.org" )
-              "* READ %?%i\n#+created: %t\n")
-             ("m" "Email workflow")
-             ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org" )
-              "* TODO Follow up with %:fromname on %a\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
-             ("mt" "Action Required" entry (file "~/Documents/org/inbox.org" )
-              "* TODO %? \n:PROPERTIES:\n:REFERENCE: %a\n:END:\n%i")
-             ("mr" "Read Later" entry (file"~/Documents/org/readinglist.org")
-              "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t)))
-    )
-  )
+(use-package! org-capture
+  :defer t
+  :config
+  (setq org-refile-targets '(("~/Documents/org/gtd.org" :maxlevel . 1)
+                             ("~/Documents/org/inbox.org" :maxlevel . 1)
+                             ("~/Documents/org/tickler.org" :maxlevel . 1)
+                             ("~/Documents/org/maybe.org" :maxlevel . 1)
+                             ("~/Documents/org/notes.org" :maxlevel . 3)))
+
+  (setq org-capture-templates
+        '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
+            "* TODO %?%i\n%a\n#+created: %t\n")
+           ("r" "research" entry (file "~/Documents/org/inbox.org")
+            "* RSCH %?\n%i\n%a\n#+created: %t\n")
+           ("i" "idea" entry (file "~/Documents/org/readinglist.org")
+            "* IDEA %?\n%i\n%a\n#+created: %t\n")
+           ("e" "event" entry (file "~/Documents/org/tickler.org")
+            "* EVENT %?%i\n#+created: %t\n")
+           ("R" "read" entry (file "~/Documents/org/readinglist.org")
+            "* READ %?%i\n#+created: %t\n")
+           ("m" "Email workflow")
+           ("mf" "Follow Up" entry (file "~/Documents/org/inbox.org")
+            "* TODO Follow up with %:fromname on %a\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i" :immediate-finish t)
+           ("mt" "Action Required" entry (file "~/Documents/org/inbox.org")
+            "* TODO %? \n:PROPERTIES:\n:REFERENCE: %a\n:END:\n%i")
+           ("mr" "Read Later" entry (file"~/Documents/org/readinglist.org")
+            "* READ %:subject\nSCHEDULED: %t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i" :immediate-finish t))))
 ```
 
 
 #### `org-agenda` {#org-agenda}
 
 ```emacs-lisp
-(after! org-modern
-  (setq org-agenda-include-deadlines t
-        org-agenda-block-separator nil
-        org-agenda-compact-blocks nil
-        org-agenda-start-day nil ;; i.e. today
-        org-agenda-span 4)
-  (custom-set-faces!
-    `(org-super-agenda-header
-      :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'red) :weight ultra-bold :slant italic :height 1.2)
-    `(org-agenda-date
-      :height 1.5  :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base2) :slant normal :weight ultra-light)
-    `(org-agenda-date-today
-      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base1) :slant italic :weight ultrabold)
-    `(org-agenda-date-weekend
-      :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg) :slant normal :weight ultra-light))
-  )
+(setq org-agenda-include-deadlines t
+      org-agenda-block-separator nil
+      org-agenda-compact-blocks nil
+      org-agenda-start-day nil ;; i.e. today
+      org-agenda-span 4)
+(custom-set-faces!
+  `(org-super-agenda-header
+    :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'red) :weight ultra-bold :slant italic :height 1.2)
+  `(org-agenda-date
+    :height 1.5  :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base2) :slant normal :weight ultra-light)
+  `(org-agenda-date-today
+    :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fw-base1) :slant italic :weight ultrabold)
+  `(org-agenda-date-weekend
+    :height 1.5 :background ,(doom-color 'bg-alt) :foreground ,(doom-color 'fg) :slant normal :weight ultra-light))
+
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-start-day "-1d")
+(setq org-agenda-todo-ignore-scheduled t)
 ```
 
 
@@ -607,8 +595,7 @@ Some modifications were made to the following [reference.](https://discourse.doo
   :init
   (setq org-modern-block-fringe 0)
   (setq org-modern-todo-faces
-        '(
-          ("PROG" . 'todo-prog-face)
+        '(("PROG" . 'todo-prog-face)
           ("NEXT" .  'todo-next-face)
           ("WAIT" . 'todo-wait-face)
           ("RSCH" . 'todo-research-face)
@@ -616,30 +603,12 @@ Some modifications were made to the following [reference.](https://discourse.doo
           ("READ" . 'todo-read-face)
           ("IDEA" . 'todo-idea-face)
           ("EVENT" .  'todo-event-face)
-          ("MAYBE" .  (:inhert org-modern-todo))
-          ))
+          ("MAYBE" .  (:inhert org-modern-todo))))
   (with-eval-after-load 'org (global-org-modern-mode))
   (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
   :config
   (global-org-modern-mode))
 ```
-
-```emacs-lisp
-(after! org
-  (require 'org-indent)
-  (org-indent-mode -1))
-```
-
-<!--list-separator-->
-
--  Agenda
-
-    ```emacs-lisp
-    (setq org-agenda-skip-scheduled-if-done t)
-    (setq org-agenda-skip-deadline-if-done t)
-    (setq org-agenda-start-day "-1d")
-    (setq org-agenda-todo-ignore-scheduled t)
-    ```
 
 
 #### `org-journal` {#org-journal}
@@ -667,7 +636,7 @@ Some modifications were made to the following [reference.](https://discourse.doo
 ### `python-mode` {#python-mode}
 
 ```emacs-lisp
-(add-hook 'python-mode 'elpy-enable)
+(add-hook! 'python 'elpy-enable)
 ```
 
 
@@ -679,8 +648,7 @@ Sometimes I insert `plantuml` diagrams, and emacs needs some configuration to ma
 (after! org
   (setq org-plantuml-path (expand-file-name "/usr/share/plantuml/plantuml.jar"))
   (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-  (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
 ```
 
 
@@ -739,9 +707,7 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
           ("Numbered"     . ,(cl-loop for c from ?0 to ?9 collect c))
           ("Special"      . (?\[ ?\] ?< ?> ?^ ?\( ?\) ?{ ?}))))
   (setq evil-owl-local-mark-format " %m: [l: %-5l, c: %-5c]\n    %s")
-  (setq evil-owl-global-mark-format " %m: [l: %-5l, c: %-5c] %b\n    %s")
-
-  )
+  (setq evil-owl-global-mark-format " %m: [l: %-5l, c: %-5c] %b\n    %s"))
 ```
 
 
@@ -1203,5 +1169,6 @@ All we need is a function to interactively insert open the program.
 Disable company in `org-mode`.
 
 ```emacs-lisp
-(setq company-global-modes '(not org-mode))
+(setq company-global-modes '(not org-mode)
+      company-idle-delay 0.1)
 ```

@@ -3,7 +3,8 @@ title = "LAWRGe 2023 Notes"
 author = ["Aatmun Baxi"]
 tags = ["math", "conference", "notes"]
 draft = false
-weight = 2002
+weight = 2004
+type = "post"
 +++
 
 <div class="ox-hugo-toc toc local">

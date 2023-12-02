@@ -14,8 +14,10 @@ disableThemeToggle = true
   abstract = "I am a PhD student at Texas A&M University under the direction of Dr. Eric Rowell. I study fusion and modular categories."
 [params]
   ShowWordCount = true
+  custom_css =["style.css"]
 
 [markup.highlight]
   style = "paraiso-dark"
+
 [markup.goldmark.renderer]
   unsafe = true
