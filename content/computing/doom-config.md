@@ -31,6 +31,7 @@ type = "post"
     - [`pdf-view-mode`](#pdf-view-mode)
     - [`evil`](#evil)
     - [`lsp`](#lsp)
+    - [`numpydoc`](#numpydoc)
 - [Packages](#packages)
     - [`bibtex`](#bibtex)
     - [`embark`](#embark)
@@ -537,7 +538,7 @@ These templates set up the outline. Here is a table of what they do:
                              ("~/Documents/org/notes.org" :maxlevel . 3)))
 
   (setq org-capture-templates
-        '( ("t" "Todo" entry (file "~/Documents/org/inbox.org")
+        '(("t" "Todo" entry (file "~/Documents/org/inbox.org")
             "* TODO %?%i\n%a\n#+created: %t\n")
            ("r" "research" entry (file "~/Documents/org/inbox.org")
             "* RSCH %?\n%i\n%a\n#+created: %t\n")
@@ -716,6 +717,20 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
 ```emacs-lisp
 (require 'eldoc-box)
 (add-hook! eglot-managed-mode #'eldoc-box-hover-mode t)
+```
+
+
+### `numpydoc` {#numpydoc}
+
+```emacs-lisp
+(use-package! numpydoc
+  :ensure t
+  :config
+  (setq numpydoc-insertion-style 'yas)
+  (map! :map python-mode
+        :prefix "SPC m d"
+        :desc "Numpydoc insert documentation"
+        :nvi "i"))
 ```
 
 

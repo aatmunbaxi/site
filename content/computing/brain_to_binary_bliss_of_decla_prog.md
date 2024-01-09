@@ -1,5 +1,5 @@
 +++
-title = "Declarative Programming for UltraFast™ Brain-to-Binary"
+title = "Declarative Programming for Fast Brain-to-Binary"
 author = ["Aatmun Baxi"]
 draft = false
 weight = 2003

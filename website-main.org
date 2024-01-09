@@ -414,7 +414,7 @@ Here I record some things that I've learned along the way.
 :EXPORT_FILE_NAME: magic-square-common-lisp
 :END:
 #+include: ~/programming/lisp-fun/magic-square.org
-** Declarative Programming for UltraFast™ Brain-to-Binary
+** Declarative Programming for Fast Brain-to-Binary
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: computing
 :EXPORT_FILE_NAME: brain_to_binary_bliss_of_decla_prog
