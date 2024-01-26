@@ -18,18 +18,14 @@
 :EXPORT_HUGO_SECTION:
 :EXPORT_HUGO_MENU: :menu main
 :END:
-I am a PhD student in mathematics at Texas A&M University. My advisor is Dr. [[https://www.math.tamu.edu/~rowell/][Eric Rowell]].
+I am a PhD student in mathematics at Texas A&M University.
 
-*Interests:* Fusion and modular categories and their classification. Some random things in algebraic geometry.
-
-*** What I'm Reading
-- /Tensor Categories/
+- *Advisor*: [[https://people.tamu.edu/~rowell/][Dr. Eric Rowell]]
+- *Research interests:* (\( G \)-crossed) braided fusion categories and fusion categories.
 *** Education
 - PhD Mathematics, Texas A&M University (in progress)
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
-*** Conferences
-- LAWRGe 2023 @ USC
 *** Hobbies
 - Programming. I'm currently working in Rust, Common Lisp, and Python.
 - Liverpool FC
@@ -37,7 +33,9 @@ I am a PhD student in mathematics at Texas A&M University. My advisor is Dr. [[h
 - Learning japanese through immersion
 - Free (as in freedom) software
   - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in GNU emacs
-
+** Contact
+- *Email*: [[mailto:abaxi@tamu.edu][abaxi@tamu.edu]]
+- *Office*: Blocker 506B
 * Math
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math

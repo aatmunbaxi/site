@@ -7,14 +7,10 @@ weight = -10
 
 ## About Me {#about-me}
 
-I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr. [Eric Rowell](https://www.math.tamu.edu/~rowell/).
+I am a PhD student in mathematics at Texas A&amp;M University.
 
-**Interests:** Fusion and modular categories and their classification. Some random things in algebraic geometry.
-
-
-### What I&rsquo;m Reading {#what-i-and-rsquo-m-reading}
-
--   _Tensor Categories_
+-   **Advisor**: [Dr. Eric Rowell](https://people.tamu.edu/~rowell/)
+-   **Research interests:** (\\( G \\)-crossed) braided fusion categories and fusion categories.
 
 
 ### Education {#education}
@@ -22,11 +18,6 @@ I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr.
 -   PhD Mathematics, Texas A&amp;M University (in progress)
 -   MS Mathematics, Texas A&amp;M University 2023
 -   BS Mathematics, UCLA 2021
-
-
-### Conferences {#conferences}
-
--   LAWRGe 2023 @ USC
 
 
 ### Hobbies {#hobbies}
@@ -37,3 +28,9 @@ I am a PhD student in mathematics at Texas A&amp;M University. My advisor is Dr.
 -   Learning japanese through immersion
 -   Free (as in freedom) software
     -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in GNU emacs
+
+
+## Contact {#contact}
+
+-   **Email**: [abaxi@tamu.edu](mailto:abaxi@tamu.edu)
+-   **Office**: Blocker 506B

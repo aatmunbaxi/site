@@ -80,12 +80,13 @@ The font distribution on arch linux (my laptop) is named differently from the on
                          (font-spec :family "Roboto Mono Nerd Font Mono Lt" :size 20)))
 (setq roboto-mono-big (if (equal (system-name) "pop-os")
                           (font-spec :family "Roboto Mono" :style "Regular" :size 24)
-                        (font-spec :family "Roboto Mono Nerd Font Mono"  :size 24)))
+                        (font-spec :family "Roboto Mono Nerd Font Mono"  :size 28)))
 
-(setq doom-font roboto-mono-thin
-      doom-variable-pitch-font roboto-mono-thin
-      doom-serif-font (font-spec :family "IBM Plex Serif" :size 19)
-      doom-big-font roboto-mono-big)
+(setq
+ doom-font roboto-mono-thin
+ doom-variable-pitch-font roboto-mono-thin
+ doom-serif-font (font-spec :family "IBM Plex Serif" :size 19)
+ doom-big-font roboto-mono-big)
 ```
 
 
@@ -423,10 +424,9 @@ These will be activated when `org-mode` is opened.
   (mixed-pitch-mode)
   (org-cdlatex-mode)
   (evil-tex-mode)
-  (org-appear-mode)
-  (evil-owl-mode))
+  (org-appear-mode))
 
-(add-hook! 'org-mode-hook  #'my/org-hooks)
+(add-hook 'org-mode-hook  #'my/org-hooks)
 ```
 
 
@@ -691,10 +691,9 @@ I don&rsquo;t find myself using marks as often as I should be, but this package 
 (use-package! evil-owl
   :defer t
   :config
-  (require 'posframe)
-  (setq evil-owl-display-method 'posframe
-        evil-owl-extra-posframe-args '(:width 50 :height 20)
-        evil-owl-max-string-length 50)
+  ;; (setq evil-owl-display-method 'posframe
+  ;;       evil-owl-extra-posframe-args '(:width 50 :height 20)
+  ;;       evil-owl-max-string-length 50)
 
   (setq evil-owl-register-groups
         `(("Named"     . ,(cl-loop for c from ?a to ?z collect c))
