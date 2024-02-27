@@ -386,6 +386,39 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 - modular effectively model systems of anyon quasiparticles, the main ingredient to TQC (Kitaev)
 - TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
   - This is perhaps its strongest merit
+** DRAFT A "Yoga" to Realizing Multiplicity-Free Fusion Rules :math:categories:
+Since writing about [[*Realizing some Multiplicity-Free Fusion Rules][realizing multiplicity-free fusion rules]], I've gone through more of the [[https://anyonwiki.github.io/][AnyonWiki]] database and realized more fusion rules, picking up some techniques to hint at possible answers along the way.
+I hesitate to call this a yoga (whatever that means, anyway), because really it's just a set of heuristics following the information provided.
+
+Before discussing the heuristics and how they might apply, let's go over some information provided by the AnyonWiki (AW) about the computed fusion rings.
+
+*** Numerical Data for Fusion Rings
+There are two basic types of numerical data for fusion rings: the rank and the Frobenius-Perron (or "quantum") dimensions.
+The rank is simple: it is the number of \( \mathbf{Z}_+ \)-basis elements of the ring.
+Due to computational intractability, the AW lists only mutliplicity-free fusion rings of rank 1-9.
+
+The second numerical data associated to a fusion ring is the Frobenius-Perron (FP) dimension.
+Not only is the ring assigned an FP dimension, but the basis elements are assigned one too.
+Dimensions can thus provie discriminatory power between two fusion rules of the same rank.
+
+Despite the similarities in behavior between fusion categories and \( \mathsf{Vec} \), the category of finite dimension vector spaces, FP dims can be more general than the familiar dimensions of vector spaces.
+For example, the [[https://anyonwiki.github.io/pages/FRPages/FR_2_1_0_2.html][Fibonacci category]] has a simple object of dimension \( \phi \), the golden ratio.
+A higher rank example of Frobenius-Perron dimensions for basis elements is presented in Table
+
+|               Particle | Numeric |     Symbolic |
+|------------------------+---------+--------------|
+|                      1 |      1. |            1 |
+|                      2 |      1. |            1 |
+|                      3 |      1. |            1 |
+|                      4 |      1. |            1 |
+|                      5 |      2. |            2 |
+|                      6 |      2. |            2 |
+|                      7 | 2.44949 | \(\sqrt{6}\) |
+|                      8 | 2.44949 | \(\sqrt{6}\) |
+| \(\mathcal{D}_{FP}^2\) |     24. |           24 |
+
+
+
 ** LAWRGe 2023 Notes :math:conference:notes:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
@@ -581,6 +614,21 @@ I could write more about how I achieved this setup, but others that are much sma
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Some stuff that doesn't really fit anywhere else.
+** DRAFT Managing Factor Tilts with the Portfolio Performance Program
+*** Rebalancing
+When maintaining a desired asset allocation in an investment portfolio, [[https://www.investopedia.com/terms/r/rebalancing.asp][rebalancing]] plays an important role.
+Rebalancing is necessary to main a targeted asset allocation because different investment instruments perform differently over short periods of time.
+Let's take a sample portfolio of $100 of two uncorrelated assets: equity and intermediate-term US treasuries.
+
+Over the course of a year, our equity position might return 10%, while our bond position might only return 3%.
+If we initially had our portfolio in  80% equity and 20% bonds, we would have \( \$80 \times 1.10= \$88 \) at the end of the year, and \( \$ 30\times 1.03= \$ 20.6 \) in bonds (assuming we reinvest distributions).
+Our total portfolio value is now $108.6, but now our equity position makes up 81% of our portfolio, while bonds make up only ~19% of the portfolio.
+This phenomenon is known as "drift".
+
+If left unchecked, consistent differences in asset performance will cause drift to magnify, causing our portfolio to be more and more dominated by the higher-performing asset.
+But we chose the 80/20 allocation on the basis of risk profile, and a drifting asset allocation alters the risk profile of the assets owned.
+*Rebalancing* is the act of correcting the drift, and can accomplished by a mixture of two strategies: selling enough of the outperforming assets and reinvesting in the
+
 ** Astrophotos :astro:hobby:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc

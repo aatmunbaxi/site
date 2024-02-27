@@ -1,0 +1,80 @@
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{amsthm}
+
+#+LATEX_HEADER: \usepackage{mdframed}
+#+LATEX_HEADER: \mdfdefinestyle{theoremstyle}{linewidth=1pt,backgroundcolor=blue!5}
+#+LATEX_HEADER: \newmdtheoremenv[style=theoremstyle]{theorem}{Theorem}
+#+LATEX_HEADER: \mdfdefinestyle{definitionstyle}{backgroundcolor=red!5,topline=false, bottomline=false,linewidth=1pt}
+#+LATEX_HEADER: \newmdtheoremenv[style=definitionstyle]{definition}{Definition}
+#+LATEX_HEADER: \mdfdefinestyle{lemmastyle}{linecolor=gray,linewidth=1pt}
+#+LATEX_HEADER: \mdfdefinestyle{problemstyle}{sbackgroundcolor=black!3,linecolor=gray,linewidth=1pt}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{proposition}{Proposition}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{lemma}{Lemma}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{corollary}{Corollary}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{problem}{Problem}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{solution}{Solution}
+#+LATEX_HEADER: \newmdtheoremenv[style=lemmastyle]{claim}{Claim}
+#+LATEX_HEADER: \newmdtheoremenv[style=definitionstyle]{construction}{Construction}
+#+LATEX_HEADER: \renewcommand{\theenumi}{\alph{enumi}}
+
+#+latex_header: \newtheorem*{remark}{Remark}
+
+#+LATEX_HEADER: \usepackage{tcolorbox}
+#+LATEX_HEADER: \usepackage{mathtools}
+#+LATEX_HEADER: \usepackage{amsfonts}
+#+LATEX_HEADER: \usepackage{amssymb}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{euler}
+#+LATEX_HEADER: \usepackage{Alegreya}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \usepackage{tikz-cd}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \usepackage{import}
+#+LATEX_HEADER: \usepackage{transparent}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage{calc}
+#+LATEX_HEADER: \usepackage{cleveref}
+#+LATEX_HEADER: \usepackage{slashed}
+
+
+#+LATEX_HEADER: \numberwithin{equation}{section}
+#+LATEX_HEADER: \numberwithin{definition}{section}
+#+LATEX_HEADER: \numberwithin{theorem}{section}
+#+LATEX_HEADER: \numberwithin{proposition}{section}
+#+LATEX_HEADER: \numberwithin{lemma}{section}
+#+LATEX_HEADER: \numberwithin{corollary}{section}
+#+LATEX_HEADER: \newcommand\op{\text{op}}
+#+LATEX_HEADER: \newcommand\C{\mathbb{C}}
+#+LATEX_HEADER: \newcommand\R{\mathbb{R}}
+#+LATEX_HEADER: \newcommand\D{\mathscr{D}}
+#+LATEX_HEADER: \newcommand\colim{\operatorname*{colim}}
+#+LATEX_HEADER: \newcommand\hom{\operatorname*{Hom}}
+#+LATEX_HEADER: \newcommand\mor{\operatorname*{Mor}}
+#+LATEX_HEADER: \newcommand\aut{\operatorname*{Aut}}
+#+LATEX_HEADER: \newcommand\leqs{\leqslant}
+#+LATEX_HEADER: \newcommand\geqs{\geqslant}
+#+LATEX_HEADER: \newcommand\divr{\opreatorname{div}}
+#+LATEX_HEADER: \newcommand\Inn{\operatorname*{Inn}}
+#+LATEX_HEADER: \newcommand\codim{\operatorname*{codim}}
+#+LATEX_HEADER: \newcommand\im{\operatorname*{im}}
+#+LATEX_HEADER: \newcommand\Ext{\operatorname*{Ext}}
+#+LATEX_HEADER: \newcommand\coker{\operatorname*{coker}}
+#+LATEX_HEADER: \newcommand\ev{\operatorname{ev}}
+#+LATEX_HEADER: \newcommand\coev{\operatorname{coev}}
+#+LATEX_HEADER: \newcommand\id{\operatorname{id}}
+#+LATEX_HEADER: \newcommand\CC{\mathbf{C}}
+#+LATEX_HEADER: \newcommand\RR{\mathbf{R}}
+#+LATEX_HEADER: \newcommand\ZZ{\mathbf{Z}}
+#+LATEX_HEADER: \newcommand\QQ{\mathbf{Q}}
+
+#+LATEX_HEADER: \newtcolorbox{intuition}{colback=yellow!5!white,title=Intuition}
+
+
+#+LATEX_HEADER: \usepackage[citestyle=alphabetic,bibstyle=alphabetic, hyperref=true,backref=true,maxcitenames=3,url=true,backend=biber]{biblatex}
+#+LATEX_HEADER: \addbibresource{~/Documents/bib/zotero_refs.bib}
+#+LATEX_HEADER: \setstretch{1.1}
+#+LATEX_HEADER: \AtEndDocument{\printbibliography}
+
+#+options: toc:2
