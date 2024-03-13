@@ -2,48 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://aatmunbaxi.netlify.app/</loc>
-    <lastmod>2023-04-28T17:22:05-05:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2023-04-18T17:11:09-05:00</lastmod>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/nihongo/</loc>
-    <lastmod>2023-04-28T17:22:09-05:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/misc/</loc>
-    <lastmod>2023-04-28T17:22:07-05:00</lastmod>
+    <loc>http://localhost:1313/math/going-global/</loc>
+    <lastmod>2023-04-18T17:11:09-05:00</lastmod>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/computing/</loc>
-    <lastmod>2023-04-28T17:22:05-05:00</lastmod>
+    <loc>http://localhost:1313/math/</loc>
+    <lastmod>2023-04-18T17:11:09-05:00</lastmod>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/math/</loc>
-    <lastmod>2023-04-28T17:22:05-05:00</lastmod>
+    <loc>http://localhost:1313/comp/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/misc/astrophotos/</loc>
-    <lastmod>2023-04-28T17:22:08-05:00</lastmod>
+    <loc>http://localhost:1313/computing/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/computing/emacs-to-type-latex/</loc>
-    <lastmod>2023-04-28T17:22:06-05:00</lastmod>
+    <loc>http://localhost:1313/misc/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/misc/fav_theorems/</loc>
-    <lastmod>2023-04-28T17:22:09-05:00</lastmod>
+    <loc>http://localhost:1313/nihongo/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/computing/doom-config/</loc>
-    <lastmod>2023-04-28T17:22:07-05:00</lastmod>
+    <loc>http://localhost:1313/nihongo/jojos_interesting_phrase/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/tags/astro/</loc>
-    <lastmod>2023-04-28T17:22:08-05:00</lastmod>
+    <loc>http://localhost:1313/misc/astrophotos/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/tags/hobby/</loc>
-    <lastmod>2023-04-28T17:22:08-05:00</lastmod>
+    <loc>http://localhost:1313/comp/configuring_meow_friendly_latex/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/tags/</loc>
-    <lastmod>2023-04-28T17:22:08-05:00</lastmod>
+    <loc>http://localhost:1313/computing/configuring-meow-friendly-latex/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/tags/emacs/</loc>
-    <lastmod>2023-04-28T17:22:07-05:00</lastmod>
+    <loc>http://localhost:1313/computing/configuring_meow_friendly_latex/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/tags/org/</loc>
-    <lastmod>2023-04-28T17:22:07-05:00</lastmod>
+    <loc>http://localhost:1313/math/realizing_fusion_rules/</loc>
   </url><url>
-    <loc>https://aatmunbaxi.netlify.app/categories/</loc>
+    <loc>http://localhost:1313/computing/magic-square-common-lisp/</loc>
+  </url><url>
+    <loc>http://localhost:1313/computing/brain_to_binary_bliss_of_decla_prog/</loc>
+  </url><url>
+    <loc>http://localhost:1313/math/quantum_comp_and_modular_categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/comp/magic-square-common-lisp/</loc>
+  </url><url>
+    <loc>http://localhost:1313/misc/fav_theorems/</loc>
+  </url><url>
+    <loc>http://localhost:1313/computing/emacs-to-type-latex/</loc>
+  </url><url>
+    <loc>http://localhost:1313/math/lawrge_2023_notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/comp/emacs-to-type-latex/</loc>
+  </url><url>
+    <loc>http://localhost:1313/computing/doom-config/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/astro/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/conference/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/emacs/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/hobby/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/lisp/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/math/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/meow/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/org/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/productivity/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/programming/</loc>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

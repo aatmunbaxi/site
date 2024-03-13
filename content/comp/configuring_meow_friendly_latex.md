@@ -1,5 +1,5 @@
 +++
-title = "Configuring meow for Friendly LaTeX Editing"
+title = "Configuring meow for Friendlier LaTeX Editing"
 author = ["Aatmun Baxi"]
 tags = ["emacs", "meow"]
 draft = false
@@ -9,8 +9,18 @@ type = "post"
 
 _TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme._
 
+<div class="ox-hugo-toc toc local">
+
+- [`evil-tex`](#evil-tex)
+- [Doing Our Own Thing](#doing-our-own-thing)
+- [Edge Cases](#edge-cases)
+- [Closing Thoughts](#closing-thoughts)
+
+</div>
+<!--endtoc-->
+
 Having ditched `evil-collection` to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
-Alas, I feel modal editing is something I prefer, so I&rsquo;ve adopted to `meow`.
+Alas, I feel modal editing is something I prefer, so I&rsquo;ve adopted [meow](https://github.com/meow-edit/meow).
 I chose meow for a few reasons:
 
 -   Trivial to extend and hack on
@@ -58,6 +68,7 @@ Here&rsquo;s a demo on how that works with the `symbol` thing, mapped to `e`:
 There&rsquo;s a parallel between this behavior and the &ldquo;inner &lt;object&gt;&rdquo; and &ldquo;all &lt;object&gt;&rdquo; behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to `l`.
 Then the key sequence `c i l` in evil mode (to &ldquo;Change Inner Line&rdquo;) could be replicated in meow with `, l c`.
+We can take this idea and help make meow friendlier for LaTeX editing.
 
 In meow, it&rsquo;s easy to define a `thing` with the function `(meow-thing-register)`.
 Let&rsquo;s register a `thing` that picks out the LaTeX inline math environment `\( \)`.

@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>emacs | Aatmun Baxi</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Emacs | Aatmun Baxi</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="https://aatmunbaxi.netlify.app/tags/emacs/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://aatmunbaxi.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://aatmunbaxi.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://aatmunbaxi.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://aatmunbaxi.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://aatmunbaxi.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/tags/emacs/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04736f5f00c046cd389b53ec9f9457e8608680a19450d702be85553a8b814e4e.css" integrity="sha256-BHNvXwDARs04m1Psn5RX6GCGgKGUUNcCvoVVOouBTk4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://aatmunbaxi.netlify.app/tags/emacs/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/emacs/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/emacs/">
 <noscript>
     <style>
         #theme-toggle,
@@ -27,44 +28,96 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="emacs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://aatmunbaxi.netlify.app/tags/emacs/" />
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="emacs"/>
-<meta name="twitter:description" content=""/>
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
 </head>
 
-<body class="list dark" id="top">
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://aatmunbaxi.netlify.app" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
             <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://aatmunbaxi.netlify.app/computing/" title="Computing">
+                <a href="http://localhost:1313/comp/" title="Computing">
                     <span>Computing</span>
                 </a>
             </li>
             <li>
-                <a href="https://aatmunbaxi.netlify.app/math/" title="Math">
+                <a href="http://localhost:1313/math/" title="Math">
                     <span>Math</span>
                 </a>
             </li>
             <li>
-                <a href="https://aatmunbaxi.netlify.app/misc/" title="Misc">
+                <a href="http://localhost:1313/misc/" title="Misc">
                     <span>Misc</span>
                 </a>
             </li>
             <li>
-                <a href="https://aatmunbaxi.netlify.app/nihongo/" title="日本語コーナー">
+                <a href="http://localhost:1313/nihongo/" title="日本語コーナー">
                     <span>日本語コーナー</span>
                 </a>
             </li>
@@ -74,9 +127,51 @@
 <main class="main"> 
 <header class="page-header">
   <h1>
-    emacs
+    Emacs
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Configuring meow for Friendly LaTeX Editing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted to meow. I chose meow for a few reasons:
+Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package–evil-tex–gave me pause....</p>
+  </div>
+  <footer class="entry-footer">880 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to Configuring meow for Friendly LaTeX Editing" href="http://localhost:1313/comp/configuring_meow_friendly_latex/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Configuring meow for Friendly LaTeX Editing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:
+Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package–evil-tex–gave me pause....</p>
+  </div>
+  <footer class="entry-footer">879 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to Configuring meow for Friendly LaTeX Editing" href="http://localhost:1313/computing/configuring-meow-friendly-latex/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Configuring meow for Friendly LaTeX Editing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:
+Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package–evil-tex–gave me pause....</p>
+  </div>
+  <footer class="entry-footer">879 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to Configuring meow for Friendly LaTeX Editing" href="http://localhost:1313/computing/configuring_meow_friendly_latex/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -87,8 +182,21 @@
     <p>About four years ago, my brother introduced me to Linux and free and open source software. Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation. I then stumbled across Gilles Castel’s article on typing LaTeX with vim, and I was amazed.
 For those who don’t know, typing LaTeX by default is a terrible experience. Terrible. Using a program like vim with plugins made typing LaTeX so frictionless that I immediately dove into the world of extensible text editors....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-04-28 17:22:06 -0500 CDT'>April 28, 2023</span>&nbsp;·&nbsp;635 words&nbsp;·&nbsp;Aatmun Baxi</footer>
-  <a class="entry-link" aria-label="post link to Emacs org-mode for LaTeX" href="https://aatmunbaxi.netlify.app/computing/emacs-to-type-latex/"></a>
+  <footer class="entry-footer">635 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to Emacs org-mode for LaTeX" href="http://localhost:1313/computing/emacs-to-type-latex/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Emacs org-mode for LaTeX
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>About four years ago, my brother introduced me to Linux and free and open source software. Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation. I then stumbled across Gilles Castel’s article on typing LaTeX with vim, and I was amazed.
+For those who don’t know, typing LaTeX by default is a terrible experience. Terrible. Using a program like vim with plugins made typing LaTeX so frictionless that I immediately dove into the world of extensible text editors....</p>
+  </div>
+  <footer class="entry-footer">635 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to Emacs org-mode for LaTeX" href="http://localhost:1313/comp/emacs-to-type-latex/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -97,15 +205,15 @@ For those who don’t know, typing LaTeX by default is a terrible experience. Te
     </h2>
   </header>
   <div class="entry-content">
-    <p>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Fancy Splash Image:ARCHIVE: Custom Faces Setting Colors Hook Global evil embark vertico org-mode Some variables Hooks Appearance bibtex org-super-agenda org-modern Agenda PDF Export Process Keybinds Export Settings helm-bibtex org-ref org-noter org-roam org-capture pdf-view-mode Keybindings Hooks haskell-mode Hooks python-mode Elpy yasnippets ink quiver org-babel writeroom-mode company ox-hugo Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc....</p>
+    <p>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Modeline Global Appearance Custom Faces Custom Functionality Global keybindings Major Modes and Languages org-mode haskell-mode python-mode plantuml pdf-view-mode evil lsp numpydoc Packages bibtex embark org packages org-ref org-roam org-noter org-super-agenda CV Misc Packages and Behavior helm-bibtex xenops-mode yasnippets ink quiver company Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-04-28 17:22:07 -0500 CDT'>April 28, 2023</span>&nbsp;·&nbsp;2695 words&nbsp;·&nbsp;Aatmun Baxi</footer>
-  <a class="entry-link" aria-label="post link to My DOOM Emacs Configuration" href="https://aatmunbaxi.netlify.app/computing/doom-config/"></a>
+  <footer class="entry-footer">3441 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi</footer>
+  <a class="entry-link" aria-label="post link to My DOOM Emacs Configuration" href="http://localhost:1313/computing/doom-config/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://aatmunbaxi.netlify.app">Aatmun Baxi</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Aatmun Baxi</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
@@ -158,6 +266,18 @@ For those who don’t know, typing LaTeX by default is a terrible experience. Te
             mybutton.style.opacity = "0";
         }
     };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
 </script>
 
