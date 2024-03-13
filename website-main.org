@@ -8,7 +8,6 @@
 
 * Home
 :PROPERTIES:
-:EXPORT_HUGO_SECTION:
 :EXPORT_HUGO_FRONT_MATTER: :toc false :author false
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_WEIGHT: -10
@@ -52,6 +51,232 @@ After all, they're what I (claim to) know in my own words.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
+** \( \operatorname{Rep}(G) \)-type Fusion Rules                  :categories:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: math
+:EXPORT_FILE_NAME: repG_fusion_rules
+:EXPORT_OPTIONS: toc:t
+:END:
+/Disclaimer: These results have not been subjected to the rigor of publication./
+
+As a spiritual continuation of the last article about realizing fusion rules, we realize some more multiplicity-free fusion rules on the AnyonWiki.
+This time, we realize fusion rules as the fusion rules of the category of finite-dimensional complex representations of finite groups.
+It turns out that these are some of the simplest examples of fusion categories and thus have particularly nice properties which allow us to easily recognize them.
+
+*** Dimension as a Proxy for Recognizing \( \operatorname{Rep}(G) \)
+Recall that fusion categories have a notion of /dimension/ that is more general than the familiar concept of vector space dimension.
+In particular, the dimension function in fusion categories "behaves like" the regular dimension function on vector spaces, satisfying \( \dim (X \otimes Y) = \dim X \dim Y \) and \( \dim (X \oplus Y) = \dim X + \dim Y \), while not being required to be an integer.
+Remember in the last article, there were objects of dimension \( \sqrt[\phantom{a}]{N} \) for some square-free integer \( N \).
+However, in categories like \( \operatorname{Rep}(G) \), things are simpler.
+
+In the fusion category \( \operatorname{Rep}(G) \), the dimensions of the simple objects are precisely the dimensions of the underlying vector spaces of the irreducible representations.
+What's more is, from [[https://en.wikipedia.org/wiki/Character_theory][character theory]], the sum of the squares of the dimensions of irreducible representations equals the order of the group \( G \).
+But this sum is just the dimension of the category!
+This gives us a complete description of which groups are candidates for realizing certain fusion rules.
+
+*** Recognizing \( \operatorname{Rep}(G) \)-type Fusion Rules
+The basic idea is now to look for /integral/ fusion rules--fusion rules in which all objects (and hence the fusion ring)--has dimension equal to an integer.
+Going with the AnyonWiki, let's say these fusion rules are \( \operatorname{FR}^{-,-}_-\) .
+If \( \operatorname{FR}^{-,-}_- \) has a \( \operatorname{Rep}(G) \)-categorification, then the group \( G \) must have order equal to the dimension of the fusion ring, which we'll denote \( N \).
+Thus, we should look only at groups of order \( N \), which we can do with a computer algebra system such as =GAP=.
+
+From there, we can list out all irreducible representations of such groups.
+The rank of \( \operatorname{FR}^{-,-}_- \) should be equal to the number of irreducible representations of \( G \) if it has a \( \operatorname{Rep}(G) \)-categorification, so we can further filter out possible candidate groups by the number of irreducible representations they afford.
+
+Once we have a list of groups with order \( \dim \operatorname{FR}^{-,-}_- \) and number of irreducible representations (irreps) equal to \( \operatorname{rank} \operatorname{FR}^{-,-}_- \), we must look at the fusion rules of the irreps.
+The fusion rules are exactly as they sound, namely, if \( ( \rho_{i} , V_i ), (\rho_{j} , V_{j}) \) are two irreducible representations, then
+\begin{equation}
+\label{eq:1}
+V_i \otimes  V_j = \bigoplus_{1 \leqslant k \leqslant \operatorname{rank} \operatorname{Rep}(G)}^{} m_k V_k
+\end{equation}
+for some non-negative integers \( m_k \).
+To find these \( m_k \), character theory comes to the rescue.
+
+Glossing over many details, to each representation of \( G \) we can associate a *character*.
+The characters of the irreps are called *irreducible characters*.
+The irreducible characters satisfy a relation called [[https://groupprops.subwiki.org/wiki/Character_orthogonality_theorem][character orthogonality]], which makes it a near-trivial computational task to find the multiplicity \( m_k \).
+i.e. to find \( m_k \) in the decomposition of \( V_i \otimes V_j \), one need only compute \( \left\langle \chi_i \chi_j , \chi_k \right\rangle \).
+Once again, this can all be done quickly with the help of a computer algebra system.
+
+As a final step, we have to resolve some labelling ambiguities used on the AnyonWiki vs the output of such a computer algebra system.
+*** Realizing Unrecognized Fusion Rules
+Implementing the above strategy, we get the following realizations.
+
+**** \( \operatorname{FR}^{8,2}_5 \) as \( \operatorname{Rep}(\operatorname{Dic}(5)) \)
+#+name: 20-1_fusion_table
+#+caption: Fusion table for =SmallGroup= ID =[20,1]=
+| 1 | 2 | 3 | 4 |         5 |         6 |         7 |         8 |
+| 2 | 1 | 4 | 3 |         5 |         6 |         7 |         8 |
+| 3 | 4 | 2 | 1 |         6 |         5 |         8 |         7 |
+| 4 | 3 | 1 | 2 |         6 |         5 |         8 |         7 |
+| 5 | 5 | 6 | 6 | 1 + 2 + 7 | 3 + 4 + 8 |     5 + 7 |     6 + 8 |
+| 6 | 6 | 5 | 5 | 3 + 4 + 8 | 1 + 2 + 7 |     6 + 8 |     5 + 7 |
+| 7 | 7 | 8 | 8 |     5 + 7 |     6 + 8 | 1 + 2 + 5 | 3 + 4 + 6 |
+| 8 | 8 | 7 | 7 |     6 + 8 |     5 + 7 | 3 + 4 + 6 | 1 + 2 + 5 |
+
+The objects have the correspondence with the AnyonWiki (AW):
+#+caption: Label mapping for \( \operatorname{Rep}(\operatorname{Dic}(5)) \) against \( \operatorname{FR}^{8,2}_5 \).
+| GAP Irrep Index | AW Label |
+|-----------------+----------|
+|               1 |        1 |
+|               2 |        2 |
+|               3 |        3 |
+|               4 |        4 |
+|               5 |        7 |
+|               6 |        6 |
+|               7 |        5 |
+|               8 |        8 |
+
+**** \( \operatorname{FR}^{9,0}_{22} \) is \( \operatorname{Rep}((S_3 \times S_3)\rtimes \mathbf{Z}_2) \)
+The fusion rules straight out of GAP are in Table ref:72-40_fusion_rules.
+No object labelling needs to be changed to match that of \( \operatorname{FR}^{9,0}_{22} \).
+#+name: 72-40_fusion_rules
+#+caption: Rep(G) fusion rules for group with GAP ID =[72,40]=.
+| 1 | 2 | 3 | 4 | 5             | 6                     | 7                     | 8                     | 9                     |
+| 2 | 1 | 4 | 3 | 5             | 9                     | 8                     | 7                     | 6                     |
+| 3 | 4 | 1 | 2 | 5             | 9                     | 7                     | 8                     | 6                     |
+| 4 | 3 | 2 | 1 | 5             | 6                     | 8                     | 7                     | 9                     |
+| 5 | 5 | 5 | 5 | 1 + 2 + 3 + 4 | 6 + 9                 | 7 + 8                 | 7 + 8                 | 6 + 9                 |
+| 6 | 9 | 9 | 6 | 6 + 9         | 1 + 4 + 5 + 7 + 8 + 9 | 6 + 7 + 8 + 9         | 6 + 7 + 8 + 9         | 2 + 3 + 5 + 6 + 7 + 8 |
+| 7 | 8 | 7 | 8 | 7 + 8         | 6 + 7 + 8 + 9         | 1 + 3 + 5 + 6 + 8 + 9 | 2 + 4 + 5 + 6 + 7 + 9 | 6 + 7 + 8 + 9         |
+| 8 | 7 | 8 | 7 | 7 + 8         | 6 + 7 + 8 + 9         | 2 + 4 + 5 + 6 + 7 + 9 | 1 + 3 + 5 + 6 + 8 + 9 | 6 + 7 + 8 + 9         |
+| 9 | 6 | 6 | 9 | 6 + 9         | 2 + 3 + 5 + 6 + 7 + 8 | 6 + 7 + 8 + 9         | 6 + 7 + 8 + 9         | 1 + 4 + 5 + 7 + 8 + 9 |
+
+**** \( \operatorname{FR}^{9,2}_8 \) is \( \operatorname{Rep}((\mathbf{Z}_6 \times \mathbf{Z}_2)\rtimes \mathbf{Z}_2) \)
+#+caption: \( \operatorname{Rep}(G) \) for \( G \) the group with GAP ID =[24,8]=
+#+name: 24-8_fusion_rules
+| 1 | 2 | 3 | 4 | 5         | 6         | 7             | 8         | 9         |
+| 2 | 1 | 4 | 3 | 6         | 5         | 7             | 9         | 8         |
+| 3 | 4 | 1 | 2 | 5         | 6         | 7             | 8         | 9         |
+| 4 | 3 | 2 | 1 | 6         | 5         | 7             | 9         | 8         |
+| 5 | 6 | 5 | 6 | 1 + 3 + 6 | 2 + 4 + 5 | 8 + 9         | 7 + 8     | 7 + 9     |
+| 6 | 5 | 6 | 5 | 2 + 4 + 5 | 1 + 3 + 6 | 8 + 9         | 7 + 9     | 7 + 8     |
+| 7 | 7 | 7 | 7 | 8 + 9     | 8 + 9     | 1 + 2 + 3 + 4 | 5 + 6     | 5 + 6     |
+| 8 | 9 | 8 | 9 | 7 + 8     | 7 + 9     | 5 + 6         | 2 + 4 + 6 | 1 + 3 + 5 |
+| 9 | 8 | 9 | 8 | 7 + 9     | 7 + 8     | 5 + 6         | 1 + 3 + 5 | 2 + 4 + 6 |
+
+
+#+caption: Label mapping for \(\operatorname{Rep}((\mathbf{Z}_6 \times \mathbf{Z}_2)) \rtimes \mathbf{Z}_2\) against \( \operatorname{FR}^{9,2}_8 \).
+| =i= in =FusionTable(G)[i]= | AW Object Label |
+|------------------------+-----------------|
+|                      1 |               1 |
+|                      2 |               2 |
+|                      3 |               4 |
+|                      4 |               3 |
+|                      5 |               7 |
+|                      6 |               6 |
+|                      7 |               5 |
+|                      8 |               8 |
+|                      9 |               9 |
+
+
+*** Alternative Realizations of Currently Recognized Fusion Rules
+Along the way, \( \operatorname{Rep}(G) \)-type categories also provided alternative ways to realize fusion rules on the AnyonWiki that were already categorified.
+In mathematical terms, this would mean we have found a Grothendieck equivalent fusion category.
+**** \( \operatorname{Adj}(\operatorname{SO}(11)_2) \) is also \( \operatorname{Rep}(D_{11}) \)
+#+caption: Fusion Table for \( \operatorname{Rep}(D_{11}) \)
+| 1 | 2 | 3         | 4         | 5         | 6         | 7         |
+| 2 | 1 | 3         | 4         | 5         | 6         | 7         |
+| 3 | 3 | 1 + 2 + 4 | 3 + 5     | 4 + 6     | 5 + 7     | 6 + 7     |
+| 4 | 4 | 3 + 5     | 1 + 2 + 6 | 3 + 7     | 4 + 7     | 5 + 6     |
+| 5 | 5 | 4 + 6     | 3 + 7     | 1 + 2 + 7 | 3 + 6     | 4 + 5     |
+| 6 | 6 | 5 + 7     | 4 + 7     | 3 + 6     | 1 + 2 + 5 | 3 + 4     |
+| 7 | 7 | 6 + 7     | 5 + 6     | 4 + 5     | 3 + 4     | 1 + 2 + 3 |
+**** \(\operatorname{Adj}(\operatorname{SO}(16)_2)\) is also \( \operatorname{Rep}(\operatorname{Dic}_4) \)
+
+
+#+caption: Fusion Rules for \( \operatorname{Rep}(Q_{16}) \)
+| 1 | 2 | 3 | 4 |             5 |         6 |         7 |
+| 2 | 1 | 4 | 3 |             5 |         7 |         6 |
+| 3 | 4 | 1 | 2 |             5 |         7 |         6 |
+| 4 | 3 | 2 | 1 |             5 |         6 |         7 |
+| 5 | 5 | 5 | 5 | 1 + 2 + 3 + 4 |     6 + 7 |     6 + 7 |
+| 6 | 7 | 7 | 6 |         6 + 7 | 1 + 4 + 5 | 2 + 3 + 5 |
+| 7 | 6 | 6 | 7 |         6 + 7 | 2 + 3 + 5 | 1 + 4 + 5 |
+
+Looks the same as \( \operatorname{Adj}(\operatorname{SO}(16)_2) \).
+
+**** \( \operatorname{FR}^{7,2}_4 \) is also \( \operatorname{Rep}(QD_{16}) \)
+This group is called the /quasi-dicyclic group/ of order 16.
+#+caption: Fusion rules for \( \operatorname{Rep}(QD_{16}) \)
+| 1 | 2 | 3 | 4 |             5 |         6 |         7 |
+| 2 | 1 | 4 | 3 |             5 |         7 |         6 |
+| 3 | 4 | 1 | 2 |             5 |         7 |         6 |
+| 4 | 3 | 2 | 1 |             5 |         6 |         7 |
+| 5 | 5 | 5 | 5 | 1 + 2 + 3 + 4 |     6 + 7 |     6 + 7 |
+| 6 | 7 | 7 | 6 |         6 + 7 | 2 + 3 + 5 | 1 + 4 + 5 |
+| 7 | 6 | 6 | 7 |         6 + 7 | 1 + 4 + 5 | 2 + 3 + 5 |
+
+Technically, this fusion rule has not been realized yet, but it can be realized as a zesting of \( \operatorname{FR}^{7,0}_1 : \operatorname{Adj}(\operatorname{SO}(16)_2) \)
+
+**** \( \operatorname{FR}^{8,0}_3 \) is also \( \operatorname{Rep}(D_{10}) \)
+GAP says this group is =D20= (the symmetries of the regular 10-gon).
+Cf Table ref:20-1_fusion_table to the \( D_{10} \) fusion table:
+
+#+name: d10_fusion_table
+#+caption: Fusion table for \( \operatorname{Rep}(D_{10}) \).
+| 1 | 2 | 3 | 4 |         5 |         6 |         7 |         8 |
+| 2 | 1 | 4 | 3 |         8 |         7 |         6 |         5 |
+| 3 | 4 | 1 | 2 |         5 |         6 |         7 |         8 |
+| 4 | 3 | 2 | 1 |         8 |         7 |         6 |         5 |
+| 5 | 8 | 5 | 8 | 1 + 3 + 7 |     7 + 8 |     5 + 6 | 2 + 4 + 6 |
+| 6 | 7 | 6 | 7 |     7 + 8 | 1 + 3 + 8 | 2 + 4 + 5 |     5 + 6 |
+| 7 | 6 | 7 | 6 |     5 + 6 | 2 + 4 + 5 | 1 + 3 + 8 |     7 + 8 |
+| 8 | 5 | 8 | 5 | 2 + 4 + 6 |     5 + 6 |     7 + 8 | 1 + 3 + 7 |
+**** \( \operatorname{Adj}(\operatorname{SO}(13)_2) \) is also \( \operatorname{Rep}(D_{13}) \)
+#+name: d13-fusion-table
+#+caption: Fusion Table for \( \operatorname{Rep}(D_{13}) \). Cf with \( \operatorname{Adj}(\operatorname{SO}(13)_2) \)
+| 1 | 2 | 3         | 4         | 5         | 6         | 7         | 8           |
+| 2 | 1 | 3         | 4         | 5         | 6         | 7         | 8           |
+| 3 | 3 | 1 + 2 + 5 | 5 + 6     | 3 + 4     | 4 + 8     | 7 + 8     | 6 + 7       |
+| 4 | 4 | 5 + 6     | 1 + 2 + 7 | 3 + 8     | 3 + 7     | 4 + 6     | 5 + 8       |
+| 5 | 5 | 3 + 4     | 3 + 8     | 1 + 2 + 6 | 5 + 7     | 6 + 8     | 4 + 7       |
+| 6 | 6 | 4 + 8     | 3 + 7     | 5 + 7     | 1 + 2 + 8 | 4 + 5     | 3 + 6       |
+| 7 | 7 | 7 + 8     | 4 + 6     | 6 + 8     | 4 + 5     | 1 + 2 + 3 | 3 + 5       |
+| 8 | 8 | 6 + 7     | 5 + 8     | 4 + 7     | 3 + 6     | 3 + 5     | 1 + 2 + 4   |
+
+
+**** \( \operatorname{Adj}(\operatorname{SO}(24)_{2})\) is also \( \operatorname{Rep}(\mathbf{Z}_3 \rtimes Q_8) \)
+#+name: 24-4_fusion_rules
+#+caption: Rep(G) fusion rules for group with GAP ID =[24,4]=.
+| 1 | 2 | 3 | 4 | 5             | 6         | 7         | 8         | 9         |
+| 2 | 1 | 4 | 3 | 5             | 7         | 6         | 9         | 8         |
+| 3 | 4 | 1 | 2 | 5             | 6         | 7         | 8         | 9         |
+| 4 | 3 | 2 | 1 | 5             | 7         | 6         | 9         | 8         |
+| 5 | 5 | 5 | 5 | 1 + 2 + 3 + 4 | 8 + 9     | 8 + 9     | 6 + 7     | 6 + 7     |
+| 6 | 7 | 6 | 7 | 8 + 9         | 1 + 3 + 7 | 2 + 4 + 6 | 5 + 8     | 5 + 9     |
+| 7 | 6 | 7 | 6 | 8 + 9         | 2 + 4 + 6 | 1 + 3 + 7 | 5 + 9     | 5 + 8     |
+| 8 | 9 | 8 | 9 | 6 + 7         | 5 + 8     | 5 + 9     | 1 + 3 + 6 | 2 + 4 + 7 |
+| 9 | 8 | 9 | 8 | 6 + 7         | 5 + 9     | 5 + 8     | 2 + 4 + 7 | 1 + 3 + 6 |
+
+Perhaps an alternate realization of the category \( \operatorname{Adj}(SO(24)_2) \).
+| =i= in =FusionTable(G)[i]= | AW Object Label |
+|------------------------+-----------------|
+|                      1 |               1 |
+|                      2 |               2 |
+|                      3 |               4 |
+|                      4 |               3 |
+|                      5 |               7 |
+|                      6 |               5 |
+|                      7 |               9 |
+|                      8 |               8 |
+|                      9 |               6 |
+
+
+**** \( \operatorname{Adj}(\operatorname{SO}(24)_{2})\) is also \( \operatorname{Rep}(D_{12}) \)
+#+name: 24-6_fusion_rules
+#+caption: \( \operatorname{Rep}(D_{12}) \) fusion rules.
+| 1 | 2 | 3 | 4 | 5             | 6         | 7         | 8         | 9         |
+| 2 | 1 | 4 | 3 | 5             | 7         | 6         | 9         | 8         |
+| 3 | 4 | 1 | 2 | 5             | 6         | 7         | 8         | 9         |
+| 4 | 3 | 2 | 1 | 5             | 7         | 6         | 9         | 8         |
+| 5 | 5 | 5 | 5 | 1 + 2 + 3 + 4 | 8 + 9     | 8 + 9     | 6 + 7     | 6 + 7     |
+| 6 | 7 | 6 | 7 | 8 + 9         | 1 + 3 + 7 | 2 + 4 + 6 | 5 + 8     | 5 + 9     |
+| 7 | 6 | 7 | 6 | 8 + 9         | 2 + 4 + 6 | 1 + 3 + 7 | 5 + 9     | 5 + 8     |
+| 8 | 9 | 8 | 9 | 6 + 7         | 5 + 8     | 5 + 9     | 1 + 3 + 6 | 2 + 4 + 7 |
+| 9 | 8 | 9 | 8 | 6 + 7         | 5 + 9     | 5 + 8     | 2 + 4 + 7 | 1 + 3 + 6 |
+
+
 ** Realizing some Multiplicity-Free Fusion Rules :categories:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
@@ -391,6 +616,7 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 - TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
   - This is perhaps its strongest merit
 ** DRAFT A "Yoga" to Realizing Multiplicity-Free Fusion Rules :math:categories:
+
 Since writing about [[*Realizing some Multiplicity-Free Fusion Rules][realizing multiplicity-free fusion rules]], I've gone through more of the [[https://anyonwiki.github.io/][AnyonWiki]] database and realized more fusion rules, picking up some techniques to hint at possible answers along the way.
 I hesitate to call this a yoga (whatever that means, anyway), because really it's just a set of heuristics following the information provided.
 
@@ -421,7 +647,6 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 |                      8 | 2.44949 | \(\sqrt{6}\) |
 | \(\mathcal{D}_{FP}^2\) |     24. |           24 |
 
-
 ** LAWRGe 2023 Notes :math:conference:notes:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
@@ -431,26 +656,161 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 #+include: "~/Documents/org/notes.org::*LAWRGe Workshop"
 * Computing
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
 :END:
 ** Computing
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_MENU: :menu main
 :END:
-I've spent a lot of time developing a workflow that works well for me, mainly centered around my time typesetting math, and finding better ways to do so.
-Here I record some things that I've learned along the way.
+** Configuring =meow= for Friendly LaTeX Editing :emacs:meow:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: comp
+:EXPORT_FILE_NAME: configuring_meow_friendly_latex
+:END:
+/TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme./
+
+Having ditched =evil-collection= to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
+Alas, I feel modal editing is something I prefer, so I've adopted to =meow=.
+I chose meow for a few reasons:
+- Trivial to extend and hack on
+- The "selection-first" ethos is intriguing
+- No dependencies
+- Prefers built-in methods for various tasks
+- Keypad mode offers a great, lighter weight alternative to the =SPC= DOOM leader with evil mode
+
+So far, it's been an enjoyable experience, but one evil-mode package--=evil-tex=--gave me pause.
+*** =evil-tex=
+[[https://github.com/iyefrat/evil-tex][evil-tex]] is an extension to evil that adds support for "vimmable" text objects in LaTeX syntax.
+As an example, let =|= denote the location of the point when using evil mode.
+Suppose we're given the situation:
+#+begin_example
+The qu|ick brown fox jumps over the lazy dog.
+#+end_example
+In =evil-normal-mode= you can type the keys =ciw= to "Change Inner Word", deleting the work =quick= and placing you in =evil-insert-mode=.
+
+If =w= denotes the "word" evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
+Consider the following inline math expression with point =|=:
+#+begin_example
+\( X\cong | Y \)
+#+end_example
+With =evil-tex-mode= enabled, and inside =evil-normal-mode=, we can press =cim= to "Change Inner Math", deleting all the text within the =\( \)= delimiters and placing us in insert mode.
+This is just one example of what evil-tex offers; a more comprehensive picture is in the documentation.
+
+*** Doing Our Own Thing
+Meow uses =things= (lit.) to demarcate sections of text that you can navigate around and select.
+For example, some things that come preloaded with meow are sentences, defuns, paragraphs, buffers, windows, and lines.
+When a thing is defined, you can press =, <THING_KEY>= to select the inner part of the thing, where =<THING_KEY>= is the key associated with that thing (e.g. =l= for line, =d= for defun).
+Similarly, you can press =. <THING_KEY>= to select to the bounds of the thing.
+Here's a demo on how that works with the =symbol= thing, mapped to =e=:
+#+CAPTION: Demo of symbol thing in meow
+[[file:~/Videos/meow-symbol-inner.gif]]
+
+There's a parallel between this behavior and the "inner <object>" and "all <object>" behavior in evil.
+For example, suppose we have a text object in evil that picks out the line the point is on, mapped to =l=.
+Then the key sequence =c i l= in evil mode (to "Change Inner Line") could be replicated in meow with =, l c=.
+
+In meow, it's easy to define a =thing= with the function =(meow-thing-register)=.
+Let's register a =thing= that picks out the LaTeX inline math environment =\( \)=.
+The simplest way to do this is using the pair matching:
+#+begin_src emacs-lisp
+(meow-thing-register 'inline-math
+                     '(pair ("\\(") ("\\)"))
+                     '(pair ("\\(") ("\\)") ) )
+#+end_src
+
+Now we can map this thing to a key:
+#+begin_src emacs-lisp
+(add-to-list 'meow-char-thing-table '(?m . inline-math))
+#+end_src
+
+Now, when we're inside an inline math environment, we can press =, m= to select all the text within the math environment, and =. m= to select all of the math environment.
+#+CAPTION: Demo of our user-defined math thing
+[[file:~/Videos/meow-math-demo.gif]]
+
+
+The bindings =, m= and =. m= replicate the evil-tex object identification =i m= and =a m=, respectively.
+
+We can also use this same concept to extend functionality to full-scale LaTeX environments.
+That configuration is
+#+begin_src emacs-lisp
+(meow-thing-register 'latex-env
+                     '(regexp "\\\\begin{.*?}\n\\(?:\\\\label{.*?}\n\\)?" "\n\\\\end{.*?}" )
+                     '(regexp "\\\\begin{.*?}" "\\\\end{.*?}" ) )
+
+(add-to-list 'meow-char-thing-table '(?E . latex-env))
+#+end_src
+This adds the same support for latex environments that look this like:
+#+begin_example
+\begin{ENV}
+...
+\end{ENV}
+#+end_example
+
+The =\label{...}= directive sometimes appears in these environments, so the regex used to match these things are included as optional match groups.
+
+#+CAPTION: Demo of our user-defined latex-env thing
+[[file:~/Videos/meow-latex-env.gif]]
+
+In fact, in my own configuration, I've combined the =latex-math= and =latex-env= things into one thing, so I use just the key =m= to pick out either inline math environments or =\begin{...} \end{...}= environments.
+
+These are all well and good, but one of my favorite evil-tex objects were the LaTeX delimiters: including =\left( \right)= and friends.
+Let's do those too.
+#+begin_src emacs-lisp
+(setq latex-left-delim (rx "\\left"
+                           (or "\\langle"
+                               "("
+                               "\["
+                               "\\{"
+                               "\\lbrace")))
+(setq latex-right-delim (rx "\\right"
+                            (or "\\rangle"
+                                ")"
+                                "\]"
+                                "\\}"
+                                "\\rbrace")))
+
+(meow-thing-register 'latex-delim
+                     `(regexp ,latex-left-delim ,latex-right-delim)
+                     `(regexp ,latex-left-delim ,latex-right-delim))
+
+(add-to-list 'meow-char-thing-table '(?j . latex-delim))
+#+end_src
+
+Here's what that looks like:
+
+#+CAPTION: Demo of our user-defined delimiter thing
+[[file:~/Videos/meow-delim-demo.gif]]
+
+Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.
+
+*** Edge Cases
+Because of the way meow searches for the beginnings and ends of things, this implementation has obvious edge cases which I think are acceptable compromises.
+Notably, meow searches behind and in front of the point for the inner/outer/bounds of the thing.
+This implies that--for example--if the point was on a line containing =\label{...}= and you press =, E= in normal mode, it would select the line containing the label directive as well as the content before the =\end{..}=:
+
+#+CAPTION: Edge case in latex-env implementation
+[[file:~/Videos/meow-env-edge-case.gif]]
+
+I strongly suspect (nay, I /know/) that more clever implementations are possible using emacs lisp.
+I don't mind this behavior; most of the times when I want to use this feature are when I'm in the midst of typing on the line below the label directive.
+*** Closing Thoughts
+What I've shown here is a very small, quickly-put-together look at the hackability of meow.
+The documentation for meow is very comprehensive, and users should customize meow to their heart's content.
+After all, one of the selling points of meow is how easy it is to "roll your own" modal editor.
+Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
+I hope I've brought some inspirational ideas here.
 ** Solving the Magic Square in Common Lisp :lisp:programming:
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: magic-square-common-lisp
 :END:
 #+include: ~/programming/lisp-fun/magic-square.org
 ** Declarative Programming for Fast Brain-to-Binary
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: brain_to_binary_bliss_of_decla_prog
 :END:
 Recently I've been messing around with different programming languages and branching out beyond the C-style languages I know like C++ and Python.
@@ -500,7 +860,7 @@ Oftentimes for the sake of team cohesion and ease of debugging, a unified style-
 Despite this, I will continue to prefer declarative programming for quick implementations, only moving to imperative when I think more control is needed.
 ** Emacs =org-mode= for LaTeX :emacs:org:hobby:productivity:
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: emacs-to-type-LaTeX
 :END:
 About four years ago, my brother introduced me to Linux and free and open source software.
@@ -594,7 +954,7 @@ I could write more about how I achieved this setup, but others that are much sma
 
 ** My DOOM Emacs Configuration :emacs:org:hobby:
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: computing
+:EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: doom-config
 :END:
 #+attr_html: :class toc-class

@@ -152,4 +152,7 @@ I don&rsquo;t mind this behavior; most of the times when I want to use this feat
 ## Closing Thoughts {#closing-thoughts}
 
 What I&rsquo;ve shown here is a very small, quickly-put-together look at the hackability of meow.
-The documentation
+The documentation for meow is very comprehensive, and users should customize meow to their heart&rsquo;s content.
+After all, one of the selling points of meow is how easy it is to &ldquo;roll your own&rdquo; modal editor.
+Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
+I hope I&rsquo;ve brought some inspirational ideas here.
