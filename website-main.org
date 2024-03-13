@@ -665,15 +665,16 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_MENU: :menu main
 :END:
-** Configuring =meow= for Friendly LaTeX Editing :emacs:meow:
+** Configuring =meow= for Friendlier LaTeX Editing :emacs:meow:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: configuring_meow_friendly_latex
 :END:
 /TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme./
 
+#+toc: headlines 2 local
 Having ditched =evil-collection= to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
-Alas, I feel modal editing is something I prefer, so I've adopted to =meow=.
+Alas, I feel modal editing is something I prefer, so I've adopted [[https://github.com/meow-edit/meow][meow]].
 I chose meow for a few reasons:
 - Trivial to extend and hack on
 - The "selection-first" ethos is intriguing
@@ -711,6 +712,7 @@ Here's a demo on how that works with the =symbol= thing, mapped to =e=:
 There's a parallel between this behavior and the "inner <object>" and "all <object>" behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to =l=.
 Then the key sequence =c i l= in evil mode (to "Change Inner Line") could be replicated in meow with =, l c=.
+We can take this idea and help make meow friendlier for LaTeX editing.
 
 In meow, it's easy to define a =thing= with the function =(meow-thing-register)=.
 Let's register a =thing= that picks out the LaTeX inline math environment =\( \)=.
