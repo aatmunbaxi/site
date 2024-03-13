@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Declarative Programming for Fast Brain-to-Binary | Aatmun Baxi</title>
+<meta name="keywords" content="">
+<meta name="description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
+As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done.">
+<meta name="author" content="Aatmun Baxi">
+<link rel="canonical" href="http://localhost:1313/computing/brain_to_binary_bliss_of_decla_prog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04736f5f00c046cd389b53ec9f9457e8608680a19450d702be85553a8b814e4e.css" integrity="sha256-BHNvXwDARs04m1Psn5RX6GCGgKGUUNcCvoVVOouBTk4=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/computing/brain_to_binary_bliss_of_decla_prog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/comp/" title="Computing">
+                    <span>Computing</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/math/" title="Math">
+                    <span>Math</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/misc/" title="Misc">
+                    <span>Misc</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/nihongo/" title="日本語コーナー">
+                    <span>日本語コーナー</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Declarative Programming for Fast Brain-to-Binary
+    </h1>
+    <div class="post-meta">486 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi
+
+</div>
+  </header> 
+  <div class="post-content"><p>Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C++ and Python.
+In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.</p>
+<p>As a mathematician by trade, the usefulness of programming was never lost on me.
+From my time with C++ and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done..
+This changed when I learned of the functional programming paradigm, or more generally, declarative-style languages.</p>
+<p>Suppose we wanted to write a function <code>fun</code> that takes in a non-negative integer and returns the sum of squares of numbers between 0 and that integer.
+In fancy math language, the function would look like this:</p>
+<p>\begin{align*}
+\mathtt{fun} : \mathbf{Z}_{ \geqslant 0} &amp;\to \mathbf{Z}_{\geqslant 0} \\
+\mathtt{fun}(k)       &amp;= \sum_{i=1}^k i^2.
+\end{align*}</p>
+<p>Let’s implement this in Python with an imperative style of writing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#815ba4">def</span> <span style="color:#06b6ef">fun</span>(k):
+</span></span><span style="display:flex;"><span>    num <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">for</span> i <span style="color:#5bc4bf">in</span> range(k <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>):
+</span></span><span style="display:flex;"><span>        num <span style="color:#5bc4bf">+=</span> i<span style="color:#5bc4bf">**</span><span style="color:#f99b15">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#815ba4">return</span> i
+</span></span></code></pre></div><p>We’re telling the computer here to step through all non-negative integers up to <code>k</code> and adding the square of these integers to a cumulative sum of all the previous numbers.
+Perfectly intuitive and reasonable.</p>
+<p>Let’s implement this in Haskell, a more-or-less pure functional programming language with a highly expressive, declarative style of syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#06b6ef">fun</span> k <span style="color:#5bc4bf">=</span> sum [i<span style="color:#5bc4bf">*</span>i <span style="color:#5bc4bf">|</span> i <span style="color:#5bc4bf">&lt;-</span> [<span style="color:#f99b15">0</span><span style="color:#5bc4bf">..</span>k]]
+</span></span></code></pre></div><p>This solution is elegant once you know that the <code>&lt;-</code> syntax is the set containment symbol \( \in \) from mathematics.</p>
+<p>This declarative style of writing code is something I find myself coming back to whenever I want to quickly hack an idea together.
+It lets me focus on implementing the key steps of the problem I have laid out, without getting bogged down with more minor details of how it should be solved.
+Focusing on the <em>what</em> and not the <em>how</em> is a fast-track to getting a compiled program that does what you want it to do quickly.</p>
+<p>Of course, this type of programming is not without faults.
+For one, you are leaving the “how” up to compiler with how it implements the expressive syntax.
+Compiler engineers and developers for the languages are a clever bunch, but if you want more fine-grain control, the imperative style is superior.</p>
+<p>Another drawback to the declarative style is working on large projects with many developers.
+Since declarative programs tend to read closer to natural language, it’s possible that each developer will craft their own dialect within the confines of the syntax.
+Having several people with several dialects working on a single project can be a challenge.
+Oftentimes for the sake of team cohesion and ease of debugging, a unified style-guide for large projects is preferred.</p>
+<p>Despite this, I will continue to prefer declarative programming for quick implementations, only moving to imperative when I think more control is needed.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Aatmun Baxi</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+<script type="text/javascript"
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+
+</html>
