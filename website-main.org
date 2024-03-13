@@ -51,7 +51,7 @@ After all, they're what I (claim to) know in my own words.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
-** \( \operatorname{Rep}(G) \)-type Fusion Rules                  :categories:
+** DRAFT \( \operatorname{Rep}(G) \)-type Fusion Rules :categories:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: repG_fusion_rules
@@ -168,7 +168,6 @@ No object labelling needs to be changed to match that of \( \operatorname{FR}^{9
 |                      7 |               5 |
 |                      8 |               8 |
 |                      9 |               9 |
-
 
 *** Alternative Realizations of Currently Recognized Fusion Rules
 Along the way, \( \operatorname{Rep}(G) \)-type categories also provided alternative ways to realize fusion rules on the AnyonWiki that were already categorified.
@@ -671,7 +670,7 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 :EXPORT_FILE_NAME: configuring_meow_friendly_latex
 :END:
 /TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme./
-
+/This article assumes some familiarity with the evil and meow modes./
 #+toc: headlines 2 local
 Having ditched =evil-collection= to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
 Alas, I feel modal editing is something I prefer, so I've adopted [[https://github.com/meow-edit/meow][meow]].

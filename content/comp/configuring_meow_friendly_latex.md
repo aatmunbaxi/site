@@ -8,6 +8,7 @@ type = "post"
 +++
 
 _TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme._
+_This article assumes some familiarity with the evil and meow modes._
 
 <div class="ox-hugo-toc toc local">
 
