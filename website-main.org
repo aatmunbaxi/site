@@ -51,7 +51,7 @@ After all, they're what I (claim to) know in my own words.
 :EXPORT_HUGO_MENU: :menu main
 :END:
 Here I keep some thoughts about math-related things I find interesting or worth sharing.
-** DRAFT \( \operatorname{Rep}(G) \)-type Fusion Rules :categories:
+** DRAFT \( \operatorname{Rep}(G) \)-type Fusion Rules :categories:noexport:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: repG_fusion_rules
@@ -614,7 +614,7 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 - modular effectively model systems of anyon quasiparticles, the main ingredient to TQC (Kitaev)
 - TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
   - This is perhaps its strongest merit
-** DRAFT A "Yoga" to Realizing Multiplicity-Free Fusion Rules :math:categories:
+** DRAFT A "Yoga" to Realizing Multiplicity-Free Fusion Rules :math:categories:noexport:
 
 Since writing about [[*Realizing some Multiplicity-Free Fusion Rules][realizing multiplicity-free fusion rules]], I've gone through more of the [[https://anyonwiki.github.io/][AnyonWiki]] database and realized more fusion rules, picking up some techniques to hint at possible answers along the way.
 I hesitate to call this a yoga (whatever that means, anyway), because really it's just a set of heuristics following the information provided.
@@ -714,6 +714,8 @@ Then the key sequence =c i l= in evil mode (to "Change Inner Line") could be rep
 We can take this idea and help make meow friendlier for LaTeX editing.
 
 In meow, it's easy to define a =thing= with the function =(meow-thing-register)=.
+
+*** Inline Math
 Let's register a =thing= that picks out the LaTeX inline math environment =\( \)=.
 The simplest way to do this is using the pair matching:
 #+begin_src emacs-lisp
@@ -734,53 +736,128 @@ Now, when we're inside an inline math environment, we can press =, m= to select 
 
 The bindings =, m= and =. m= replicate the evil-tex object identification =i m= and =a m=, respectively.
 
-We can also use this same concept to extend functionality to full-scale LaTeX environments.
-That configuration is
-#+begin_src emacs-lisp
-(meow-thing-register 'latex-env
-                     '(regexp "\\\\begin{.*?}\n\\(?:\\\\label{.*?}\n\\)?" "\n\\\\end{.*?}" )
-                     '(regexp "\\\\begin{.*?}" "\\\\end{.*?}" ) )
-
-(add-to-list 'meow-char-thing-table '(?E . latex-env))
-#+end_src
-This adds the same support for latex environments that look this like:
+*** Environments
+At their core, LaTeX environments look like
 #+begin_example
 \begin{ENV}
 ...
 \end{ENV}
 #+end_example
 
-The =\label{...}= directive sometimes appears in these environments, so the regex used to match these things are included as optional match groups.
+Happily, the code in =evil-tex= uses to grab the LaTeX environment objects is essentially some vanilla elisp, without dependency on evil internals.
+In particular, we focus on this code:
+#+begin_src emacs-lisp
+(require 'latex)
+(setq evil-tex-select-newlines-with-envs nil)
+
+(defun evil-tex--select-env ()
+  "Return (outer-beg outer-end inner-beg inner-end) for enviornment object.
+
+If `evil-tex-select-newlines-in-envs' is non-nil, the inner
+variant would NOT include newlines proceeding the \\begin and
+preceding the \\end.
+
+\\begin{foobar}{bar}[baz]
+^outer-beg              ^inner-beg
+qux
+\\end{foobar}
+^inner-end  ^outer-end"
+  (let (outer-beg outer-end inner-beg inner-end)
+    (save-excursion
+      (cond
+       ;; `LaTeX-find-matching-begin' doesn't like being exactly on the \\begin
+       ((looking-at (regexp-quote "\\begin{"))
+        t)
+       ;; `LaTeX-find-matching-begin' doesn't like being near the } of \\end{}
+       ((or (= (char-before) ?})
+            (= (char-after) ?}))
+        (backward-char 2)
+        (LaTeX-find-matching-begin))
+       (t
+        (LaTeX-find-matching-begin)))
+      ;; We are at backslash of \\begin
+      (setq outer-beg (point))
+      (forward-sexp)
+      (while (or
+              (= (char-after) ?{)
+              (= (char-after) ?\[))
+        (forward-sexp))
+      (when (and evil-tex-select-newlines-with-envs
+                 (looking-at "\n[ \t]*"))
+        (goto-char (match-end 0)))
+      (setq inner-beg (point))
+      (goto-char (1+ outer-beg))
+      (LaTeX-find-matching-end)        ; we are at closing brace
+      (setq outer-end (point))
+      (search-backward "\\end")        ; goto backslash
+      (when (and evil-tex-select-newlines-with-envs
+                 (looking-back "\n[ \t]*" (- (point) 10)))
+        (goto-char (match-beginning 0)))
+      (setq inner-end (point))
+      (list outer-beg outer-end inner-beg inner-end))))
+#+end_src
+The only evil-specific thing in this function is =evil-tex-select-newlines-with-envs=, which is a self-explanatory user-defined variable.
+We can write functions that slice off the output of this function to get a cons cell of the inner bounds and outer bounds respectively, and use those functions to define our things.
+The functions to get the inner and outer parts are
+#+begin_src emacs-lisp
+;; Select inner and outer environment pairs
+(defun my/meow-inner-env ()
+  (let ((result (evil-tex--select-env)))
+    (cons (nth 2 result) (nth 3 result))))
+
+(defun my/meow-outer-env ()
+  (let ((result (evil-tex--select-env)))
+    (cons (nth 0 result) (nth 1 result))))
+#+end_src
+Now the configuration for our environment thing is just
+#+begin_src emacs-lisp
+(meow-thing-register 'latex-env
+                     #'my/meow-inner-env #'my/meow-outer-env)
+
+(add-to-list 'meow-char-thing-table '(?E . latex-env))
+#+end_src
+
 
 #+CAPTION: Demo of our user-defined latex-env thing
 [[file:~/Videos/meow-latex-env.gif]]
 
-In fact, in my own configuration, I've combined the =latex-math= and =latex-env= things into one thing, so I use just the key =m= to pick out either inline math environments or =\begin{...} \end{...}= environments.
+*** LaTeX Parentheses Delimiters
+We continue and add behavior for math mode parentheses delimiters, such as =\left( \right)= and friends.
+For this, we can again lift code from =evil-tex= and adapt it to our needs, since meow has depth logic which allows careful handling of nested parentheses delimiters.
 
-These are all well and good, but one of my favorite evil-tex objects were the LaTeX delimiters: including =\left( \right)= and friends.
-Let's do those too.
+This first block of configuration defines lists of all possible modified left and right parentheses delimiters.
+This is trivial to extend and modify to your liking.
 #+begin_src emacs-lisp
-(setq latex-left-delim (rx "\\left"
-                           (or "\\langle"
-                               "("
-                               "\["
-                               "\\{"
-                               "\\lbrace")))
-(setq latex-right-delim (rx "\\right"
-                            (or "\\rangle"
-                                ")"
-                                "\]"
-                                "\\}"
-                                "\\rbrace")))
-
-(meow-thing-register 'latex-delim
-                     `(regexp ,latex-left-delim ,latex-right-delim)
-                     `(regexp ,latex-left-delim ,latex-right-delim))
-
-(add-to-list 'meow-char-thing-table '(?j . latex-delim))
+(require 'cl-lib)
+(setq latex-modified-delim-pairs (cl-loop for (l r)
+            in '(( "(" ")" )
+                 ( "[" "]" )
+                 ( "\\{" "\\}" )
+                 ( "\\langle" "\\rangle" )
+                 ( "\\lvert" "\\rvert" )
+                 ( "\\lVert" "\\rVert" ))
+            nconc
+            (cl-loop for (pre-l pre-r)
+                     in '(( "" "" )
+                          ( "\\left"  "\\right")
+                          ( "\\bigl"  "\\bigr")  ("\\big"  "\\big")
+                          ( "\\biggl" "\\biggr") ("\\bigg" "\\bigg")
+                          ( "\\Bigl"  "\\Bigr")  ("\\Big"  "\\Big")
+                          ( "\\Biggl" "\\Biggr") ("\\Bigg" "\\Bigg"))
+                     collect (list (concat pre-l l) (concat pre-r r)))))
+(setq latex-left-math-parens (mapcar #'car latex-modified-delim-pairs))
+(setq latex-right-math-parens (mapcar #'cadr latex-modified-delim-pairs))
 #+end_src
 
-Here's what that looks like:
+Next we use the =(pair ... ...)= construction like we did with the inline math to define our LaTeX delimiter things:
+#+begin_src emacs-lisp
+(meow-thing-register 'latex-delim
+                     `(pair ,latex-left-math-parens ,latex-right-math-parens)
+                     `(pair ,latex-left-math-parens ,latex-right-math-parens))
+
+(add-to-list 'meow-char-thing-table '(?D . latex-delim))
+#+end_src
+Here's what the result looks like:
 
 #+CAPTION: Demo of our user-defined delimiter thing
 [[file:~/Videos/meow-delim-demo.gif]]
@@ -795,7 +872,6 @@ This implies that--for example--if the point was on a line containing =\label{..
 #+CAPTION: Edge case in latex-env implementation
 [[file:~/Videos/meow-env-edge-case.gif]]
 
-I strongly suspect (nay, I /know/) that more clever implementations are possible using emacs lisp.
 I don't mind this behavior; most of the times when I want to use this feature are when I'm in the midst of typing on the line below the label directive.
 *** Closing Thoughts
 What I've shown here is a very small, quickly-put-together look at the hackability of meow.
@@ -803,6 +879,90 @@ The documentation for meow is very comprehensive, and users should customize meo
 After all, one of the selling points of meow is how easy it is to "roll your own" modal editor.
 Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
 I hope I've brought some inspirational ideas here.
+** A =meow-state= for speedy org-fu :emacs:meow:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: comp
+:EXPORT_FILE_NAME: meow_state_org_speed
+:END:
+
+/TL;DR: We implement our own =meow-state= to navigate =org-mode= document structure to recover and extend the function of org speed keys in meow./
+
+I've been very pleased with my switch to the =meow= modal editor, but one of the downsides of it is no obvious way to use [[https://orgmode.org/manual/Speed-Keys.html][speed keys]] in =org-mode=.
+Namely, the meow normal state maps would clash with the speed key definitions.
+One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that's no fun.
+
+Org speed keys offer a kind of "transient modality" to default emacs keybindings in the words of Mickey Petersen (which he states are already a kind of transient modality).
+But meow is /already/ a modal editing scheme, there's no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.
+
+We take a different approach and define our own =meow-state= to navigate org structure.
+Meow offers excellent support for defining your own states.
+For those who use evil, this like the user being able to define a different mode under which we can edit and navigate, much like =evil-normal-state= and =evil-visual-state=.
+Like evil, each =meow-state= has its own set of keybindings that call specific functions.
+We will define a state =meow-org-motion-state= that will be used for navigating org documents.
+Doing so is shockingly simple; most of the code is lifted directly from [[https://github.com/meow-edit/meow/blob/master/CUSTOMIZATIONS.org][the meow customization documentation.]]
+
+The entire code in defining the state is this:
+#+begin_src emacs-lisp
+(setq meow-org-motion-keymap (make-keymap))
+(meow-define-state org-motion
+  "Org-mode structural motion"
+  :lighter "[O]"
+  :keymap meow-org-motion-keymap
+  :form (when (not (eq major-mode 'org-mode))
+          (message "You have no power here!")))
+
+(meow-define-keys 'org-motion
+  '("<escape>" . meow-normal-mode)
+  '("i" . meow-insert-mode)
+  '("g" . meow-normal-mode)
+  '("u" .  meow-undo)
+  ;; Moving between headlines
+  '("k" .  org-previous-visible-heading)
+  '("j" .  org-next-visible-heading)
+  ;; Moving between headings at the same level
+  '("p" .  org-backward-heading-same-level)
+  '("n" .  org-forward-heading-same-level)
+  ;; Moving subtrees themselves
+  '("K" .  org-subtree-up)
+  '("J" .  org-subtree-down)
+  ;; Subtree de/promotion
+  '("L" .  org-demote-subtree)
+  '("H" .  org-promote-subtree)
+  ;; Completion-style search of headings
+  '("v" .  consult-org-heading)
+  ;; Setting subtree metadata
+  '("l" .  org-set-property)
+  '("t" .  org-todo)
+  '("d" .  org-deadline)
+  '("s" .  org-schedule)
+  '("e" .  org-set-effort)
+  ;; Block navigation
+  '("b" .  org-previous-block)
+  '("f" .  org-next-block)
+  ;; Narrowing/widening
+  '("N" .  org-narrow-to-subtree)
+  '("W" .  widen))
+
+(meow-define-keys 'normal
+  '("O" . meow-org-motion-mode))
+#+end_src
+
+#+RESULTS:
+
+Whilst being easy to define, this configuration is also very easy to read.
+Every keymap is self explanatory.
+In particular, we implement meow-style up-down nagivation of subtrees with =jk=, and add level-restricted motion with =np=.
+Subtree metadata can be edited from this state without exiting the state, and source block navigation is added--useful for literate programmers.
+
+There's one major benefit to using a custom =meow-state= instead of attempting to get speed keys working: *this state is available anywhere in the buffer.*
+With speed keys, the point *must* be at the beginning of an org heading.
+With our custom state, a simple press of =O= while in =meow-normal-mode= puts us in navigation mode.
+This makes navigation of org documents fast and accessible in a way that is superior to speed keys, something afforded to us by adopting a modal editing paradigm.
+
+
+A demo of this mode is given below; you can see the keys pressed in the tab-line.
+#+caption: Demo of our org-motion state
+[[file:~/Videos/meow-org-motion.gif]]
 ** Solving the Magic Square in Common Lisp :lisp:programming:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Emacs org-mode for LaTeX | Aatmun Baxi</title>
+<meta name="keywords" content="emacs, org, hobby, productivity">
+<meta name="description" content="About four years ago, my brother introduced me to Linux and free and open source software. Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation. I then stumbled across Gilles Castel’s article on typing LaTeX with vim, and I was amazed.
+For those who don’t know, typing LaTeX by default is a terrible experience. Terrible. Using a program like vim with plugins made typing LaTeX so frictionless that I immediately dove into the world of extensible text editors.">
+<meta name="author" content="Aatmun Baxi">
+<link rel="canonical" href="http://localhost:1313/computing/emacs-to-type-latex/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04736f5f00c046cd389b53ec9f9457e8608680a19450d702be85553a8b814e4e.css" integrity="sha256-BHNvXwDARs04m1Psn5RX6GCGgKGUUNcCvoVVOouBTk4=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/computing/emacs-to-type-latex/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Aatmun Baxi (Alt + H)">Aatmun Baxi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/comp/" title="Computing">
+                    <span>Computing</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/math/" title="Math">
+                    <span>Math</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/misc/" title="Misc">
+                    <span>Misc</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/nihongo/" title="日本語コーナー">
+                    <span>日本語コーナー</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Emacs org-mode for LaTeX
+    </h1>
+    <div class="post-meta">635 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi
+
+</div>
+  </header> 
+  <div class="post-content"><p>About four years ago, my brother introduced me to Linux and free and open source software.
+Around the same time I learned to use LaTeX to typeset documents with lots of mathematical notation.
+I then stumbled across Gilles Castel’s <a href="https://castel.dev/post/lecture-notes-1/">article on typing LaTeX with vim</a>, and I was amazed.</p>
+<p>For those who don’t know, typing LaTeX by default is a terrible experience.
+<em>Terrible.</em>
+Using a program like vim with plugins made typing LaTeX so frictionless that I immediately dove into the world of extensible text editors.
+I got more than I bargained for, but the payoff of effortless typesetting of math drove me to stick with it.
+I finally replicated most of Castel’s setup, and thought I had seen it all.</p>
+<p>Then I found emacs org-mode.</p>
+<style>
+aside {
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #7a7c7d;
+}
+
+aside > p {
+    margin: 0.5rem;
+}
+</style>
+<aside>
+<blockquote>
+<p>GNU Emacs [is] a sort of hybrid between Windows Notepad, a monolithic-kernel operating system, and the International Space Station.</p>
+<p>&mdash;Steve Yegge</p>
+</blockquote>
+</aside>
+<p>Vim, the program I had been using for easy LaTeX input, has had a longstanding “rivalry” with another editor called GNU Emacs.
+Since spending time with both programs, I’ve found this “rivalry” a bit silly.
+Vim and emacs are different programs designed with different use cases in mind with different philosophies.
+They just <em>happen</em> to both be text editors.
+Comparing vim and emacs is a bit like comparing a bicycle to a tank simply because they can move people around quicker than by foot.</p>
+<p>In any case, what brought me to emacs was org-mode.
+Org-mode is a major mode of emacs, encompassing everything from marking up basic text files and exporting to PDF, keeping an agenda, and literally everything else you could imagine needing when it comes to typing documents of any sort.
+Many think of it as souped-up markdown, but this is a disservice to its utility.
+It’s so powerful, I could probably find a way to make it do my laundry<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>What initially drove me to org-mode was the function <code>org-latex-preview</code>.
+In contrast to vim, emacs is a graphical program, which allows the program to <em>display images of compiled LaTeX over the text buffer you’re editing.</em>
+Let’s see what that looks like.</p>
+<p>Org-mode is plaintext, so the raw text file you’re editing might look something like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>**Hermitian Metrics
+</span></span><span style="display:flex;"><span>We&#39;d like an analogue of Riemannian manifolds but &#34;complexified&#34;.
+</span></span><span style="display:flex;"><span>Recall that a metric \( g \) is a \( 2\times 2 \) symmetric matrix at a point.
+</span></span><span style="display:flex;"><span>The complex analogue of &#34;symmetric&#34; is Hermitian, which motivates the following definition:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>*Definition:* A /Hermitian metric/ on a complex manifold with local coordinates \( (z^1,\ldots , z^m) \) is a tensor field
+</span></span><span style="display:flex;"><span>\begin{equation*}
+</span></span><span style="display:flex;"><span>h_{j \overline{k}} dz^j\otimes dz^{\overline{k}}
+</span></span><span style="display:flex;"><span>\end{equation*}
+</span></span><span style="display:flex;"><span>where \( h_{j \overline{k}} \) varies smoothly, and is positive definite and Hermitian at each point \( z \).
+</span></span><span style="display:flex;"><span>The form
+</span></span><span style="display:flex;"><span>\begin{equation*}
+</span></span><span style="display:flex;"><span>\omega = \frac{i}{2} h_{j \overline{k}} dz^j\wedge dz^{\overline{k}}
+</span></span><span style="display:flex;"><span>\end{equation*}
+</span></span><span style="display:flex;"><span>is called the /Kahler form/ of the metric.
+</span></span><span style="display:flex;"><span>A complex manifold with a Hermitian metric is called a /Hermitian manifold/.
+</span></span></code></pre></div><p>Here is this same snippet of text, but viewed in emacs, with all the org goodies activated.
+<img loading="lazy" src="/ox-hugo/org-latex-goodies-ex.png" alt=""  />
+</p>
+<p>Notice how the compiled LaTeX appears inline, and the font size is variable for the heading.
+These inline LaTeX previews are what pulled me to org-mode, and with the help of some third party programs like <code>xenops-mode</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, these previews render asynchronously as I continue typing.</p>
+<p>There are many moving parts to this puzzle, but videos speak louder than words, so here is a quick demo.</p>
+<figure>
+    <img loading="lazy" src="/ox-hugo/emacs-math-demo.gif"
+         alt="Figure 1: Sped up 30%"/> <figcaption>
+            <p><span class="figure-number">Figure 1: </span>Sped up 30%</p>
+        </figcaption>
+</figure>
+
+<p>I could write more about how I achieved this setup, but others that are much smarter than me already have.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>My <a href="/computing/doom-config/">DOOM Emacs Config</a> is typed in org-mode thanks to its literate programming abilities. In fact, this entire website is just one big org-mode file.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>With org version 9.7, <code>xenops-mode</code> will be wholly unnecessary thanks to a new default <code>org-latex-preview</code> function. See a demo <a href="https://www.youtube.com/watch?v=n-AfvuV-bYo&amp;t=376s">here</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/emacs/">Emacs</a></li>
+      <li><a href="http://localhost:1313/tags/org/">Org</a></li>
+      <li><a href="http://localhost:1313/tags/hobby/">Hobby</a></li>
+      <li><a href="http://localhost:1313/tags/productivity/">Productivity</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Aatmun Baxi</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+<script type="text/javascript"
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+
+</html>
