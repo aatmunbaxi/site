@@ -30,9 +30,7 @@ The entire code in defining the state is this:
 (meow-define-state org-motion
   "Org-mode structural motion"
   :lighter "[O]"
-  :keymap meow-org-motion-keymap
-  :form (when (not (eq major-mode 'org-mode))
-          (message "You have no power here!")))
+  :keymap meow-org-motion-keymap)
 
 (meow-define-keys 'org-motion
   '("<escape>" . meow-normal-mode)
