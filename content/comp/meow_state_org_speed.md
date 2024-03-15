@@ -1,5 +1,5 @@
 +++
-title = "A meow-state for speedy org-fu"
+title = "A meow-state for speedy org structure navigation"
 author = ["Aatmun Baxi"]
 tags = ["emacs", "meow"]
 draft = false
@@ -7,13 +7,13 @@ weight = 2003
 type = "post"
 +++
 
-_TL;DR: We implement our own `meow-state` to navigate `org-mode` document structure to recover and extend the function of org speed keys in meow._
+_TL;DR: We implement a `meow-state` for quick navigation of `org-mode` document structure._
 
 I&rsquo;ve been very pleased with my switch to the `meow` modal editor, but one of the downsides of it is no obvious way to use [speed keys](https://orgmode.org/manual/Speed-Keys.html) in `org-mode`.
 Namely, the meow normal state maps would clash with the speed key definitions.
 One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that&rsquo;s no fun.
 
-Org speed keys offer a kind of &ldquo;transient modality&rdquo; to default emacs keybindings in the words of Mickey Petersen (which he states are already a kind of transient modality).
+In the words of Mickey Petersen, org speed keys offer a kind of &ldquo;transient modality&rdquo; to default emacs keybindings.
 But meow is _already_ a modal editing scheme, there&rsquo;s no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.
 
 We take a different approach and define our own `meow-state` to navigate org structure.
@@ -81,5 +81,7 @@ With our custom state, a simple press of `O` while in `meow-normal-mode` puts us
 This makes navigation of org documents fast and accessible in a way that is superior to speed keys, something afforded to us by adopting a modal editing paradigm.
 
 A demo of this mode is given below; you can see the keys pressed in the tab-line.
+Feel free to extend and/or modify the key definitions to your liking.
+You can check the value of `org-speed-commands` for inspiration.
 
 {{< figure src="/ox-hugo/meow-org-motion.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of our org-motion state" >}}

@@ -879,19 +879,19 @@ The documentation for meow is very comprehensive, and users should customize meo
 After all, one of the selling points of meow is how easy it is to "roll your own" modal editor.
 Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
 I hope I've brought some inspirational ideas here.
-** A =meow-state= for speedy org-fu :emacs:meow:
+** A =meow-state= for speedy org structure navigation :emacs:meow:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: meow_state_org_speed
 :END:
 
-/TL;DR: We implement our own =meow-state= to navigate =org-mode= document structure to recover and extend the function of org speed keys in meow./
+/TL;DR: We implement a =meow-state= for quick navigation of =org-mode= document structure./
 
 I've been very pleased with my switch to the =meow= modal editor, but one of the downsides of it is no obvious way to use [[https://orgmode.org/manual/Speed-Keys.html][speed keys]] in =org-mode=.
 Namely, the meow normal state maps would clash with the speed key definitions.
 One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that's no fun.
 
-Org speed keys offer a kind of "transient modality" to default emacs keybindings in the words of Mickey Petersen (which he states are already a kind of transient modality).
+In the words of Mickey Petersen, org speed keys offer a kind of "transient modality" to default emacs keybindings.
 But meow is /already/ a modal editing scheme, there's no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.
 
 We take a different approach and define our own =meow-state= to navigate org structure.
@@ -961,6 +961,8 @@ This makes navigation of org documents fast and accessible in a way that is supe
 
 
 A demo of this mode is given below; you can see the keys pressed in the tab-line.
+Feel free to extend and/or modify the key definitions to your liking.
+You can check the value of =org-speed-commands= for inspiration.
 #+caption: Demo of our org-motion state
 [[file:~/Videos/meow-org-motion.gif]]
 ** Solving the Magic Square in Common Lisp :lisp:programming:

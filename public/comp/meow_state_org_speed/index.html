@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>A meow-state for speedy org-fu | Aatmun Baxi</title>
+<title>A meow-state for speedy org structure navigation | Aatmun Baxi</title>
 <meta name="keywords" content="emacs, meow">
-<meta name="description" content="TL;DR: We implement our own meow-state to navigate org-mode document structure to recover and extend the function of org speed keys in meow.
+<meta name="description" content="TL;DR: We implement a meow-state for quick navigation of org-mode document structure.
 I’ve been very pleased with my switch to the meow modal editor, but one of the downsides of it is no obvious way to use speed keys in org-mode. Namely, the meow normal state maps would clash with the speed key definitions. One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that’s no fun.">
 <meta name="author" content="Aatmun Baxi">
 <link rel="canonical" href="http://localhost:1313/comp/meow_state_org_speed/">
@@ -132,17 +132,17 @@ I’ve been very pleased with my switch to the meow modal editor, but one of the
   <header class="post-header">
     
     <h1 class="post-title">
-      A meow-state for speedy org-fu
+      A meow-state for speedy org structure navigation
     </h1>
     <div class="post-meta">546 words&amp;nbsp;·&amp;nbsp;Aatmun Baxi
 
 </div>
   </header> 
-  <div class="post-content"><p><em>TL;DR: We implement our own <code>meow-state</code> to navigate <code>org-mode</code> document structure to recover and extend the function of org speed keys in meow.</em></p>
+  <div class="post-content"><p><em>TL;DR: We implement a <code>meow-state</code> for quick navigation of <code>org-mode</code> document structure.</em></p>
 <p>I’ve been very pleased with my switch to the <code>meow</code> modal editor, but one of the downsides of it is no obvious way to use <a href="https://orgmode.org/manual/Speed-Keys.html">speed keys</a> in <code>org-mode</code>.
 Namely, the meow normal state maps would clash with the speed key definitions.
 One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that’s no fun.</p>
-<p>Org speed keys offer a kind of “transient modality” to default emacs keybindings in the words of Mickey Petersen (which he states are already a kind of transient modality).
+<p>In the words of Mickey Petersen, org speed keys offer a kind of “transient modality” to default emacs keybindings.
 But meow is <em>already</em> a modal editing scheme, there’s no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.</p>
 <p>We take a different approach and define our own <code>meow-state</code> to navigate org structure.
 Meow offers excellent support for defining your own states.
@@ -201,7 +201,9 @@ Subtree metadata can be edited from this state without exiting the state, and so
 With speed keys, the point <strong>must</strong> be at the beginning of an org heading.
 With our custom state, a simple press of <code>O</code> while in <code>meow-normal-mode</code> puts us in navigation mode.
 This makes navigation of org documents fast and accessible in a way that is superior to speed keys, something afforded to us by adopting a modal editing paradigm.</p>
-<p>A demo of this mode is given below; you can see the keys pressed in the tab-line.</p>
+<p>A demo of this mode is given below; you can see the keys pressed in the tab-line.
+Feel free to extend and/or modify the key definitions to your liking.
+You can check the value of <code>org-speed-commands</code> for inspiration.</p>
 <figure>
     <img loading="lazy" src="/ox-hugo/meow-org-motion.gif"
          alt="Figure 1: Demo of our org-motion state"/> <figcaption>
