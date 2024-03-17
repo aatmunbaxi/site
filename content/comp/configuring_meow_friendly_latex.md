@@ -14,6 +14,9 @@ _This article assumes some familiarity with the evil and meow modes._
 
 - [`evil-tex`](#evil-tex)
 - [Doing Our Own Thing](#doing-our-own-thing)
+- [Inline Math](#inline-math)
+- [Environments](#environments)
+- [LaTeX Parentheses Delimiters](#latex-parentheses-delimiters)
 - [Edge Cases](#edge-cases)
 - [Closing Thoughts](#closing-thoughts)
 
@@ -72,6 +75,10 @@ Then the key sequence `c i l` in evil mode (to &ldquo;Change Inner Line&rdquo;) 
 We can take this idea and help make meow friendlier for LaTeX editing.
 
 In meow, it&rsquo;s easy to define a `thing` with the function `(meow-thing-register)`.
+
+
+## Inline Math {#inline-math}
+
 Let&rsquo;s register a `thing` that picks out the LaTeX inline math environment `\( \)`.
 The simplest way to do this is using the pair matching:
 
@@ -93,18 +100,10 @@ Now, when we&rsquo;re inside an inline math environment, we can press `, m` to s
 
 The bindings `, m` and `. m` replicate the evil-tex object identification `i m` and `a m`, respectively.
 
-We can also use this same concept to extend functionality to full-scale LaTeX environments.
-That configuration is
 
-```emacs-lisp
-(meow-thing-register 'latex-env
-                     '(regexp "\\\\begin{.*?}\n\\(?:\\\\label{.*?}\n\\)?" "\n\\\\end{.*?}" )
-                     '(regexp "\\\\begin{.*?}" "\\\\end{.*?}" ) )
+## Environments {#environments}
 
-(add-to-list 'meow-char-thing-table '(?E . latex-env))
-```
-
-This adds the same support for latex environments that look this like:
+At their core, LaTeX environments look like
 
 ```text
 \begin{ENV}
@@ -112,37 +111,150 @@ This adds the same support for latex environments that look this like:
 \end{ENV}
 ```
 
-The `\label{...}` directive sometimes appears in these environments, so the regex used to match these things are included as optional match groups.
+Happily, the code in `evil-tex` uses to grab the LaTeX environment objects is essentially some vanilla elisp, without dependency on evil internals.
+In particular, we focus on this code:
+
+```emacs-lisp
+(require 'latex)
+(setq evil-tex-select-newlines-with-envs nil)
+
+(defun evil-tex--select-env ()
+  "Return (outer-beg outer-end inner-beg inner-end) for enviornment object.
+
+If `evil-tex-select-newlines-in-envs' is non-nil, the inner
+variant would NOT include newlines proceeding the \\begin and
+preceding the \\end.
+
+\\begin{foobar}{bar}[baz]
+^outer-beg              ^inner-beg
+qux
+\\end{foobar}
+^inner-end  ^outer-end"
+  (let (outer-beg outer-end inner-beg inner-end)
+    (save-excursion
+      (cond
+       ;; `LaTeX-find-matching-begin' doesn't like being exactly on the \\begin
+       ((looking-at (regexp-quote "\\begin{"))
+        t)
+       ;; `LaTeX-find-matching-begin' doesn't like being near the } of \\end{}
+       ((or (= (char-before) ?})
+            (= (char-after) ?}))
+        (backward-char 2)
+        (LaTeX-find-matching-begin))
+       (t
+        (LaTeX-find-matching-begin)))
+      ;; We are at backslash of \\begin
+      (setq outer-beg (point))
+      (forward-sexp)
+      (while (or
+              (= (char-after) ?{)
+              (= (char-after) ?\[))
+        (forward-sexp))
+      (when (and evil-tex-select-newlines-with-envs
+                 (looking-at "\n[ \t]*"))
+        (goto-char (match-end 0)))
+      (setq inner-beg (point))
+      (goto-char (1+ outer-beg))
+      (LaTeX-find-matching-end)        ; we are at closing brace
+      (setq outer-end (point))
+      (search-backward "\\end")        ; goto backslash
+      (when (and evil-tex-select-newlines-with-envs
+                 (looking-back "\n[ \t]*" (- (point) 10)))
+        (goto-char (match-beginning 0)))
+      (setq inner-end (point))
+      (list outer-beg outer-end inner-beg inner-end))))
+```
+
+The only evil-specific thing in this function is `evil-tex-select-newlines-with-envs`, which is a self-explanatory user-defined variable.
+We can write functions that slice off the output of this function to get a cons cell of the inner bounds and outer bounds respectively, and use those functions to define our things.
+The functions to get the inner and outer parts are
+
+```emacs-lisp
+;; Select inner and outer environment pairs
+(defun my/meow-inner-env ()
+  (let ((result (evil-tex--select-env)))
+    (cons (nth 2 result) (nth 3 result))))
+
+(defun my/meow-outer-env ()
+  (let ((result (evil-tex--select-env)))
+    (cons (nth 0 result) (nth 1 result))))
+```
+
+Now the configuration for our environment thing is just
+
+```emacs-lisp
+(meow-thing-register 'latex-env
+                     #'my/meow-inner-env #'my/meow-outer-env)
+
+(add-to-list 'meow-char-thing-table '(?E . latex-env))
+```
 
 {{< figure src="/ox-hugo/meow-latex-env.gif" caption="<span class=\"figure-number\">Figure 3: </span>Demo of our user-defined latex-env thing" >}}
 
-In fact, in my own configuration, I&rsquo;ve combined the `latex-math` and `latex-env` things into one thing, so I use just the key `m` to pick out either inline math environments or `\begin{...} \end{...}` environments.
 
-These are all well and good, but one of my favorite evil-tex objects were the LaTeX delimiters: including `\left( \right)` and friends.
-Let&rsquo;s do those too.
+## LaTeX Parentheses Delimiters {#latex-parentheses-delimiters}
+
+Parentheses delimitiers in math mode are a bit of a tricky case.
+We&rsquo;d like to include all possible delimiters in math mode, including the ones modified by `\left \right`, `\bigl \bigr`, etc.
+In addition to that, we&rsquo;d hope to also capture basic delimiters like `(  )` and `[ ]` and `\{ \}`.
+Unfortunately, my elisp abilities aren&rsquo;t good enough to handle the unmodified delimiters as well as the modified delimiters, so we only implement a thing for modified delimiters.
+Let&rsquo;s start be declaring a master list of all possible modified delimiters we might find in a LaTeX file.
 
 ```emacs-lisp
-(setq latex-left-delim (rx "\\left"
-                           (or "\\langle"
-                               "("
-                               "\["
-                               "\\{"
-                               "\\lbrace")))
-(setq latex-right-delim (rx "\\right"
-                            (or "\\rangle"
-                                ")"
-                                "\]"
-                                "\\}"
-                                "\\rbrace")))
-
-(meow-thing-register 'latex-delim
-                     `(regexp ,latex-left-delim ,latex-right-delim)
-                     `(regexp ,latex-left-delim ,latex-right-delim))
-
-(add-to-list 'meow-char-thing-table '(?j . latex-delim))
+(setq meow--latex-mod-delim-pairs
+      (cl-loop for (l r)
+               in '(( "(" ")" )
+                    ( "\\[" "\\]" )
+                    ( "\\\\{" "\\\\}" )
+                    ( "\\\\lvert" "\\\\rvert" )
+                    ( "\\\\lVert" "\\\\rVert" )
+                    ( "\\\\langle" "\\\\rangle" ))
+               nconc
+               (cl-loop for (pre-l pre-r)
+                        in '( ( "\\\\left"  "\\\\right")
+                              ( "\\\\bigl"  "\\\\bigr")  ("\\\\big"  "\\\\big")
+                              ( "\\\\biggl" "\\\\biggr") ("\\\\bigg" "\\\\bigg")
+                              ( "\\\\Bigl"  "\\\\Bigr")  ("\\\\Big"  "\\\\Big")
+                              ( "\\\\Biggl" "\\\\Biggr") ("\\\\Bigg" "\\\\Bigg"))
+                        collect (cons (concat pre-l l) (concat pre-r r)))))
 ```
 
-Here&rsquo;s what that looks like:
+We can use our own functions to find the begin and end points of the thing, using the meow matching logic for pairs.
+
+```emacs-lisp
+(defun my/meow-latex-paren-search (near)
+  (let ((found nil))
+    (dolist (leftright meow--latex-mod-delim-pairs)
+      (unless found
+        (setq found (meow--thing-pair-function
+                     (car leftright) (cdr leftright) near))))
+    (cond ((not found) nil)
+          (t
+           found))))
+```
+
+The `near` argument specifies if we want to match the inner or bounds of the match.
+It will be `t` for inner and `nil` for bounds.
+
+```emacs-lisp
+(defun my/meow-latex-paren-bounds ()
+  (my/meow-latex-paren-search nil))
+
+(defun my/meow-latex-paren-inner ()
+  (my/meow-latex-paren-search t))
+```
+
+We can now hook these functions into the meow thing
+
+```emacs-lisp
+(meow-thing-register 'latex-delim
+                     #'my/meow-latex-paren-inner
+                     #'my/meow-latex-paren-bounds)
+
+(add-to-list 'meow-char-thing-table '(?D . latex-delim))
+```
+
+Here&rsquo;s what the result looks like:
 
 {{< figure src="/ox-hugo/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
 
@@ -151,14 +263,18 @@ Note that the way we have defined the delimiters makes it trivial to add/subtrac
 
 ## Edge Cases {#edge-cases}
 
-Because of the way meow searches for the beginnings and ends of things, this implementation has obvious edge cases which I think are acceptable compromises.
-Notably, meow searches behind and in front of the point for the inner/outer/bounds of the thing.
-This implies that--for example--if the point was on a line containing `\label{...}` and you press `, E` in normal mode, it would select the line containing the label directive as well as the content before the `\end{..}`:
+Unfortunately, the implementation of LaTeX parentheses delimiters has a glaring edge case.
+Because we are searching the list of delimiters sequentially, order matters.
+In particular, if you had a situation like
 
-{{< figure src="/ox-hugo/meow-env-edge-case.gif" caption="<span class=\"figure-number\">Figure 5: </span>Edge case in latex-env implementation" >}}
+```text
+\left(  \left[ | \right] \right)
+```
 
-I strongly suspect (nay, I _know_) that more clever implementations are possible using emacs lisp.
-I don&rsquo;t mind this behavior; most of the times when I want to use this feature are when I&rsquo;m in the midst of typing on the line below the label directive.
+and you typed `, D`, it would mark the square braces because meow matched the parentheses first.
+
+Understandably, this could make the feature frustratingly useless.
+I myself will look to improve it if possible once my skills in elisp improve.
 
 
 ## Closing Thoughts {#closing-thoughts}
