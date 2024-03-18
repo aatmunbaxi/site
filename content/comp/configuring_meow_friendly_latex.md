@@ -207,6 +207,7 @@ This will cover all cases of where the point could be, even in deeply nested par
 First we declare our master list of delimiters:
 
 ```emacs-lisp
+(require 'cl-lib)
 (setq meow--latex-mod-delim-pairs
       (cl-loop for (l r)
                in '(( "(" ")" )
