@@ -17,7 +17,6 @@ _This article assumes some familiarity with the evil and meow modes._
 - [Inline Math](#inline-math)
 - [Environments](#environments)
 - [LaTeX Parentheses Delimiters](#latex-parentheses-delimiters)
-- [Edge Cases](#edge-cases)
 - [Closing Thoughts](#closing-thoughts)
 
 </div>
@@ -197,8 +196,15 @@ Now the configuration for our environment thing is just
 Parentheses delimitiers in math mode are a bit of a tricky case.
 We&rsquo;d like to include all possible delimiters in math mode, including the ones modified by `\left \right`, `\bigl \bigr`, etc.
 In addition to that, we&rsquo;d hope to also capture basic delimiters like `(  )` and `[ ]` and `\{ \}`.
-Unfortunately, my elisp abilities aren&rsquo;t good enough to handle the unmodified delimiters as well as the modified delimiters, so we only implement a thing for modified delimiters.
-Let&rsquo;s start be declaring a master list of all possible modified delimiters we might find in a LaTeX file.
+To do this, we will do the following:
+
+-   create a master list of all possible LaTeX parentheses delimiters, including unmodified ones like `( )`
+-   use meow&rsquo;s internal `meow--thing-pair-function` to find all pairs we can see around the point
+-   find the match closest to the point
+
+This will cover all cases of where the point could be, even in deeply nested parentheses.
+
+First we declare our master list of delimiters:
 
 ```emacs-lisp
 (setq meow--latex-mod-delim-pairs
@@ -211,7 +217,8 @@ Let&rsquo;s start be declaring a master list of all possible modified delimiters
                     ( "\\\\langle" "\\\\rangle" ))
                nconc
                (cl-loop for (pre-l pre-r)
-                        in '( ( "\\\\left"  "\\\\right")
+                        in '( ("" "")   ;; after concatting corresponds to unmodified delim
+                              ( "\\\\left"  "\\\\right")
                               ( "\\\\bigl"  "\\\\bigr")  ("\\\\big"  "\\\\big")
                               ( "\\\\biggl" "\\\\biggr") ("\\\\bigg" "\\\\bigg")
                               ( "\\\\Bigl"  "\\\\Bigr")  ("\\\\Big"  "\\\\Big")
@@ -219,22 +226,48 @@ Let&rsquo;s start be declaring a master list of all possible modified delimiters
                         collect (cons (concat pre-l l) (concat pre-r r)))))
 ```
 
-We can use our own functions to find the begin and end points of the thing, using the meow matching logic for pairs.
+The next two functions are helpers for the main method.
+
+```emacs-lisp
+(defun append-bounds-distance (pair)
+  "Appends the minimum distance of match pair to point"
+  (if pair
+      (cons pair (min (-  (point) (car pair))  (- (cdr pair) (point))))
+    'nil))
+
+(defun find-min-distance-match (matches-with-distances)
+  "Finds the match with minimal distance to point"
+  (let ((nearest-match (cons (point) (point)))
+        (min-distance (float 1.0e+INF)))
+    (dolist (match matches-with-distances)
+      (when (cdr match)
+        (when  (> min-distance (cdr match) )
+          (setq nearest-match (car match))
+          (setq min-distance (cdr match)))))
+    nearest-match))
+```
+
+Now here&rsquo;s our main function:
 
 ```emacs-lisp
 (defun my/meow-latex-paren-search (near)
-  (let ((found nil))
-    (dolist (leftright meow--latex-mod-delim-pairs)
-      (unless found
-        (setq found (meow--thing-pair-function
-                     (car leftright) (cdr leftright) near))))
-    (cond ((not found) nil)
-          (t
-           found))))
+  "Find nearest LaTeX parenthesis bounds.
+NEAR denotes if match should be inner or bounds"
+  (interactive)
+  (let ((found-pairs (list )))
+    (dolist (leftright meow--latex-delim-pairs)
+      (push  (meow--thing-pair-function
+              (car leftright) (cdr leftright) near) found-pairs))
+    (let ((bounds-with-distances (mapcar #'append-bounds-distance found-pairs)))
+      (find-min-distance-match bounds-with-distances))))
 ```
+
+Don&rsquo;t let this elisp scare you; it does exactly what I said when I laid out the approach to this problem.
+That is, it generates a list of delimiters we find aroud the point, and finds the closest such match, returning it.
 
 The `near` argument specifies if we want to match the inner or bounds of the match.
 It will be `t` for inner and `nil` for bounds.
+We can hook this into two new functions for the inner and bounds matching, respectively.
 
 ```emacs-lisp
 (defun my/meow-latex-paren-bounds ()
@@ -242,11 +275,7 @@ It will be `t` for inner and `nil` for bounds.
 
 (defun my/meow-latex-paren-inner ()
   (my/meow-latex-paren-search t))
-```
 
-We can now hook these functions into the meow thing
-
-```emacs-lisp
 (meow-thing-register 'latex-delim
                      #'my/meow-latex-paren-inner
                      #'my/meow-latex-paren-bounds)
@@ -259,22 +288,6 @@ Here&rsquo;s what the result looks like:
 {{< figure src="/ox-hugo/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
 
 Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.
-
-
-## Edge Cases {#edge-cases}
-
-Unfortunately, the implementation of LaTeX parentheses delimiters has a glaring edge case.
-Because we are searching the list of delimiters sequentially, order matters.
-In particular, if you had a situation like
-
-```text
-\left(  \left[ | \right] \right)
-```
-
-and you typed `, D`, it would mark the square braces because meow matched the parentheses first.
-
-Understandably, this could make the feature frustratingly useless.
-I myself will look to improve it if possible once my skills in elisp improve.
 
 
 ## Closing Thoughts {#closing-thoughts}
