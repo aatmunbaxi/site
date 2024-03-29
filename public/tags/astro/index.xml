@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Astro on Aatmun Baxi</title>
     <link>http://localhost:1313/tags/astro/</link>
     <description>Recent content in Astro on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://localhost:1313/tags/astro/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/astro/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Astrophotos</title>
       <link>http://localhost:1313/misc/astrophotos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/misc/astrophotos/</guid>
-      <description>As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.
-M101: Pinwheel Galaxy Figure 1: M101, The Pinwheel Galaxy
-Details It’s been a while since I took this image, but I belive it total around 3 hours of integration</description>
+      <description>As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.&#xA;M101: Pinwheel Galaxy Figure 1: M101, The Pinwheel Galaxy&#xA;Details It’s been a while since I took this image, but I belive it total around 3 hours of integration</description>
     </item>
-    
   </channel>
 </rss>

@@ -195,7 +195,7 @@ Now the configuration for our environment thing is just
 
 Parentheses delimitiers in math mode are a bit of a tricky case.
 We&rsquo;d like to include all possible delimiters in math mode, including the ones modified by `\left \right`, `\bigl \bigr`, etc.
-In addition to that, we&rsquo;d hope to also capture basic delimiters like `(  )` and `[ ]` and `\{ \}`.
+In addition to that, we&rsquo;d hope to also capture basic delimiters like `(  )` and `\{ \}`.
 To do this, we will do the following:
 
 -   create a master list of all possible LaTeX parentheses delimiters, including unmodified ones like `( )`

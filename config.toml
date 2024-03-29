@@ -1,20 +1,27 @@
 baseURL = 'https://aatmunbaxi.netlify.app'
 languageCode = 'en-us'
 title = 'Aatmun Baxi'
-theme = 'PaperMod'
+theme = 'archie'
 
-[taxonomies]
-  category = "computing"
-  tag = "tags"
-  series = "series"
-[author]
-  name = "Aatmun Baxi"
+
 [params]
+  mode = "light"
   ShowWordCount = true
-  custom_css =["style.css"]
+  customcss =["css/main.css"]
+  mathjax = true
 
-[markup.highlight]
-  style = "paraiso-dark"
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[markup]
+  [markup.highlight]
+       guessSyntax = false
+       style = "emacs"
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]']]
+          inline = [['\(', '\)']]

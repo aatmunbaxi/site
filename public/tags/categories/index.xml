@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Aatmun Baxi</title>
     <link>http://localhost:1313/tags/categories/</link>
     <description>Recent content in Categories on Aatmun Baxi</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://localhost:1313/tags/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Realizing some Multiplicity-Free Fusion Rules</title>
       <link>http://localhost:1313/math/realizing_fusion_rules/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/math/realizing_fusion_rules/</guid>
-      <description>Disclaimer: These results have not been subjected to the rigors of publication.
-Fusion Rings Classifying fusion categories is a huge task&amp;ndash;likely impossible&amp;ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.</description>
+      <description>Disclaimer: These results have not been subjected to the rigors of publication.&#xA;Fusion Rings Classifying fusion categories is a huge task&amp;ndash;likely impossible&amp;ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.</description>
     </item>
-    
     <item>
       <title>Quantum Computing, Braids, and Modular Categories</title>
       <link>http://localhost:1313/math/quantum_comp_and_modular_categories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/math/quantum_comp_and_modular_categories/</guid>
-      <description>Introduction Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks. Despite vigorous research from all sides of the task, obstacles to a quantum computer architecture that is scalable and tolerant to errors remain hard to overcome.
-Qubits in existing models of quantum computation (such as trapped-ion models) are sensitive to their environment. Such sensitivities of the environment make qubits liable to introducing noise that dominates the computation we’d like to measure.</description>
+      <description>Introduction Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks. Despite vigorous research from all sides of the task, obstacles to a quantum computer architecture that is scalable and tolerant to errors remain hard to overcome.&#xA;Qubits in existing models of quantum computation (such as trapped-ion models) are sensitive to their environment. Such sensitivities of the environment make qubits liable to introducing noise that dominates the computation we’d like to measure.</description>
     </item>
-    
   </channel>
 </rss>

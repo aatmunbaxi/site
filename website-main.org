@@ -9,14 +9,11 @@
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_FRONT_MATTER: :toc false :author false
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_WEIGHT: -10
+:EXPORT_FILE_NAME: ~/websites/site/public/index
 :END:
+
 ** About Me
-:PROPERTIES:
-:EXPORT_HUGO_SECTION:
-:EXPORT_HUGO_MENU: :menu main
-:END:
+
 I am a PhD student in mathematics at Texas A&M University.
 
 - *Advisor*: [[https://people.tamu.edu/~rowell/][Dr. Eric Rowell]]
@@ -28,7 +25,7 @@ I am a PhD student in mathematics at Texas A&M University.
 *** Hobbies
 - Programming. I'm currently working in Rust, Common Lisp, and Python.
 - Liverpool FC
-- Astrophotography. Check my images [[*Astrophotos][here]]
+- Astrophotography
 - Learning japanese through immersion
 - Free (as in freedom) software
   - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in GNU emacs
@@ -824,8 +821,8 @@ Now the configuration for our environment thing is just
 *** LaTeX Parentheses Delimiters
 Parentheses delimitiers in math mode are a bit of a tricky case.
 We'd like to include all possible delimiters in math mode, including the ones modified by =\left \right=, =\bigl \bigr=, etc.
-In addition to that, we'd hope to also capture basic delimiters like =(  )= and =[ ]= and =\{ \}=.
-To do this, we will do the following:
+In addition to that, we'd hope to also capture basic delimiters like =(  )= and =\{ \}=.
+We'll use the following approach:
 - create a master list of all possible LaTeX parentheses delimiters, including unmodified ones like =( )=
 - use meow's internal =meow--thing-pair-function= to find all pairs we can see around the point
 - find the match closest to the point
