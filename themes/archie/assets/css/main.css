@@ -63,12 +63,12 @@ n ul {
   padding-left: 2ch;
 }
 ul li {
-  text-indent: -2ch;
+  text-indent: 0ch;
 }
-ul > li::before {
-  content: "* ";
-  font-weight: bold;
-}
+/* ul > li::before { */
+/*   content: "⟹"; */
+/*   font-weight: bold; */
+/* } */
 
 /* Images */
 img {
