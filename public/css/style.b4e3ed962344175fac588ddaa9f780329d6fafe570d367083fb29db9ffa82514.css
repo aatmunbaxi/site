@@ -1,0 +1,31 @@
+.thm:before{
+    content:"Theorem.\00a0\00a0";
+    float:left;
+    font-weight:bold;
+}
+
+
+.thm:before{
+    content:"Theorem.\00a0\00a0";
+    float:left;
+    font-weight:bold;
+}
+
+aside {
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #29627e;
+}
+
+aside > p {
+    margin: 0.5rem;
+}
+
+p {
+    font-size: large;
+    font-family: 'Fira Sans', sans-serif;
+}
