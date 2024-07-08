@@ -10,7 +10,7 @@ weight = 1001
 I am a PhD student in mathematics at Texas A&amp;M University.
 
 -   **Advisor**: [Dr. Eric Rowell](https://people.tamu.edu/~rowell/)
--   **Research interests:** Braided fusion categories
+-   **Research interests:** Fusion categories
 
 
 ### Education {#education}
@@ -22,7 +22,7 @@ I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### Hobbies {#hobbies}
 
--   Programming. I&rsquo;m currently working in Rust, Common Lisp, and Python.
+-   Programming. I'm currently working in lisps and python.
 -   Liverpool FC
 -   Astrophotography
 -   Learning japanese through immersion
@@ -33,8 +33,8 @@ I am a PhD student in mathematics at Texas A&amp;M University.
 ## [My Digital Garden](https://aatmunbaxi.github.io/crossed-braining) {#my-digital-garden}
 
 A smattering of my atomic notes and how they relate to each other.
-If they don&rsquo;t seem to make sense to everyone, that&rsquo;s because they&rsquo;re not meant to.
-After all, they&rsquo;re what I (claim to) know in my own words.
+If they don't seem to make sense to everyone, that's because they're not meant to.
+After all, they're what I (claim to) know in my own words.
 
 
 ## Contact {#contact}

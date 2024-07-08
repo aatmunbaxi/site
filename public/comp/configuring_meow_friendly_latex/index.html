@@ -3,25 +3,30 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Configuring meow for Friendlier LaTeX Editing - Aatmun Baxi</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.
-evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow." />
+evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I&rsquo;ve adopted meow." />
 	<meta property="og:image" content=""/>
-	<meta property="og:title" content="Configuring meow for Friendlier LaTeX Editing" />
-<meta property="og:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.
-evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/comp/configuring_meow_friendly_latex/" /><meta property="article:section" content="comp" />
+	<meta property="og:url" content="http://localhost:1313/comp/configuring_meow_friendly_latex/">
+  <meta property="og:site_name" content="Aatmun Baxi">
+  <meta property="og:title" content="Configuring meow for Friendlier LaTeX Editing">
+  <meta property="og:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.
+evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="comp">
+    <meta property="article:published_time" content="2024-07-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-05T00:00:00+00:00">
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Configuring meow for Friendlier LaTeX Editing"/>
-<meta name="twitter:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.
-evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow."/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Configuring meow for Friendlier LaTeX Editing">
+  <meta name="twitter:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.
+evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow.">
 
 	
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
 
 	
 	
@@ -51,7 +56,7 @@ evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimite
 	
 		
 		
-		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/modus_style.4717ee2590524fe42e9e105227b8cfdded2bf8ecb4290e25c9919fefce5f1a70.css">
 		
 </head>
 <body>
@@ -77,7 +82,7 @@ evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimite
 	<article>
 		<div class="title">
 			<h1 class="title">Configuring meow for Friendlier LaTeX Editing</h1>
-			
+			<div class="meta">Posted on Jul 5, 2024</div>
 		</div>
 		
 
@@ -96,53 +101,53 @@ evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimite
 </div>
 <!--endtoc-->
 <p>Having ditched <code>evil-collection</code> to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
-Alas, I feel modal editing is something I prefer, so I’ve adopted <a href="https://github.com/meow-edit/meow">meow</a>.
+Alas, I feel modal editing is something I prefer, so I&rsquo;ve adopted <a href="https://github.com/meow-edit/meow">meow</a>.
 I chose meow for a few reasons:</p>
 <ul>
 <li>Trivial to extend and hack on</li>
-<li>The “selection-first” ethos is intriguing</li>
+<li>The &ldquo;selection-first&rdquo; ethos is intriguing</li>
 <li>No dependencies</li>
 <li>Prefers built-in methods for various tasks</li>
 <li>Keypad mode offers a great, lighter weight alternative to the <code>SPC</code> DOOM leader with evil mode</li>
 </ul>
-<p>So far, it’s been an enjoyable experience, but one evil-mode package&ndash;<code>evil-tex</code>&ndash;gave me pause.</p>
+<p>So far, it&rsquo;s been an enjoyable experience, but one evil-mode package&ndash;<code>evil-tex</code>&ndash;gave me pause.</p>
 <h2 id="evil-tex"><code>evil-tex</code></h2>
-<p><a href="https://github.com/iyefrat/evil-tex">evil-tex</a> is an extension to evil that adds support for “vimmable” text objects in LaTeX syntax.
+<p><a href="https://github.com/iyefrat/evil-tex">evil-tex</a> is an extension to evil that adds support for &ldquo;vimmable&rdquo; text objects in LaTeX syntax.
 As an example, let <code>|</code> denote the location of the point when using evil mode.
-Suppose we’re given the situation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The qu|ick brown fox jumps over the lazy dog.
-</span></span></code></pre></div><p>In <code>evil-normal-mode</code> you can type the keys <code>ciw</code> to “Change Inner Word”, deleting the work <code>quick</code> and placing you in <code>evil-insert-mode</code>.</p>
-<p>If <code>w</code> denotes the “word” evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
+Suppose we&rsquo;re given the situation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The qu|ick brown fox jumps over the lazy dog.
+</span></span></code></pre></div><p>In <code>evil-normal-mode</code> you can type the keys <code>ciw</code> to &ldquo;Change Inner Word&rdquo;, deleting the work <code>quick</code> and placing you in <code>evil-insert-mode</code>.</p>
+<p>If <code>w</code> denotes the &ldquo;word&rdquo; evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
 Consider the following inline math expression with point <code>|</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\( X\cong | Y \)
-</span></span></code></pre></div><p>With <code>evil-tex-mode</code> enabled, and inside <code>evil-normal-mode</code>, we can press <code>cim</code> to “Change Inner Math”, deleting all the text within the <code>\( \)</code> delimiters and placing us in insert mode.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\( X\cong | Y \)
+</span></span></code></pre></div><p>With <code>evil-tex-mode</code> enabled, and inside <code>evil-normal-mode</code>, we can press <code>cim</code> to &ldquo;Change Inner Math&rdquo;, deleting all the text within the <code>\( \)</code> delimiters and placing us in insert mode.
 This is just one example of what evil-tex offers; a more comprehensive picture is in the documentation.</p>
 <h2 id="doing-our-own-thing">Doing Our Own Thing</h2>
 <p>Meow uses <code>things</code> (lit.) to demarcate sections of text that you can navigate around and select.
 For example, some things that come preloaded with meow are sentences, defuns, paragraphs, buffers, windows, and lines.
 When a thing is defined, you can press <code>, &lt;THING_KEY&gt;</code> to select the inner part of the thing, where <code>&lt;THING_KEY&gt;</code> is the key associated with that thing (e.g. <code>l</code> for line, <code>d</code> for defun).
 Similarly, you can press <code>. &lt;THING_KEY&gt;</code> to select to the bounds of the thing.
-Here’s a demo on how that works with the <code>symbol</code> thing, mapped to <code>e</code>:</p>
+Here&rsquo;s a demo on how that works with the <code>symbol</code> thing, mapped to <code>e</code>:</p>
 <figure><img src="/ox-hugo/meow-symbol-inner.gif"
     alt="Figure 1: Demo of symbol thing in meow"><figcaption>
       <p><span class="figure-number">Figure 1: </span>Demo of symbol thing in meow</p>
     </figcaption>
 </figure>
 
-<p>There’s a parallel between this behavior and the “inner &lt;object&gt;” and “all &lt;object&gt;” behavior in evil.
+<p>There&rsquo;s a parallel between this behavior and the &ldquo;inner &lt;object&gt;&rdquo; and &ldquo;all &lt;object&gt;&rdquo; behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to <code>l</code>.
-Then the key sequence <code>c i l</code> in evil mode (to “Change Inner Line”) could be replicated in meow with <code>, l c</code>.
+Then the key sequence <code>c i l</code> in evil mode (to &ldquo;Change Inner Line&rdquo;) could be replicated in meow with <code>, l c</code>.
 We can take this idea and help make meow friendlier for LaTeX editing.</p>
-<p>In meow, it’s easy to define a <code>thing</code> with the function <code>(meow-thing-register)</code>.</p>
+<p>In meow, it&rsquo;s easy to define a <code>thing</code> with the function <code>(meow-thing-register)</code>.</p>
 <h2 id="inline-math">Inline Math</h2>
-<p>Let’s register a <code>thing</code> that picks out the LaTeX inline math environment <code>\( \)</code>.
+<p>Let&rsquo;s register a <code>thing</code> that picks out the LaTeX inline math environment <code>\( \)</code>.
 The simplest way to do this is using the pair matching:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;inline-math</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">pair</span> (<span style="color:#b44">&#34;\\(&#34;</span>) (<span style="color:#b44">&#34;\\)&#34;</span>))
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">pair</span> (<span style="color:#b44">&#34;\\(&#34;</span>) (<span style="color:#b44">&#34;\\)&#34;</span>) ) )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;inline-math</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(pair (<span style="color:#e6db74">&#34;\\(&#34;</span>) (<span style="color:#e6db74">&#34;\\)&#34;</span>))
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(pair (<span style="color:#e6db74">&#34;\\(&#34;</span>) (<span style="color:#e6db74">&#34;\\)&#34;</span>) ) )
 </span></span></code></pre></div><p>Now we can map this thing to a key:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?m</span> <span style="color:#666">.</span> <span style="color:#b8860b">inline-math</span>))
-</span></span></code></pre></div><p>Now, when we’re inside an inline math environment, we can press <code>, m</code> to select all the text within the math environment, and <code>. m</code> to select all of the math environment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?m</span> <span style="color:#f92672">.</span> inline-math))
+</span></span></code></pre></div><p>Now, when we&rsquo;re inside an inline math environment, we can press <code>, m</code> to select all the text within the math environment, and <code>. m</code> to select all of the math environment.</p>
 <figure><img src="/ox-hugo/meow-math-demo.gif"
     alt="Figure 2: Demo of our user-defined math thing"><figcaption>
       <p><span class="figure-number">Figure 2: </span>Demo of our user-defined math thing</p>
@@ -152,75 +157,75 @@ The simplest way to do this is using the pair matching:</p>
 <p>The bindings <code>, m</code> and <code>. m</code> replicate the evil-tex object identification <code>i m</code> and <code>a m</code>, respectively.</p>
 <h2 id="environments">Environments</h2>
 <p>At their core, LaTeX environments look like</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\begin{ENV}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\begin{ENV}
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>\end{ENV}
 </span></span></code></pre></div><p>Happily, the code in <code>evil-tex</code> uses to grab the LaTeX environment objects is essentially some vanilla elisp, without dependency on evil internals.
 In particular, we focus on this code:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;latex</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">evil-tex-select-newlines-with-envs</span> <span style="color:#800">nil</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;latex</span>)
+</span></span><span style="display:flex;"><span>(setq evil-tex-select-newlines-with-envs <span style="color:#66d9ef">nil</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">evil-tex--select-env</span> ()
-</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Return (outer-beg outer-end inner-beg inner-end) for enviornment object.
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">If </span><span style="color:#b8860b">`evil-tex-select-newlines-in-envs&#39;</span><span style="color:#b44"> is non-nil, the inner
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">variant would NOT include newlines proceeding the \\begin and
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">preceding the \\end.
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">\\begin{foobar}{bar}[baz]
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">^outer-beg              ^inner-beg
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">qux
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">\\end{foobar}
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">^inner-end  ^outer-end&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let</span> (<span style="color:#b8860b">outer-beg</span> <span style="color:#b8860b">outer-end</span> <span style="color:#b8860b">inner-beg</span> <span style="color:#b8860b">inner-end</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">save-excursion</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">cond</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#080;font-style:italic">;; `LaTeX-find-matching-begin&#39; doesn&#39;t like being exactly on the \\begin</span>
-</span></span><span style="display:flex;"><span>       ((<span style="color:#00a000">looking-at</span> (<span style="color:#00a000">regexp-quote</span> <span style="color:#b44">&#34;\\begin{&#34;</span>))
-</span></span><span style="display:flex;"><span>        <span style="color:#800">t</span>)
-</span></span><span style="display:flex;"><span>       <span style="color:#080;font-style:italic">;; `LaTeX-find-matching-begin&#39; doesn&#39;t like being near the } of \\end{}</span>
-</span></span><span style="display:flex;"><span>       ((<span style="color:#a2f">or</span> (<span style="color:#00a000">=</span> (<span style="color:#00a000">char-before</span>) <span style="color:#b44">?}</span>)
-</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">=</span> (<span style="color:#00a000">char-after</span>) <span style="color:#b44">?}</span>))
-</span></span><span style="display:flex;"><span>        (<span style="color:#00a000">backward-char</span> <span style="color:#666">2</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#b8860b">LaTeX-find-matching-begin</span>))
-</span></span><span style="display:flex;"><span>       (<span style="color:#800">t</span>
-</span></span><span style="display:flex;"><span>        (<span style="color:#b8860b">LaTeX-find-matching-begin</span>)))
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-style:italic">;; We are at backslash of \\begin</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">setq</span> <span style="color:#b8860b">outer-beg</span> (<span style="color:#00a000">point</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#b8860b">forward-sexp</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">while</span> (<span style="color:#a2f">or</span>
-</span></span><span style="display:flex;"><span>              (<span style="color:#00a000">=</span> (<span style="color:#00a000">char-after</span>) <span style="color:#b44">?{</span>)
-</span></span><span style="display:flex;"><span>              (<span style="color:#00a000">=</span> (<span style="color:#00a000">char-after</span>) <span style="color:#b44">?\[</span>))
-</span></span><span style="display:flex;"><span>        (<span style="color:#b8860b">forward-sexp</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">when</span> (<span style="color:#a2f">and</span> <span style="color:#b8860b">evil-tex-select-newlines-with-envs</span>
-</span></span><span style="display:flex;"><span>                 (<span style="color:#00a000">looking-at</span> <span style="color:#b44">&#34;\n[ \t]*&#34;</span>))
-</span></span><span style="display:flex;"><span>        (<span style="color:#00a000">goto-char</span> (<span style="color:#00a000">match-end</span> <span style="color:#666">0</span>)))
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">setq</span> <span style="color:#b8860b">inner-beg</span> (<span style="color:#00a000">point</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#00a000">goto-char</span> (<span style="color:#00a000">1+</span> <span style="color:#b8860b">outer-beg</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#b8860b">LaTeX-find-matching-end</span>)        <span style="color:#080;font-style:italic">; we are at closing brace</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">setq</span> <span style="color:#b8860b">outer-end</span> (<span style="color:#00a000">point</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#00a000">search-backward</span> <span style="color:#b44">&#34;\\end&#34;</span>)        <span style="color:#080;font-style:italic">; goto backslash</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">when</span> (<span style="color:#a2f">and</span> <span style="color:#b8860b">evil-tex-select-newlines-with-envs</span>
-</span></span><span style="display:flex;"><span>                 (<span style="color:#b8860b">looking-back</span> <span style="color:#b44">&#34;\n[ \t]*&#34;</span> (<span style="color:#00a000">-</span> (<span style="color:#00a000">point</span>) <span style="color:#666">10</span>)))
-</span></span><span style="display:flex;"><span>        (<span style="color:#00a000">goto-char</span> (<span style="color:#00a000">match-beginning</span> <span style="color:#666">0</span>)))
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">setq</span> <span style="color:#b8860b">inner-end</span> (<span style="color:#00a000">point</span>))
-</span></span><span style="display:flex;"><span>      (<span style="color:#00a000">list</span> <span style="color:#b8860b">outer-beg</span> <span style="color:#b8860b">outer-end</span> <span style="color:#b8860b">inner-beg</span> <span style="color:#b8860b">inner-end</span>))))
+</span></span><span style="display:flex;"><span>(defun evil-tex--select-env ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Return (outer-beg outer-end inner-beg inner-end) for enviornment object.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">If </span><span style="color:#e6db74">`evil-tex-select-newlines-in-envs&#39;</span><span style="color:#e6db74"> is non-nil, the inner
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">variant would NOT include newlines proceeding the \\begin and
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">preceding the \\end.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\\begin{foobar}{bar}[baz]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">^outer-beg              ^inner-beg
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">qux
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\\end{foobar}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">^inner-end  ^outer-end&#34;</span>
+</span></span><span style="display:flex;"><span>  (let (outer-beg outer-end inner-beg inner-end)
+</span></span><span style="display:flex;"><span>    (save-excursion
+</span></span><span style="display:flex;"><span>      (cond
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; `LaTeX-find-matching-begin&#39; doesn&#39;t like being exactly on the \\begin</span>
+</span></span><span style="display:flex;"><span>       ((<span style="color:#a6e22e">looking-at</span> (<span style="color:#a6e22e">regexp-quote</span> <span style="color:#e6db74">&#34;\\begin{&#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; `LaTeX-find-matching-begin&#39; doesn&#39;t like being near the } of \\end{}</span>
+</span></span><span style="display:flex;"><span>       ((or (<span style="color:#a6e22e">=</span> (<span style="color:#a6e22e">char-before</span>) <span style="color:#e6db74">?}</span>)
+</span></span><span style="display:flex;"><span>            (<span style="color:#a6e22e">=</span> (<span style="color:#a6e22e">char-after</span>) <span style="color:#e6db74">?}</span>))
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">backward-char</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        (LaTeX-find-matching-begin))
+</span></span><span style="display:flex;"><span>       (<span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>        (LaTeX-find-matching-begin)))
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">;; We are at backslash of \\begin</span>
+</span></span><span style="display:flex;"><span>      (setq outer-beg (<span style="color:#a6e22e">point</span>))
+</span></span><span style="display:flex;"><span>      (forward-sexp)
+</span></span><span style="display:flex;"><span>      (while (or
+</span></span><span style="display:flex;"><span>              (<span style="color:#a6e22e">=</span> (<span style="color:#a6e22e">char-after</span>) <span style="color:#e6db74">?{</span>)
+</span></span><span style="display:flex;"><span>              (<span style="color:#a6e22e">=</span> (<span style="color:#a6e22e">char-after</span>) <span style="color:#e6db74">?\[</span>))
+</span></span><span style="display:flex;"><span>        (forward-sexp))
+</span></span><span style="display:flex;"><span>      (when (and evil-tex-select-newlines-with-envs
+</span></span><span style="display:flex;"><span>                 (<span style="color:#a6e22e">looking-at</span> <span style="color:#e6db74">&#34;\n[ \t]*&#34;</span>))
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">goto-char</span> (<span style="color:#a6e22e">match-end</span> <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>      (setq inner-beg (<span style="color:#a6e22e">point</span>))
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">goto-char</span> (<span style="color:#a6e22e">1+</span> outer-beg))
+</span></span><span style="display:flex;"><span>      (LaTeX-find-matching-end)        <span style="color:#75715e">; we are at closing brace</span>
+</span></span><span style="display:flex;"><span>      (setq outer-end (<span style="color:#a6e22e">point</span>))
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">search-backward</span> <span style="color:#e6db74">&#34;\\end&#34;</span>)        <span style="color:#75715e">; goto backslash</span>
+</span></span><span style="display:flex;"><span>      (when (and evil-tex-select-newlines-with-envs
+</span></span><span style="display:flex;"><span>                 (looking-back <span style="color:#e6db74">&#34;\n[ \t]*&#34;</span> (<span style="color:#a6e22e">-</span> (<span style="color:#a6e22e">point</span>) <span style="color:#ae81ff">10</span>)))
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">goto-char</span> (<span style="color:#a6e22e">match-beginning</span> <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>      (setq inner-end (<span style="color:#a6e22e">point</span>))
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">list</span> outer-beg outer-end inner-beg inner-end))))
 </span></span></code></pre></div><p>The only evil-specific thing in this function is <code>evil-tex-select-newlines-with-envs</code>, which is a self-explanatory user-defined variable.
 We can write functions that slice off the output of this function to get a cons cell of the inner bounds and outer bounds respectively, and use those functions to define our things.
 The functions to get the inner and outer parts are</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; Select inner and outer environment pairs</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">my/meow-inner-env</span> ()
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let</span> ((<span style="color:#b8860b">result</span> (<span style="color:#b8860b">evil-tex--select-env</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#00a000">cons</span> (<span style="color:#00a000">nth</span> <span style="color:#666">2</span> <span style="color:#b8860b">result</span>) (<span style="color:#00a000">nth</span> <span style="color:#666">3</span> <span style="color:#b8860b">result</span>))))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Select inner and outer environment pairs</span>
+</span></span><span style="display:flex;"><span>(defun my/meow-inner-env ()
+</span></span><span style="display:flex;"><span>  (let ((result (evil-tex--select-env)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">2</span> result) (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">3</span> result))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">my/meow-outer-env</span> ()
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let</span> ((<span style="color:#b8860b">result</span> (<span style="color:#b8860b">evil-tex--select-env</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#00a000">cons</span> (<span style="color:#00a000">nth</span> <span style="color:#666">0</span> <span style="color:#b8860b">result</span>) (<span style="color:#00a000">nth</span> <span style="color:#666">1</span> <span style="color:#b8860b">result</span>))))
+</span></span><span style="display:flex;"><span>(defun my/meow-outer-env ()
+</span></span><span style="display:flex;"><span>  (let ((result (evil-tex--select-env)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> result) (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">1</span> result))))
 </span></span></code></pre></div><p>Now the configuration for our environment thing is just</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;latex-env</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">my/meow-inner-env</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">my/meow-outer-env</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;latex-env</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#a6e22e">#&#39;</span>my/meow-inner-env <span style="color:#a6e22e">#&#39;</span>my/meow-outer-env)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?E</span> <span style="color:#666">.</span> <span style="color:#b8860b">latex-env</span>))
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?E</span> <span style="color:#f92672">.</span> latex-env))
 </span></span></code></pre></div><figure><img src="/ox-hugo/meow-latex-env.gif"
     alt="Figure 3: Demo of our user-defined latex-env thing"><figcaption>
       <p><span class="figure-number">Figure 3: </span>Demo of our user-defined latex-env thing</p>
@@ -229,79 +234,79 @@ The functions to get the inner and outer parts are</p>
 
 <h2 id="latex-parentheses-delimiters">LaTeX Parentheses Delimiters</h2>
 <p>Parentheses delimitiers in math mode are a bit of a tricky case.
-We’d like to include all possible delimiters in math mode, including the ones modified by <code>\left \right</code>, <code>\bigl \bigr</code>, etc.
-In addition to that, we’d hope to also capture basic delimiters like <code>(  )</code> and <code>\{ \}</code>.
-To do this, we will do the following:</p>
+We&rsquo;d like to include all possible delimiters in math mode, including the ones modified by <code>\left \right</code>, <code>\bigl \bigr</code>, etc.
+In addition to that, we&rsquo;d hope to also capture basic delimiters like <code>(  )</code> and <code>\{ \}</code>.
+We&rsquo;ll use the following approach:</p>
 <ul>
 <li>create a master list of all possible LaTeX parentheses delimiters, including unmodified ones like <code>( )</code></li>
-<li>use meow’s internal <code>meow--thing-pair-function</code> to find all pairs we can see around the point</li>
+<li>use meow&rsquo;s internal <code>meow--thing-pair-function</code> to find all pairs we can see around the point</li>
 <li>find the match closest to the point</li>
 </ul>
 <p>This will cover all cases of where the point could be, even in deeply nested parentheses.</p>
 <p>First we declare our master list of delimiters:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;cl-lib</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">meow--latex-mod-delim-pairs</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">cl-loop</span> <span style="color:#b8860b">for</span> (<span style="color:#b8860b">l</span> <span style="color:#b8860b">r</span>)
-</span></span><span style="display:flex;"><span>               <span style="color:#b8860b">in</span> <span style="color:#666">&#39;</span>(( <span style="color:#b44">&#34;(&#34;</span> <span style="color:#b44">&#34;)&#34;</span> )
-</span></span><span style="display:flex;"><span>                    ( <span style="color:#b44">&#34;\\[&#34;</span> <span style="color:#b44">&#34;\\]&#34;</span> )
-</span></span><span style="display:flex;"><span>                    ( <span style="color:#b44">&#34;\\\\{&#34;</span> <span style="color:#b44">&#34;\\\\}&#34;</span> )
-</span></span><span style="display:flex;"><span>                    ( <span style="color:#b44">&#34;\\\\lvert&#34;</span> <span style="color:#b44">&#34;\\\\rvert&#34;</span> )
-</span></span><span style="display:flex;"><span>                    ( <span style="color:#b44">&#34;\\\\lVert&#34;</span> <span style="color:#b44">&#34;\\\\rVert&#34;</span> )
-</span></span><span style="display:flex;"><span>                    ( <span style="color:#b44">&#34;\\\\langle&#34;</span> <span style="color:#b44">&#34;\\\\rangle&#34;</span> ))
-</span></span><span style="display:flex;"><span>               <span style="color:#00a000">nconc</span>
-</span></span><span style="display:flex;"><span>               (<span style="color:#a2f">cl-loop</span> <span style="color:#b8860b">for</span> (<span style="color:#b8860b">pre-l</span> <span style="color:#b8860b">pre-r</span>)
-</span></span><span style="display:flex;"><span>                        <span style="color:#b8860b">in</span> <span style="color:#666">&#39;</span>( (<span style="color:#b44">&#34;&#34;</span> <span style="color:#b44">&#34;&#34;</span>)   <span style="color:#080;font-style:italic">;; after concatting corresponds to unmodified delim</span>
-</span></span><span style="display:flex;"><span>                              ( <span style="color:#b44">&#34;\\\\left&#34;</span>  <span style="color:#b44">&#34;\\\\right&#34;</span>)
-</span></span><span style="display:flex;"><span>                              ( <span style="color:#b44">&#34;\\\\bigl&#34;</span>  <span style="color:#b44">&#34;\\\\bigr&#34;</span>)  (<span style="color:#b44">&#34;\\\\big&#34;</span>  <span style="color:#b44">&#34;\\\\big&#34;</span>)
-</span></span><span style="display:flex;"><span>                              ( <span style="color:#b44">&#34;\\\\biggl&#34;</span> <span style="color:#b44">&#34;\\\\biggr&#34;</span>) (<span style="color:#b44">&#34;\\\\bigg&#34;</span> <span style="color:#b44">&#34;\\\\bigg&#34;</span>)
-</span></span><span style="display:flex;"><span>                              ( <span style="color:#b44">&#34;\\\\Bigl&#34;</span>  <span style="color:#b44">&#34;\\\\Bigr&#34;</span>)  (<span style="color:#b44">&#34;\\\\Big&#34;</span>  <span style="color:#b44">&#34;\\\\Big&#34;</span>)
-</span></span><span style="display:flex;"><span>                              ( <span style="color:#b44">&#34;\\\\Biggl&#34;</span> <span style="color:#b44">&#34;\\\\Biggr&#34;</span>) (<span style="color:#b44">&#34;\\\\Bigg&#34;</span> <span style="color:#b44">&#34;\\\\Bigg&#34;</span>))
-</span></span><span style="display:flex;"><span>                        <span style="color:#b8860b">collect</span> (<span style="color:#00a000">cons</span> (<span style="color:#00a000">concat</span> <span style="color:#b8860b">pre-l</span> <span style="color:#b8860b">l</span>) (<span style="color:#00a000">concat</span> <span style="color:#b8860b">pre-r</span> <span style="color:#b8860b">r</span>)))))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;cl-lib</span>)
+</span></span><span style="display:flex;"><span>(setq meow--latex-mod-delim-pairs
+</span></span><span style="display:flex;"><span>      (cl-loop for (l r)
+</span></span><span style="display:flex;"><span>               in <span style="color:#f92672">&#39;</span>(( <span style="color:#e6db74">&#34;(&#34;</span> <span style="color:#e6db74">&#34;)&#34;</span> )
+</span></span><span style="display:flex;"><span>                    ( <span style="color:#e6db74">&#34;\\[&#34;</span> <span style="color:#e6db74">&#34;\\]&#34;</span> )
+</span></span><span style="display:flex;"><span>                    ( <span style="color:#e6db74">&#34;\\\\{&#34;</span> <span style="color:#e6db74">&#34;\\\\}&#34;</span> )
+</span></span><span style="display:flex;"><span>                    ( <span style="color:#e6db74">&#34;\\\\lvert&#34;</span> <span style="color:#e6db74">&#34;\\\\rvert&#34;</span> )
+</span></span><span style="display:flex;"><span>                    ( <span style="color:#e6db74">&#34;\\\\lVert&#34;</span> <span style="color:#e6db74">&#34;\\\\rVert&#34;</span> )
+</span></span><span style="display:flex;"><span>                    ( <span style="color:#e6db74">&#34;\\\\langle&#34;</span> <span style="color:#e6db74">&#34;\\\\rangle&#34;</span> ))
+</span></span><span style="display:flex;"><span>               <span style="color:#a6e22e">nconc</span>
+</span></span><span style="display:flex;"><span>               (cl-loop for (pre-l pre-r)
+</span></span><span style="display:flex;"><span>                        in <span style="color:#f92672">&#39;</span>( (<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#e6db74">&#34;&#34;</span>)   <span style="color:#75715e">;; after concatting corresponds to unmodified delim</span>
+</span></span><span style="display:flex;"><span>                              ( <span style="color:#e6db74">&#34;\\\\left&#34;</span>  <span style="color:#e6db74">&#34;\\\\right&#34;</span>)
+</span></span><span style="display:flex;"><span>                              ( <span style="color:#e6db74">&#34;\\\\bigl&#34;</span>  <span style="color:#e6db74">&#34;\\\\bigr&#34;</span>)  (<span style="color:#e6db74">&#34;\\\\big&#34;</span>  <span style="color:#e6db74">&#34;\\\\big&#34;</span>)
+</span></span><span style="display:flex;"><span>                              ( <span style="color:#e6db74">&#34;\\\\biggl&#34;</span> <span style="color:#e6db74">&#34;\\\\biggr&#34;</span>) (<span style="color:#e6db74">&#34;\\\\bigg&#34;</span> <span style="color:#e6db74">&#34;\\\\bigg&#34;</span>)
+</span></span><span style="display:flex;"><span>                              ( <span style="color:#e6db74">&#34;\\\\Bigl&#34;</span>  <span style="color:#e6db74">&#34;\\\\Bigr&#34;</span>)  (<span style="color:#e6db74">&#34;\\\\Big&#34;</span>  <span style="color:#e6db74">&#34;\\\\Big&#34;</span>)
+</span></span><span style="display:flex;"><span>                              ( <span style="color:#e6db74">&#34;\\\\Biggl&#34;</span> <span style="color:#e6db74">&#34;\\\\Biggr&#34;</span>) (<span style="color:#e6db74">&#34;\\\\Bigg&#34;</span> <span style="color:#e6db74">&#34;\\\\Bigg&#34;</span>))
+</span></span><span style="display:flex;"><span>                        collect (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">concat</span> pre-l l) (<span style="color:#a6e22e">concat</span> pre-r r)))))
 </span></span></code></pre></div><p>The next two functions are helpers for the main method.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">append-bounds-distance</span> (<span style="color:#b8860b">pair</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Appends the minimum distance of match pair to point&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">if</span> <span style="color:#b8860b">pair</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#00a000">cons</span> <span style="color:#b8860b">pair</span> (<span style="color:#00a000">min</span> (<span style="color:#00a000">-</span>  (<span style="color:#00a000">point</span>) (<span style="color:#00a000">car</span> <span style="color:#b8860b">pair</span>))  (<span style="color:#00a000">-</span> (<span style="color:#00a000">cdr</span> <span style="color:#b8860b">pair</span>) (<span style="color:#00a000">point</span>))))
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">&#39;nil</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun append-bounds-distance (pair)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Appends the minimum distance of match pair to point&#34;</span>
+</span></span><span style="display:flex;"><span>  (if pair
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">cons</span> pair (<span style="color:#a6e22e">min</span> (<span style="color:#a6e22e">-</span>  (<span style="color:#a6e22e">point</span>) (<span style="color:#a6e22e">car</span> pair))  (<span style="color:#a6e22e">-</span> (<span style="color:#a6e22e">cdr</span> pair) (<span style="color:#a6e22e">point</span>))))
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;nil</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">find-min-distance-match</span> (<span style="color:#b8860b">matches-with-distances</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Finds the match with minimal distance to point&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let</span> ((<span style="color:#b8860b">nearest-match</span> (<span style="color:#00a000">cons</span> (<span style="color:#00a000">point</span>) (<span style="color:#00a000">point</span>)))
-</span></span><span style="display:flex;"><span>        (<span style="color:#b8860b">min-distance</span> (<span style="color:#00a000">float</span> <span style="color:#b8860b">1.0e+INF</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">dolist</span> (<span style="color:#b8860b">match</span> <span style="color:#b8860b">matches-with-distances</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">when</span> (<span style="color:#00a000">cdr</span> <span style="color:#b8860b">match</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#a2f">when</span>  (<span style="color:#00a000">&gt;</span> <span style="color:#b8860b">min-distance</span> (<span style="color:#00a000">cdr</span> <span style="color:#b8860b">match</span>) )
-</span></span><span style="display:flex;"><span>          (<span style="color:#a2f">setq</span> <span style="color:#b8860b">nearest-match</span> (<span style="color:#00a000">car</span> <span style="color:#b8860b">match</span>))
-</span></span><span style="display:flex;"><span>          (<span style="color:#a2f">setq</span> <span style="color:#b8860b">min-distance</span> (<span style="color:#00a000">cdr</span> <span style="color:#b8860b">match</span>)))))
-</span></span><span style="display:flex;"><span>    <span style="color:#b8860b">nearest-match</span>))
-</span></span></code></pre></div><p>Now here’s our main function:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">my/meow-latex-paren-search</span> (<span style="color:#b8860b">near</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Find nearest LaTeX parenthesis bounds.
-</span></span></span><span style="display:flex;"><span><span style="color:#b44">NEAR denotes if match should be inner or bounds&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">interactive</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let</span> ((<span style="color:#b8860b">found-pairs</span> (<span style="color:#00a000">list</span> )))
-</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">dolist</span> (<span style="color:#b8860b">leftright</span> <span style="color:#b8860b">meow--latex-delim-pairs</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">push</span>  (<span style="color:#b8860b">meow--thing-pair-function</span>
-</span></span><span style="display:flex;"><span>              (<span style="color:#00a000">car</span> <span style="color:#b8860b">leftright</span>) (<span style="color:#00a000">cdr</span> <span style="color:#b8860b">leftright</span>) <span style="color:#b8860b">near</span>) <span style="color:#b8860b">found-pairs</span>))
-</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">let</span> ((<span style="color:#b8860b">bounds-with-distances</span> (<span style="color:#00a000">mapcar</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">append-bounds-distance</span> <span style="color:#b8860b">found-pairs</span>)))
-</span></span><span style="display:flex;"><span>      (<span style="color:#b8860b">find-min-distance-match</span> <span style="color:#b8860b">bounds-with-distances</span>))))
-</span></span></code></pre></div><p>Don’t let this elisp scare you; it does exactly what I said when I laid out the approach to this problem.
+</span></span><span style="display:flex;"><span>(defun find-min-distance-match (matches-with-distances)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Finds the match with minimal distance to point&#34;</span>
+</span></span><span style="display:flex;"><span>  (let ((nearest-match (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">point</span>) (<span style="color:#a6e22e">point</span>)))
+</span></span><span style="display:flex;"><span>        (min-distance (<span style="color:#a6e22e">float</span> 1.0e+INF)))
+</span></span><span style="display:flex;"><span>    (dolist (match matches-with-distances)
+</span></span><span style="display:flex;"><span>      (when (<span style="color:#a6e22e">cdr</span> match)
+</span></span><span style="display:flex;"><span>        (when  (<span style="color:#a6e22e">&gt;</span> min-distance (<span style="color:#a6e22e">cdr</span> match) )
+</span></span><span style="display:flex;"><span>          (setq nearest-match (<span style="color:#a6e22e">car</span> match))
+</span></span><span style="display:flex;"><span>          (setq min-distance (<span style="color:#a6e22e">cdr</span> match)))))
+</span></span><span style="display:flex;"><span>    nearest-match))
+</span></span></code></pre></div><p>Now here&rsquo;s our main function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/meow-latex-paren-search (near)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find nearest LaTeX parenthesis bounds.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">NEAR denotes if match should be inner or bounds&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((found-pairs (<span style="color:#a6e22e">list</span> )))
+</span></span><span style="display:flex;"><span>    (dolist (leftright meow--latex-delim-pairs)
+</span></span><span style="display:flex;"><span>      (push  (meow--thing-pair-function
+</span></span><span style="display:flex;"><span>              (<span style="color:#a6e22e">car</span> leftright) (<span style="color:#a6e22e">cdr</span> leftright) near) found-pairs))
+</span></span><span style="display:flex;"><span>    (let ((bounds-with-distances (<span style="color:#a6e22e">mapcar</span> <span style="color:#a6e22e">#&#39;</span>append-bounds-distance found-pairs)))
+</span></span><span style="display:flex;"><span>      (find-min-distance-match bounds-with-distances))))
+</span></span></code></pre></div><p>Don&rsquo;t let this elisp scare you; it does exactly what I said when I laid out the approach to this problem.
 That is, it generates a list of delimiters we find aroud the point, and finds the closest such match, returning it.</p>
 <p>The <code>near</code> argument specifies if we want to match the inner or bounds of the match.
 It will be <code>t</code> for inner and <code>nil</code> for bounds.
 We can hook this into two new functions for the inner and bounds matching, respectively.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">my/meow-latex-paren-bounds</span> ()
-</span></span><span style="display:flex;"><span>  (<span style="color:#b8860b">my/meow-latex-paren-search</span> <span style="color:#800">nil</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/meow-latex-paren-bounds ()
+</span></span><span style="display:flex;"><span>  (my/meow-latex-paren-search <span style="color:#66d9ef">nil</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">my/meow-latex-paren-inner</span> ()
-</span></span><span style="display:flex;"><span>  (<span style="color:#b8860b">my/meow-latex-paren-search</span> <span style="color:#800">t</span>))
+</span></span><span style="display:flex;"><span>(defun my/meow-latex-paren-inner ()
+</span></span><span style="display:flex;"><span>  (my/meow-latex-paren-search <span style="color:#66d9ef">t</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;latex-delim</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">my/meow-latex-paren-inner</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">my/meow-latex-paren-bounds</span>)
+</span></span><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;latex-delim</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#a6e22e">#&#39;</span>my/meow-latex-paren-inner
+</span></span><span style="display:flex;"><span>                     <span style="color:#a6e22e">#&#39;</span>my/meow-latex-paren-bounds)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?D</span> <span style="color:#666">.</span> <span style="color:#b8860b">latex-delim</span>))
-</span></span></code></pre></div><p>Here’s what the result looks like:</p>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?D</span> <span style="color:#f92672">.</span> latex-delim))
+</span></span></code></pre></div><p>Here&rsquo;s what the result looks like:</p>
 <figure><img src="/ox-hugo/meow-delim-demo.gif"
     alt="Figure 4: Demo of our user-defined delimiter thing"><figcaption>
       <p><span class="figure-number">Figure 4: </span>Demo of our user-defined delimiter thing</p>
@@ -310,11 +315,11 @@ We can hook this into two new functions for the inner and bounds matching, respe
 
 <p>Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.</p>
 <h2 id="closing-thoughts">Closing Thoughts</h2>
-<p>What I’ve shown here is a very small, quickly-put-together look at the hackability of meow.
-The documentation for meow is very comprehensive, and users should customize meow to their heart’s content.
-After all, one of the selling points of meow is how easy it is to “roll your own” modal editor.
+<p>What I&rsquo;ve shown here is a very small, quickly-put-together look at the hackability of meow.
+The documentation for meow is very comprehensive, and users should customize meow to their heart&rsquo;s content.
+After all, one of the selling points of meow is how easy it is to &ldquo;roll your own&rdquo; modal editor.
 Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
-I hope I’ve brought some inspirational ideas here.</p>
+I hope I&rsquo;ve brought some inspirational ideas here.</p>
 
 		</section>
 

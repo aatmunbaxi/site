@@ -5,23 +5,26 @@
 	<meta name="description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
 As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done." />
 	<meta property="og:image" content=""/>
-	<meta property="og:title" content="Declarative Programming for Fast Brain-to-Binary" />
-<meta property="og:description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
-As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/computing/brain_to_binary_bliss_of_decla_prog/" /><meta property="article:section" content="computing" />
+	<meta property="og:url" content="http://localhost:1313/computing/brain_to_binary_bliss_of_decla_prog/">
+  <meta property="og:site_name" content="Aatmun Baxi">
+  <meta property="og:title" content="Declarative Programming for Fast Brain-to-Binary">
+  <meta property="og:description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
+As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="computing">
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Declarative Programming for Fast Brain-to-Binary"/>
-<meta name="twitter:description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
-As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done."/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Declarative Programming for Fast Brain-to-Binary">
+  <meta name="twitter:description" content="Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C&#43;&#43; and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.
+As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C&#43;&#43; and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done.">
 
 	
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
 
 	
 	
@@ -51,7 +54,7 @@ As a mathematician by trade, the usefulness of programming was never lost on me.
 	
 		
 		
-		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/modus_style.4717ee2590524fe42e9e105227b8cfdded2bf8ecb4290e25c9919fefce5f1a70.css">
 		
 </head>
 <body>
@@ -77,7 +80,7 @@ As a mathematician by trade, the usefulness of programming was never lost on me.
 	<article>
 		<div class="title">
 			<h1 class="title">Declarative Programming for Fast Brain-to-Binary</h1>
-			
+			<div class="meta">Posted on Jan 1, 0001</div>
 		</div>
 		
 
@@ -94,15 +97,15 @@ In fancy math language, the function would look like this:</p>
 \mathtt{fun}(k)       &amp;= \sum_{i=1}^k i^2.
 \end{align*}</p>
 <p>Let’s implement this in Python with an imperative style of writing:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">fun</span>(k):
-</span></span><span style="display:flex;"><span>    num <span style="color:#666">=</span> <span style="color:#666">0</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#a2f">range</span>(k <span style="color:#666">+</span> <span style="color:#666">1</span>):
-</span></span><span style="display:flex;"><span>        num <span style="color:#666">+=</span> i<span style="color:#666">**</span><span style="color:#666">2</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> i
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fun</span>(k):
+</span></span><span style="display:flex;"><span>    num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>        num <span style="color:#f92672">+=</span> i<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> i
 </span></span></code></pre></div><p>We’re telling the computer here to step through all non-negative integers up to <code>k</code> and adding the square of these integers to a cumulative sum of all the previous numbers.
 Perfectly intuitive and reasonable.</p>
 <p>Let’s implement this in Haskell, a more-or-less pure functional programming language with a highly expressive, declarative style of syntax:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#00a000">fun</span> k <span style="color:#a2f;font-weight:bold">=</span> sum [i<span style="color:#666">*</span>i <span style="color:#666">|</span> i <span style="color:#a2f;font-weight:bold">&lt;-</span> [<span style="color:#666">0</span><span style="color:#666">..</span>k]]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">fun</span> k <span style="color:#f92672">=</span> sum [i<span style="color:#f92672">*</span>i <span style="color:#f92672">|</span> i <span style="color:#f92672">&lt;-</span> [<span style="color:#ae81ff">0</span><span style="color:#f92672">..</span>k]]
 </span></span></code></pre></div><p>This solution is elegant once you know that the <code>&lt;-</code> syntax is the set containment symbol \( \in \) from mathematics.</p>
 <p>This declarative style of writing code is something I find myself coming back to whenever I want to quickly hack an idea together.
 It lets me focus on implementing the key steps of the problem I have laid out, without getting bogged down with more minor details of how it should be solved.

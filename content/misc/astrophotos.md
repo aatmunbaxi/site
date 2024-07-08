@@ -20,7 +20,7 @@ As a fairly new astrophotographer, these images will be quite poor to the discer
 <summary>Details</summary>
 <div class="details">
 
-It&rsquo;s been a while since I took this image, but I belive it total around 3 hours of integration
+It's been a while since I took this image, but I belive it total around 3 hours of integration
 </div>
 </details>
 
@@ -35,8 +35,8 @@ It&rsquo;s been a while since I took this image, but I belive it total around 3 
 <summary>Details</summary>
 <div class="details">
 
-This image was processed from my first ever outing doing astrophotography. It totals around 12 minutes of integration from the Bortle 1 sky around the McDonald Observatory. Weather prevented any more data collection, but I&rsquo;m still surprised at how much I was able to get out of it. By contrast my [image of M101](#m101-pinwheel-galaxy) was taken from a very light-polluted Bortle 8 sky, and that image was 3 hours of integration. This image always surprises me at how much better it is to image under dark skies.
+This image was processed from my first ever outing doing astrophotography. It totals around 12 minutes of integration from the Bortle 1 sky around the McDonald Observatory. Weather prevented any more data collection, but I'm still surprised at how much I was able to get out of it. By contrast my [image of M101](#m101-pinwheel-galaxy) was taken from a very light-polluted Bortle 8 sky, and that image was 3 hours of integration. This image always surprises me at how much better it is to image under dark skies.
 
-The uneven illumination on the bottom left of the image is due to a strange reflection pattern on an IR cut filter I have for my camera. It&rsquo;s not present in other images because I imaged those without the filter.
+The uneven illumination on the bottom left of the image is due to a strange reflection pattern on an IR cut filter I have for my camera. It's not present in other images because I imaged those without the filter.
 </div>
 </details>

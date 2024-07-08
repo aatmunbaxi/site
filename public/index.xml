@@ -4,30 +4,37 @@
     <title>Home on Aatmun Baxi</title>
     <link>http://localhost:1313/</link>
     <description>Recent content in Home on Aatmun Baxi</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Going Global</title>
+      <link>http://localhost:1313/math/going-global/</link>
+      <pubDate>Tue, 18 Apr 2023 17:11:09 -0500</pubDate>
+      <guid>http://localhost:1313/math/going-global/</guid>
+      <description></description>
+    </item>
     <item>
       <title>「氷が効かなくなってきている」</title>
       <link>http://localhost:1313/nihongo/jojos_interesting_phrase/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/nihongo/jojos_interesting_phrase/</guid>
-      <description>I came across the phrase「氷が行かなくなってきている」in an episode of Jojo’s Bizarre Adventure and couldn’t help but smile at it. The morphology of Japanese words is a fascinating one, and this sentence exemplifies it brilliantly. Roughly, this sentence says “the ice is becoming ineffective”, or more naturally, “the ice is becoming less effective”. The first word 「氷」, is straightforward; it means “ice”. The particle 「が」 is an indicative particle meant to direct the attention of the listener to the noun it is attached to.</description>
+      <description>I came across the phrase「氷が行かなくなってきている」in an episode of Jojo&amp;rsquo;s Bizarre Adventure and couldn&amp;rsquo;t help but smile at it. The morphology of Japanese words is a fascinating one, and this sentence exemplifies it brilliantly. Roughly, this sentence says &amp;ldquo;the ice is becoming ineffective&amp;rdquo;, or more naturally, &amp;ldquo;the ice is becoming less effective&amp;rdquo;. The first word 「氷」, is straightforward; it means &amp;ldquo;ice&amp;rdquo;. The particle 「が」 is an indicative particle meant to direct the attention of the listener to the noun it is attached to.</description>
+    </item>
+    <item>
+      <title>How Emacs Helped Me Today: modus-themes and ef-themes Palettes for LaTeX</title>
+      <link>http://localhost:1313/comp/how_emacs_helped_modus_ef_palette_beamer/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/how_emacs_helped_modus_ef_palette_beamer/</guid>
+      <description>I&amp;rsquo;m very fond of Prot&amp;rsquo;s modus-themes and ef-themes for emacs. They&amp;rsquo;re highly legible, easy on the eyes, and attractive. Recently I was making a beamer presentation for a talk I&amp;rsquo;m currently procrastinating on. For better or for worse, I thought to myself I wish I could make the PDF output have modus theme colors.&#xA;After manually reading off some colors from modus-operandi-tinted-palette into my LaTeX preamble, I remembered: Wait, this is emacs.</description>
     </item>
     <item>
       <title>Astrophotos</title>
       <link>http://localhost:1313/misc/astrophotos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/misc/astrophotos/</guid>
-      <description>As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.&#xA;M101: Pinwheel Galaxy Figure 1: M101, The Pinwheel Galaxy&#xA;Details It’s been a while since I took this image, but I belive it total around 3 hours of integration</description>
-    </item>
-    <item>
-      <title>Configuring meow for Friendlier LaTeX Editing</title>
-      <link>http://localhost:1313/comp/configuring_meow_friendly_latex/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/comp/configuring_meow_friendly_latex/</guid>
-      <description>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.&#xA;evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I’ve adopted meow.</description>
+      <description>As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.&#xA;M101: Pinwheel Galaxy Figure 1: M101, The Pinwheel Galaxy&#xA;Details It&amp;rsquo;s been a while since I took this image, but I belive it total around 3 hours of integration</description>
     </item>
     <item>
       <title>Configuring meow for Friendly LaTeX Editing</title>
@@ -44,13 +51,6 @@
       <description>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.&#xA;Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:&#xA;Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package&amp;ndash;evil-tex&amp;ndash;gave me pause.</description>
     </item>
     <item>
-      <title>Realizing some Multiplicity-Free Fusion Rules</title>
-      <link>http://localhost:1313/math/realizing_fusion_rules/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/math/realizing_fusion_rules/</guid>
-      <description>Disclaimer: These results have not been subjected to the rigors of publication.&#xA;Fusion Rings Classifying fusion categories is a huge task&amp;ndash;likely impossible&amp;ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.</description>
-    </item>
-    <item>
       <title>Solving the Magic Square in Common Lisp</title>
       <link>http://localhost:1313/computing/magic-square-common-lisp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -58,11 +58,18 @@
       <description>Table of Contents The Problem Helper Functions Summing List Values Converting Between Grids and Flat Lists Grabbing Diagonals Checking Win Conditions Range Generation Pretty Printing The Solver Using the Solver The Problem The magic square problem is a typical recursion exercise given to students learning programming. Since I’ve been playing around with common lisp recently, I thought I’d use it as an excuse to learn a bit about the language.</description>
     </item>
     <item>
-      <title>A meow-state for speedy org structure navigation</title>
-      <link>http://localhost:1313/comp/meow_state_org_speed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/comp/meow_state_org_speed/</guid>
-      <description>TL;DR: We implement a meow-state for quick navigation of org-mode document structure.&#xA;I’ve been very pleased with my switch to the meow modal editor, but one of the downsides of it is no obvious way to use speed keys in org-mode. Namely, the meow normal state maps would clash with the speed key definitions. One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that’s no fun.</description>
+      <title>Configuring meow for Friendlier LaTeX Editing</title>
+      <link>http://localhost:1313/comp/configuring_meow_friendly_latex/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/configuring_meow_friendly_latex/</guid>
+      <description>TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme. This article assumes some familiarity with the evil and meow modes.&#xA;evil-tex Doing Our Own Thing Inline Math Environments LaTeX Parentheses Delimiters Closing Thoughts Having ditched evil-collection to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I&amp;rsquo;ve adopted meow.</description>
+    </item>
+    <item>
+      <title>Realizing some Multiplicity-Free Fusion Rules</title>
+      <link>http://localhost:1313/math/realizing_fusion_rules/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/math/realizing_fusion_rules/</guid>
+      <description>Disclaimer: These results have not been subjected to the rigors of publication.&#xA;Fusion Rings Classifying fusion categories is a huge task&amp;ndash;likely impossible&amp;ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.</description>
     </item>
     <item>
       <title>Declarative Programming for Fast Brain-to-Binary</title>
@@ -72,25 +79,25 @@
       <description>Recently I’ve been messing around with different programming languages and branching out beyond the C-style languages I know like C++ and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.&#xA;As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C++ and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done.</description>
     </item>
     <item>
-      <title>Quantum Computing, Braids, and Modular Categories</title>
-      <link>http://localhost:1313/math/quantum_comp_and_modular_categories/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/math/quantum_comp_and_modular_categories/</guid>
-      <description>Introduction Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks. Despite vigorous research from all sides of the task, obstacles to a quantum computer architecture that is scalable and tolerant to errors remain hard to overcome.&#xA;Qubits in existing models of quantum computation (such as trapped-ion models) are sensitive to their environment. Such sensitivities of the environment make qubits liable to introducing noise that dominates the computation we’d like to measure.</description>
-    </item>
-    <item>
-      <title>Solving the Magic Square in Common Lisp</title>
-      <link>http://localhost:1313/comp/magic-square-common-lisp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/comp/magic-square-common-lisp/</guid>
-      <description>Table of Contents The Problem Helper Functions Summing List Values Converting Between Grids and Flat Lists Grabbing Diagonals Checking Win Conditions Range Generation Pretty Printing The Solver Using the Solver The Problem The magic square problem is a typical recursion exercise given to students learning programming. Since I’ve been playing around with common lisp recently, I thought I’d use it as an excuse to learn a bit about the language.</description>
-    </item>
-    <item>
       <title>Some Theorems</title>
       <link>http://localhost:1313/misc/fav_theorems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/misc/fav_theorems/</guid>
       <description>Table of Contents Table of Contents Modular categories are not determined by their modular data Classification of commutative Frobenius algebras by TQFTs The Yoneda Lemma Modular categories are not determined by their modular data A modular category \( \mathcal{C} \) is not determined by its \( S \) and \( T \) matrices. Comments: If something seems too good to be true, it probably is.&#xA;Classification of commutative Frobenius algebras by TQFTs For a field \( k \), there is an equivalence of categories \( \mathsf{2TQFT}_k \simeq \mathsf{cFrob}_k \) of 2-dimensional topological quantum field theories and commutative Frobenius algebras.</description>
+    </item>
+    <item>
+      <title>A meow-state for speedy org structure navigation</title>
+      <link>http://localhost:1313/comp/meow_state_org_speed/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/meow_state_org_speed/</guid>
+      <description>TL;DR: We implement a meow-state for quick navigation of org-mode document structure.&#xA;I&amp;rsquo;ve been very pleased with my switch to the meow modal editor, but one of the downsides of it is no obvious way to use speed keys in org-mode. Namely, the meow normal state maps would clash with the speed key definitions. One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that&amp;rsquo;s no fun.</description>
+    </item>
+    <item>
+      <title>Quantum Computing, Braids, and Modular Categories</title>
+      <link>http://localhost:1313/math/quantum_comp_and_modular_categories/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/math/quantum_comp_and_modular_categories/</guid>
+      <description>Introduction Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks. Despite vigorous research from all sides of the task, obstacles to a quantum computer architecture that is scalable and tolerant to errors remain hard to overcome.&#xA;Qubits in existing models of quantum computation (such as trapped-ion models) are sensitive to their environment. Such sensitivities of the environment make qubits liable to introducing noise that dominates the computation we&amp;rsquo;d like to measure.</description>
     </item>
     <item>
       <title>Emacs org-mode for LaTeX</title>
@@ -102,7 +109,7 @@
     <item>
       <title>LAWRGe 2023 Notes</title>
       <link>http://localhost:1313/math/lawrge_2023_notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/math/lawrge_2023_notes/</guid>
       <description>LAWRGe Workshop Info Lecture 1: Mon Jun 12 11:05:22 2023 Lecture 2: Mon Jun 12 13:04:01 2023 Lecture 3: Mon Jun 12 16:07:19 2023 Lecture 4: Mon Jun 12 18:02:13 2023 Lecture 5: Tue Jun 13 10:34:03 2023 Lecture 6: Tue Jun 13 12:44:10 2023 Lecture 7: Tue Jun 13 15:44:00 2023 Lecture 8: Tue Jun 13 18:01:16 2023 Lecture 9: Wed Jun 14 10:46:24 2023 Lecture 10: Wed Jun 14 12:48:31 2023 Lecture 11: Wed Jun 14 15:55:18 2023 Lecture 12: Wed Jun 14 18:05:37 2023 Lecture 13: Thu Jun 15 10:46:45 2023 Lecture 14: Thu Jun 15 13:05:02 2023 Lecture 15: Fri Jun 16 10:44:46 2023 LAWRGe Workshop Info Mirror symmetry and 3d topological quantum field theories (TQFTs)</description>
     </item>
@@ -119,6 +126,27 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/computing/doom-config/</guid>
       <description>Table of Contents Intro Housekeeping Font Theme, Appearance, General Behavior Doom Dashboard Modeline Global Appearance Custom Faces Custom Functionality Global keybindings Major Modes and Languages org-mode haskell-mode python-mode plantuml pdf-view-mode evil lsp numpydoc Packages bibtex embark org packages org-ref org-roam org-noter org-super-agenda CV Misc Packages and Behavior helm-bibtex xenops-mode yasnippets ink quiver company Intro This config file is organized by mode and/or package. Each mode has their own subsection for common configuration patterns such as keybindings, hooks, setting variables, etc.</description>
+    </item>
+    <item>
+      <title>Solving the Magic Square in Common Lisp</title>
+      <link>http://localhost:1313/comp/magic-square-common-lisp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/magic-square-common-lisp/</guid>
+      <description>Table of Contents The Problem Helper Functions Summing List Values Converting Between Grids and Flat Lists Grabbing Diagonals Checking Win Conditions Range Generation Pretty Printing The Solver Using the Solver The Problem The magic square problem is a typical recursion exercise given to students learning programming. Since I&amp;rsquo;ve been playing around with common lisp recently, I thought I&amp;rsquo;d use it as an excuse to learn a bit about the language.</description>
+    </item>
+    <item>
+      <title>Declarative Programming for Fast Brain-to-Binary</title>
+      <link>http://localhost:1313/comp/brain_to_binary_bliss_of_decla_prog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/brain_to_binary_bliss_of_decla_prog/</guid>
+      <description>Recently I&amp;rsquo;ve been messing around with different programming languages and branching out beyond the C-style languages I know like C++ and Python. In my search for one to try out, I discovered Haskell, and the paradigm of functional programming as a whole.&#xA;As a mathematician by trade, the usefulness of programming was never lost on me. From my time with C++ and Python, I had developed a (not unreasonable) notion that programming was all about telling computers how to do something you want done.</description>
+    </item>
+    <item>
+      <title>Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor</title>
+      <link>http://localhost:1313/comp/dyn_custom_palette_access_technicolor/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/comp/dyn_custom_palette_access_technicolor/</guid>
+      <description>In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme&amp;rsquo;s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don&amp;rsquo;t always have a DOOM theme active&amp;hellip;&#xA;Consider the following elisp:&#xA;(set-face-attribute org-verbatim nil :foreground (doom-color &amp;#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.</description>
     </item>
   </channel>
 </rss>

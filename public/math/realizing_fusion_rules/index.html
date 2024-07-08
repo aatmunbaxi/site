@@ -5,23 +5,28 @@
 	<meta name="description" content="Disclaimer: These results have not been subjected to the rigors of publication.
 Fusion Rings Classifying fusion categories is a huge task&ndash;likely impossible&ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category." />
 	<meta property="og:image" content=""/>
-	<meta property="og:title" content="Realizing some Multiplicity-Free Fusion Rules" />
-<meta property="og:description" content="Disclaimer: These results have not been subjected to the rigors of publication.
-Fusion Rings Classifying fusion categories is a huge task&ndash;likely impossible&ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/math/realizing_fusion_rules/" /><meta property="article:section" content="math" />
+	<meta property="og:url" content="http://localhost:1313/math/realizing_fusion_rules/">
+  <meta property="og:site_name" content="Aatmun Baxi">
+  <meta property="og:title" content="Realizing some Multiplicity-Free Fusion Rules">
+  <meta property="og:description" content="Disclaimer: These results have not been subjected to the rigors of publication.
+Fusion Rings Classifying fusion categories is a huge task–likely impossible–but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="math">
+    <meta property="article:published_time" content="2024-07-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-05T00:00:00+00:00">
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Realizing some Multiplicity-Free Fusion Rules"/>
-<meta name="twitter:description" content="Disclaimer: These results have not been subjected to the rigors of publication.
-Fusion Rings Classifying fusion categories is a huge task&ndash;likely impossible&ndash;but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category."/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Realizing some Multiplicity-Free Fusion Rules">
+  <meta name="twitter:description" content="Disclaimer: These results have not been subjected to the rigors of publication.
+Fusion Rings Classifying fusion categories is a huge task–likely impossible–but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure. One such invariant is the fusion ring associated to a fusion category \( \mathcal{C} \). They are one of the more useful invariants of fusion categories, though they are incomplete at determining the whole structure of the category.">
 
 	
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
 
 	
 	
@@ -51,7 +56,7 @@ Fusion Rings Classifying fusion categories is a huge task&ndash;likely impossibl
 	
 		
 		
-		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/modus_style.4717ee2590524fe42e9e105227b8cfdded2bf8ecb4290e25c9919fefce5f1a70.css">
 		
 </head>
 <body>
@@ -77,7 +82,7 @@ Fusion Rings Classifying fusion categories is a huge task&ndash;likely impossibl
 	<article>
 		<div class="title">
 			<h1 class="title">Realizing some Multiplicity-Free Fusion Rules</h1>
-			
+			<div class="meta">Posted on Jul 5, 2024</div>
 		</div>
 		
 
@@ -91,9 +96,9 @@ For instance, one area they fall short is the lack of their ability to capture t
 <h3 id="the-fusion-ring-of-a-fusion-category">The Fusion Ring of a Fusion Category</h3>
 <p>Recall that fusion categories are rigid, semisimple, abelian, \( k \)-linear, monoidal categories with finitely many simple objects, which include the monoidal unit \( \mathbf{1} \).
 Let \( \mathcal{C} \) be a fusion category and denote the collection of simple objects by \( \mathcal{O}( \mathcal{C} )  = \left\{ X_0 , \ldots , X_n \right\} \) in an ordered fashion, choosing \( X_0 = \mathbf{1} \).
-The direct sum on objects in a fusion (in fact, just abelian \( k \)-linear) category act as an “addition”.
+The direct sum on objects in a fusion (in fact, just abelian \( k \)-linear) category act as an &ldquo;addition&rdquo;.
 We can formalize this with the <strong>Grothendieck group</strong>: the free abelian group generated by the set \( \mathcal{O}( \mathcal{C} ) \), considered with equality up to isomorphism.</p>
-<p>Continuing in the same way, the tensor product induces a kind of “multiplication” on the objects of \( \mathcal{C} \).
+<p>Continuing in the same way, the tensor product induces a kind of &ldquo;multiplication&rdquo; on the objects of \( \mathcal{C} \).
 i.e., we have a multiplication structure on the Grothendieck group given by</p>
 <p>\begin{equation}
 \label{eq:2}
@@ -101,7 +106,7 @@ X_i\cdot X_{j} = [X_i \otimes X_j]
 \end{equation}</p>
 <p>where \( [X_i \otimes X_j] \) denotes the isomorphism class of the object \( X_i \otimes  X_j \).
 The ring with this multiplication and addition is called the <strong>Grothendieck ring</strong> of the category \( \mathcal{C} \).</p>
-<p>Notice that everything we’ve said so far doesn’t use some key properties of fusion categories.
+<p>Notice that everything we&rsquo;ve said so far doesn&rsquo;t use some key properties of fusion categories.
 To start with, semisimplicity tells us that \( X_i \otimes X_j \) is a finite direct sum of the simple objects \( X_i \).
 The general description of the isomorphism class of this object is then</p>
 <p>\begin{equation}
@@ -115,17 +120,15 @@ We unroll the definitions:</p>
 <style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
 <div class="org-center">
 <p>A based ring \( R \) is a ring that is free as a \( \mathbf{Z} \)-module equipped with the following:</p>
-<ol>
-<li><span class="org-target" id="org-target--structure-coeffs"></span> A \( \mathbf{Z}_+ \)-basis \( B = \left\{ b_i \right\}_{i\in I} \) such that \( b_i b_j = \sum_{k\in I}^{} c_{ij}^kb_k \) where \( c_{ij}^k\in \mathbf{Z}_+ \).</li>
-<li>And identity \( 1 \) which is a non-negative linear combination of the basis</li>
-<li>Let \( \tau : R \to \mathbf{Z} \) be the group homomorphism taking \( b_i \) to \( 1 \) if \( b_i \) appears in the decomposition of \( \mathbf{1} \), and \( 0 \) otherwise.
-We demand that there is an involution \( i \mapsto i^{*} \) of the ring such that the induced ring endomorphism is an anti-involution and the map \( \tau \) satisfies \( \tau(b_i b_j) =1 \) if \( i = j^{*} \) and \( 0 \) otherwise.</li>
-</ol>
+<p>a. <span class="org-target" id="org-target--structure-coeffs"></span> A \( \mathbf{Z}_+ \)-basis \( B = \left\{ b_i \right\}_{i\in I} \) such that \( b_i b_j = \sum_{k\in I}^{} c_{ij}^kb_k \) where \( c_{ij}^k\in \mathbf{Z}_+ \).
+b. And identity \( 1 \) which is a non-negative linear combination of the basis
+c. Let \( \tau : R \to \mathbf{Z} \) be the group homomorphism taking \( b_i \) to \( 1 \) if \( b_i \) appears in the decomposition of \( \mathbf{1} \), and \( 0 \) otherwise.
+We demand that there is an involution \( i \mapsto i^{*} \) of the ring such that the induced ring endomorphism is an anti-involution and the map \( \tau \) satisfies \( \tau(b_i b_j) =1 \) if \( i = j^{*} \) and \( 0 \) otherwise.</p>
 <p>A based ring is called <em>unital</em> if the identity \( 1 \) is a basis element.
 We conclude by noting that <em>finite rank</em> means there are finitely many basis elements.</p>
 </div>
 <p>The constraint in a is analogous to the fusion decomposition, while the involution in c comes from the rigidity of the category.
-More details and standard results can be found in (<a href="#citeproc_bib_item_3">Etingof et al. 2016, 3</a>).</p>
+More details and standard results can be found in &lt;&amp;etingofTensorCategories2016 Chapter 3&gt;.</p>
 <h2 id="fusion-rings-as-an-invariant-of-fusion-categories">Fusion Rings as an Invariant of Fusion Categories</h2>
 <p>To every fusion category we can associated a fusion ring.
 Many questions in math come from asking about the opposite of a process we know we can carry out.
@@ -137,22 +140,22 @@ One can construct two inequivalent fusion categories which descend to isomorphic
 Not all hope is lost though, the theorem <em>Ocneanu rigidity</em> states that there a finitely many equivalence classes of fusion categories with a given fusion ring.
 The question of if there are finitely many fusion categories of any given rank is very much open.</p>
 <p>To my knowledge, the question of categorifiability of a fusion ring has only a partial answer.
-Namely, one can rule out categorifiability and unitary categorifiability via some properties of the fusion coefficients (see (<a href="#citeproc_bib_item_5">Vercleyen and Slingerland 2023</a>)), but there is not a complete criteria of categorifiability of fusion rings.</p>
+Namely, one can rule out categorifiability and unitary categorifiability via some properties of the fusion coefficients (see &lt;&amp;vercleyenLowRankFusion2023&gt;), but there is not a complete criteria of categorifiability of fusion rings.</p>
 <h2 id="low-rank-fusion-rings">Low Rank Fusion Rings</h2>
 <p>The benefit of working from fusion rings up to fusion categories is that fusion rings are highly computable (at least in comparison to fusion categories).
-The authors (<a href="#citeproc_bib_item_5">Vercleyen and Slingerland 2023</a>) used a computer algebra system to compute some fusion rings through rank \( 9 \).
+The authors &lt;&amp;vercleyenLowRankFusion2023&gt; used a computer algebra system to compute some fusion rings through rank \( 9 \).
 They published a list of explicity known fusion rules along with some known (or conjectured) properties on the website <a href="https://anyonwiki.github.io/">https://anyonwiki.github.io/</a>.
-You’ll notice that some of the fusion rings have unknown properties, like whether or not they are categorifiable.
+You&rsquo;ll notice that some of the fusion rings have unknown properties, like whether or not they are categorifiable.
 I set out to work on some of those properties.</p>
 <h2 id="fusion-rules-operatorname-fr-8-0-4">Fusion Rules \( \operatorname{FR}^{8,0}_4 \)</h2>
 <p>The fusion rules \( \operatorname{FR}^{8,0}_4 \) (<a href="https://anyonwiki.github.io/pages/FRPages/FR_8_1_0_4.html">https://anyonwiki.github.io/pages/FRPages/FR_8_1_0_4.html</a>) arise from  a rank \( 8 \) fusion ring which is multiplicity-free.
 Here, multiplicity-free means that the fusion rules are either \( 0 \) or \( 1 \).
 Up to now it was unknown if this ring was categorifiable, and I answered this question positively.</p>
 <p>It was pointed out to me by my advisor that a good place to look for a categorification was a subcategory of the so-called metaplectic categories \( \operatorname{SO}(N)_2 \).
-The details of these categories are beyond the scope of the article, but their fusion rules are known completely (<a href="#citeproc_bib_item_2">Bruillard et al. 2018</a>; <a href="#citeproc_bib_item_1">Ardonne et al. 2016</a>; <a href="#citeproc_bib_item_4">Gustafson, Rowell, and Ruan 2018</a>).</p>
-<p>We can realize the fusion rules \( \operatorname{FR}^{8,0}_4 \) as “one half” of the metaplectic category \( \operatorname{SO}(12)_2 \).
-We say “one half”, because the category \( \operatorname{SO}(12)_2 \) is graded by the group \( \mathbf{Z}_{2} \times \mathbf{Z}_{2} \), and we can choose the fusion category generated by the trivial graded component and the graded component associated to \( (1,0) \) (or equivalently, \( (0,1) \)).</p>
-<p>One can use the results of (<a href="#citeproc_bib_item_2">Bruillard et al. 2018</a>) to compute the complete set of fusion rules of the objects of \( \operatorname{SO}(12)_2 \) chosen accordingly.
+The details of these categories are beyond the scope of the article, but their fusion rules are known completely &lt;&amp;bruillardDimensionQuantumStatistic2018;&amp;ardonneClassificationMetaplecticModular2016;&amp;gustafsonMetaplecticCategoriesGauging2018&gt;.</p>
+<p>We can realize the fusion rules \( \operatorname{FR}^{8,0}_4 \) as &ldquo;one half&rdquo; of the metaplectic category \( \operatorname{SO}(12)_2 \).
+We say &ldquo;one half&rdquo;, because the category \( \operatorname{SO}(12)_2 \) is graded by the group \( \mathbf{Z}_{2} \times \mathbf{Z}_{2} \), and we can choose the fusion category generated by the trivial graded component and the graded component associated to \( (1,0) \) (or equivalently, \( (0,1) \)).</p>
+<p>One can use the results of &lt;&amp;bruillardDimensionQuantumStatistic2018&gt; to compute the complete set of fusion rules of the objects of \( \operatorname{SO}(12)_2 \) chosen accordingly.
 A summary of the results of this computation are presented in the tables below.
 Compare these results to the fusion rules presented on the <a href="https://anyonwiki.github.io/pages/FRPages/FR_8_1_0_4.html">AnyonWiki</a>.</p>
 <p>For an example of one such computation, we work out \( X_1 \otimes V_1 \).
@@ -166,7 +169,7 @@ Finally, \( N_{X_1 , V_1}^{V_1} = N_{V_1 , V_1}^{X_1}= 1 \) and similarly for \(
 <p><a id="table--one-half-so-12-dimension"></a></p>
 <div class="table-caption">
   <span class="table-number"><a href="#table--one-half-so-12-dimension">Table 1</a>:</span>
-  Dimensions of simple objects in &ldquo;one half&rdquo; \( \operatorname{SO}(12)_2 \)
+  Dimensions of simple objects in "one half" \( \operatorname{SO}(12)_2 \)
 </div>
 <table>
 <thead>
@@ -213,7 +216,7 @@ Finally, \( N_{X_1 , V_1}^{V_1} = N_{V_1 , V_1}^{X_1}= 1 \) and similarly for \(
 <p><a id="table--one-half-so12-fusion-rules"></a></p>
 <div class="table-caption">
   <span class="table-number"><a href="#table--one-half-so12-fusion-rules">Table 2</a>:</span>
-  Fusion rules for &ldquo;one half&rdquo; \( \operatorname{SO}(12)_2 \)
+  Fusion rules for "one half" \( \operatorname{SO}(12)_2 \)
 </div>
 <table>
 <thead>
@@ -322,12 +325,12 @@ Finally, \( N_{X_1 , V_1}^{V_1} = N_{V_1 , V_1}^{X_1}= 1 \) and similarly for \(
 </table>
 <h2 id="fusion-rules-operatorname-fr-9-0-7">Fusion Rules \( \operatorname{FR}^{9,0}_{7} \)</h2>
 <p>It turns out that a categorification of the fusion rules \( \operatorname{FR}^{9,0}_7 \) (<a href="https://anyonwiki.github.io/pages/FRPages/FR_9_1_0_7.html">https://anyonwiki.github.io/pages/FRPages/FR_9_1_0_7.html</a>) is nearly identical to that of \( \operatorname{FR}^{8,0}_4 \), just with a different choice of metaplectic category.
-In this instance, we choose “one half” of \( \operatorname{SO}(16)_2 \) using the exact same method to choose generating objects.
+In this instance, we choose &ldquo;one half&rdquo; of \( \operatorname{SO}(16)_2 \) using the exact same method to choose generating objects.
 The results are summarized in the tables below.</p>
 <p><a id="table--one-half-so-16-dimension"></a></p>
 <div class="table-caption">
   <span class="table-number"><a href="#table--one-half-so-16-dimension">Table 3</a>:</span>
-  Dimensions of simple objects in &ldquo;one half&rdquo; \(\operatorname{SO}(12)_2 \)
+  Dimensions of simple objects in "one half" \(\operatorname{SO}(12)_2 \)
 </div>
 <table>
 <thead>
@@ -378,7 +381,7 @@ The results are summarized in the tables below.</p>
 <p><a id="table--one-half-so16-fusion-rules"></a></p>
 <div class="table-caption">
   <span class="table-number"><a href="#table--one-half-so16-fusion-rules">Table 4</a>:</span>
-  Fusion rules for &ldquo;one half&rdquo; \( \operatorname{SO}(16)_2 \)
+  Fusion rules for "one half" \( \operatorname{SO}(16)_2 \)
 </div>
 <table>
 <thead>
@@ -507,13 +510,7 @@ The results are summarized in the tables below.</p>
 </tbody>
 </table>
 <h2 id="bibliography">Bibliography</h2>
-<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Ardonne, Eddy, Meng Cheng, Eric C. Rowell, and Zhenghan Wang. 2016. “Classification of Metaplectic Modular Categories.” <i>Journal of Algebra</i> 466 (November): 141–46. doi:<a href="https://doi.org/10.1016/j.jalgebra.2016.08.001">10.1016/j.jalgebra.2016.08.001</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>Bruillard, Paul, Paul Gustafson, Julia Yael Plavnik, and Eric Carson Rowell. 2018. “Dimension as a Quantum Statistic and the Classification of Metaplectic Categories.” May 20. doi:<a href="https://doi.org/10.48550/arXiv.1710.10284">10.48550/arXiv.1710.10284</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>Etingof, Pavel, Shlomo Gelaki, Dmitri Nikshych, and Victor Ostrik. 2016. <i>Tensor Categories</i>. American Mathematical Soc. <a href="https://books.google.com?id=Z6XLDAAAQBAJ">https://books.google.com?id=Z6XLDAAAQBAJ</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_4"></a>Gustafson, Paul, Eric Rowell, and Yuze Ruan. 2018. “Metaplectic Categories, Gauging and Property F.” August 23. doi:<a href="https://doi.org/10.48550/arXiv.1808.00698">10.48550/arXiv.1808.00698</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_5"></a>Vercleyen, Gert, and Joost Slingerland. 2023. “On Low Rank Fusion Rings.” March 14. doi:<a href="https://doi.org/10.48550/arXiv.2205.15637">10.48550/arXiv.2205.15637</a>.</div>
-</div>
+<p>&lt;~/Documents/bib/zotero_refs.bib&gt;</p>
 
 		</section>
 

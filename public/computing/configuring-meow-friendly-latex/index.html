@@ -6,25 +6,28 @@
 Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:
 Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package&ndash;evil-tex&ndash;gave me pause." />
 	<meta property="og:image" content=""/>
-	<meta property="og:title" content="Configuring meow for Friendly LaTeX Editing" />
-<meta property="og:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+	<meta property="og:url" content="http://localhost:1313/computing/configuring-meow-friendly-latex/">
+  <meta property="og:site_name" content="Aatmun Baxi">
+  <meta property="og:title" content="Configuring meow for Friendly LaTeX Editing">
+  <meta property="og:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
 Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:
-Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package&ndash;evil-tex&ndash;gave me pause." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/computing/configuring-meow-friendly-latex/" /><meta property="article:section" content="computing" />
+Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package–evil-tex–gave me pause.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="computing">
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Configuring meow for Friendly LaTeX Editing"/>
-<meta name="twitter:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Configuring meow for Friendly LaTeX Editing">
+  <meta name="twitter:description" content="TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
 Having ditched evil-collection to get familiar with the default emacs keybindings, I found myself satsisfied with many of the facilities emacs provides out-of-the-box for editing text. Alas, I feel modal editing is something I prefer, so I switched to meow. I chose meow for a few reasons:
-Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package&ndash;evil-tex&ndash;gave me pause."/>
+Trivial to extend and hack on The “selection-first” ethos is intriguing No dependencies Prefers built-in methods for various tasks Keypad mode offers a great, lighter weight alternative to the SPC DOOM leader with evil mode So far, it’s been an enjoyable experience, but one evil-mode package–evil-tex–gave me pause.">
 
 	
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
 
 	
 	
@@ -54,7 +57,7 @@ Trivial to extend and hack on The “selection-first” ethos is intriguing No d
 	
 		
 		
-		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/main.7a1057e28ecb02c502de2dc2969e7896686a3eaa8aa3c0efef7917025464091c.css">
+		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/modus_style.4717ee2590524fe42e9e105227b8cfdded2bf8ecb4290e25c9919fefce5f1a70.css">
 		
 </head>
 <body>
@@ -80,7 +83,7 @@ Trivial to extend and hack on The “selection-first” ethos is intriguing No d
 	<article>
 		<div class="title">
 			<h1 class="title">Configuring meow for Friendly LaTeX Editing</h1>
-			
+			<div class="meta">Posted on Jan 1, 0001</div>
 		</div>
 		
 
@@ -101,11 +104,11 @@ I chose meow for a few reasons:</p>
 <p><a href="https://github.com/iyefrat/evil-tex">evil-tex</a> is an extension to evil that adds support for “vimmable” text objects in LaTeX syntax.
 As an example, let <code>|</code> denote the location of the point when using evil mode.
 Suppose we’re given the situation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The qu|ick brown fox jumps over the lazy dog.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The qu|ick brown fox jumps over the lazy dog.
 </span></span></code></pre></div><p>In <code>evil-normal-mode</code> you can type the keys <code>ciw</code> to “Change Inner Word”, deleting the work <code>quick</code> and placing you in <code>evil-insert-mode</code>.</p>
 <p>If <code>w</code> denotes the “word” evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
 Consider the following inline math expression with point <code>|</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\( X\cong | Y \)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\( X\cong | Y \)
 </span></span></code></pre></div><p>With <code>evil-tex-mode</code> enabled, and inside <code>evil-normal-mode</code>, we can press <code>cim</code> to “Change Inner Math”, deleting all the text within the <code>\( \)</code> delimiters and placing us in insert mode.
 This is just one example of what evil-tex offers; a more comprehensive picture is in the documentation.</p>
 <h2 id="doing-our-own-thing">Doing Our Own Thing</h2>
@@ -126,11 +129,11 @@ Then the key sequence <code>c i l</code> in evil mode (to “Change Inner Line�
 <p>In meow, it’s easy to define a <code>thing</code> with the function <code>(meow-thing-register)</code>.
 Let’s register a <code>thing</code> that picks out the LaTeX inline math environment <code>\( \)</code>.
 The simplest way to do this is using the pair matching:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;inline-math</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">pair</span> (<span style="color:#b44">&#34;\\(&#34;</span>) (<span style="color:#b44">&#34;\\)&#34;</span>))
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">pair</span> (<span style="color:#b44">&#34;\\(&#34;</span>) (<span style="color:#b44">&#34;\\)&#34;</span>) ) )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;inline-math</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(pair (<span style="color:#e6db74">&#34;\\(&#34;</span>) (<span style="color:#e6db74">&#34;\\)&#34;</span>))
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(pair (<span style="color:#e6db74">&#34;\\(&#34;</span>) (<span style="color:#e6db74">&#34;\\)&#34;</span>) ) )
 </span></span></code></pre></div><p>Now we can map this thing to a key:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?m</span> <span style="color:#666">.</span> <span style="color:#b8860b">inline-math</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?m</span> <span style="color:#f92672">.</span> inline-math))
 </span></span></code></pre></div><p>Now, when we’re inside an inline math environment, we can press <code>, m</code> to select all the text within the math environment, and <code>. m</code> to select all of the math environment.</p>
 <figure><img src="/ox-hugo/emacs-inline.gif"
     alt="Figure 2: Demo of our user-defined math thing"><figcaption>
@@ -141,13 +144,13 @@ The simplest way to do this is using the pair matching:</p>
 <p>The bindings <code>, m</code> and <code>. m</code> replicate the evil-tex object identification <code>i m</code> and <code>a m</code>, respectively.</p>
 <p>We can also use this same concept to extend functionality to full-scale LaTeX environments.
 That configuration is</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;latex-env</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">regexp</span> <span style="color:#b44">&#34;\\\\begin{.*?}\n\\(?:\\\\label{.*?}\n\\)?&#34;</span> <span style="color:#b44">&#34;\n\\\\end{.*?}&#34;</span> )
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">&#39;</span>(<span style="color:#b8860b">regexp</span> <span style="color:#b44">&#34;\\\\begin{.*?}&#34;</span> <span style="color:#b44">&#34;\\\\end{.*?}&#34;</span> ) )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;latex-env</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(regexp <span style="color:#e6db74">&#34;\\\\begin{.*?}\n\\(?:\\\\label{.*?}\n\\)?&#34;</span> <span style="color:#e6db74">&#34;\n\\\\end{.*?}&#34;</span> )
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">&#39;</span>(regexp <span style="color:#e6db74">&#34;\\\\begin{.*?}&#34;</span> <span style="color:#e6db74">&#34;\\\\end{.*?}&#34;</span> ) )
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?E</span> <span style="color:#666">.</span> <span style="color:#b8860b">latex-env</span>))
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?E</span> <span style="color:#f92672">.</span> latex-env))
 </span></span></code></pre></div><p>This adds the same support for latex environments that look this like:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\begin{ENV}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\begin{ENV}
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>\end{ENV}
 </span></span></code></pre></div><p>The <code>\label{...}</code> directive sometimes appears in these environments, so the regex used to match these things are included as optional match groups.</p>
@@ -160,24 +163,24 @@ That configuration is</p>
 <p>In fact, in my own configuration, I’ve combined the <code>latex-math</code> and <code>latex-env</code> things into one thing, so I use just the key <code>m</code> to pick out either inline math environments or <code>\begin{...} \end{...}</code> environments.</p>
 <p>These are all well and good, but one of my favorite evil-tex objects were the LaTeX delimiters: including <code>\left( \right)</code> and friends.
 Let’s do those too.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">latex-left-delim</span> (<span style="color:#a2f">rx</span> <span style="color:#b44">&#34;\\left&#34;</span>
-</span></span><span style="display:flex;"><span>                           (<span style="color:#a2f">or</span> <span style="color:#b44">&#34;\\langle&#34;</span>
-</span></span><span style="display:flex;"><span>                               <span style="color:#b44">&#34;(&#34;</span>
-</span></span><span style="display:flex;"><span>                               <span style="color:#b44">&#34;\[&#34;</span>
-</span></span><span style="display:flex;"><span>                               <span style="color:#b44">&#34;\\{&#34;</span>
-</span></span><span style="display:flex;"><span>                               <span style="color:#b44">&#34;\\lbrace&#34;</span>)))
-</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">latex-right-delim</span> (<span style="color:#a2f">rx</span> <span style="color:#b44">&#34;\\right&#34;</span>
-</span></span><span style="display:flex;"><span>                            (<span style="color:#a2f">or</span> <span style="color:#b44">&#34;\\rangle&#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#b44">&#34;)&#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#b44">&#34;\]&#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#b44">&#34;\\}&#34;</span>
-</span></span><span style="display:flex;"><span>                                <span style="color:#b44">&#34;\\rbrace&#34;</span>)))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq latex-left-delim (rx <span style="color:#e6db74">&#34;\\left&#34;</span>
+</span></span><span style="display:flex;"><span>                           (or <span style="color:#e6db74">&#34;\\langle&#34;</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;(&#34;</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;\[&#34;</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;\\{&#34;</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;\\lbrace&#34;</span>)))
+</span></span><span style="display:flex;"><span>(setq latex-right-delim (rx <span style="color:#e6db74">&#34;\\right&#34;</span>
+</span></span><span style="display:flex;"><span>                            (or <span style="color:#e6db74">&#34;\\rangle&#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;)&#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;\]&#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;\\}&#34;</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;\\rbrace&#34;</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">meow-thing-register</span> <span style="color:#b8860b">&#39;latex-delim</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">`</span>(<span style="color:#b8860b">regexp</span> <span style="color:#666">,</span><span style="color:#b8860b">latex-left-delim</span> <span style="color:#666">,</span><span style="color:#b8860b">latex-right-delim</span>)
-</span></span><span style="display:flex;"><span>                     <span style="color:#666">`</span>(<span style="color:#b8860b">regexp</span> <span style="color:#666">,</span><span style="color:#b8860b">latex-left-delim</span> <span style="color:#666">,</span><span style="color:#b8860b">latex-right-delim</span>))
+</span></span><span style="display:flex;"><span>(meow-thing-register <span style="color:#e6db74">&#39;latex-delim</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">`</span>(regexp <span style="color:#f92672">,</span>latex-left-delim <span style="color:#f92672">,</span>latex-right-delim)
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">`</span>(regexp <span style="color:#f92672">,</span>latex-left-delim <span style="color:#f92672">,</span>latex-right-delim))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;meow-char-thing-table</span> <span style="color:#666">&#39;</span>(<span style="color:#b44">?j</span> <span style="color:#666">.</span> <span style="color:#b8860b">latex-delim</span>))
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;meow-char-thing-table</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">?j</span> <span style="color:#f92672">.</span> latex-delim))
 </span></span></code></pre></div><p>Here’s what that looks like:</p>
 <figure><img src="/ox-hugo/meow-delimiter.gif"
     alt="Figure 4: Demo of our user-defined delimiter thing"><figcaption>

@@ -1,15 +1,14 @@
 #+hugo_base_dir: /home/aatmun/websites/site/
 #+hugo_weight: auto
-#+bibliography: ~/Documents/bib/reference-articles.bib
-#+options: ':t todo:nil date:t
-#+cite_export: csl
+#+bibliography: ~/Documents/bib/zotero_refs.bib
+#+options: todo:nil date:t
 #+startup: logdone
 
 
 * Home
 :PROPERTIES:
 :EXPORT_HUGO_FRONT_MATTER: :toc false :author false
-:EXPORT_FILE_NAME: ~/websites/site/public/index
+:EXPORT_FILE_NAME: _index
 :END:
 
 ** About Me
@@ -17,13 +16,13 @@
 I am a PhD student in mathematics at Texas A&M University.
 
 - *Advisor*: [[https://people.tamu.edu/~rowell/][Dr. Eric Rowell]]
-- *Research interests:* Braided fusion categories
+- *Research interests:* Fusion categories
 *** Education
 - PhD Mathematics, Texas A&M University (in progress)
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
 *** Hobbies
-- Programming. I'm currently working in Rust, Common Lisp, and Python.
+- Programming. I'm currently working in lisps and python.
 - Liverpool FC
 - Astrophotography
 - Learning japanese through immersion
@@ -53,6 +52,7 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: repG_fusion_rules
 :EXPORT_OPTIONS: toc:t
+:EXPORT_DATE: 2024-07-05
 :END:
 /Disclaimer: These results have not been subjected to the rigor of publication./
 
@@ -278,6 +278,7 @@ Perhaps an alternate realization of the category \( \operatorname{Adj}(SO(24)_2)
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: realizing_fusion_rules
 :EXPORT_OPTIONS: toc:nil
+:EXPORT_DATE: 2024-07-05
 :END:
 /Disclaimer: These results have not been subjected to the rigors of publication./
 *** Fusion Rings
@@ -437,6 +438,7 @@ The results are summarized in the tables below.
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: quantum_comp_and_modular_categories
+:EXPORT_DATE: 2024-07-05
 :END:
 
 *** Introduction
@@ -612,6 +614,9 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 - TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
   - This is perhaps its strongest merit
 ** DRAFT A "Yoga" to Realizing Multiplicity-Free Fusion Rules :math:categories:noexport:
+:PROPERTIES:
+:EXPORT_DATE: 2024-07-05
+:END:
 
 Since writing about [[*Realizing some Multiplicity-Free Fusion Rules][realizing multiplicity-free fusion rules]], I've gone through more of the [[https://anyonwiki.github.io/][AnyonWiki]] database and realized more fusion rules, picking up some techniques to hint at possible answers along the way.
 I hesitate to call this a yoga (whatever that means, anyway), because really it's just a set of heuristics following the information provided.
@@ -647,6 +652,7 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: LAWRGe_2023_notes
+:EXPORT_DATE: 2024-07-05
 :END:
 #+toc: headlines 2 local
 #+include: "~/Documents/org/notes.org::*LAWRGe Workshop"
@@ -665,6 +671,7 @@ A higher rank example of Frobenius-Perron dimensions for basis elements is prese
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: how_emacs_helped_modus_ef_palette_beamer
+:EXPORT_DATE: 2024-07-05
 :END:
 
 I'm very fond of Prot's =modus-themes= and =ef-themes= for emacs.
@@ -730,6 +737,7 @@ Happy scripting!
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: configuring_meow_friendly_latex
+:EXPORT_DATE: 2024-07-05
 :END:
 /TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme./
 /This article assumes some familiarity with the evil and meow modes./
@@ -983,6 +991,7 @@ I hope I've brought some inspirational ideas here.
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: meow_state_org_speed
+:EXPORT_DATE: 2024-07-05
 :END:
 
 /TL;DR: We implement a =meow-state= for quick navigation of =org-mode= document structure./
@@ -1063,13 +1072,13 @@ Feel free to extend and/or modify the key definitions to your liking.
 You can check the value of =org-speed-commands= for inspiration.
 #+caption: Demo of our org-motion state
 [[file:~/Videos/meow-org-motion.gif]]
-** Solving the Magic Square in Common Lisp :lisp:programming:
+** DRAFT Solving the Magic Square in Common Lisp          :lisp:programming:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: magic-square-common-lisp
 :END:
 #+include: ~/programming/lisp-fun/magic-square.org
-** Declarative Programming for Fast Brain-to-Binary
+** DRAFT Declarative Programming for Fast Brain-to-Binary
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: brain_to_binary_bliss_of_decla_prog
@@ -1119,22 +1128,19 @@ Having several people with several dialects working on a single project can be a
 Oftentimes for the sake of team cohesion and ease of debugging, a unified style-guide for large projects is preferred.
 
 Despite this, I will continue to prefer declarative programming for quick implementations, only moving to imperative when I think more control is needed.
-** DRAFT Avy-backed, laser-precise marking in Emacs
-/TL;DR: We define a minor mode =lasgun= which uses =avy= to place inactive marks in emacs buffers./
-
-Before reading this, it's worth reading Karthik's very comprehensive [[https://karthinks.com/software/avy-can-do-anything/#fc6ea2][article]] on the emacs package =avy=.
-To vastly oversimplify things, =avy= allows tree-based selection and action on virtually any position in a visible buffer (and/or visible window).
-** DRAFT Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor
-
-In thinking of new ways to +waste time with+ extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
+** DRAFT Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor :emacs:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: comp
+:EXPORT_FILE_NAME: dyn_custom_palette_access_technicolor
+:EXPORT_DATE: 2024-07-05
+:END:
+In thinking of new ways to +waste time with+ /extend/ emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
 Fortunately for me, accessing the current DOOM theme's color palette from elisp is trivial using the function =doom-color=.
 Unfortunately for me, I don't always have a DOOM theme active...
-Sometimes I have a modus or ef theme, sometimes catppuccin.
-This presents a challenge for what I want to accomplish, which we'll discuss an small example of.
 
 Consider the following elisp:
 #+begin_src emacs-lisp
-    (set-face-attribute org-verbatim t :foreground (technicolor-get-color 'green))
+  (set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 #+end_src
 All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
 Simple enough, except this is what happens when I switch from a DOOM theme to, e.g., a modus theme:
@@ -1143,14 +1149,13 @@ Simple enough, except this is what happens when I switch from a DOOM theme to, e
 
 Blegh!
 The code accesses the variable =doom-themes--colors=, which remains unchanged upon loading a non-DOOM theme.
-The green from the previous DOOM theme palette sticks out as just /wrong/ here.
-How can we fix this?
+The green from the previous DOOM theme palette sticks out as very /wrong/ here.
 
-Not all hope is lost; the modus theme pack also comes with a function you can use to access color values from the current modus theme: =modus-themes-get-color-value=.
+A fix is in sight; the modus theme pack also comes with a function you can use to access color values from the current modus theme: =modus-themes-get-color-value=.
 Huzzah!
 All we have to do is write a function =current-theme-color= that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization is now:
 #+begin_src emacs-lisp
-  (set-face-attribute org-verbatim t :foreground (current-theme-color 'green))
+   (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'green))
 #+end_src
 Err, this doesn't quite work either.
 Most all themes define a color "green", so this solution should be sufficient for basic colos like red, green, blue, magenta, etc.
@@ -1163,7 +1168,7 @@ A decent compromise is to let the user choose a subset of colors (which we call 
 This is the design philosophy of [[https://github.com/aatmunbaxi/technicolor][technicolor]].
 
 In our situation, we want to access the foreground color of DOOM themes, modus themes, and catppuccin themes.
-For good measure, we'll throw in background, red, green, blue, magenta, and cyan into that list.
+For good measure, we'll throw in background color, red, green, blue, magenta, and cyan into that list.
 Our standard palette can be loaded into a technicolor variable, and the data for the themes we want to use this standard palette with can be specified.
 #+begin_src emacs-lisp
   (setq technicolor-colors '(foreground background red green blue magenta cyan)
@@ -1184,20 +1189,22 @@ Our standard palette can be loaded into a technicolor variable, and the data for
 #+end_src
 The =technicolor-themes= variable contains a list of "theme data", which contain a regex that will match a theme or group of themes, a function for technicolor to use which will access the colors in our universal palette, and an alist of mappings from the symbols in our universal palette to symbols that theme uses to refer to those colors.
 
-The standard function used to refer to a color in the current theme's palette is =technicolor-get-color=.
-The argument for this function will be =color=, which is a symbol in =technicolor-colors=.
+Once configured, the standard function used to refer to a color in the current theme's palette is =technicolor-get-color=.
+The argument for this function will be a symbol in =technicolor-colors=.
 Now, for example, when =technicolor-get-color= function is called with a =doom-*= theme active, technicolor will return the output of =(doom-theme (alist-get 'color ((foreground . fg) (background . bg))))= if =color= has an associated key, or =(doom-color 'color)= if it does not.
+For safe use with customizing faces, the function used to get the color should return =nil= or the symbol =unspecified=.
 
 Remember how we wanted to access the color =red= from our themes?
-Notice it isn't a key in any of the above alists, since all our themes use the symbol =red= to identify the color green.
+Notice it isn't a key =red= in any of the above alists, since all our themes use the symbol =red= to identify the color green.
 Similarly for =blue=.
 
-What does this abstraction buy us?O
-Our original face customization now looks like this:
+What does this abstraction buy us?
+The face customization from the beginning is now
 #+begin_src emacs-lisp
-  (set-face-attribute org-verbatim t :foreground (technicolor-get-color 'green))
+  (set-face-attribute 'org-verbatim t :foreground (technicolor-get-color 'green))
 #+end_src
 This now works seamlessly across themes that are matched in =technicolor-themes=.
+We can hook these face attribute updates to the =load-theme= function to get dynamic updates of the face attribute customization upon change of theme:
 
 - TODO :: video showing correct transitions
 * Misc
@@ -1315,6 +1322,7 @@ and this isomorphism is natural in both \(X\) and \(F\).
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: nihongo
 :EXPORT_FILE_NAME: jojos_interesting_phrase
+:EXPORT_DATE: 2024-07-05
 :END:
 I came across the phrase「氷が行かなくなってきている」in an episode of Jojo's Bizarre Adventure and couldn't help but smile at it.
 The morphology of Japanese words is a fascinating one, and this sentence exemplifies it brilliantly.
