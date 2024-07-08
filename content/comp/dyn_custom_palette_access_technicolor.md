@@ -8,14 +8,14 @@ weight = 2007
 type = "post"
 +++
 
-In thinking of new ways to ~~waste time with~~ extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
+In thinking of new ways to ~~waste time with~~ _extend_ emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
 Fortunately for me, accessing the current DOOM theme's color palette from elisp is trivial using the function `doom-color`.
 Unfortunately for me, I don't always have a DOOM theme active...
 
 Consider the following elisp:
 
 ```emacs-lisp
-(set-face-attribute org-verbatim nil :foreground (doom-color 'green))
+(set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 ```
 
 All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
@@ -33,7 +33,7 @@ Huzzah!
 All we have to do is write a function `current-theme-color` that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization is now:
 
 ```emacs-lisp
-(set-face-attribute org-verbatim nil :foreground (current-theme-color 'green))
+(set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'green))
 ```
 
 Err, this doesn't quite work either.
@@ -83,7 +83,7 @@ What does this abstraction buy us?
 The face customization from the beginning is now
 
 ```emacs-lisp
-(set-face-attribute org-verbatim t :foreground (technicolor-get-color 'green))
+(set-face-attribute 'org-verbatim t :foreground (technicolor-get-color 'green))
 ```
 
 This now works seamlessly across themes that are matched in `technicolor-themes`.

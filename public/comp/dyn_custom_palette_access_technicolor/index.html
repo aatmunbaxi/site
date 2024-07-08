@@ -4,14 +4,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor - Aatmun Baxi</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme&rsquo;s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don&rsquo;t always have a DOOM theme active&hellip;
 Consider the following elisp:
-(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme." />
+(set-face-attribute &#39;org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme." />
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content="http://localhost:1313/comp/dyn_custom_palette_access_technicolor/">
   <meta property="og:site_name" content="Aatmun Baxi">
   <meta property="og:title" content="Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor">
   <meta property="og:description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme’s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don’t always have a DOOM theme active…
 Consider the following elisp:
-(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
+(set-face-attribute &#39;org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="comp">
@@ -22,7 +22,7 @@ Consider the following elisp:
   <meta name="twitter:title" content="Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor">
   <meta name="twitter:description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme’s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don’t always have a DOOM theme active…
 Consider the following elisp:
-(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
+(set-face-attribute &#39;org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
 
 	
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
@@ -90,11 +90,11 @@ Consider the following elisp:
 		
 
 		<section class="body">
-			<p>In thinking of new ways to <del>waste time with</del> extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
+			<p>In thinking of new ways to <del>waste time with</del> <em>extend</em> emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
 Fortunately for me, accessing the current DOOM theme&rsquo;s color palette from elisp is trivial using the function <code>doom-color</code>.
 Unfortunately for me, I don&rsquo;t always have a DOOM theme active&hellip;</p>
 <p>Consider the following elisp:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">nil</span> :foreground (doom-color <span style="color:#e6db74">&#39;green</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute <span style="color:#e6db74">&#39;org-verbatim</span> <span style="color:#66d9ef">nil</span> :foreground (doom-color <span style="color:#e6db74">&#39;green</span>))
 </span></span></code></pre></div><p>All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
 Simple enough, except this is what happens when I switch from a DOOM theme to, e.g., a modus theme:</p>
 <dl>
@@ -107,7 +107,7 @@ The green from the previous DOOM theme palette sticks out as very <em>wrong</em>
 <p>A fix is in sight; the modus theme pack also comes with a function you can use to access color values from the current modus theme: <code>modus-themes-get-color-value</code>.
 Huzzah!
 All we have to do is write a function <code>current-theme-color</code> that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization is now:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">nil</span> :foreground (current-theme-color <span style="color:#e6db74">&#39;green</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute <span style="color:#e6db74">&#39;org-verbatim</span> <span style="color:#66d9ef">nil</span> :foreground (current-theme-color <span style="color:#e6db74">&#39;green</span>))
 </span></span></code></pre></div><p>Err, this doesn&rsquo;t quite work either.
 Most all themes define a color &ldquo;green&rdquo;, so this solution should be sufficient for basic colos like red, green, blue, magenta, etc.
 What happens if we wanted to use the theme&rsquo;s foreground color?
@@ -144,12 +144,12 @@ Notice it isn&rsquo;t a key <code>red</code> in any of the above alists, since a
 Similarly for <code>blue</code>.</p>
 <p>What does this abstraction buy us?
 The face customization from the beginning is now</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">t</span> :foreground (technicolor-get-color <span style="color:#e6db74">&#39;green</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute <span style="color:#e6db74">&#39;org-verbatim</span> <span style="color:#66d9ef">t</span> :foreground (technicolor-get-color <span style="color:#e6db74">&#39;green</span>))
 </span></span></code></pre></div><p>This now works seamlessly across themes that are matched in <code>technicolor-themes</code>.
 We can hook these face attribute updates to the <code>load-theme</code> function to get dynamic updates of the face attribute customization upon change of theme:</p>
 <dl>
 <dt>TODO</dt>
-<dd>video showing correct transitions</dd>
+<dd>video showing correct transit</dd>
 </dl>
 
 		</section>

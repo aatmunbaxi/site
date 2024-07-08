@@ -30,13 +30,6 @@ I am a PhD student in mathematics at Texas A&amp;M University.
     -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in GNU emacs
 
 
-## [My Digital Garden](https://aatmunbaxi.github.io/crossed-braining) {#my-digital-garden}
-
-A smattering of my atomic notes and how they relate to each other.
-If they don't seem to make sense to everyone, that's because they're not meant to.
-After all, they're what I (claim to) know in my own words.
-
-
 ## Contact {#contact}
 
 -   **Email**: [abaxi@tamu.edu](mailto:abaxi@tamu.edu)

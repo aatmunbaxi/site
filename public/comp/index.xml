@@ -55,7 +55,7 @@
       <link>http://localhost:1313/comp/dyn_custom_palette_access_technicolor/</link>
       <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/comp/dyn_custom_palette_access_technicolor/</guid>
-      <description>In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme&amp;rsquo;s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don&amp;rsquo;t always have a DOOM theme active&amp;hellip;&#xA;Consider the following elisp:&#xA;(set-face-attribute org-verbatim nil :foreground (doom-color &amp;#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.</description>
+      <description>In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme&amp;rsquo;s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don&amp;rsquo;t always have a DOOM theme active&amp;hellip;&#xA;Consider the following elisp:&#xA;(set-face-attribute &amp;#39;org-verbatim nil :foreground (doom-color &amp;#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.</description>
     </item>
   </channel>
 </rss>
