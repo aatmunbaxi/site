@@ -10,4 +10,4 @@ type = "post"
     identifier = "misc"
 +++
 
-Some stuff that doesn&rsquo;t really fit anywhere else.
+Some stuff that doesn't really fit anywhere else.

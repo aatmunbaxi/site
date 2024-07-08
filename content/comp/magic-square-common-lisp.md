@@ -2,8 +2,8 @@
 title = "Solving the Magic Square in Common Lisp"
 author = ["Aatmun Baxi"]
 tags = ["lisp", "programming"]
-draft = false
-weight = 2003
+draft = true
+weight = 2005
 type = "post"
 +++
 
@@ -30,17 +30,17 @@ type = "post"
 ## The Problem {#the-problem}
 
 The magic square problem is a typical recursion exercise given to students learning programming.
-Since I&rsquo;ve been playing around with common lisp recently, I thought I&rsquo;d use it as an excuse to learn a bit about the language.
+Since I've been playing around with common lisp recently, I thought I'd use it as an excuse to learn a bit about the language.
 
 A magic square (of size 3) is a 3x3 grid of numbers whose rows, columns, and diagonals sum up to the same number.
-We&rsquo;ll be working with the simplest case here, where the grid can only be filled with values `1-9`, so the win condition is when the rows, columns, and diagonals sum up to `15`.
+We'll be working with the simplest case here, where the grid can only be filled with values `1-9`, so the win condition is when the rows, columns, and diagonals sum up to `15`.
 Our job is to write a program that takes as user input a grid of 9 numbers, possibly with some values filled out already, and return a solved magic square from those predetermined numbers.
 If the square cannot be solved, we should return `nil`.
 
 
 ## Helper Functions {#helper-functions}
 
-We&rsquo;ll model a 3x3 square as a flat list of 9 elements.
+We'll model a 3x3 square as a flat list of 9 elements.
 We index row-first.
 For an example, the following table
 
@@ -52,13 +52,13 @@ For an example, the following table
 
 will be encoded as the list `(1 2 3 4 5 6 7 8 9)`.
 
-In order to check if a square is a &ldquo;real&rdquo; magic square, we need some helper functions that will be used to check the win condition.
+In order to check if a square is a "real" magic square, we need some helper functions that will be used to check the win condition.
 
 
 ### Summing List Values {#summing-list-values}
 
 The first thing we need is the ability to sum all values of a list.
-This doesn&rsquo;t really require much to do, but it&rsquo;s convenient to have a succinct name to refer to.
+This doesn't really require much to do, but it's convenient to have a succinct name to refer to.
 
 ```lisp
 (defun sum (vals)
@@ -69,9 +69,9 @@ This doesn&rsquo;t really require much to do, but it&rsquo;s convenient to have 
 
 ### Converting Between Grids and Flat Lists {#converting-between-grids-and-flat-lists}
 
-The next things we need is the ability to &ldquo;flatten&rdquo; a list that encodes a grid.
-Internally, we&rsquo;ll process everything as a 1 dimensional list, but we&rsquo;d like to display and let the user work with the lists in a nicer human readable format as a 3x3 grid.
-For this we&rsquo;ll implement a function to convert the 2 dimensional grid into a 1 dimensional list.
+The next things we need is the ability to "flatten" a list that encodes a grid.
+Internally, we'll process everything as a 1 dimensional list, but we'd like to display and let the user work with the lists in a nicer human readable format as a 3x3 grid.
+For this we'll implement a function to convert the 2 dimensional grid into a 1 dimensional list.
 
 ```lisp
 (defun flatten (list-of-lists)
@@ -79,7 +79,7 @@ For this we&rsquo;ll implement a function to convert the 2 dimensional grid into
   (apply #'append list-of-lists))
 ```
 
-We&rsquo;ve assumed strongly that the lists we use are length 9 and the grid we want is 3x3.
+We've assumed strongly that the lists we use are length 9 and the grid we want is 3x3.
 We might want to change this if we want a magic square solver for larger grids like 4x4 or 5x5.
 
 We also implement a `transpose` function, whose use will become apparent soon.
@@ -93,7 +93,7 @@ We also implement a `transpose` function, whose use will become apparent soon.
 ```
 
 Note here that it should be trivial to extend these functions to work on arbitrarily-sized square by doing some logic on the bounds and hard-coded numbers within the function.
-Not that you&rsquo;d want to, there&rsquo;s already 9! (9 factorial) permutations to check with just a 3x3 grid...
+Not that you'd want to, there's already 9! (9 factorial) permutations to check with just a 3x3 grid...
 
 
 ### Grabbing Diagonals {#grabbing-diagonals}
@@ -147,7 +147,7 @@ We can chain these together to form a final `solved?` function, which checks if 
 
 ### Range Generation {#range-generation}
 
-This neat little function emulates (to some extent) python&rsquo;s `range` function.
+This neat little function emulates (to some extent) python's `range` function.
 It makes use of the `loop` macro, which is wonderfully flexible.
 
 ```lisp
@@ -160,7 +160,7 @@ It makes use of the `loop` macro, which is wonderfully flexible.
 
 ### Pretty Printing {#pretty-printing}
 
-Just to aid visually, we&rsquo;ll write a function to print a flat list as a 3x3 grid.
+Just to aid visually, we'll write a function to print a flat list as a 3x3 grid.
 
 ```lisp
 (defun print-square (square)
@@ -219,7 +219,7 @@ The internal function looks like this
 
 We can now solve some magic squares.
 
-Let&rsquo;s solve a blank one first.
+Let's solve a blank one first.
 
 ```lisp
 (defvar solution (solve (list (list nil nil nil) (list nil nil nil) (list nil nil nil))))

@@ -1,9 +1,10 @@
 +++
 title = "LAWRGe 2023 Notes"
 author = ["Aatmun Baxi"]
+date = 2024-07-05
 tags = ["math", "conference", "notes"]
 draft = false
-weight = 2004
+weight = 2005
 type = "post"
 +++
 
@@ -53,7 +54,7 @@ This will be implicitly assumed for the rest of the talk.
 
 You can glue cobordisms together along a common boundary component.
 Taking this gluing as morphism composition, the collection of cobordisms (with equal dimension) form a category \\( \mathsf{Cob}\_{d,d-1}^{\mathrm{or}} \\), whose objects are closed oriented \\( d-1 \\)-manifolds, and morphisms are diffeomorphism classes of compact cobordisms between them.
-Here, &ldquo;closed&rdquo; means compact without boundary.
+Here, "closed" means compact without boundary.
 We can write morphisms like \\( M \xrightarrow{W}N  \\).
 _Note:_ Taking the reverse orientation of \\( W \\) gives the opposite arrow \\( N \to M \\).
 
@@ -90,7 +91,7 @@ You can repeat this extension process all the way down to \\( 0 \\)-manifolds at
 
 The above is the process of **extending down**.
 
-Extending up is the process of removing the reliance on &ldquo;diffeomorphism classes of&rdquo; from the previous definition.
+Extending up is the process of removing the reliance on "diffeomorphism classes of" from the previous definition.
 
 Let \\( \mathsf{Bord}\_d^{\mathrm{or}} \\) be an \\( (\infty,d) \\)-category.
 This is a category with \\( k < d \\)-morphisms the same as in \\( \mathsf{Cob}\_d^{\mathrm{or}} \\), and \\( d \\)-morphisms are done by \\( d \\)-dimensional iterated cobordisms
@@ -147,7 +148,7 @@ Mirror symmetry is an equivalence \\( Z\_{2dA,M} \cong Z\_{2dB,M} \\).
 
     Recall we wanted to make sense of the partition function with some boundary condition, or a _defect_.
     Currently, let the defect on the boundary be just a point.
-    We want to say something akin to &ldquo;everything away from the defect is the original TQFT, but at the defect it could be different&rdquo;.
+    We want to say something akin to "everything away from the defect is the original TQFT, but at the defect it could be different".
 
     **Definition:** A _local operator_ in a TQFT \\( Z \\) is a vector \\( \mathcal{O} \in Z(S^{d-1}) \\).
 
@@ -161,7 +162,7 @@ Mirror symmetry is an equivalence \\( Z\_{2dA,M} \cong Z\_{2dB,M} \\).
 
     **Definition:** The vector space of line operators is \\( Z(S^{d-2} \times  S^1) \\).
     Imagine now we cut \\( M \\) along some submanifold \\( N \\) so it cuts the knot \\( K \\).
-    The &ldquo;local line operators&rdquo; give objects of \\( Z(S^{d-2}) \\).
+    The "local line operators" give objects of \\( Z(S^{d-2}) \\).
     To a \\( d-1 \\)-manifold \\( N \\) with defect points \\( \mathcal{O} \in N \\), \\( Z(N) \\) is a composite of
 
     \begin{equation\*}
@@ -188,7 +189,7 @@ Mirror symmetry is an equivalence \\( Z\_{2dA,M} \cong Z\_{2dB,M} \\).
     We can combine all nested operations into \\(  \mathbb{E}^{\mathrm{f r}}\_d \\) as an _operad_.
     The upshot is that \\( Z(S^{d-1}) \\) is an \\(  \mathbb{E}^{\mathrm{f r}}\_d \\)-algebra.
 
-    Let&rsquo;s introduce \\( \mathbb{E}\_d(k) = \operatorname{Emb}^{\mathrm{f r}}(D^{\sqcup k} , D) \\) the collection of framed embeddings.
+    Let's introduce \\( \mathbb{E}\_d(k) = \operatorname{Emb}^{\mathrm{f r}}(D^{\sqcup k} , D) \\) the collection of framed embeddings.
 
     **Proposition:** \\( \mathbb{E}\_d(k) \simeq \operatorname{Conf}\_k( \mathbf{R}^d) \\) the space of configurations of \\( k \\) points in \\( \mathbf{R}^d \\).
     For the framed version \\(  \mathbb{E}^{\mathrm{f r}}\_d (k)  \simeq \operatorname{SO}(d) ^k \times \mathbb{E}\_d(k) \\).
@@ -243,7 +244,7 @@ If \\( \mathfrak{g} \\) is a Lie algebra, we can equip \\( \mathcal{E} \\) with 
 
 -   Field theory on \\( \mathbf{R}^4 \\), where \\(  \mathfrak{g}  = \mathfrak{so}(1,3) \\) (the Lorentz algebra)
 -   Poincare algebra \\( \mathfrak{so}(1,3) \rtimes \mathbf{R}^4 \\)
--   Complexified \\(  \mathfrak{g} \_{\mathbf{C}} = \mathfrak{so}(k, \mathbf{C}) \rtimes \mathbf{C}^4 \\), in case we don&rsquo;t want to worry about choice of signature
+-   Complexified \\(  \mathfrak{g} \_{\mathbf{C}} = \mathfrak{so}(k, \mathbf{C}) \rtimes \mathbf{C}^4 \\), in case we don't want to worry about choice of signature
 
 
 #### Supersymmetric Field Theories {#supersymmetric-field-theories}
@@ -323,7 +324,7 @@ Some specializations of this concept:
     We take here \\( \mathcal{X} \\) to be a hyper-Kahler (quaternionic) vector space.
     The action of \\( G \\) then means \\( \mathcal{X} \\) is a quaternionic representation of \\( G \\).
     This is what people mean when they say 3d \\( \mathcal{N}=4 \\) gauge theories
-    1.  Cotangent matter, so \\( W = T^{\*}V = V \oplus V^{\*} \\) where \\( V \\) is a complex representation of \\( G \\)
+    a. Cotangent matter, so \\( W = T^{\*}V = V \oplus V^{\*} \\) where \\( V \\) is a complex representation of \\( G \\)
 
 
 #### Hyper-Kahler manifolds {#hyper-kahler-manifolds}
@@ -394,7 +395,7 @@ If \\( (G,W) \\) is a 3d mirror to another pair \\( (G', W') \\), then the \\( A
     Then \\( Z\_{3dA, W/ /G} \\) is a 2d TQFT, with \\(  Z\_{3dA, W //G} ( \Sigma) \\) the _gauged Gromov-Witten invariant of \\( W \\)_, which counts the solutions of some PDE on \\( \Sigma \\), where \\( \Sigma \\) is some Riemann surface.
     (The vanilla GW invariant is when \\( G \\) is trivial.)
     The PDE in question is called the symplectic vortex equation.
-    Before we write it, let&rsquo;s introduce a function
+    Before we write it, let's introduce a function
 
     \begin{align\*}
     \label{eq:4}
@@ -478,7 +479,7 @@ If \\( (G,W) \\) is a 3d mirror to another pair \\( (G', W') \\), then the \\( A
 
         Now lets introduce the Seiberg-Witten equation.
         The Seiberg-Witten equation happens usually when \\( G = U(1), W = \mathbb{H} \\).
-        Let&rsquo;s introduce \\( \operatorname{Spin}^G(3) = \left( \operatorname{Spin}(3) \times  G \right) / \pm 1 \\), i.e. \\( -1\in G \\) acts by \\( -1 \\) on \\( W \\).
+        Let's introduce \\( \operatorname{Spin}^G(3) = \left( \operatorname{Spin}(3) \times  G \right) / \pm 1 \\), i.e. \\( -1\in G \\) acts by \\( -1 \\) on \\( W \\).
 
         A relevant notion is the structure \\( \operatorname{Spin}^{\mathbf{C}}(4) = \operatorname{Spin}^{U(1)}(t) = \left( \operatorname{SU}(2) \times U(1) \right)/ \pm 1 = U(2) \\).
         Set \\( \overline{G} = G / \pm 1 \\), \\( \overline{P} = P^G \times \overline{G} \\).
@@ -513,7 +514,7 @@ If \\( (G,W) \\) is a 3d mirror to another pair \\( (G', W') \\), then the \\( A
 
 Recall we constructed the Seiberg-Witten invariant of a manifold, which counts the solutions to a system of PDEs.
 Fix some \\( c\_0 \in \operatorname{Sim}^{ \mathbf{C}} \\) on \\( N \\), let \\( H = H\_1( N, \mathbf{Z} ) \cong H^2(N , \mathbf{Z}) \\).
-We can build a &ldquo;total&rdquo; invariant \\( SW\_{N,c\_0} = \sum\_{h\in H}^{} \widetilde{SW}\_N(c\_{0 } + h)h \in \mathbf{Z} (H) \\).
+We can build a "total" invariant \\( SW\_{N,c\_0} = \sum\_{h\in H}^{} \widetilde{SW}\_N(c\_{0 } + h)h \in \mathbf{Z} (H) \\).
 (cf taking the sum of Stiefel-Whitney numbers)
 If we mod out by \\( H \\), we can get a number independent of the choice of spin structure.
 
@@ -551,13 +552,13 @@ Now what is \\( Z\_{3dB, W / / / G} (N)\\)?
 
     </div>
 
-    You could think of this as a &ldquo;determinant&rdquo; of \\( d \\) in the chain complex.
+    You could think of this as a "determinant" of \\( d \\) in the chain complex.
 
     Fact: there exists a homotopy \\( h:  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k  \to  C\_{\bullet + 1}(N , \mathcal{L})\otimes \_R k  \\) such that \\( dh + hd = \operatorname{id} \\) called the _contracting homotopy_.
 
     Consider \\( d+h : C\_{\mathrm{even}}(N , \mathcal{L}) \otimes  \_{R }k  \to C\_{\mathrm{odd}}(N , \mathcal{L})\otimes  \_{R }k \\).
     Fact: It is an isomorphism.
-    We want to compute its &ldquo;determinant&rdquo;.
+    We want to compute its "determinant".
     First we should give bases for \\(  C\_{\bullet} (N , \mathcal{L}) \otimes \_R k \\).
     Choose
 
@@ -610,7 +611,7 @@ Then \\( SW\_{N, c} = \tau\_c(N)\in \mathbf{Z}(H)/\pm 1 \\).
 
 Recall that \\( SW\_N = Z\_{3dA, \mathbb{H} /// U(1)}(N) \\).
 In fact, \\( \tau(N) = Z\_{3dB , \mathbb{H}}(N) \\).
-We can generalize this relationship to more general targets, where \\( V \\) is a unitary \\( G \\)-representation, and \\( W = V \otimes \_{\mathbf{C}} \mathbb{H} \\) &ldquo;cotangent matter&rdquo;.
+We can generalize this relationship to more general targets, where \\( V \\) is a unitary \\( G \\)-representation, and \\( W = V \otimes \_{\mathbf{C}} \mathbb{H} \\) "cotangent matter".
 Then \\( Z\_{3dB, W / / / G}(N) \\) is also related to torsion.
 The theorem then provides an equivalence between the 3d TQFTs.
 This is an example of mirror symmetry of \\( (U(1), \mathbb{H})\leftrightarrow (\bullet,  \mathbb{H}) \\).
@@ -665,7 +666,7 @@ It is a representation of \\( \operatorname{SU}(2)\_E \times  \operatorname{SU}(
 \end{equation}
 
 with all other brackets vanishing.
-The \\( H \\) and \\( C \\) stand for &ldquo;Higgs&rdquo; and &ldquo;Coulomb&rdquo;.
+The \\( H \\) and \\( C \\) stand for "Higgs" and "Coulomb".
 The \\( E \\) stands for Euclidean.
 The susy algebra lives inside an extension of itself by \\( \operatorname{SU}(2)\_E \\) by semidirect product which itself sits inside the extension by \\(  \operatorname{SU}(2)\_E \times  \operatorname{SU}(2)\_H \times  \operatorname{SU}(2)\_C  \\) via semidirect product.
 
@@ -878,7 +879,7 @@ Consider again \\( \Sigma = S^1 \times  \mathbf{R}  \\).
 Then get \\( C^{\bullet}(S^1 , V \oplus V^{\*}[1]) \cong T^{\*}C^{\bullet}(S^1,V) \\), which means the cotangent bundle of the latter vector space, which is just the space plus its dual.
 The latter is called _phase space_ of the theory.
 To get the state space, should apply a quantization procedure from the lore of quantum mechanics.
-The reason we take algebraic (polynomial) functions is because the \\( B \\)-model is &ldquo;algebraic&rdquo; in nature.
+The reason we take algebraic (polynomial) functions is because the \\( B \\)-model is "algebraic" in nature.
 One could take other kinds of functions in a different flavor of QFT.
 Then, \\(   Z\_{2dB, V }(S^1) = \operatorname{Sym}(C\_{\bullet}(S^1, V^{\*}))   \\).
 
@@ -1029,7 +1030,7 @@ There is another lattice description:
 \end{equation}
 
 An \\( O \\)-lattice is a free \\( O \\)-module space \\( L \\) such that \\( L \otimes  \_O K \cong K^{n} \\).
-For example, \\( g\in G(K) \\) has associated \\( GO^n \\) (called the &ldquo;standard lattice&rdquo;).
+For example, \\( g\in G(K) \\) has associated \\( GO^n \\) (called the "standard lattice").
 On a pair \\( (P, \varphi)  \\), we associate \\( H^0(\mathbb{D}, P)\subset H^{0}( \mathbb{D}^{\times }, P\_0) = K^n \\).
 
 For a rank \\( 0 \\) example, take \\( G = \operatorname{GL}\_1 \\).
@@ -1045,7 +1046,7 @@ We can write any element of \\( K^{\times } \\) as \\( t^nq(t) \\) for some inte
 #### BFN Coulomb Branch {#bfn-coulomb-branch}
 
 The BFN Coulomb branch is built out of a \\( G \\) gauge group and its action on \\( N \\).
-\\( N \\) is the &ldquo;matter&rdquo;.
+\\( N \\) is the "matter".
 
 Step 1 is to construct an algebra
 
@@ -1054,7 +1055,7 @@ Step 1 is to construct an algebra
 A(G,N) = H\_{\bullet} (\underbrace{\operatorname{Map}(\mathbb{B}, \left[ \frac{N}{G} \right]}\_{M})).
 \end{equation}
 
-\\( \mathbb{B} \\) is the &ldquo;bubble&rdquo; or &ldquo;raviolo&rdquo;.
+\\( \mathbb{B} \\) is the "bubble" or "raviolo".
 The Coulomb branch associated to this gauge and matter is
 
 \begin{equation}
@@ -1100,7 +1101,7 @@ Instead of \\( \mathcal{R}\_{G,N} \\), we will look at the slightly bigger space
 
 Note there is no requirement for \\( \varphi s \\) to lift.
 The space \\( T\_{G,N} \to  \operatorname{Gr}\_{G}  \\)  is a vector bundle and it is a resolution of \\( N \otimes  O \\).
-This is in analogy with the Springer resolution \\( T^{\*}  G/B \to \mathcal{N} \\), but we don&rsquo;t really care much about it.
+This is in analogy with the Springer resolution \\( T^{\*}  G/B \to \mathcal{N} \\), but we don't really care much about it.
 
 Set \\( T\_{G,N} \otimes \_{N \otimes K} T\_{G,N} = Z\_{G,N} \\).
 Then \\( Z\_{G,N} / G(K) \cong \mathcal{R}\_{G,N} / G(O) \\) has again a description
@@ -1179,7 +1180,7 @@ The classical moduli space of SUSY vacua in any SUSY QFT on some \\( \mathbf{R}^
 Schematically this is the set of boundary conditions near \\( \infty \\) that
 
 1.  Allow finite energy solutions to the equations of motion in the interior
-2.  Are fixed points of <span class="underline">all</span> \\( Q \\)&rsquo;s
+2.  Are fixed points of <span class="underline">all</span> \\( Q \\)'s
 
 These imply
 \\( \left\\{ Q,Q \right\\}=\partial \\) which implies \\( \partial (-)=0 \\) implying the field is constant.
@@ -1262,9 +1263,9 @@ In mirror 3d gauge theories:
 
 #### \\( \Omega\\) -background and quantization {#omega-background-and-quantization}
 
-Recall from Pavel&rsquo;s lectures that in a 3d field theory \\( Z(S^2)  \\) is an \\( E\_3 \\)-algebra.
-This means for every \\( n \\), there&rsquo;s a set of maps \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3) ) \otimes  Z(S^2)^{\otimes  n} \to Z(S^2) \\), or \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3))\to \operatorname\*{Hom}(Z(S)^{\otimes  n}, Z(S^2)) \\).
-In particular, when \\( n=2 \\), there&rsquo;s a &ldquo;multiplication map&rdquo;.
+Recall from Pavel's lectures that in a 3d field theory \\( Z(S^2)  \\) is an \\( E\_3 \\)-algebra.
+This means for every \\( n \\), there's a set of maps \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3) ) \otimes  Z(S^2)^{\otimes  n} \to Z(S^2) \\), or \\( C\_{\bullet}( \operatorname{Conf}\_n( \mathbf{R}^3))\to \operatorname\*{Hom}(Z(S)^{\otimes  n}, Z(S^2)) \\).
+In particular, when \\( n=2 \\), there's a "multiplication map".
 This product is homotopy-commutative.
 For example \\( \operatorname{Conf}\_2( \mathbf{R}^2) \sim S^2 \\), by taking the vector between two points at unit norm, producing a homotopy equivalence.
 Additionally, the product at the north and south poles are homotopty equivalent via a path, hence homologically the same.
@@ -1325,13 +1326,13 @@ Recall we have
 \end{equation}
 
 with an action of \\( S^1 \times  S^1 \\) action on \\( S^3 \\).
-Let&rsquo;s find where \\( [ \mathbf{C} \times  0 ] , [ 0 \times  \mathbf{C}] \\) go.
+Let's find where \\( [ \mathbf{C} \times  0 ] , [ 0 \times  \mathbf{C}] \\) go.
 We claim they go to the north and south pole, respectively.
-In homogeneous coordinates of \\( \mathbb{P}^1 \\), they&rsquo;d go to \\( [1,0] \\) and \\( [0,1] \\).
+In homogeneous coordinates of \\( \mathbb{P}^1 \\), they'd go to \\( [1,0] \\) and \\( [0,1] \\).
 
 We know that \\( [ \mathbf{C} \times  0 ] \cdot [ 0 \times  \mathbf{C}]  \mapsto \emptyset\\).
 Recall we had \\( \mathbf{C}[x\_1, x\_2] = H\_0^{S^1 \times S^1}(pt) \\) from the passage to homology.
-When we quotient by each term and take weights, we&rsquo;re left with \\( x\_2,x\_1 \\) respectively.
+When we quotient by each term and take weights, we're left with \\( x\_2,x\_1 \\) respectively.
 So the image of the product of the two is \\( 0 \\), so \\( x\_1x\_2 \mapsto \emptyset \\).
 So \\( \mathbf{C}[x\_1, x\_2] / \left\langle x\_1x\_2 \right\rangle \\) is the equivariant cohomology \\(H^{S^1}(S^2)\\).
 If you work everything out you figure out \\( h \mapsto x\_1 - x\_2 \\).
@@ -1443,9 +1444,9 @@ where \\( [h,x] = [t,h]=0 \\) and \\( [t,x]=ht \\).
 
 #### Review {#review}
 
-So far we&rsquo;ve considered 3d \\( \mathcal{N}=4 \\) gauge theories labeled by a compact Lie group \\( G \\) and \\( W = T^{\*} V \\) (sometimes) a hyperKahler representation of \\( G \\).
+So far we've considered 3d \\( \mathcal{N}=4 \\) gauge theories labeled by a compact Lie group \\( G \\) and \\( W = T^{\*} V \\) (sometimes) a hyperKahler representation of \\( G \\).
 Physical QFTs are representations \\( \mathcal{T}\_{G,V} \\) with action of \\( \operatorname{SU}(2) \_E \otimes \operatorname{SU}(2)\_H \otimes  \operatorname{SU}(2)\_C\\).
-We&rsquo;ve hinted towards gauge theories that are related to each other by 3d mirror symmetry, which means that the QFTs are equivalent at infinitely low energy up to a swapping of \\( \operatorname{SU}(2)\_H , \operatorname{SU}(2)\_C \\).
+We've hinted towards gauge theories that are related to each other by 3d mirror symmetry, which means that the QFTs are equivalent at infinitely low energy up to a swapping of \\( \operatorname{SU}(2)\_H , \operatorname{SU}(2)\_C \\).
 
 Compare this situation with 2d \\( \mathcal{N}=(2,2) \\) \\( \sigma \\)-models (\\( \equiv 2\mod 4\\) means it comes in a pair).
 This model is labeled by Calabi-Yau manifolds, so one gets a 2d QFT \\( \mathcal{T}\_{\mathcal{X}} \\) with an action by the SUSY algebra \\( \rtimes U(1)\_E \times  U(1)\_V \times  U(1)\_A \\).
@@ -1565,9 +1566,9 @@ The second term in \\( \mathbf{C}\_{h}[ \mathcal{M}\_H] \\).
 ### Lecture 15: Fri Jun 16 10:44:46 2023 {#lecture-15-fri-jun-16-10-44-46-2023}
 
 We will talk about \\( Z(S^1) \\).
-Justin will talk about \\( Z(\*) \\) of a point, then for the last lecture we&rsquo;ll wrap up.
+Justin will talk about \\( Z(\*) \\) of a point, then for the last lecture we'll wrap up.
 In 3d TQFTs in physics \\( Z(S^1) \\) is called the _category of line operators_.
-It is a linear category, the objects of this category &ldquo;compactify holes on surfaces&rdquo;.
+It is a linear category, the objects of this category "compactify holes on surfaces".
 To every surface with firmed up holes, it assigns a vector space.
 In particular, \\( Z(S^2 \setminus \left\\{ N,S \right\\}) \\) labeled by \\( L\_1, L\_2 \\), defines \\( \operatorname\*{Hom}(L\_1, L\_2) \\).
 In other words, if you think of this as a cobordism between circles, this is the \\( \operatorname\*{Hom}(-,-) \\) functor.
@@ -1575,11 +1576,11 @@ In other words, if you think of this as a cobordism between circles, this is the
 Moreover \\( Z(S^1)  \\) is an \\( E\_2 \\)-category, AKA a braided tensor category.
 \\( Z(D \setminus D \sqcup D) : Z(S^1) \times  Z(S^1) \to Z(S^1) \\) defines the tensor product.
 The braiding comes from the 3d cobordism which is a big ball with cylinders drilled out crossing over inside the ball.
-Finally, \\( Z(S^1) \\) has a distinguished identity object \\( \mathbb{1} \\) for the tensor product defined as \\( Z( disk) \\), which is called the &ldquo;identity line&rdquo; or &ldquo;trivial line&rdquo;.
+Finally, \\( Z(S^1) \\) has a distinguished identity object \\( \mathbb{1} \\) for the tensor product defined as \\( Z( disk) \\), which is called the "identity line" or "trivial line".
 You can view the disk as a cobordism between the empty \\( 1 \\)-manifold and the circle (the cup construction) which defines a map \\( \mathbf{C} \to \mathbb{1} \\).
 
-We&rsquo;ve talked about circle actions on local operators which we took equivariants of.
-Similarly we can &ldquo;quantize&rdquo; the category and deform it from an \\( E\_2 \\)-category to just a category.
+We've talked about circle actions on local operators which we took equivariants of.
+Similarly we can "quantize" the category and deform it from an \\( E\_2 \\)-category to just a category.
 
 We can recover \\( Z( \mathrm{all surfaces, 3-mans}) \\) from \\( Z(S^1) \\).
 
@@ -1604,8 +1605,8 @@ The Hochschild homology of the category.
 From \\( G,W \\) gauge theories
 
 1.  Roughly solve \\( A,B \\)-twisted eqns of motions (look for \\( Q\_A \\) or \\( Q\_B \\) fixed points) on the circle and quantize
-    1.  \\( A: \\) take a Fukaya category (roughly speaking)
-    2.  \\( B \\): take coherent sheaves (roughly speaking)
+    a. \\( A: \\) take a Fukaya category (roughly speaking)
+    b. \\( B \\): take coherent sheaves (roughly speaking)
 
 <!--list-separator-->
 

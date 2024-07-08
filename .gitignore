@@ -5,3 +5,14 @@
 /static/ltximg/*.png
 /static/ltximg/*.svg
 /public/ltximg/latex2XYW0a_d860038ff5df5827f9f57b2151b97749766cbe75.png
+/public/css/modus_style.061ac9b1e76280791dcdca236ea0839cccecf030631820b22921a5b217c83672.css
+/public/css/modus_style.0c3f244200f1505e57240c115ad9efa66518d69a9c51381943fa60440d28e14e.css
+/public/css/modus_style.10a37fd4be5deb76f6f5431a9aceecc5a94c20a3ea5ec2330fd69c529e80e67b.css
+modus_style\\..*?.css$
+^.*?org-ltximg.*?\\.[\\(png\\)|\\(svg\\)]
+org-ltximg.*?[png|svg]$
+/public/ltximg/*.svg
+/public/ltximg/*.png
+/public/css/*.css
+/themes/hugotex/
+/themes/hugo-texify3/

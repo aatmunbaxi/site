@@ -3,21 +3,20 @@ languageCode = 'en-us'
 title = 'Aatmun Baxi'
 theme = 'archie'
 
-
 [params]
+  customcss = ["css/modus_style.css"]
   mode = "light"
   ShowWordCount = true
-  customcss =["css/main.css"]
   mathjax = true
+[taxonomies]
+  tag = "tag"
 
 
 [markup.goldmark.renderer]
   unsafe = true
 
 [markup]
-  [markup.highlight]
-       guessSyntax = false
-       style = "emacs"
+
   [markup.goldmark]
     [markup.goldmark.extensions]
       [markup.goldmark.extensions.passthrough]

@@ -1,21 +1,22 @@
 +++
 title = "How Emacs Helped Me Today: modus-themes and ef-themes Palettes for LaTeX"
 author = ["Aatmun Baxi"]
+date = 2024-07-05
 tags = ["emacs", "lisp", "LaTeX"]
 draft = false
 weight = 2002
 type = "post"
 +++
 
-I&rsquo;m very fond of Prot&rsquo;s `modus-themes` and `ef-themes` for emacs.
-They&rsquo;re highly legible, easy on the eyes, and attractive.
-Recently I was making a beamer presentation for a talk I&rsquo;m currently procrastinating on.
+I'm very fond of Prot's `modus-themes` and `ef-themes` for emacs.
+They're highly legible, easy on the eyes, and attractive.
+Recently I was making a beamer presentation for a talk I'm currently procrastinating on.
 For better or for worse, I thought to myself _I wish I could make the PDF output have modus theme colors_.
 
-After manually reading off some colors from `modus-operandi-tinted-palette` into my LaTeX preamble, I remembered: _Wait, this is emacs. There&rsquo;s a better way to do this._
+After manually reading off some colors from `modus-operandi-tinted-palette` into my LaTeX preamble, I remembered: _Wait, this is emacs. There's a better way to do this._
 
 Happily, Prot designed the `modus-themes` and `ef-themes` palettes in simple way; they are just lists of lists with the name and hex value of the color.
-Here&rsquo;s an excerpt of `modus-operandi-tinted-palette`:
+Here's an excerpt of `modus-operandi-tinted-palette`:
 
 ```emacs-lisp
 ((bg-main "#fbf7f0")
@@ -30,7 +31,7 @@ Here&rsquo;s an excerpt of `modus-operandi-tinted-palette`:
  ... )
 ```
 
-It&rsquo;s easy enough to write a function to read from the palette and generate LaTeX directives for defining (most of) the colors.
+It's easy enough to write a function to read from the palette and generate LaTeX directives for defining (most of) the colors.
 We want to fill a file with color directives that look like this:
 
 ```text
@@ -51,7 +52,7 @@ The code I wrote is
 ```
 
 All this does is loop through `theme-palette`, and for each element, insert the LaTeX directive we wanted, separated by newlines.
-Here&rsquo;s an excerpt of the generated output for `modus-operandi-tinted`:
+Here's an excerpt of the generated output for `modus-operandi-tinted`:
 
 ```text
 \definecolor{bg-main}{HTML}{fbf7f0}

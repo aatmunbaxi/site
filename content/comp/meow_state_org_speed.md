@@ -1,20 +1,21 @@
 +++
 title = "A meow-state for speedy org structure navigation"
 author = ["Aatmun Baxi"]
+date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2003
+weight = 2004
 type = "post"
 +++
 
 _TL;DR: We implement a `meow-state` for quick navigation of `org-mode` document structure._
 
-I&rsquo;ve been very pleased with my switch to the `meow` modal editor, but one of the downsides of it is no obvious way to use [speed keys](https://orgmode.org/manual/Speed-Keys.html) in `org-mode`.
+I've been very pleased with my switch to the `meow` modal editor, but one of the downsides of it is no obvious way to use [speed keys](https://orgmode.org/manual/Speed-Keys.html) in `org-mode`.
 Namely, the meow normal state maps would clash with the speed key definitions.
-One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that&rsquo;s no fun.
+One could just redefine the speed keys to avoid the normal state maps, or redefine the normal state maps themselves, but that's no fun.
 
-In the words of Mickey Petersen, org speed keys offer a kind of &ldquo;transient modality&rdquo; to default emacs keybindings.
-But meow is _already_ a modal editing scheme, there&rsquo;s no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.
+In the words of Mickey Petersen, org speed keys offer a kind of "transient modality" to default emacs keybindings.
+But meow is _already_ a modal editing scheme, there's no benefit that I can see to making speed keys a transient behavior, especially with how much I use org-mode.
 
 We take a different approach and define our own `meow-state` to navigate org structure.
 Meow offers excellent support for defining your own states.
@@ -73,7 +74,7 @@ Every keymap is self explanatory.
 In particular, we implement meow-style up-down nagivation of subtrees with `jk`, and add level-restricted motion with `np`.
 Subtree metadata can be edited from this state without exiting the state, and source block navigation is added--useful for literate programmers.
 
-There&rsquo;s one major benefit to using a custom `meow-state` instead of attempting to get speed keys working: **this state is available anywhere in the buffer.**
+There's one major benefit to using a custom `meow-state` instead of attempting to get speed keys working: **this state is available anywhere in the buffer.**
 With speed keys, the point **must** be at the beginning of an org heading.
 With our custom state, a simple press of `O` while in `meow-normal-mode` puts us in navigation mode.
 This makes navigation of org documents fast and accessible in a way that is superior to speed keys, something afforded to us by adopting a modal editing paradigm.

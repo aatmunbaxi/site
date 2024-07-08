@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor - Aatmun Baxi</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme&rsquo;s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don&rsquo;t always have a DOOM theme active&hellip;
+Consider the following elisp:
+(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/comp/dyn_custom_palette_access_technicolor/">
+  <meta property="og:site_name" content="Aatmun Baxi">
+  <meta property="og:title" content="Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor">
+  <meta property="og:description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme’s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don’t always have a DOOM theme active…
+Consider the following elisp:
+(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="comp">
+    <meta property="article:published_time" content="2024-07-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-05T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor">
+  <meta name="twitter:description" content="In thinking of new ways to waste time with extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces. Fortunately for me, accessing the current DOOM theme’s color palette from elisp is trivial using the function doom-color. Unfortunately for me, I don’t always have a DOOM theme active…
+Consider the following elisp:
+(set-face-attribute org-verbatim nil :foreground (doom-color &#39;green)) All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.">
+
+	
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+	
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+	
+	
+		
+		
+		<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/modus_style.4717ee2590524fe42e9e105227b8cfdded2bf8ecb4290e25c9919fefce5f1a70.css">
+		
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Aatmun Baxi</a>
+	</div>
+	<nav>
+		
+		<a href="/comp/">Computing</a>
+		
+		<a href="/math/">Math</a>
+		
+		<a href="/misc/">Misc</a>
+		
+		<a href="/nihongo/">日本語コーナー</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Consistent, Dynamic Access to Custom Emacs Theme Palettes with technicolor</h1>
+			<div class="meta">Posted on Jul 5, 2024 <span class="draft-label">DRAFT</span> </div>
+		</div>
+		
+
+		<section class="body">
+			<p>In thinking of new ways to <del>waste time with</del> extend emacs, I thought back on my brief attempts to use the color values from the DOOM theme collection to customize various faces.
+Fortunately for me, accessing the current DOOM theme&rsquo;s color palette from elisp is trivial using the function <code>doom-color</code>.
+Unfortunately for me, I don&rsquo;t always have a DOOM theme active&hellip;</p>
+<p>Consider the following elisp:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">nil</span> :foreground (doom-color <span style="color:#e6db74">&#39;green</span>))
+</span></span></code></pre></div><p>All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
+Simple enough, except this is what happens when I switch from a DOOM theme to, e.g., a modus theme:</p>
+<dl>
+<dt>TODO</dt>
+<dd>insert video of switching theme on verbatim text</dd>
+</dl>
+<p>Blegh!
+The code accesses the variable <code>doom-themes--colors</code>, which remains unchanged upon loading a non-DOOM theme.
+The green from the previous DOOM theme palette sticks out as very <em>wrong</em> here.</p>
+<p>A fix is in sight; the modus theme pack also comes with a function you can use to access color values from the current modus theme: <code>modus-themes-get-color-value</code>.
+Huzzah!
+All we have to do is write a function <code>current-theme-color</code> that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization is now:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">nil</span> :foreground (current-theme-color <span style="color:#e6db74">&#39;green</span>))
+</span></span></code></pre></div><p>Err, this doesn&rsquo;t quite work either.
+Most all themes define a color &ldquo;green&rdquo;, so this solution should be sufficient for basic colos like red, green, blue, magenta, etc.
+What happens if we wanted to use the theme&rsquo;s foreground color?
+It breaks, but why?
+DOOM themes and modus themes use different symbols to identify the foreground color: <code>fg</code> and <code>fg-main</code>, respectively.</p>
+<p>In conclusion, there&rsquo;s no reasonable way to uniformly identify arbitrary colors in two different loaded themes, short of a universal standard™ (<a href="https://xkcd.com/927/">obligatory</a>) for how to define custom emacs themes.
+A decent compromise is to let the user choose a subset of colors (which we call a &ldquo;universal&rdquo; or &ldquo;standard&rdquo; palette) they want to use in elisp, and choose colors from each of their themes&rsquo; palettes to associate to those colors.
+This is the design philosophy of <a href="https://github.com/aatmunbaxi/technicolor">technicolor</a>.</p>
+<p>In our situation, we want to access the foreground color of DOOM themes, modus themes, and catppuccin themes.
+For good measure, we&rsquo;ll throw in background color, red, green, blue, magenta, and cyan into that list.
+Our standard palette can be loaded into a technicolor variable, and the data for the themes we want to use this standard palette with can be specified.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq technicolor-colors <span style="color:#f92672">&#39;</span>(foreground background red green blue magenta cyan)
+</span></span><span style="display:flex;"><span>      technicolor-themes <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;^doom-.*&#34;</span> doom-color
+</span></span><span style="display:flex;"><span>                            ((foreground <span style="color:#f92672">.</span> fg)
+</span></span><span style="display:flex;"><span>                             (background <span style="color:#f92672">.</span> bg)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                           (<span style="color:#e6db74">&#34;^modus-.*&#34;</span> modus-themes-get-color-value
+</span></span><span style="display:flex;"><span>                            ((foreground <span style="color:#f92672">.</span> fg-main)
+</span></span><span style="display:flex;"><span>                             (background <span style="color:#f92672">.</span> bg-main)
+</span></span><span style="display:flex;"><span>                             (green <span style="color:#f92672">.</span> green-warmer))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            (<span style="color:#e6db74">&#34;^catppuccin&#34;</span> technicolor--get-catppuccin-color
+</span></span><span style="display:flex;"><span>                             ((foreground <span style="color:#f92672">.</span> text)
+</span></span><span style="display:flex;"><span>                              (background <span style="color:#f92672">.</span> base)
+</span></span><span style="display:flex;"><span>                              (magenta <span style="color:#f92672">.</span> pink)
+</span></span><span style="display:flex;"><span>                              (cyan <span style="color:#f92672">.</span> sky))))))
+</span></span></code></pre></div><p>The <code>technicolor-themes</code> variable contains a list of &ldquo;theme data&rdquo;, which contain a regex that will match a theme or group of themes, a function for technicolor to use which will access the colors in our universal palette, and an alist of mappings from the symbols in our universal palette to symbols that theme uses to refer to those colors.</p>
+<p>Once configured, the standard function used to refer to a color in the current theme&rsquo;s palette is <code>technicolor-get-color</code>.
+The argument for this function will be a symbol in <code>technicolor-colors</code>.
+Now, for example, when <code>technicolor-get-color</code> function is called with a <code>doom-*</code> theme active, technicolor will return the output of <code>(doom-theme (alist-get 'color ((foreground . fg) (background . bg))))</code> if <code>color</code> has an associated key, or <code>(doom-color 'color)</code> if it does not.
+For safe use with customizing faces, the function used to get the color should return <code>nil</code> or the symbol <code>unspecified</code>.</p>
+<p>Remember how we wanted to access the color <code>red</code> from our themes?
+Notice it isn&rsquo;t a key <code>red</code> in any of the above alists, since all our themes use the symbol <code>red</code> to identify the color green.
+Similarly for <code>blue</code>.</p>
+<p>What does this abstraction buy us?
+The face customization from the beginning is now</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(set-face-attribute org-verbatim <span style="color:#66d9ef">t</span> :foreground (technicolor-get-color <span style="color:#e6db74">&#39;green</span>))
+</span></span></code></pre></div><p>This now works seamlessly across themes that are matched in <code>technicolor-themes</code>.
+We can hook these face attribute updates to the <code>load-theme</code> function to get dynamic updates of the face attribute customization upon change of theme:</p>
+<dl>
+<dt>TODO</dt>
+<dd>video showing correct transitions</dd>
+</dl>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/emacs">emacs</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2024  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>

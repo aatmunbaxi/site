@@ -1,9 +1,10 @@
 +++
 title = "Configuring meow for Friendlier LaTeX Editing"
 author = ["Aatmun Baxi"]
+date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2002
+weight = 2003
 type = "post"
 +++
 
@@ -23,38 +24,38 @@ _This article assumes some familiarity with the evil and meow modes._
 <!--endtoc-->
 
 Having ditched `evil-collection` to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
-Alas, I feel modal editing is something I prefer, so I&rsquo;ve adopted [meow](https://github.com/meow-edit/meow).
+Alas, I feel modal editing is something I prefer, so I've adopted [meow](https://github.com/meow-edit/meow).
 I chose meow for a few reasons:
 
 -   Trivial to extend and hack on
--   The &ldquo;selection-first&rdquo; ethos is intriguing
+-   The "selection-first" ethos is intriguing
 -   No dependencies
 -   Prefers built-in methods for various tasks
 -   Keypad mode offers a great, lighter weight alternative to the `SPC` DOOM leader with evil mode
 
-So far, it&rsquo;s been an enjoyable experience, but one evil-mode package--`evil-tex`--gave me pause.
+So far, it's been an enjoyable experience, but one evil-mode package--`evil-tex`--gave me pause.
 
 
 ## `evil-tex` {#evil-tex}
 
-[evil-tex](https://github.com/iyefrat/evil-tex) is an extension to evil that adds support for &ldquo;vimmable&rdquo; text objects in LaTeX syntax.
+[evil-tex](https://github.com/iyefrat/evil-tex) is an extension to evil that adds support for "vimmable" text objects in LaTeX syntax.
 As an example, let `|` denote the location of the point when using evil mode.
-Suppose we&rsquo;re given the situation:
+Suppose we're given the situation:
 
 ```text
 The qu|ick brown fox jumps over the lazy dog.
 ```
 
-In `evil-normal-mode` you can type the keys `ciw` to &ldquo;Change Inner Word&rdquo;, deleting the work `quick` and placing you in `evil-insert-mode`.
+In `evil-normal-mode` you can type the keys `ciw` to "Change Inner Word", deleting the work `quick` and placing you in `evil-insert-mode`.
 
-If `w` denotes the &ldquo;word&rdquo; evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
+If `w` denotes the "word" evil object, evil-tex offers the math-mode text object, allowing this same loop to be performed but inside LaTeX syntax.
 Consider the following inline math expression with point `|`:
 
 ```text
 \( X\cong | Y \)
 ```
 
-With `evil-tex-mode` enabled, and inside `evil-normal-mode`, we can press `cim` to &ldquo;Change Inner Math&rdquo;, deleting all the text within the `\( \)` delimiters and placing us in insert mode.
+With `evil-tex-mode` enabled, and inside `evil-normal-mode`, we can press `cim` to "Change Inner Math", deleting all the text within the `\( \)` delimiters and placing us in insert mode.
 This is just one example of what evil-tex offers; a more comprehensive picture is in the documentation.
 
 
@@ -64,21 +65,21 @@ Meow uses `things` (lit.) to demarcate sections of text that you can navigate ar
 For example, some things that come preloaded with meow are sentences, defuns, paragraphs, buffers, windows, and lines.
 When a thing is defined, you can press `, <THING_KEY>` to select the inner part of the thing, where `<THING_KEY>` is the key associated with that thing (e.g. `l` for line, `d` for defun).
 Similarly, you can press `. <THING_KEY>` to select to the bounds of the thing.
-Here&rsquo;s a demo on how that works with the `symbol` thing, mapped to `e`:
+Here's a demo on how that works with the `symbol` thing, mapped to `e`:
 
 {{< figure src="/ox-hugo/meow-symbol-inner.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of symbol thing in meow" >}}
 
-There&rsquo;s a parallel between this behavior and the &ldquo;inner &lt;object&gt;&rdquo; and &ldquo;all &lt;object&gt;&rdquo; behavior in evil.
+There's a parallel between this behavior and the "inner &lt;object&gt;" and "all &lt;object&gt;" behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to `l`.
-Then the key sequence `c i l` in evil mode (to &ldquo;Change Inner Line&rdquo;) could be replicated in meow with `, l c`.
+Then the key sequence `c i l` in evil mode (to "Change Inner Line") could be replicated in meow with `, l c`.
 We can take this idea and help make meow friendlier for LaTeX editing.
 
-In meow, it&rsquo;s easy to define a `thing` with the function `(meow-thing-register)`.
+In meow, it's easy to define a `thing` with the function `(meow-thing-register)`.
 
 
 ## Inline Math {#inline-math}
 
-Let&rsquo;s register a `thing` that picks out the LaTeX inline math environment `\( \)`.
+Let's register a `thing` that picks out the LaTeX inline math environment `\( \)`.
 The simplest way to do this is using the pair matching:
 
 ```emacs-lisp
@@ -93,7 +94,7 @@ Now we can map this thing to a key:
 (add-to-list 'meow-char-thing-table '(?m . inline-math))
 ```
 
-Now, when we&rsquo;re inside an inline math environment, we can press `, m` to select all the text within the math environment, and `. m` to select all of the math environment.
+Now, when we're inside an inline math environment, we can press `, m` to select all the text within the math environment, and `. m` to select all of the math environment.
 
 {{< figure src="/ox-hugo/meow-math-demo.gif" caption="<span class=\"figure-number\">Figure 2: </span>Demo of our user-defined math thing" >}}
 
@@ -194,12 +195,12 @@ Now the configuration for our environment thing is just
 ## LaTeX Parentheses Delimiters {#latex-parentheses-delimiters}
 
 Parentheses delimitiers in math mode are a bit of a tricky case.
-We&rsquo;d like to include all possible delimiters in math mode, including the ones modified by `\left \right`, `\bigl \bigr`, etc.
-In addition to that, we&rsquo;d hope to also capture basic delimiters like `(  )` and `\{ \}`.
-To do this, we will do the following:
+We'd like to include all possible delimiters in math mode, including the ones modified by `\left \right`, `\bigl \bigr`, etc.
+In addition to that, we'd hope to also capture basic delimiters like `(  )` and `\{ \}`.
+We'll use the following approach:
 
 -   create a master list of all possible LaTeX parentheses delimiters, including unmodified ones like `( )`
--   use meow&rsquo;s internal `meow--thing-pair-function` to find all pairs we can see around the point
+-   use meow's internal `meow--thing-pair-function` to find all pairs we can see around the point
 -   find the match closest to the point
 
 This will cover all cases of where the point could be, even in deeply nested parentheses.
@@ -248,7 +249,7 @@ The next two functions are helpers for the main method.
     nearest-match))
 ```
 
-Now here&rsquo;s our main function:
+Now here's our main function:
 
 ```emacs-lisp
 (defun my/meow-latex-paren-search (near)
@@ -263,7 +264,7 @@ NEAR denotes if match should be inner or bounds"
       (find-min-distance-match bounds-with-distances))))
 ```
 
-Don&rsquo;t let this elisp scare you; it does exactly what I said when I laid out the approach to this problem.
+Don't let this elisp scare you; it does exactly what I said when I laid out the approach to this problem.
 That is, it generates a list of delimiters we find aroud the point, and finds the closest such match, returning it.
 
 The `near` argument specifies if we want to match the inner or bounds of the match.
@@ -284,7 +285,7 @@ We can hook this into two new functions for the inner and bounds matching, respe
 (add-to-list 'meow-char-thing-table '(?D . latex-delim))
 ```
 
-Here&rsquo;s what the result looks like:
+Here's what the result looks like:
 
 {{< figure src="/ox-hugo/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
 
@@ -293,8 +294,8 @@ Note that the way we have defined the delimiters makes it trivial to add/subtrac
 
 ## Closing Thoughts {#closing-thoughts}
 
-What I&rsquo;ve shown here is a very small, quickly-put-together look at the hackability of meow.
-The documentation for meow is very comprehensive, and users should customize meow to their heart&rsquo;s content.
-After all, one of the selling points of meow is how easy it is to &ldquo;roll your own&rdquo; modal editor.
+What I've shown here is a very small, quickly-put-together look at the hackability of meow.
+The documentation for meow is very comprehensive, and users should customize meow to their heart's content.
+After all, one of the selling points of meow is how easy it is to "roll your own" modal editor.
 Continued refinements of your workflow attuned to your particular idiosyncracies is a rewarding endeavour.
-I hope I&rsquo;ve brought some inspirational ideas here.
+I hope I've brought some inspirational ideas here.
