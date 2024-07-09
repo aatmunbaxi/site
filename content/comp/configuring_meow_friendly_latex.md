@@ -4,7 +4,7 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2004
+weight = 2003
 series = ["Hacking emacs"]
 section = "Computing"
 +++
@@ -23,8 +23,14 @@ section = "Computing"
 </div>
 <!--endtoc-->
 
-_TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme._
-_This article assumes some familiarity with the evil and meow modes._
+<div class="tldr">
+
+We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+This article assumes some familiarity with the evil and meow modes.
+
+</div>
+
+<!--more-->
 
 <div class="ox-hugo-toc toc local">
 

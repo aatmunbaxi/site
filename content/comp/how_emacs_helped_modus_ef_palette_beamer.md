@@ -4,9 +4,19 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs"]
 draft = false
-weight = 2003
+weight = 2002
 section = "Computing"
 +++
+
+<div class="tldr">
+
+I wrote a hacky script to load a color palette from `modus` and `ef` themese for LaTeX presentations.
+
+</div>
+
+<!--more-->
+
+<!--more-->
 
 I'm very fond of Prot's `modus-themes` and `ef-themes` for emacs.
 They're highly legible, easy on the eyes, and attractive.

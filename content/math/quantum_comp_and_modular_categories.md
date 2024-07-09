@@ -21,6 +21,14 @@ section = "Mathematics"
 </div>
 <!--endtoc-->
 
+<div class="tldr">
+
+We introduce anyons, a hypothetical unit of computation in topological quantum computation. We explain their topological properties and discuss their relationship with modular categories.
+
+</div>
+
+<!--more-->
+
 
 ## Introduction {#introduction}
 

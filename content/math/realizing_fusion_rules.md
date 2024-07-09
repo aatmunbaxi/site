@@ -2,12 +2,21 @@
 title = "Realizing some Multiplicity-Free Fusion Rules"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-lastmod = 2024-07-09T17:23:57-05:00
+lastmod = 2024-07-09T18:13:22-05:00
 tags = ["longread"]
 draft = false
 weight = 2002
 section = "Mathematics"
 +++
+
+<div class="tldr">
+
+We recall the notion of a fusion ring associated to a fusion category and realize two previously unknown sets of multiplicity-free fusion rules.
+
+</div>
+
+<!--more-->
+
 
 ## Fusion Rings {#fusion-rings}
 

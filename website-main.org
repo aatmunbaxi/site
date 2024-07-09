@@ -57,6 +57,10 @@ Here I keep some thoughts about math-related things I find interesting or worth 
 :EXPORT_HUGO_AUTO_SET_LASTMOD: t
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section 'Mathematics
 :END:
+#+begin_tldr
+We recall the notion of a fusion ring associated to a fusion category and realize two previously unknown sets of multiplicity-free fusion rules.
+#+end_tldr
+#+hugo: more
 *** Fusion Rings
 Classifying fusion categories is a huge task--likely impossible--but much effort has been made to find certain invariants to help distinguish fusion categories at various levels of structure.
 One such invariant is the *fusion ring* associated to a fusion category \( \mathcal{C} \).
@@ -217,7 +221,10 @@ The results are summarized in the tables below.
 :EXPORT_DATE: 2024-07-05
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section 'Mathematics
 :END:
-
+#+begin_tldr
+We introduce anyons, a hypothetical unit of computation in topological quantum computation. We explain their topological properties and discuss their relationship with modular categories.
+#+end_tldr
+#+hugo: more
 *** Introduction
 Quantum computing (QC) is an exciting new paradigm of computation, promising exponential speedup from state-of-the-art classical algorithms in certain computing tasks.
 Despite vigorous research from all sides of the task, obstacles to a quantum computer architecture that is scalable and tolerant to errors remain hard to overcome.
@@ -418,7 +425,11 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 :EXPORT_DATE: 2024-07-05
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section 'Computing
 :END:
-
+#+begin_tldr
+I wrote a hacky script to load a color palette from =modus= and =ef= themese for LaTeX presentations.
+#+end_tldr
+#+hugo: more
+#+hugo: more
 I'm very fond of Prot's =modus-themes= and =ef-themes= for emacs.
 They're highly legible, easy on the eyes, and attractive.
 Recently I was making a beamer presentation for a talk I'm currently procrastinating on.
@@ -485,8 +496,11 @@ Happy scripting!
 :EXPORT_DATE: 2024-07-05
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '("Hacking emacs") :section 'Computing
 :END:
-/TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme./
-/This article assumes some familiarity with the evil and meow modes./
+#+begin_tldr
+We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
+This article assumes some familiarity with the evil and meow modes.
+#+end_tldr
+#+hugo: more
 #+toc: headlines 2 local
 Having ditched =evil-collection= to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
 Alas, I feel modal editing is something I prefer, so I've adopted [[https://github.com/meow-edit/meow][meow]].
@@ -741,7 +755,10 @@ I hope I've brought some inspirational ideas here.
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '("Hacking emacs") :section 'Computing
 :END:
 
-/TL;DR: We implement a =meow-state= for quick navigation of =org-mode= document structure./
+#+begin_tldr
+As an exercise, we implement a =meow-state= (mode) for navigation of =org-mode= document structure.
+#+end_tldr
+#+hugo: more
 
 I've been very pleased with my switch to the =meow= modal editor, but one of the downsides of it is no obvious way to use [[https://orgmode.org/manual/Speed-Keys.html][speed keys]] in =org-mode=.
 Namely, the meow normal state maps would clash with the speed key definitions.

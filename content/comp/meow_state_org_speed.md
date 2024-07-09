@@ -4,12 +4,18 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2005
+weight = 2004
 series = ["Hacking emacs"]
 section = "Computing"
 +++
 
-_TL;DR: We implement a `meow-state` for quick navigation of `org-mode` document structure._
+<div class="tldr">
+
+As an exercise, we implement a `meow-state` (mode) for navigation of `org-mode` document structure.
+
+</div>
+
+<!--more-->
 
 I've been very pleased with my switch to the `meow` modal editor, but one of the downsides of it is no obvious way to use [speed keys](https://orgmode.org/manual/Speed-Keys.html) in `org-mode`.
 Namely, the meow normal state maps would clash with the speed key definitions.
