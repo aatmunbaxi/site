@@ -828,7 +828,7 @@ You can check the value of =org-speed-commands= for inspiration.
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '("Hacking emacs") :section 'Computing
 :END:
 #+begin_tldr
-[[https:github.com/aatmunbaxi/technicolor][technicolor]] provides a uniform way to identify desired colors in the current emacs theme. This article lays out the problem that prompted its creation and motivation for the its design.
+[[https://www.github.com/aatmunbaxi/technicolor][technicolor]] provides a uniform way to identify desired colors in the current emacs theme. This article lays out the problem that prompted its creation and motivation for the its design.
 #+end_tldr
 
 #+hugo: more

@@ -11,7 +11,7 @@ section = "Computing"
 
 <div class="tldr">
 
-[technicolor](https:github.com/aatmunbaxi/technicolor) provides a uniform way to identify desired colors in the current emacs theme. This article lays out the problem that prompted its creation and motivation for the its design.
+[technicolor](https://www.github.com/aatmunbaxi/technicolor) provides a uniform way to identify desired colors in the current emacs theme. This article lays out the problem that prompted its creation and motivation for the its design.
 
 </div>
 
