@@ -8,8 +8,9 @@
 
 * Home
 :PROPERTIES:
-:EXPORT_HUGO_FRONT_MATTER: :toc false :author false
+:EXPORT_HUGO_FRONT_MATTER: :toc nil :author nil
 :EXPORT_FILE_NAME: _index
+:EXPORT_OPTIONS: toc:nil
 :EXPORT_HUGO_SECTION: /
 :END:
 
@@ -1031,3 +1032,4 @@ Of course, we've long left the issue of pragmatism behind, but still, it's prett
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :layout rss
 :EXPORT_FILE_NAME: rss_indices
 :END:
+You can subscribe to an RSS feed tagged by topic/tag/etc. here.

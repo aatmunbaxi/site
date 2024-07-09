@@ -5,19 +5,6 @@ draft = false
 weight = 1001
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [About Me](#about-me)
-    - [Education](#education)
-    - [Hobbies](#hobbies)
-- [Contact](#contact)
-
-</div>
-<!--endtoc-->
-
-
 ## About Me {#about-me}
 
 I am a PhD student in mathematics at Texas A&amp;M University.
