@@ -4,8 +4,9 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2004
-type = "post"
+weight = 2005
+series = ["Hacking emacs"]
+section = "Computing"
 +++
 
 _TL;DR: We implement a `meow-state` for quick navigation of `org-mode` document structure._
@@ -83,4 +84,4 @@ A demo of this mode is given below; you can see the keys pressed in the tab-line
 Feel free to extend and/or modify the key definitions to your liking.
 You can check the value of `org-speed-commands` for inspiration.
 
-{{< figure src="/ox-hugo/meow-org-motion.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of our org-motion state" >}}
+{{< figure src="~/Videos/meow-org-motion.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of our org-motion state" >}}

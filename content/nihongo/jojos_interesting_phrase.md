@@ -4,7 +4,7 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 draft = false
 weight = 2002
-type = "post"
+section = "日本語"
 +++
 
 I came across the phrase「氷が行かなくなってきている」in an episode of Jojo's Bizarre Adventure and couldn't help but smile at it.

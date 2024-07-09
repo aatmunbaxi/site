@@ -1,0 +1,455 @@
+/* Markdown */
+@import modus_operandi_tinted
+html {
+    color: var(--fg-main);
+    background-color: var(--bg-main);
+    font-family: "Iosevka Aile";
+    font-size: 18px;
+    line-height: 1.6em;
+}
+body {
+    display: block;
+    margin-left: 200px;
+    margin-right: 200px;
+    line-height: 2em;
+}
+* {
+    -webkit-tap-highlight-color: var(--fg-main);
+}
+
+::selection {
+    background: var(--bg-active);
+}
+
+p {
+    font-family: "Iosevka Aile";
+    line-height: 1.5em;
+}
+
+hr {
+    border: 0;
+    border-top: 3px dotted var(--bg-alt);
+    margin: 1em 0;
+}
+
+blockquote {
+    border-left: 3px solid var(--bg-red-subtle);
+    background-color: var(--bg-removed-faint);
+    color: var(--fg-alt);
+    margin: 0;
+    padding-left: 2em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+
+a {
+    border-bottom: 2px solid var(--red-intense);
+    color: var(--fg-main);
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--bg-hover);
+    color: var(--fg-hover);
+}
+p a {
+    border-bottom: 2px solid var(--fg-link);
+    color: var(--fg-link);
+    text-decoration: none;
+}
+
+p a:hover {
+    background-color: var(--bg-hover);
+    color: var(--fg-hover);
+}
+
+n ul {
+    list-style: none;
+    padding-left: 2ch;
+}
+ul li {
+    text-indent: 0ch;
+}
+ul > li::before {
+  content: "- ";
+  font-weight: bold;
+}
+
+/* Images */
+img {
+    border: 3px solid var(--bg-main);
+    max-width: 100%;
+}
+
+figure {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    max-width: 100%;
+}
+
+figure img {
+    max-height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+    figure {
+        padding: 0 40px;
+    }
+}
+
+figure h4 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 1em;
+}
+figure h4::before {
+    content: "↳ ";
+}
+
+/* Code blocks */
+code {
+    background-color: var(--bg-dim);
+    font-family: "Iosevka Fixed";
+    text-emphasis: bold;
+    color: var(--magenta-warmer);
+    padding: 0.1em 0.2em;
+
+}
+
+
+.highlight pre ::selection {
+    background-color: var(--bg-active);
+}
+.highlight pre {
+    background-color: var(--bg-dim);
+
+}
+
+
+/* Containers */
+.content {
+    margin-bottom: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    padding: 0 1ch;
+    word-wrap: break-word;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2em 0;
+    line-height: 2.5em;
+    background: var(--bg-dim);
+    border-radius: 5px;
+    border: solid var(--fg-alt);
+    padding: 10px;
+    color: var(--header);
+}
+
+header .main {
+    font-size: 1.75rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.3rem;
+    margin-top: 2em;
+    color: var(--header);
+}
+
+h1::before {
+    color: var(--header);
+    content: "▶ ";
+}
+h1 {
+    font-size-adjust: .8;
+}
+h2::before {
+    color: var(--yellow);
+    content: "▷ ";
+}
+
+h2 {
+    color: var(--yellow);
+    font-size-adjust: .6;
+
+}
+
+h3::before {
+    color: var(--fg-alt);
+    content: "⯈ ";
+}
+h3 {
+    color: var(--fg-alt);
+    font-size-adjust: .55;
+}
+
+h4::before {
+    color: var(--magenta);
+    content: "▹ ";
+}
+h4 {
+    color: var(--magenta);
+    font-size-adjust: .53;
+}
+
+h5::before {
+    color: var(--green);
+    content: "▸ ";
+}
+h5 {
+    color: var(--green);
+}
+h6::before {
+    color: var(--red);
+    content: "▸ ";
+}
+h6 {
+    color: var(--red);
+}
+
+
+.tldr::before {
+    content: "tl;dr";
+    font-weight: bold;
+    /* font-size-adjust: 50; */
+    background-color: var(--bg-blue-intense);
+    /* border: solid 1px var(--fg-dim); */
+    border-radius: 0 0 0rem 0rem;
+    width: fit-content;
+    color: var(--fg-main);
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.20rem;
+    position: relative;
+    text-align: left;
+    top: 2rem;
+}
+.tldr > p {
+    color: var(--fg-dim);
+    background-color:var(--bg-inactive);
+    padding: 0.5rem;
+    border: solid 1px var(--fg-dim);
+}
+
+
+
+.meta {
+    color: #999;
+    letter-spacing: -0.5px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center;
+    border-top: 0.4rem dotted var(--fg-alt);
+    padding: 2rem 0rem;
+    margin-top: 2rem;
+}
+.soc {
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+}
+.border {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid;
+}
+.footer-info {
+    padding: var(--cyan-faint);
+}
+
+/* Common */
+.title h1 {
+    margin-bottom: 0;
+}
+
+time {
+    color: var(--green);
+}
+
+/* Posts */
+article .title {
+    margin-bottom: 1em;
+}
+
+/* Callout */
+.callout {
+    background-color: var(--callouctcolor);
+    color: #fff;
+    padding: 1em;
+}
+
+.callout p {
+    font-family: "IBM Plex Mono", monospace;
+    margin: 0;
+}
+.callout a {
+    border-bottom: 3px solid #fff;
+}
+.callout a:hover {
+    background-color: var(--bg-dim);
+    color: var(--callouctcolor);
+}
+
+.site-description {
+    display: flex;
+    justify-content: space-between;
+}
+.tags li::before {
+    content: "🏷 ";
+}
+.tags a {
+    border-bottom: 3px solid var(--maincolor);
+}
+.tags a:hover {
+    color: white;
+    background-color: var(--hovercolor);
+}
+svg {
+    max-height: 15px;
+}
+.soc:hover {
+    color: white;
+}
+.draft-label {
+    color: var(--bg-alt);
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 6px;
+    background-color: var(--bg-red-subtle);
+}
+.highlight pre {
+    border: 2px solid var(--fg-dim);
+}
+
+highlight {
+    position: relative;
+    background-color: var(--bg-dim);
+    -webkit-overflow-scrolling: touch;
+ }
+
+pre code[class*="language-"] {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: true;
+
+}
+.highlight pre code[class*="language-"]::before {
+    background-color: var(--bg-dim);
+    border: solid 1px var(--fg-dim);
+    border-radius: 0 0 0rem 0rem;
+    width: fit-content;
+    color: var(--fg-main);
+    font-size: 12px;
+    justify-content: left;
+    letter-spacing: 0.025rem;
+    padding: 0.03rem 0.3rem;
+    position: absolute;
+    text-align: left;
+    text-transform: lowercase;
+    top: -0.6rem;
+    left: 0ex;
+}
+
+
+.highlight pre code[class="language-emacs-lisp"]::before {
+    content: "emacs-lisp";
+    background: var(--bg-magenta-intense);
+    color: var(--fg-main);
+}
+.highlight pre code[class="language-org"]::before {
+    content: "org";
+    background: var(--bg-hover);
+    color: var(--fg-main)
+
+}
+
+.highlight pre code[class="language-javaScript"]::before,
+.highlight pre code[class="language-js"]::before {
+    content: "js";
+    background: #f7df1e;
+    color: black;
+}
+
+.highlight pre code[class*="language-yml"]::before,
+.highlight pre code[class*="language-yaml"]::before {
+    content: "yaml";
+    background: #f71e6a;
+    color: white;
+}
+.highlight pre code[class*="language-haskell"]::before,
+.highlight pre code[class*="language-haskell"]::before {
+    content: "haskell";
+    background: var(--magenta-faint);
+    color: var(--bg-main);
+}
+.highlight pre code[class*="language-shell"]::before,
+.highlight pre code[class*="language-bash"]::before,
+.highlight pre code[class*="language-sh"]::before {
+    content: "shell";
+    background: var(--bg-term-green);
+    /* right: 95.5ex; */
+    /* right: calc(100% - 10ch); */
+    /* right: calc(100% - 1/1.8*10rem); */
+    color: var(--bg-main);
+}
+.highlight pre code[class*="language-json"]::before {
+    content: "json";
+    background: dodgerblue;
+    color: #000000;
+}
+.highlight pre code[class*="language-python"]::before,
+.highlight pre code[class*="language-py"]::before {
+    content: "python";
+    background-color: var(--bg-graph-blue-1);
+    color: var(--fg-main);
+}
+.highlight pre code[class*="language-css"]::before {
+    content: "css";
+    background: cyan;
+    color: black;
+}
+.highlight pre code[class*="language-go"]::before {
+    content: "Go";
+    background: cyan;
+    color: royalblue;
+}
+.highlight pre code[class*="language-md"]::before,
+.highlight pre code[class*="language-md"]::before {
+    content: "Markdown";
+    background: royalblue;
+    color: whitesmoke;
+}
+
+
+
+/* table */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table thead tr th {
+    border: 1px solid var(--border-mode-line-inactive);
+}
+p table th {
+    padding: 6px 13px;
+    border: 1px solid var(--border-mode-line-inactive);
+    font-size: large;
+}
+
+table td {
+    padding: 6px 13px;
+    border: 1px solid var(--border-mode-line-inactive);
+}
+

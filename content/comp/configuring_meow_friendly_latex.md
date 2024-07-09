@@ -4,9 +4,24 @@ author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs", "meow"]
 draft = false
-weight = 2003
-type = "post"
+weight = 2004
+series = ["Hacking emacs"]
+section = "Computing"
 +++
+
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [`evil-tex`](#evil-tex)
+- [Doing Our Own Thing](#doing-our-own-thing)
+- [Inline Math](#inline-math)
+- [Environments](#environments)
+- [LaTeX Parentheses Delimiters](#latex-parentheses-delimiters)
+- [Closing Thoughts](#closing-thoughts)
+
+</div>
+<!--endtoc-->
 
 _TL;DR: We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme._
 _This article assumes some familiarity with the evil and meow modes._
@@ -67,7 +82,7 @@ When a thing is defined, you can press `, <THING_KEY>` to select the inner part 
 Similarly, you can press `. <THING_KEY>` to select to the bounds of the thing.
 Here's a demo on how that works with the `symbol` thing, mapped to `e`:
 
-{{< figure src="/ox-hugo/meow-symbol-inner.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of symbol thing in meow" >}}
+{{< figure src="~/Videos/meow-symbol-inner.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of symbol thing in meow" >}}
 
 There's a parallel between this behavior and the "inner &lt;object&gt;" and "all &lt;object&gt;" behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to `l`.
@@ -96,7 +111,7 @@ Now we can map this thing to a key:
 
 Now, when we're inside an inline math environment, we can press `, m` to select all the text within the math environment, and `. m` to select all of the math environment.
 
-{{< figure src="/ox-hugo/meow-math-demo.gif" caption="<span class=\"figure-number\">Figure 2: </span>Demo of our user-defined math thing" >}}
+{{< figure src="~/Videos/meow-math-demo.gif" caption="<span class=\"figure-number\">Figure 2: </span>Demo of our user-defined math thing" >}}
 
 The bindings `, m` and `. m` replicate the evil-tex object identification `i m` and `a m`, respectively.
 
@@ -189,7 +204,7 @@ Now the configuration for our environment thing is just
 (add-to-list 'meow-char-thing-table '(?E . latex-env))
 ```
 
-{{< figure src="/ox-hugo/meow-latex-env.gif" caption="<span class=\"figure-number\">Figure 3: </span>Demo of our user-defined latex-env thing" >}}
+{{< figure src="~/Videos/meow-latex-env.gif" caption="<span class=\"figure-number\">Figure 3: </span>Demo of our user-defined latex-env thing" >}}
 
 
 ## LaTeX Parentheses Delimiters {#latex-parentheses-delimiters}
@@ -287,7 +302,7 @@ We can hook this into two new functions for the inner and bounds matching, respe
 
 Here's what the result looks like:
 
-{{< figure src="/ox-hugo/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
+{{< figure src="~/Videos/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
 
 Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.
 

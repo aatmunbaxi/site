@@ -2,10 +2,10 @@
 title = "How Emacs Helped Me Today: modus-themes and ef-themes Palettes for LaTeX"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-tags = ["emacs", "lisp", "LaTeX"]
+tags = ["emacs"]
 draft = false
-weight = 2002
-type = "post"
+weight = 2003
+section = "Computing"
 +++
 
 I'm very fond of Prot's `modus-themes` and `ef-themes` for emacs.

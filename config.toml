@@ -1,26 +1,51 @@
+
 baseURL = 'https://aatmunbaxi.netlify.app'
 languageCode = 'en-us'
-title = 'Aatmun Baxi'
+title = 'abaxi'
 theme = 'archie'
+# sectionPagesMenu = 'main'
+
+codeFences = true
+guessSyntax= true
 
 [params]
-  customcss = ["css/modus_style.css"]
-  mode = "light"
-  ShowWordCount = true
-  mathjax = true
+customcss = ["css/modus_light.css", "css/syntax.css"]
+ShowWordCount = true
+mathjax = true
+mode = "light"
+
+[[params.social]]
+title = "GitHub"
+icon = "github"
+url = "https://github.com/aatmunbaxi"
+
+[[params.social]]
+title = "rss"
+icon = "rss"
+url = "https://www.aatmunbaxi.netlify.app/index.xml"
+
 [taxonomies]
-  tag = "tag"
+tag = "tags"
+series = "series"
+section = "section"
 
+[outputs]
+section = ['html','rss']
+taxonomy = ['html','rss' ]
+term = ['html','rss']
+series = ['html','rss']
 
-[markup.goldmark.renderer]
-  unsafe = true
-
+[markup.highlight]
+      noClasses = false
 [markup]
-
   [markup.goldmark]
+    [markup.goldmark.renderer]
+        unsafe = true
     [markup.goldmark.extensions]
       [markup.goldmark.extensions.passthrough]
         enable = true
         [markup.goldmark.extensions.passthrough.delimiters]
           block = [['\[', '\]']]
           inline = [['\(', '\)']]
+
+rssLimit = 20

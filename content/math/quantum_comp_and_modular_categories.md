@@ -2,11 +2,25 @@
 title = "Quantum Computing, Braids, and Modular Categories"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-tags = ["math", "categories"]
+tags = ["longread"]
 draft = false
-weight = 2004
-type = "post"
+weight = 2003
+section = "Mathematics"
 +++
+
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [Introduction](#introduction)
+- [Anyons and their statistics](#anyons-and-their-statistics)
+- [Modular Categories](#modular-categories)
+- [Conclusion](#conclusion)
+- [Bibliography](#bibliography)
+
+</div>
+<!--endtoc-->
+
 
 ## Introduction {#introduction}
 
@@ -81,7 +95,7 @@ The study of braids and their unitary representations will capture how the inter
 
 Anyons carry lots of intrinsic data.
 One can formalize the physics of anyons along with certain symmetries and stabilities and collect them into a set of equations to solve for.
-Kitaev < &kitaevAnyonsExactlySolved2006 Appendix E> suggested that the algebraic combinatorics of the solutions to these equations can be formalized in the language of **unitary modular categories**.
+Kitaev (<a href="#citeproc_bib_item_2">Kitaev 2006</a> Appendix E) suggested that the algebraic combinatorics of the solutions to these equations can be formalized in the language of **unitary modular categories**.
 
 The language of categories came about much earlier as a language of formalize analogous phenomena that occur in seemingly unrelated areas of mathematics.
 Recently, categories enriched with extra structure have been studied due to their flexibility in encoding certain data.
@@ -114,7 +128,7 @@ skinparam backgroundColor transparent
 The reader might ask if the "braided" in Figure is related to the braiding discussed for anyons.
 Indeed it is, the braiding in a unitary modular category corresponds to braiding of anyons.
 There is an comprehensive dictionary of the correspondence between unitary modular categories and the physical interpretation of what the data represent.
-<A more detailed dictionary is found in;&rowellMathematicsTopologicalQuantum2018;Table 1>.
+(A more detailed dictionary is found in <a href="#citeproc_bib_item_3">Rowell and Wang 2018</a> Table 1).
 
 <style>
 sane-table#table {
@@ -159,7 +173,7 @@ sane-table table {
 
 Classifying unitary modular categories up to some notion of equivalence is therefore equivalent to classifying systems of anyons.
 This is a difficult problem, but is thought to be possible, and positive signs have appeared.
-It was shown in <&bruillardRankfinitenessModularCategories2016> that there are only finitely many modular categories for a given rank.
+It was shown in (<a href="#citeproc_bib_item_1">Bruillard et al. 2016</a>) that there are only finitely many modular categories for a given rank.
 Physically, this would mean that a system \\( n \\) anyons can only interact nontrivially in finitely many distinct ways for each amount \\( n \\).
 
 The ergonomics of modular categories can be challenging given the sheer number of equations to solve, but down-to-earth examples exist.
@@ -168,7 +182,7 @@ This is a rank \\( 1 \\) modular category with \\( S \\)-matrix \\( (1) \\) and 
 Ok, not very interesting...
 This is indeed the most trivial example of a modular category, though more examples exist that are only slightly more difficult to understand.
 For example, the category of metric groups \\( (G,q) \\) is equivalent to the category of pointed modular categories.
-<see &etingofTensorCategories2016 chap 8>.
+(Etingof et al. 2016, 8).
 
 Despite the difficulty of classifying modular categories, this task enjoys deep connections to representation theory, quantum field theory, and condensed matter physics.
 
@@ -183,4 +197,8 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 
 ## Bibliography {#bibliography}
 
-<~/Documents/bib/zotero_refs.bib>
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Bruillard, Paul, Siu-Hung Ng, Eric C. Rowell, and Zhenghan Wang. 2016. “Rank-Finiteness for Modular Categories.” <i>Journal of the American Mathematical Society</i> 29 (3). American Mathematical Society: 857–81. <a href="https://www.jstor.org/stable/jamermathsoci.29.3.857">https://www.jstor.org/stable/jamermathsoci.29.3.857</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>Kitaev, Alexei. 2006. “Anyons in an Exactly Solved Model and beyond.” <i>Annals of Physics</i>, January Special Issue, 321 (1): 2–111. doi:<a href="https://doi.org/10.1016/j.aop.2005.10.005">10.1016/j.aop.2005.10.005</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>Rowell, Eric, and Zhenghan Wang. 2018. “Mathematics of Topological Quantum Computing.” <i>Bulletin of the American Mathematical Society</i> 55 (2): 183–238. doi:<a href="https://doi.org/10.1090/bull/1605">10.1090/bull/1605</a>.</div>
+</div>

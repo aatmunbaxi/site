@@ -12,7 +12,7 @@
        url('../fonts/fira-sans-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../fonts/fira-sans-v10-latin-regular.svg#FiraSans') format('svg'); /* Legacy iOS */
 }
-/* roboto-mono-regular - latin */
+
 @font-face {
   font-display: swap;
   font-family: 'Roboto Mono';

@@ -2,11 +2,36 @@
 title = "LAWRGe 2023 Notes"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-tags = ["math", "conference", "notes"]
+tags = ["notes"]
 draft = false
-weight = 2005
-type = "post"
+weight = 2004
+section = "Mathematics"
 +++
+
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [LAWRGe Workshop](#lawrge-workshop)
+    - [Info](#info)
+    - [Lecture 1: Mon Jun 12 11:05:22 2023](#lecture-1-mon-jun-12-11-05-22-2023)
+    - [Lecture 2: Mon Jun 12 13:04:01 2023](#lecture-2-mon-jun-12-13-04-01-2023)
+    - [Lecture 3: Mon Jun 12 16:07:19 2023](#lecture-3-mon-jun-12-16-07-19-2023)
+    - [Lecture 4: Mon Jun 12 18:02:13 2023](#lecture-4-mon-jun-12-18-02-13-2023)
+    - [Lecture 5: Tue Jun 13 10:34:03 2023](#lecture-5-tue-jun-13-10-34-03-2023)
+    - [Lecture 6: Tue Jun 13 12:44:10 2023](#lecture-6-tue-jun-13-12-44-10-2023)
+    - [Lecture 7: Tue Jun 13 15:44:00 2023](#lecture-7-tue-jun-13-15-44-00-2023)
+    - [Lecture 8: Tue Jun 13 18:01:16 2023](#lecture-8-tue-jun-13-18-01-16-2023)
+    - [Lecture 9: Wed Jun 14 10:46:24 2023](#lecture-9-wed-jun-14-10-46-24-2023)
+    - [Lecture 10: Wed Jun 14 12:48:31 2023](#lecture-10-wed-jun-14-12-48-31-2023)
+    - [Lecture 11: Wed Jun 14 15:55:18 2023](#lecture-11-wed-jun-14-15-55-18-2023)
+    - [Lecture 12: Wed Jun 14 18:05:37 2023](#lecture-12-wed-jun-14-18-05-37-2023)
+    - [Lecture 13: Thu Jun 15 10:46:45 2023](#lecture-13-thu-jun-15-10-46-45-2023)
+    - [Lecture 14: Thu Jun 15 13:05:02 2023](#lecture-14-thu-jun-15-13-05-02-2023)
+    - [Lecture 15: Fri Jun 16 10:44:46 2023](#lecture-15-fri-jun-16-10-44-46-2023)
+
+</div>
+<!--endtoc-->
 
 <div class="ox-hugo-toc toc local">
 
