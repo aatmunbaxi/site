@@ -65,7 +65,7 @@ In conclusion, there's no reasonable way (that I know of) to uniformly identify 
 ## A Solution {#a-solution}
 
 A decent compromise is to let the user choose a subset of colors (which we call a "universal" or "standard" palette) they want to use in elisp, and choose colors from each of their themes' palettes to associate to those colors.
-This is the abstraction implemented in [technicolor](https://github.com/aatmunbaxi/technicolor).
+This is the abstraction implemented in [technicolor](https://www.github.com/aatmunbaxi/technicolor).
 
 In our situation, we want to access the foreground color of DOOM themes, modus themes, and catppuccin themes.
 For good measure, we'll throw in background color, red, green, blue, magenta, and cyan into that list.
