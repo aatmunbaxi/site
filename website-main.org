@@ -25,13 +25,15 @@ I am a PhD student in mathematics at Texas A&M University.
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
 *** Hobbies
-- Programming. I'm currently working in lisps and python.
+- Programming. I'm currently enjoying time in various lisps.
 - Liverpool FC
 - Astrophotography
 - Learning japanese through immersion
 - Free (as in freedom) software
   - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in GNU emacs
-  - My emacs configuration is [[https:github.com/aatmunbaxi/doomemacs-config][public]]
+    - The posts are stylized like my =org-mode= configuration
+  - My emacs configuration is [[https://wwwgithub.com/aatmunbaxi/doomemacs-config][public]].
+
 ** Contact
 - *Email*: [[mailto:abaxi@tamu.edu][abaxi@tamu.edu]]
 - *Office*: Blocker 506B

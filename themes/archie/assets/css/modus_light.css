@@ -167,14 +167,14 @@ h6 {
 
 h1::before {
     color: var(--header);
-    content: "▶ ";
+    content: "▼ ";
 }
 h1 {
     font-size-adjust: .8;
 }
 h2::before {
     color: var(--yellow);
-    content: "▷ ";
+    content: "▽ ";
 }
 
 h2 {
@@ -185,7 +185,7 @@ h2 {
 
 h3::before {
     color: var(--fg-alt);
-    content: "⯈ ";
+    content: "⯆ ";
 }
 h3 {
     color: var(--fg-alt);
@@ -194,7 +194,7 @@ h3 {
 
 h4::before {
     color: var(--magenta);
-    content: "▹ ";
+    content: "▿ ";
 }
 h4 {
     color: var(--magenta);
@@ -203,14 +203,14 @@ h4 {
 
 h5::before {
     color: var(--green);
-    content: "▸ ";
+    content: "▾ ";
 }
 h5 {
     color: var(--green);
 }
 h6::before {
     color: var(--red);
-    content: "▸ ";
+    content: "▾ ";
 }
 h6 {
     color: var(--red);
