@@ -3,8 +3,8 @@ title = "Consistent, Dynamic Access to Custom Emacs Theme Palettes"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
 tags = ["emacs"]
-draft = true
-weight = 2006
+draft = false
+weight = 2005
 series = ["Hacking emacs"]
 section = "Computing"
 +++
