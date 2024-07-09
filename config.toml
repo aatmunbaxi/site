@@ -22,7 +22,7 @@ url = "https://github.com/aatmunbaxi"
 [[params.social]]
 title = "rss"
 icon = "rss"
-url = "https://www.aatmunbaxi.netlify.app/index.xml"
+url = "https://www.aatmunbaxi.netlify.app/rss_indices"
 
 [taxonomies]
 tag = "tags"
