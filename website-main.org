@@ -861,10 +861,10 @@ Consider the following elisp:
 #+begin_src emacs-lisp
   (set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 #+end_src
-All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
+This sets the font color for org verbatim text to the associated green color in the current DOOM theme.
 If you /only/ use DOOM themes, you can hook this to =load-theme= and call it a day.
 Here's what that looks like, but watch what happens when I load a non-DOOM theme:
-
+#+caption: Works for DOOM themes, but yucky transition to =modus-operandi-tinted=!
 [[file:~/working/technicolor-bad-switch.gif]]
 
 Blegh!
@@ -929,7 +929,36 @@ The face customization from the beginning is now
 #+end_src
 Hooking appropriately, this now works seamlessly across themes that are matched in =technicolor-themes=.
 
+#+caption: Nice, uniform greens
 [[file:~/working/technicolor-good-switch.gif]]
+
+As a proof of concept, this example demonstrates the utility of =technicolor=.
+One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme (or per-theme pack) basis.
+
+*** More Goodies
+Technicolor also provides manipulations wrapping the =color= library with the same ethos of accessing via =technicolor-colors=.
+We can also use =technicolor-blend= to create light/dark theme aware colors.
+For example, let's say I want to make my =org-modern-tag= face green.
+Since the foreground color of the =org-modern-tag= face is just the foreground color of the theme, we need to make sure the green isn't too light on dark themes (respectively, too dark on light themes).
+The following code does just that:
+#+begin_src emacs-lisp
+  (set-face-attribute 'org-modern-tag nil :background (technicolor-blend 'background 'green 80))
+#+end_src
+This sets the background color of the tag to be an 80% blend of the background color into the corresponding green.
+The before and after of this customization is visualized with the =doom-dracula= theme
+
+#+caption: Before applying face customization
+[[file:~/Pictures/tech_before.png]]
+#+caption: After applying face customization
+[[file:~/Pictures/tech_after.png]]
+
+Notice that I make no claims about how /good/ these customization choices are!
+
+I use =technicolor-blend= a bit in my own configuration; other functions for color manipulation include adjusting saturation and brightness, getting a color's complementary color, and creating gradients between two colors.
+
+*** Conclusion
+Hopefully this article is convincing for those that wish to fine-tune their face customization with their current theme's palette.
+I believe =technicolor= to be a natural abstraction and fair compromise of functionality and usability.
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc

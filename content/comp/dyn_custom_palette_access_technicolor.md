@@ -34,7 +34,7 @@ All this is set the font color for org verbatim text to the associated green col
 If you _only_ use DOOM themes, you can hook this to `load-theme` and call it a day.
 Here's what that looks like, but watch what happens when I load a non-DOOM theme:
 
-{{< figure src="/ox-hugo/technicolor-bad-switch.gif" >}}
+{{< figure src="/ox-hugo/technicolor-bad-switch.gif" caption="<span class=\"figure-number\">Figure 1: </span>Works for DOOM themes, but yucky transition to `modus-operandi-tinted`!" >}}
 
 Blegh!
 The code still accesses the variable `doom-themes--colors`, which remains unchanged upon loading a non-DOOM theme.
@@ -109,4 +109,38 @@ The face customization from the beginning is now
 
 Hooking appropriately, this now works seamlessly across themes that are matched in `technicolor-themes`.
 
-{{< figure src="/ox-hugo/technicolor-good-switch.gif" >}}
+{{< figure src="/ox-hugo/technicolor-good-switch.gif" caption="<span class=\"figure-number\">Figure 2: </span>Nice, uniform greens" >}}
+
+As a proof of concept, this example demonstrates the utility of `technicolor`.
+One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme (or per-theme pack) basis.
+
+
+## More Goodies {#more-goodies}
+
+Technicolor also provides manipulations wrapping the `color` library with the same ethos of accessing via `technicolor-colors`.
+We can also use `technicolor-blend` to create light/dark theme aware colors.
+For example, let's say I want to make my `org-modern-tag` face green.
+Since the foreground color of the `org-modern-tag` face is just the foreground color of the theme, we need to make sure the green isn't too light on dark themes (respectively, too dark on light themes).
+The following code does just that:
+
+```emacs-lisp
+(set-face-attribute 'org-modern-tag nil :background (technicolor-blend 'background 'green 80))
+```
+
+This sets the background color of the tag to be an 80% blend of the background color into the corresponding green.
+The before and after of this customization is visualized with the `doom-dracula` theme
+
+{{< figure src="/ox-hugo/tech_before.png" caption="<span class=\"figure-number\">Figure 3: </span>Before applying face customization" >}}
+
+{{< figure src="/ox-hugo/tech_after.png" caption="<span class=\"figure-number\">Figure 4: </span>After applying face customization" >}}
+
+Notice that I make no claims about how _good_ these customization choices are!
+
+I use `technicolor-blend` a bit in my own configuration; other functions for color manipulation include adjusting saturation and brightness, getting a color's complementary color, and creating gradients between two colors.
+
+
+## Conclusion {#conclusion}
+
+Hopefully this article is convincing for those that wish to fine-tune their face customization with their current theme's palette.
+I believe `technicolor` to be a natural abstraction and fair compromise of functionality and usability.
+While `technicolor` is not a strict superset of the functions like `doom-color` and `modus-themes-get-color-value`, the ease of use makes it a worthwhile thing to set up, IMHO.

@@ -215,7 +215,11 @@ h6::before {
 h6 {
     color: var(--red);
 }
-
+figcaption{
+    color: var(--fg-dim);
+    font-size: 13px;
+    justify-content: center;
+}
 
 .tldr::before {
     content: "tl;dr";
