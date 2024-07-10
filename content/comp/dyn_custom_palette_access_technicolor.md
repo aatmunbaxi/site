@@ -30,14 +30,14 @@ Consider the following elisp:
 (set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 ```
 
-All this is set the font color for org verbatim text to the associated green color in the current DOOM theme.
+This sets the font color for org verbatim text to the associated green color in the current DOOM theme.
 If you _only_ use DOOM themes, you can hook this to `load-theme` and call it a day.
 Here's what that looks like, but watch what happens when I load a non-DOOM theme:
 
 {{< figure src="/ox-hugo/technicolor-bad-switch.gif" caption="<span class=\"figure-number\">Figure 1: </span>Works for DOOM themes, but yucky transition to `modus-operandi-tinted`!" >}}
 
 Blegh!
-The code still accesses the variable `doom-themes--colors`, which remains unchanged upon loading a non-DOOM theme.
+The code still accesses the variable `doom-themes--colors`, which remains unchanged upon loading a non-DOOM theme[^fn:1].
 The green from the previous DOOM theme palette sticks out as very _wrong_ here, and our customization is no good.
 
 A fix is in sight; the modus theme pack also comes with a function you can use to access color values from the current modus theme: `modus-themes-get-color-value`.
@@ -143,4 +143,5 @@ I use `technicolor-blend` a bit in my own configuration; other functions for col
 
 Hopefully this article is convincing for those that wish to fine-tune their face customization with their current theme's palette.
 I believe `technicolor` to be a natural abstraction and fair compromise of functionality and usability.
-While `technicolor` is not a strict superset of the functions like `doom-color` and `modus-themes-get-color-value`, the ease of use makes it a worthwhile thing to set up, IMHO.
+
+[^fn:1]: Or reloading a theme with `consult-theme`, see [here](https://discourse.doomemacs.org/t/consult-theme-does-not-reload-doom-themes-color-when-setting-already-loaded-theme/4669).
