@@ -137,6 +137,7 @@ code {
 
 /* Header */
 header {
+    font: "Iosevka Aile Web";
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
