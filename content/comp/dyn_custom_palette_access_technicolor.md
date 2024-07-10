@@ -57,21 +57,21 @@ What happens if we wanted to use the theme's foreground color, like with `(doom-
 (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'fg))
 ```
 
-It still breaks on modus themes!
+It still breaks on modus themes[^fn:2]!
 DOOM themes and modus themes use different symbols for the foreground color: `fg` and `fg-main`, respectively.
 
 In conclusion, there's no reasonable way (that I know of) to uniformly identify arbitrary colors in two arbitrary themes, short of a universal standard™ ([obligatory](https://xkcd.com/927/)) for how to define custom emacs themes.
-With the obvious issues with that option unsaid, I propose a solution.
+Obvious issues with that option left unsaid, I propose a solution.
 
 
 ## A Solution? {#a-solution}
 
-A compromise is to choose a subset of colors (called a "universal" or "standard" palette) to use in elisp, and choose colors from each of their themes' palettes to associate to those colors.
+A compromise is to choose a subset of colors (called a "universal" or "standard" palette) to use in elisp, and choose colors from each of the themes' palettes to associate to those colors.
 This is the abstraction implemented in [technicolor](https://www.github.com/aatmunbaxi/technicolor).
 
 Let's say we want to use the foreground color of the DOOM themes, modus themes, and catppuccin themes.
 For good measure, we also want the background color, red, green, blue, magenta, and cyan.
-Our standard palette can be loaded into a `technicolor-colors`, and the data for the themes we want to use this standard palette with can be specified:
+Our standard palette can be loaded into `technicolor-colors`, and the data for the themes we want to use can be specified:
 
 ```emacs-lisp
 (setq technicolor-colors '(foreground background red green blue magenta cyan)
@@ -91,25 +91,24 @@ Our standard palette can be loaded into a `technicolor-colors`, and the data for
                               (cyan . sky))))))
 ```
 
-The `technicolor-themes` variable contains a list of lists, each of which contain a regex that will match a theme or group of themes, a function for technicolor to use which will access the colors in our universal palette (like `doom-color`), and an alist of mappings from the symbols in our universal palette to symbols the desired theme uses to refer to those colors.
+The `technicolor-themes` variable contains a list of lists, each of which contain a regex that will match a theme or group of themes, a function to access the colors in our universal palette (like `doom-color`), and an alist mapping the symbols in our universal palette to symbols in the desired theme[^fn:3].
 
 Now, the function used to get the hex value of a color in the current theme's palette is `technicolor-get-color`.
-The argument for this function is a symbol in `technicolor-colors`.
-Now, for example, when `technicolor-get-color` function is called with a `doom-*` theme active, technicolor will return the output of
+When it is called with a `doom-*` theme active, technicolor will return the output of
 
 ```emacs-lisp
 (doom-theme (alist-get 'color ((foreground . fg) (background . bg))))
 ```
 
-if `color` has an associated key, or `(doom-color 'color)` if it does not.
-For safety in customizing faces, if `color` does not have a value in the mapping alist _and_ there is no `color` in the current theme's palette, `technicolor-get-color` will return `unspecified`.
+if `color` has an associated value, or `(doom-color 'color)` if it does not.
+For safety, if `color` does not have a value in the mapping alist _and_ there is no `color` value in the current theme's palette, `technicolor-get-color` will return `unspecified`.
+We may always use `unspecified` in face customization.
 
-Remember how we wanted to access the color `red` from our themes?
-Notice that `red` isn't in any of the configuration alists, since all our themes use the symbol `red` to identify the color green.
+Notice that `red` isn't in any of the configuration alists, since all our themes use the symbol `red` to identify the color red.
 Similarly for `blue`, so we don't need to write it out explicitly.
 
 What does this buy us?
-The face customization from the beginning is now
+The face customization from the beginning of the article becomes
 
 ```emacs-lisp
 (set-face-attribute 'org-verbatim t :foreground (technicolor-get-color 'green))
@@ -119,16 +118,16 @@ This now works seamlessly across themes that are matched in `technicolor-themes`
 
 {{< figure src="/ox-hugo/technicolor-good-switch.gif" caption="<span class=\"figure-number\">Figure 2: </span>Nice, cohesive greens." >}}
 
-As a proof of concept, this example demonstrates the utility of `technicolor`.
-One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme (or per-theme pack) basis.
+One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme basis.
 
 
-## More Goodies {#more-goodies}
+## A Light/Dark-Aware Customization and More Goodies {#a-light-dark-aware-customization-and-more-goodies}
 
-Technicolor also provides manipulations wrapping the `color` library with the same ethos of accessing via `technicolor-colors`.
-We can use `technicolor-blend` to create light/dark theme aware colors.
-For example, let's say we want to make the background of `org-modern-tag` green.
-Since the foreground color of the `org-modern-tag` face is just the foreground color of the theme, we need to make sure the green isn't too light on dark themes (respectively, too dark on light themes).
+Technicolor also provides manipulations wrapping the `color` library with the same ethos of accessing via our universal palette.
+As an example, we can use `technicolor-blend` to create light/dark-aware colors.
+
+Let's say we want to make the background of `org-modern-tag` green.
+To prevent the tags colors from being too distracting, we need to make sure the green isn't too light on dark themes (respectively, too dark on light themes).
 The following code does just that:
 
 ```emacs-lisp
@@ -136,13 +135,14 @@ The following code does just that:
 ```
 
 This sets the background color of the tag to be an 80% blend of the background color into the corresponding green.
-The before and after of this customization is visualized with the `doom-dracula` theme
+The before and after of this customization is presented with the `doom-dracula` theme.
 
 {{< figure src="/ox-hugo/tech_before.png" caption="<span class=\"figure-number\">Figure 3: </span>Before applying face customization" >}}
 
 {{< figure src="/ox-hugo/tech_after.png" caption="<span class=\"figure-number\">Figure 4: </span>After applying face customization" >}}
 
-Notice that I make no claims about how _good_ these customization choices are!
+If we didn't blend the green with the background color, it would be distractingly bright.
+Otherwise, we could use `technicolor-darken`, but then it would not work as intended for light themes.
 
 Other functions for color manipulation include adjusting saturation and brightness, getting a color's complementary color, and creating gradients between two colors.
 
@@ -150,6 +150,9 @@ Other functions for color manipulation include adjusting saturation and brightne
 ## Conclusion {#conclusion}
 
 I believe `technicolor` to be a natural abstraction and fair compromise of functionality and usability.
-Hopefully this article is convincing for those that wish to ~~waste time with emacs~~ _manipulate the UX of their lisp environment_.
+Hopefully this article is convincing for those that wish to ~~waste time with emacs~~ _manipulate the graphical aspects of their lisp environment_.
+More information regarding the package can be found on its github page and the docstrings of function and variables therein.
 
 [^fn:1]: Or even reloading a DOOM theme with `consult-theme`, see [here](https://discourse.doomemacs.org/t/consult-theme-does-not-reload-doom-themes-color-when-setting-already-loaded-theme/4669).
+[^fn:2]: Though not as catastrophically, the value in the face customization would become `unspecified`.
+[^fn:3]: The intention is that the mappings will make sense, like `(magenta . magenta-cooler)`, but no limits are placed; one could add `(foreground . background)`
