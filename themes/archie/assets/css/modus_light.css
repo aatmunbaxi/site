@@ -3,7 +3,7 @@
 html {
     color: var(--fg-main);
     background-color: var(--bg-main);
-    font-family: "Iosevka Aile";
+    font-family: "Iosevka Aile Web";
     font-size: 18px;
     line-height: 1.6em;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 p {
-    font-family: "Iosevka Aile";
+    font-family: "Iosevka Aile Web";
     line-height: 1.5em;
 }
 
@@ -108,7 +108,7 @@ figure h4::before {
 /* Code blocks */
 code {
     background-color: var(--bg-dim);
-    font-family: "Iosevka Fixed";
+    font-family: "Iosevka Fixed Web";
     text-emphasis: bold;
     color: var(--magenta-warmer);
     padding: 0.1em 0.2em;

@@ -37,6 +37,8 @@
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link href="https://iosevka-webfonts.github.io/iosevka-fixed/iosevka-fixed.css" rel="stylesheet" />
+	<link href="https://iosevka-webfonts.github.io/iosevka-aile/iosevka-aile.css" rel="stylesheet" />
 	{{- else -}}
 	{{ $fontstyle := resources.Get "css/fonts.css" | fingerprint }}
         <link href="{{ $fontstyle.Permalink }}" rel="stylesheet">
