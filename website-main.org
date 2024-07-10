@@ -838,7 +838,7 @@ Feel free to extend and/or modify the key definitions to your liking.
 You can check the value of =org-speed-commands= for inspiration.
 #+caption: Demo of our org-motion state
 [[file:~/Videos/meow-org-motion.gif]]
-** Consistent, Dynamic Access to Custom Emacs Theme Palettes           :emacs:
+** Consistent, Dynamic Access to Your Current Emacs Theme's Palette    :emacs:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: dyn_custom_palette_access_technicolor
@@ -847,34 +847,34 @@ You can check the value of =org-speed-commands= for inspiration.
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '("Hacking emacs") :section 'Computing
 :END:
 #+begin_tldr
-[[https://www.github.com/aatmunbaxi/technicolor][technicolor]] provides a uniform way to identify desired colors in the current emacs theme. This article lays out the problem that prompted its creation and motivation for the its design.
+[[https://www.github.com/aatmunbaxi/technicolor][technicolor]] provides a uniform way to identify desired colors in the current emacs theme. This article describes the problem it solves and the  motivation for the its design.
 #+end_tldr
 
 #+hugo: more
 
 *** The Problem
-In thinking of new ways to +waste time with+ /extend/ emacs, I retread my brief attempts to use the hexadecimal color values from DOOM themes to customize faces in a way that is cohesive with the current theme.
+In thinking of new ways to +waste time with+ /extend/ emacs, I retread some attempts to use the hex color values from DOOM themes to customize faces in a way that was cohesive with the current theme.
 Fortunately, accessing DOOM themes' color palettes from elisp is possible with the function =doom-color=.
 It takes in a symbol identifying a color and spits out its hexadecimal value.
-This works really well for what it does; unfortunately for me, I don't always have a DOOM theme active.
+This works really well for what it does, but unfortunately for me, I don't always have a DOOM theme active.
 
 Consider the following elisp:
 #+begin_src emacs-lisp
   (set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 #+end_src
 This sets the font color for org verbatim text to the associated green color in the current DOOM theme.
-If you /only/ use DOOM themes, you can hook this to =load-theme= and stop reading now.
-Here's what it looks like, but watch what happens when I load a non-DOOM theme:
-#+caption: Works for DOOM themes, but yucky transition to =modus-operandi-tinted=!
+If I /only/ used DOOM themes, I could hook this to =load-theme= and save a weekend's worth of time.
+Here's what that looks like, but watch what happens when I load a non-DOOM theme:
+#+caption: Works for DOOM themes, but yucky transition to =modus-operandi-tinted=...
 [[file:~/working/technicolor-bad-switch.gif]]
 
 Blegh!
-The code still refers to the variable =doom-themes--colors=, which remains unchanged upon loading a non-DOOM theme[fn:1].
-The green from the previous DOOM theme palette sticks out as /wrong/ here, and we've exposed our customization's fragility.
+Internally, =doom-color= refers to the variable =doom-themes--colors=, which remains unchanged upon loading a non-DOOM theme[fn:1].
+The green from the previous DOOM theme is downright illegible, and we've exposed our customization's fragility.
 
 A fix is in sight; the modus theme pack also comes with the function =modus-themes-get-color-value=, which does exactly what =doom-color= does.
 Huzzah!
-All we have to do is write a function =current-theme-color= that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization is now:
+All we have to do is write a function =current-theme-color= that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization becomes:
 #+begin_src emacs-lisp
    (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'green))
 #+end_src
@@ -884,10 +884,10 @@ What happens if we wanted to use the theme's foreground color, like with =(doom-
 #+begin_src emacs-lisp
    (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'fg))
 #+end_src
-It still breaks on modus themes[fn:2]!
-DOOM themes and modus themes use different symbols for the foreground color: =fg= and =fg-main=, respectively.
+It /still/ breaks on modus themes[fn:2].
+The reason: DOOM themes and modus themes use different symbols for the foreground color: =fg= and =fg-main=, respectively.
 
-In conclusion, there's no reasonable way (that I know of) to uniformly identify arbitrary colors in two arbitrary themes, short of a universal standard™ ([[https://xkcd.com/927/][obligatory]]) for how to define custom emacs themes.
+In conclusion, there's no reasonable way (that I know of) to uniformly pick out arbitrary colors (or even the same type of color) in two arbitrary themes, short of a universal standard™ ([[https://xkcd.com/927/][obligatory]]) for how to define custom emacs themes.
 Obvious issues with that option left unsaid, I propose a solution.
 *** A Solution?
 A compromise is to choose a subset of colors (called a "universal" or "standard" palette) to use in elisp, and choose colors from each of the themes' palettes to associate to those colors.
@@ -921,11 +921,14 @@ When it is called with a =doom-*= theme active, technicolor will return the outp
   (doom-theme (alist-get 'color ((foreground . fg) (background . bg))))
 #+end_src
 if =color= has an associated value, or =(doom-color 'color)= if it does not.
+Similarly, it does what we wanted our defunct =current-theme-color= function to do for modus themes and catppuccin themes.
+
 For safety, if =color= does not have a value in the mapping alist /and/ there is no =color= value in the current theme's palette, =technicolor-get-color= will return =unspecified=.
 We may always use =unspecified= in face customization.
 
 Notice that =red= isn't in any of the configuration alists, since all our themes use the symbol =red= to identify the color red.
 Similarly for =blue=, so we don't need to write it out explicitly.
+This saves us from a bit of visual clutter, but there's no harm in including them anyway.
 
 What does this buy us?
 The face customization from the beginning of the article becomes
@@ -940,16 +943,15 @@ This now works seamlessly across themes that are matched in =technicolor-themes=
 One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme basis.
 
 *** A Light/Dark-Aware Customization and More Goodies
-Technicolor also provides manipulations wrapping the =color= library with the same ethos of accessing via our universal palette.
-As an example, we can use =technicolor-blend= to create light/dark-aware colors.
+Technicolor also provides manipulations wrapping the built-in =color= library with the same ethos of accessing via our universal palette.
+As an example, we will use =technicolor-blend= to create light/dark-aware colors.
 
 Let's say we want to make the background of =org-modern-tag= green.
-To prevent the tags colors from being too distracting, we need to make sure the green isn't too light on dark themes (respectively, too dark on light themes).
-The following code does just that:
+To prevent the tags from being too distracting, we will make sure the green isn't too light on dark themes (respectively, too dark on light themes).
 #+begin_src emacs-lisp
   (set-face-attribute 'org-modern-tag nil :background (technicolor-blend 'background 'green 80))
 #+end_src
-This sets the background color of the tag to be an 80% blend of the background color into the corresponding green.
+This sets the background color of the tag to be a blend of 80% background color into the theme's =green= value.
 The before and after of this customization is presented with the =doom-dracula= theme.
 
 #+caption: Before applying face customization
@@ -960,16 +962,16 @@ The before and after of this customization is presented with the =doom-dracula= 
 If we didn't blend the green with the background color, it would be distractingly bright.
 Otherwise, we could use =technicolor-darken=, but then it would not work as intended for light themes.
 
-Other functions for color manipulation include adjusting saturation and brightness, getting a color's complementary color, and creating gradients between two colors.
+Other functions for color manipulation include adjusting saturation and brightness, getting a color's complementary color, and creating gradients between two colors of defined fineness.
 
 *** Conclusion
 I believe =technicolor= to be a natural abstraction and fair compromise of functionality and usability.
 Hopefully this article is convincing for those that wish to +waste time with emacs+ /manipulate the graphical aspects of their lisp environment/.
-More information regarding the package can be found on its github page and the docstrings of function and variables therein.
+More information regarding =technicolor= can be found on [[https://www.github.com/aatmunbaxi/technicolor][its github page]] and the docstrings of function and variables therein.
 
 [fn:1] Or even reloading a DOOM theme with =consult-theme=, see [[https://discourse.doomemacs.org/t/consult-theme-does-not-reload-doom-themes-color-when-setting-already-loaded-theme/4669][here]].
-[fn:2] Though not as catastrophically, the value in the face customization would become =unspecified=.
-[fn:3] The intention is that the mappings will make sense, like =(magenta . magenta-cooler)=, but no limits are placed; one could add =(foreground . background)=
+[fn:2] Not as catastrophically, the value in the face customization would become =unspecified=.
+[fn:3] The intention is that the mappings will make sense, like =(magenta . magenta-cooler)= for modus themes, but no limits are placed; one could even use =(foreground . background)=
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
