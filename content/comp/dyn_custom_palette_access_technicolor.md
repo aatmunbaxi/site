@@ -61,7 +61,7 @@ It still breaks on modus themes!
 DOOM themes and modus themes use different symbols for the foreground color: `fg` and `fg-main`, respectively.
 
 In conclusion, there's no reasonable way (that I know of) to uniformly identify arbitrary colors in two arbitrary themes, short of a universal standard™ ([obligatory](https://xkcd.com/927/)) for how to define custom emacs themes.
-With the obvious issues with that solution unsaid, I propose a solution.
+With the obvious issues with that option unsaid, I propose a solution.
 
 
 ## A Solution? {#a-solution}

@@ -888,7 +888,7 @@ It still breaks on modus themes!
 DOOM themes and modus themes use different symbols for the foreground color: =fg= and =fg-main=, respectively.
 
 In conclusion, there's no reasonable way (that I know of) to uniformly identify arbitrary colors in two arbitrary themes, short of a universal standard™ ([[https://xkcd.com/927/][obligatory]]) for how to define custom emacs themes.
-With the obvious issues with that solution unsaid, I propose a solution.
+With the obvious issues with that option unsaid, I propose a solution.
 *** A Solution?
 A compromise is to choose a subset of colors (called a "universal" or "standard" palette) to use in elisp, and choose colors from each of their themes' palettes to associate to those colors.
 This is the abstraction implemented in [[https://www.github.com/aatmunbaxi/technicolor][technicolor]].
