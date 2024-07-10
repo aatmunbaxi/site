@@ -238,7 +238,7 @@ figcaption{
 .tldr > p {
     color: var(--fg-dim);
     background-color:var(--bg-inactive);
-    padding: 0.5rem;
+    padding: 0.8rem;
     border: solid 1px var(--fg-dim);
 }
 
