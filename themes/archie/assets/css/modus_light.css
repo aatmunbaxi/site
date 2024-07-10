@@ -9,8 +9,6 @@ html {
 }
 body {
     display: block;
-    margin-left: 200px;
-    margin-right: 200px;
     line-height: 2em;
 }
 * {
