@@ -1,5 +1,6 @@
 /* Markdown */
 @import modus_operandi_tinted
+
 html {
     color: var(--fg-main);
     background-color: var(--bg-main);
@@ -8,6 +9,7 @@ html {
     line-height: 1.6em;
 }
 body {
+    font-family: "Iosevka Aile Web";
     display: block;
     line-height: 2em;
 }
@@ -20,6 +22,7 @@ body {
 }
 
 p {
+
     font-family: "Iosevka Aile Web";
     line-height: 1.5em;
 }
@@ -159,6 +162,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: "Iosevka Aile Web";
     font-size: 1.3rem;
     margin-top: 2em;
     color: var(--header);

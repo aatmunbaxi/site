@@ -17,3 +17,4 @@ org-ltximg.*?[png|svg]$
 /themes/hugotex/
 /themes/hugo-texify3/
 /public/
+*.tex
