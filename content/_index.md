@@ -22,13 +22,14 @@ I am a PhD student in mathematics at Texas A&amp;M University.
 
 ### Hobbies {#hobbies}
 
--   Programming. I'm currently working in lisps and python.
+-   Programming. I'm currently enjoying time in various lisps.
 -   Liverpool FC
 -   Astrophotography
 -   Learning japanese through immersion
 -   Free (as in freedom) software
     -   This site is deployed with the [ox-hugo](https://github.com/kaushalmodi/ox-hugo) program in GNU emacs
-    -   My emacs configuration is [public](https:github.com/aatmunbaxi/doomemacs-config)
+        -   The posts are stylized like my `org-mode` configuration
+    -   My emacs configuration is [public](https://wwwgithub.com/aatmunbaxi/doomemacs-config).
 
 
 ## Contact {#contact}
