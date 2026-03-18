@@ -1,18 +1,29 @@
-
 baseURL = 'https://aatmunbaxi.netlify.app'
 languageCode = 'en-us'
 title = 'abaxi'
 theme = 'archie'
 # sectionPagesMenu = 'main'
 
-codeFences = true
-guessSyntax= true
+# codeFences = true
+# guessSyntax= true
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
 
 [params]
-customcss = ["css/modus_light.css", "css/syntax.css"]
+customcss = [
+"/css/modus_operandi_tinted.css",
+"/css/dark.css",
+"/css/fonts.css",
+
+"/css/common.css",
+"/css/code.css",
+"/css/simple-icons.css"
+]
 ShowWordCount = true
-mathjax = true
-mode = "light"
+useCDN = true
+katex = true
+mode = "toggle"
 
 [[params.social]]
 title = "GitHub"
@@ -44,8 +55,12 @@ series = ['html','rss']
     [markup.goldmark.extensions]
       [markup.goldmark.extensions.passthrough]
         enable = true
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]']]
-          inline = [['\(', '\)']]
+        # [markup.goldmark.extensions.passthrough.delimiters]
+        #   block = [['\[', '\]']]
+        #   inline = [['\(', '\)']]
 
+
+[markup.goldmark.extensions.passthrough.delimiters]
+  block = [['\[', '\]'], ['$$', '$$'], ['\begin{equation}', '\end{equation}'], ['\begin{equation*}','\end{equation*}']]
+  inline = [['\(', '\)']]
 rssLimit = 20

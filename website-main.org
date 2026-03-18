@@ -13,30 +13,23 @@
 :EXPORT_OPTIONS: toc:nil
 :EXPORT_HUGO_SECTION: /
 :END:
-
 ** About Me
 
-I am a PhD student in mathematics at Texas A&M University.
+I am a PhD student in mathematics at Texas A&M University. I study fusion and modular categories under my  advisor [[https://people.tamu.edu/~rowell/][Eric Rowell]].
 
-- *Advisor*: [[https://people.tamu.edu/~rowell/][Dr. Eric Rowell]]
-- *Research interests:* Fusion categories
+#+hugo: {{< margin-image img="/images/headshot.jpg" alt="Headshot of Aatmun Baxi" radius=30px  >}}
 *** Education
-- PhD Mathematics, Texas A&M University (in progress)
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
 *** Hobbies
-- Programming. I'm currently enjoying time in various lisps.
-- Liverpool FC
-- Astrophotography
-- Learning japanese through immersion
-- Free (as in freedom) software
-  - This site is deployed with the [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] program in GNU emacs
-    - The posts are stylized like my =org-mode= configuration
-  - My emacs configuration is [[https://wwwgithub.com/aatmunbaxi/doomemacs-config][public]].
+I enjoy programming and hacking on emacs, with lisps being my current interest. Adjacently, I enjoy free (as in freedom) software.
+This site is deployed with Hugo using a heavily modified theme based on archie, with colors fitting Prot's =modus-operandi-tinted= and =modus-vivendi-tinted= color palettes for emacs.
+
+I also enjoy supporting Liverpool football club, astrophotography, and learning japanese through immersion techniques.
 
 ** Contact
 - *Email*: [[mailto:abaxi@tamu.edu][abaxi@tamu.edu]]
-- *Office*: Blocker 506B
+- *Office*: Blocker 510B
 * Math
 :PROPERTIES:
 :EXPORT_HUGO_FRONT_MATTER: :toc false :author false
@@ -109,7 +102,7 @@ We conclude by noting that /finite rank/ means there are finitely many basis ele
 #+end_center
 
 The constraint in a is analogous to the fusion decomposition, while the involution in c comes from the rigidity of the category.
-More details and standard results can be found in [cite:@etingofTensorCategories2016 Chapter 3;].
+More details and standard results can be found in [cite:@etingofTensorCategories2016].
 *** Fusion Rings as an Invariant of Fusion Categories
 To every fusion category we can associated a fusion ring.
 Many questions in math come from asking about the opposite of a process we know we can carry out.
@@ -255,7 +248,7 @@ I've already alluded to how TQC may be less sensitive to environmental noise tha
 #+name: anyonexchange
 #+caption: Inequivalent exchanges for identical anyons.
 #+attr_html: :width 150%
-[[file:figures/anyon_exchange.svg]]
+[[/images/anyon_exchange.svg]]
 
 When thinking about how anyons interact with each other, we must think topologically.
 That is, we can do everything up to a "smooth/continuous" deformation.
@@ -270,7 +263,7 @@ In fact, there are infinitely many: one can wind a particle around the other as 
 #+name: braids
 #+caption: Braids on n=3 strands traced out over time progression.
 #+attr_html:  :width 150%
-[[file:figures/braids.png]]
+[[/images/braids.png]]
 
 At each slice of time, the position of anyons in flatland correspond to points in a plane.
 As we progress time, the trajectories of the anyons trace out paths akin to strands of string.
@@ -296,45 +289,18 @@ The study of braids and their unitary representations will capture how the inter
 
 Anyons carry lots of intrinsic data.
 One can formalize the physics of anyons along with certain symmetries and stabilities and collect them into a set of equations to solve for.
-Kitaev [[cite: &kitaevAnyonsExactlySolved2006 Appendix E]] suggested that the algebraic combinatorics of the solutions to these equations can be formalized in the language of *unitary modular categories*.
+Kitaev suggested that the algebraic combinatorics of the solutions to these equations can be formalized in the language of *unitary modular categories*.
 
 The language of categories came about much earlier as a language of formalize analogous phenomena that occur in seemingly unrelated areas of mathematics.
 Recently, categories enriched with extra structure have been studied due to their flexibility in encoding certain data.
 Technically speaking, modular categories arose from the study of conformal field theories, which are a kind of quantum field theory that exhibit certain topological invariances.
 
 The definition of a modular category is a bit complex; it is a ribbon fusion category with nondegenerate \( S \)-matrix.
-The interested reader can refer to Figure [[fig:modular_definition_tree]] for a tree of what each of these terms imply.
-Each property/structure is interesting in its own right.
 
-#+name: fig:modular_definition_tree
-#+begin_src plantuml :file figures/modular_tree.png :results file
-@startmindmap modularmap
-skinparam backgroundColor transparent
-,*[#LightGray] modular
-,**[#LightGray] ribbon
-,***[#LightGray] braided
-,***[#LightGray] twist compatible with duals
-,**[#LightGray] fusion
-,***[#LightGray] rigid
-,***[#LightGray] semisimple
-,***[#LightGray] abelian
-,***[#LightGray] k-linear
-,***[#LightGray] monoidal
-,***[#LightGray] finitely many simple objects including unit
-,**[#LightGray] nondegenerate S-matrix
-,***[#LightGray] unit object is the only transparent object
-@endmindmap
-#+end_src
-#+caption: Definition of monoidal category and what each term means. Moving to the right means "has this property".
-#+RESULTS: fig:modular_definition_tree
-[[file:figures/modular_tree.png]]
-
-
-
-The reader might ask if the "braided" in Figure [[fig:modular_definition_tree]] is related to the braiding discussed for anyons.
+The reader might ask if the "braided" term is related to the braiding discussed for anyons.
 Indeed it is, the braiding in a unitary modular category corresponds to braiding of anyons.
 There is an comprehensive dictionary of the correspondence between unitary modular categories and the physical interpretation of what the data represent.
-[[cite:A more detailed dictionary is found in;&rowellMathematicsTopologicalQuantum2018;Table 1]].
+A more detailed dictionary can be found in [cite:@rowellMathematicsTopologicalQuantum2018].
 
 #+begin_export hugo
 <style>
@@ -374,7 +340,7 @@ sane-table table {
 
 Classifying unitary modular categories up to some notion of equivalence is therefore equivalent to classifying systems of anyons.
 This is a difficult problem, but is thought to be possible, and positive signs have appeared.
-It was shown in [[cite:&bruillardRankfinitenessModularCategories2016]] that there are only finitely many modular categories for a given rank.
+It was shown in [cite:@bruillardRankfinitenessModularCategories2016] that there are only finitely many modular categories for a given rank.
 Physically, this would mean that a system \( n \) anyons can only interact nontrivially in finitely many distinct ways for each amount \( n \).
 
 The ergonomics of modular categories can be challenging given the sheer number of equations to solve, but down-to-earth examples exist.
@@ -391,8 +357,8 @@ TQC is an exciting field gaining more and more traction as the years go by.
 Experimental evidence for topological matter with gapped phases earned Thouless, Kosterlitz, and Haldane the Nobel Prize in Physics in 2016.
 Microsoft has staked its entire quantum computing research division on the premise of TQC.
 The study of modular categories is advancing at rapid pace, and we are learning more and more about representation theory and quantum algebra along the way.
-*** Bibliography
-[[bibliography:~/Documents/bib/zotero_refs.bib]]
+
+#+print_bibliography:
 
 *** Notes :noexport:
 - quantum computing is not fault tolerant, based on physical limitations and introductions of noise in trapped quantum systems
@@ -400,7 +366,7 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 - TQC allows for scalable fault-tolerant QC, where the error correction is performaed at the hardware level
   - This is perhaps its strongest merit
 
-** LAWRGe 2023 Notes                                                   :notes:
+**  LAWRGe 2023 Notes :notes:noexport:draft:ignore:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: math
 :EXPORT_FILE_NAME: LAWRGe_2023_notes
@@ -408,7 +374,6 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section 'Mathematics
 :END:
 #+toc: headlines 2 local
-#+include: "~/Documents/org/notes.org::*LAWRGe Workshop"
 * Computing
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
@@ -538,7 +503,7 @@ When a thing is defined, you can press =, <THING_KEY>= to select the inner part 
 Similarly, you can press =. <THING_KEY>= to select to the bounds of the thing.
 Here's a demo on how that works with the =symbol= thing, mapped to =e=:
 #+CAPTION: Demo of symbol thing in meow
-[[file:~/Videos/meow-symbol-inner.gif]]
+[[/images/meow-symbol-inner.gif]]
 
 There's a parallel between this behavior and the "inner <object>" and "all <object>" behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to =l=.
@@ -563,7 +528,7 @@ Now we can map this thing to a key:
 
 Now, when we're inside an inline math environment, we can press =, m= to select all the text within the math environment, and =. m= to select all of the math environment.
 #+CAPTION: Demo of our user-defined math thing
-[[file:~/Videos/meow-math-demo.gif]]
+[[/images/meow-math-demo.gif]]
 
 
 The bindings =, m= and =. m= replicate the evil-tex object identification =i m= and =a m=, respectively.
@@ -651,7 +616,7 @@ Now the configuration for our environment thing is just
 
 
 #+CAPTION: Demo of our user-defined latex-env thing
-[[file:~/Videos/meow-latex-env.gif]]
+[[/images/meow-latex-env.gif]]
 
 *** LaTeX Parentheses Delimiters
 Parentheses delimitiers in math mode are a bit of a tricky case.
@@ -739,7 +704,7 @@ We can hook this into two new functions for the inner and bounds matching, respe
 Here's what the result looks like:
 
 #+CAPTION: Demo of our user-defined delimiter thing
-[[file:~/Videos/meow-delim-demo.gif]]
+[[/images/meow-delim-demo.gif]]
 
 Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.
 
@@ -837,7 +802,7 @@ A demo of this mode is given below; you can see the keys pressed in the tab-line
 Feel free to extend and/or modify the key definitions to your liking.
 You can check the value of =org-speed-commands= for inspiration.
 #+caption: Demo of our org-motion state
-[[file:~/Videos/meow-org-motion.gif]]
+[[/images/meow-org-motion.gif]]
 ** Consistent, Dynamic Access to Your Current Emacs Theme's Palette   :emacs:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
@@ -866,7 +831,7 @@ This sets the font color for org verbatim text to the associated green color in 
 If I /only/ used DOOM themes, I could hook this to =load-theme= and save a weekend's worth of time.
 Here's what that looks like, but watch what happens when I load a non-DOOM theme:
 #+caption: Works for DOOM themes, but yucky transition to =modus-operandi-tinted=...
-[[file:~/working/technicolor-bad-switch.gif]]
+[[/images/technicolor-bad-switch.gif]]
 
 Blegh!
 Internally, =doom-color= refers to the variable =doom-themes--colors=, which remains unchanged upon loading a non-DOOM theme[fn:1].
@@ -938,7 +903,7 @@ The face customization from the beginning of the article becomes
 This now works seamlessly across themes that are matched in =technicolor-themes=.
 
 #+caption: Nice, cohesive greens.
-[[file:~/working/technicolor-good-switch.gif]]
+[[/images/technicolor-good-switch.gif]]
 
 One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme basis.
 
@@ -955,9 +920,9 @@ This sets the background color of the tag to be a blend of 80% background color 
 The before and after of this customization is presented with the =doom-dracula= theme.
 
 #+caption: Before applying face customization
-[[file:~/Pictures/tech_before.png]]
+[[/images/tech_before.png]]
 #+caption: After applying face customization
-[[file:~/Pictures/tech_after.png]]
+[[/images/tech_after.png]]
 
 If we didn't blend the green with the background color, it would be distractingly bright.
 Otherwise, we could use =technicolor-darken=, but then it would not work as intended for light themes.
@@ -1079,7 +1044,6 @@ Note that I use top level headlines for my nodes, unlike the more popular one-fi
 - =org-roam= capture as usual
 #+end_details
 
-
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
@@ -1097,23 +1061,33 @@ Some stuff that doesn't really fit anywhere else.
 :EXPORT_HUGO_SECTION: misc
 :EXPORT_FILE_NAME: astrophotos
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section Misc
+:EXPORT_OPTIONS: toc:nil
+:EXPORT_DATE: 2026-03-18
 :END:
-As a fairly new astrophotographer, these images will be quite poor to the discerning eye. Artifacts like dust spots, field curvature, and star trails can be seen in pretty much all of them, among many more artifacts. Regardless, I find a lot of satisfaction in this hobby as a fascinating blend of science and art.
+Astrophotography has always been a fascinating blend of science and art, though you'd be surprised at how much statistics enters the artistic exercise that is image processing. My time doing this hobby is unfortunately limited, and the ceiling on image quality is set by my ability to travel to locations with darker night skies and my willingness to stay up past a reasonable bedtime. Perhaps I shouldn't have picked a hobby that directly conflicts with sleep...
+
+In any case, I hope to add more images I am satisfied with to this page.
+
 *** M101: Pinwheel Galaxy
 #+name: m101
-#+caption: M101, The Pinwheel Galaxy
-[[file:~/Pictures/astro/m101_take2.jpg][file:~/Pictures/astro/m101_take2.jpg]]
+[[/images/m101.webp]]
 #+begin_details
 #+begin_summary
 Details
 #+end_summary
 
-It's been a while since I took this image, but I belive it total around 3 hours of integration
+It's been a while since I took this image, but I belive it total around 3 hours of integration.
+
+Equipment:
+- Orion ED80T-CF
+- Celestron AVX
+- Canon 6D (Hutech modified)
+- Orion SSAG + 50mm guide scope
+- Kstars/Ekos
 #+end_details
 *** M42: The Orion Nebula
 #+name: m42
-#+caption: M42, The Orion Nebula
-[[file:~/Pictures/astro/orion_phone_wallpaper.jpg][file:~/Pictures/astro/orion_phone_wallpaper.jpg]]
+[[/images/m42_reprocess.png]]
 #+begin_details
 #+begin_summary
 Details
@@ -1121,17 +1095,38 @@ Details
 This image was processed from my first ever outing doing astrophotography. It totals around 12 minutes of integration from the Bortle 1 sky around the McDonald Observatory. Weather prevented any more data collection, but I'm still surprised at how much I was able to get out of it. By contrast my [[*M101: Pinwheel Galaxy][image of M101]] was taken from a very light-polluted Bortle 8 sky, and that image was 3 hours of integration. This image always surprises me at how much better it is to image under dark skies.
 
 The uneven illumination on the bottom left of the image is due to a strange reflection pattern on an IR cut filter I have for my camera. It's not present in other images because I imaged those without the filter.
+
+Equipment:
+- Orion ED80T-CF
+- Celestron AVX
+- Canon 6D (Hutech modified)
+#+end_details
+*** M33: The Triangulum Galaxy
+[[/images/m33.webp]]
+#+begin_details
+#+begin_summary
+Details
+#+end_summary
+This was a pretty mammoth project: around 4.5 hours of data went into this for a fairly mediocre result! This was a big lesson in the destructive power of light pollution on deep sky astroimaging. This is one I hope to revisit in the winter.
+
+Equipment:
+- Orion ED80T-CF
+- Celestron AVX
+- Canon 6D (Hutech modified)
+- Orion SSAG + 50mm guide scope
+- Kstars/Ekos
 #+end_details
 * 日本語コーナー
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: nihongo
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
 :END:
+
 ** 日本語コーナー
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: nihongo
-:EXPORT_HUGO_MENU: :menu main
 :EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_MENU: :menu main
 :END:
 
 ここで日本語に関して勉強したり読んだりするものを話す。
@@ -1194,7 +1189,35 @@ This means that this is also a grammatically correct construction:
 #+end_example
 Repeat as needed to construct as long of a word as you want.
 Of course, we've long left the issue of pragmatism behind, but still, it's pretty not not not not not not not not not not not not not not not not cool, huh?
+* Bio
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: bio
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :type post
+:EXPORT_FILE_NAME: bio
+:EXPORT_HUGO_MENU: :menu main
+:EXPORT_OPTIONS: toc:nil
+:EXPORT_DATE: 2026-03-17
+:END:
 
+
+** Research Interests
+Broadly speaking, my research interests lie in the category theory side of quantum algebra. Specifically, I am interested in braided fusion categories and modular categories that underpin the mathematics of topological quantum computing. At the risk of oversimplifying, these gadgets are categorifications of finite dimensional quasi-Hopf algebras and their behavior over \(\mathbb{C} \). In a very rigorous sense, this is a correct statement (keyword: Tannaka-Krein duality).
+
+Because these gadgets are fairly new, techniques to classify them pop up occasionally with some examples accompanying the general construction. In particular, a program of Delaney, Galindo, Plavnik, Rowell, and Hang introduced two powerful techniques: besting [cite:@delaneyBraidedZestingIts2021] and the condensed fiber product [cite:@delaneyCondensedFiberProduct2024].
+My current interest lies in relaxations of the latter, where one drops the requirement of a local abelian symmetry (read: pointed symmetric fusion category) contained in a topological phase, in favor of an arbitrary abelian phase (read: arbitrary pointed fusion subcategory).
+This setting does not enjoy some of the fruits of the condensed fiber product, but with it comes the possibility of realizing new modular categories, or giving alternative realizations of existing modular categories.
+
+Along the way, I built the [[https://verlindedb.github.io/][VerlindeDB]], a website made in a similar spirit as the AnyonWiki, to provide an online "database" of a large class of intresting modular categories coming from representations of quantum groups at roots of unity.
+
+** Speaking
+#+hugo: {{< margin-image img="/images/workshop.webp"  alt="Poster for Mathematical and Physical Underpinnings of Topological Quantum Computation" width=30% radius=0px  >}}
+
+- [[https://benjimorris.github.io/miqc/workshop-Feb.html][Mathematical and Physical Underpinnings of Topological Quantum Computation]]. University of Leeds, Feb 2026
+
+** Computing
+After moving away from Windows some years ago, I've inadvertently forced myself to learn some tools of the trade used in STEM-adjacent industry work, which is where I hope to end up. In particular, knowing my way around shells, version control systems, and various programming languages like python, C++, Steel Bank common lisp, and emacs lisp (these last two are probably not so common in industry).
+
+#+print_bibliography:
 * RSS Feeds
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: /
@@ -1202,4 +1225,5 @@ Of course, we've long left the issue of pragmatism behind, but still, it's prett
 :EXPORT_FILE_NAME: rss_indices
 :END:
 You can subscribe to an RSS feed tagged by topic/tag/etc. here.
+
 

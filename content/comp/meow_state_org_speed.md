@@ -90,4 +90,4 @@ A demo of this mode is given below; you can see the keys pressed in the tab-line
 Feel free to extend and/or modify the key definitions to your liking.
 You can check the value of `org-speed-commands` for inspiration.
 
-{{< figure src="~/Videos/meow-org-motion.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of our org-motion state" >}}
+{{< figure src="/images/meow-org-motion.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of our org-motion state" >}}

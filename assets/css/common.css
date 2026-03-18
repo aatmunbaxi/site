@@ -1,0 +1,482 @@
+/* If modus_operandi_tinted is another CSS file in your folder, uncomment and fix the line below: */
+@import url("/css/modus_operandi_tinted.css");
+@import url("/css/dark.css");
+@import url("/css/fonts.css");
+
+
+html {
+    color: var(--fg-main);
+    background-color: var(--bg-main);
+    font-family: "Rosario", sans-serif;
+    font-size: 18px;
+    line-height: 1.6em;
+}
+body {
+    font-family: "Rosario", sans-serif;
+    display: block;
+    line-height: 2em;
+    overflow: visible;
+}
+* {
+    -webkit-tap-highlight-color: var(--fg-main);
+}
+
+::selection {
+    background: var(--bg-active);
+}
+
+p {
+
+    font-family: "Rosario", sans-serif;
+    line-height: 1.5em;
+}
+
+hr {
+    border: 0;
+    border-top: 3px dotted var(--bg-alt);
+    margin: 1em 0;
+}
+
+blockquote {
+    border-left: 3px solid var(--bg-red-subtle);
+    background-color: var(--bg-removed-faint);
+    color: var(--fg-alt);
+    margin: 0;
+    padding-left: 2em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+
+a {
+    color: var(--fg-link);
+    /* text-decoration: none !important; */
+    /* border-bottom: none !important; */
+    /* box-shadow: none !important; */
+    /* background-image: none !important; */
+}
+
+a.soc {
+    border-bottom: 0px !important;
+    margin: 0px;
+    display: flex;
+}
+
+a.soc svg.feather {
+    stroke: var(--fg-sage);
+    fill: var(--fg-sage);
+}
+nav a {
+    margin:2px;
+}
+a:hover {
+    background-color: var(--bg-hover);
+    color: var(--fg-hover);
+    /* Optional: If you want an underline to appear ONLY when hovering */
+    /* text-decoration: underline !important; */
+}
+
+n ul {
+    list-style: none;
+    padding-left: 2ch;
+}
+ul li {
+    text-indent: 0ch;
+}
+ul > li::before {
+  content: "- ";
+  font-weight: bold;
+}
+
+/* Images */
+img {
+    border: 3px solid var(--bg-main);
+    max-width: 100%;
+}
+
+figure {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    max-width: 100%;
+}
+
+figure img {
+    max-height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+    figure {
+        padding: 0 40px;
+    }
+}
+
+figure h4 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 1em;
+}
+figure h4::before {
+    content: "↳ ";
+}
+
+
+
+
+.highlight pre ::selection {
+    background-color: var(--bg-active);
+}
+.highlight pre {
+    background-color: var(--bg-dim);
+
+}
+
+
+.content {
+    margin-bottom: 4em;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    max-width: 800px;
+    padding: 0 1ch;
+    word-wrap: break-word;
+}
+
+header {
+    font-family: "Rosario", sans-serif;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    margin: 1em 0;
+    line-height: 2.5em;
+    background: var(--bg-dim);
+    border-radius: 5px;
+    border: solid var(--fg-alt);
+    padding: 15px;
+    color: var(--fg-main);
+}
+
+header .main {
+    font-size: 1.75rem;
+}
+
+.home-page-header.home-page-header
+{
+    font-family: "DejaVuSansMono";
+    display: flex;
+    justify-content: space-between;
+    background: var(--bg-main);
+    border: 0px;
+    border-radius: 0px;
+    color: var(--header);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Rosario", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 1em;
+    color: var(--header);
+}
+
+h1::before {
+    color: var(--header);
+    content: "▼ ";
+}
+h1 {
+    font-size-adjust: .8;
+}
+h2::before {
+    color: var(--yellow);
+    content: "▽ ";
+}
+
+h2 {
+    color: var(--yellow);
+    font-size-adjust: .6;
+
+}
+
+h3::before {
+    color: var(--fg-alt);
+    content: "⯆ ";
+}
+h3 {
+    color: var(--fg-alt);
+    font-size-adjust: .55;
+}
+
+h4::before {
+    color: var(--magenta);
+    content: "▿ ";
+}
+h4 {
+    color: var(--magenta);
+    font-size-adjust: .53;
+}
+
+h5::before {
+    color: var(--green);
+    content: "▾ ";
+}
+h5 {
+    color: var(--green);
+}
+h6::before {
+    color: var(--red);
+    content: "▾ ";
+}
+h6 {
+    color: var(--red);
+}
+figcaption{
+    color: var(--fg-dim);
+    font-size: 13px;
+    justify-content: center;
+}
+
+.tldr::before {
+    content: "tl;dr";
+    font-weight: bold;
+    /* font-size-adjust: 50; */
+    background-color: var(--bg-blue-intense);
+    /* border: solid 1px var(--fg-dim); */
+    border-radius: 0 0 0rem 0rem;
+    width: fit-content;
+    color: var(--fg-main);
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.20rem;
+    position: relative;
+    text-align: left;
+    top: 2rem;
+}
+.tldr > p {
+    color: var(--fg-dim);
+    background-color:var(--bg-inactive);
+    padding: 0.8rem;
+    border: solid 1px var(--fg-dim);
+}
+
+
+
+.meta {
+    color: #999;
+    letter-spacing: -0.5px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items: center;
+    border-top: 0.4rem dotted var(--fg-alt);
+    padding: 2rem 0rem;
+    margin-top: 2rem;
+}
+.soc {
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+}
+.border {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid;
+}
+.footer-info {
+    padding: var(--cyan-faint);
+}
+
+/* Common */
+.title h1 {
+    margin-bottom: 0;
+}
+
+time {
+    color: var(--green);
+}
+
+/* Posts */
+article .title {
+    margin-bottom: 1em;
+}
+
+/* Callout */
+.callout {
+    background-color: var(--bg-yellow-intense);
+    color: var(--fg-main);
+    padding: 1em;
+}
+
+.callout a:hover {
+    background-color: var(--bg-red-intense);
+    color: var(--fg-main);
+}
+
+.site-description {
+    display: flex;
+    justify-content: space-between;
+}
+.tags li::before {
+    content: "🏷 ";
+}
+.tags a {
+    border-bottom: 3px solid var(--maincolor);
+}
+.tags a:hover {
+    color: var(--fg-main);
+    background-color: var(--bg-hover);
+}
+svg {
+    max-height: 15px;
+    color: var(--fg-main);
+}
+.soc:hover {
+    color: white;
+}
+.draft-label {
+    color: var(--bg-alt);
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 6px;
+    background-color: var(--bg-red-subtle);
+}
+.highlight pre {
+    border: 2px solid var(--fg-dim);
+}
+
+highlight {
+    position: relative;
+    background-color: var(--bg-dim);
+    -webkit-overflow-scrolling: touch;
+ }
+
+
+/* table */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table thead tr th {
+    border: 1px solid var(--border-mode-line-inactive);
+}
+p table th {
+    padding: 6px 13px;
+    border: 1px solid var(--border-mode-line-inactive);
+    font-size: large;
+}
+
+table td {
+    padding: 6px 13px;
+    border: 1px solid var(--border-mode-line-inactive);
+}
+
+
+
+
+
+
+
+.two-column {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center; 
+    margin: 2em 0;
+}
+
+.grid-image img {
+    width: 100%;
+    height: auto;
+    /* border-radius: 8px; */
+}
+
+@media (max-width: 768px) {
+    .text-image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.right-margin-image {
+    float: right;
+    clear: right;
+    margin-right: -45%; 
+    width: 40%; 
+    margin-top: 0.3em;
+    margin-bottom: 1em;
+    transform: translateY(-50%);
+}
+
+.right-margin-image img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .right-margin-image {
+        float: none;
+        margin-right: 0;
+        width: 100%;
+        display: block;
+    }
+    .left-margin-image {
+        float: none;
+        margin-left: 0;
+        width: 100%;
+        display: block;
+    }
+}
+
+.left-margin-image {
+    float: left;
+    clear: left;
+    margin-left: -45%; 
+    margin-right: 2rem; 
+    width: 40%; 
+    margin-top: 0.3em;
+    margin-bottom: 1em;
+    transform: translateY(-50%);
+}
+
+.left-margin-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* 1. Strip the default browser styles from the button */
+#dark-mode-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#dark-mode-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    overflow: visible; 
+}
+#dark-mode-toggle svg.feather {
+    height:32px;
+    width: 32px;
+    stroke: var(--fg-main) !important; 
+}
+
+#dark-mode-toggle:hover svg.feather {
+    /* background: var(--bg-hover); */
+    stroke: var(--yellow) !important;
+    transition: stroke 0.2s ease-in-out;
+    
+}

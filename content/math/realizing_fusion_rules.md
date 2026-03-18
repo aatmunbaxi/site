@@ -2,7 +2,7 @@
 title = "Realizing some Multiplicity-Free Fusion Rules"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-lastmod = 2024-07-09T18:13:22-05:00
+lastmod = 2026-03-18T13:14:52-05:00
 tags = ["longread"]
 draft = false
 weight = 2002
@@ -64,10 +64,10 @@ We unroll the definitions:
 
 A based ring \\( R \\) is a ring that is free as a \\( \mathbf{Z} \\)-module equipped with the following:
 
-a. <span class="org-target" id="org-target--structure-coeffs"></span> A \\( \mathbf{Z}\_+ \\)-basis \\( B = \left\\{ b\_i \right\\}\_{i\in I} \\) such that \\( b\_i b\_j = \sum\_{k\in I}^{} c\_{ij}^kb\_k \\) where \\( c\_{ij}^k\in \mathbf{Z}\_+ \\).
-b. And identity \\( 1 \\) which is a non-negative linear combination of the basis
-c. Let \\( \tau : R \to \mathbf{Z} \\) be the group homomorphism taking \\( b\_i \\) to \\( 1 \\) if \\( b\_i \\) appears in the decomposition of \\( \mathbf{1} \\), and \\( 0 \\) otherwise.
-   We demand that there is an involution \\( i \mapsto i^{\*} \\) of the ring such that the induced ring endomorphism is an anti-involution and the map \\( \tau \\) satisfies \\( \tau(b\_i b\_j) =1 \\) if \\( i = j^{\*} \\) and \\( 0 \\) otherwise.
+1.  <span class="org-target" id="org-target--structure-coeffs"></span> A \\( \mathbf{Z}\_+ \\)-basis \\( B = \left\\{ b\_i \right\\}\_{i\in I} \\) such that \\( b\_i b\_j = \sum\_{k\in I}^{} c\_{ij}^kb\_k \\) where \\( c\_{ij}^k\in \mathbf{Z}\_+ \\).
+2.  And identity \\( 1 \\) which is a non-negative linear combination of the basis
+3.  Let \\( \tau : R \to \mathbf{Z} \\) be the group homomorphism taking \\( b\_i \\) to \\( 1 \\) if \\( b\_i \\) appears in the decomposition of \\( \mathbf{1} \\), and \\( 0 \\) otherwise.
+    We demand that there is an involution \\( i \mapsto i^{\*} \\) of the ring such that the induced ring endomorphism is an anti-involution and the map \\( \tau \\) satisfies \\( \tau(b\_i b\_j) =1 \\) if \\( i = j^{\*} \\) and \\( 0 \\) otherwise.
 
 A based ring is called _unital_ if the identity \\( 1 \\) is a basis element.
 We conclude by noting that _finite rank_ means there are finitely many basis elements.
@@ -75,7 +75,7 @@ We conclude by noting that _finite rank_ means there are finitely many basis ele
 </div>
 
 The constraint in a is analogous to the fusion decomposition, while the involution in c comes from the rigidity of the category.
-More details and standard results can be found in (<a href="#citeproc_bib_item_3">Etingof et al. 2016, 3</a>).
+More details and standard results can be found in (<a href="#citeproc_bib_item_3">Etingof et al. 2016</a>).
 
 
 ## Fusion Rings as an Invariant of Fusion Categories {#fusion-rings-as-an-invariant-of-fusion-categories}
@@ -92,13 +92,13 @@ Not all hope is lost though, the theorem _Ocneanu rigidity_ states that there a 
 The question of if there are finitely many fusion categories of any given rank is very much open.
 
 To my knowledge, the question of categorifiability of a fusion ring has only a partial answer.
-Namely, one can rule out categorifiability and unitary categorifiability via some properties of the fusion coefficients (see (<a href="#citeproc_bib_item_5">Vercleyen and Slingerland 2023</a>)), but there is not a complete criteria of categorifiability of fusion rings.
+Namely, one can rule out categorifiability and unitary categorifiability via some properties of the fusion coefficients (see (<a href="#citeproc_bib_item_4">Vercleyen and Slingerland 2023</a>)), but there is not a complete criteria of categorifiability of fusion rings.
 
 
 ## Low Rank Fusion Rings {#low-rank-fusion-rings}
 
 The benefit of working from fusion rings up to fusion categories is that fusion rings are highly computable (at least in comparison to fusion categories).
-The authors (<a href="#citeproc_bib_item_5">Vercleyen and Slingerland 2023</a>) used a computer algebra system to compute some fusion rings through rank \\( 9 \\).
+The authors (<a href="#citeproc_bib_item_4">Vercleyen and Slingerland 2023</a>) used a computer algebra system to compute some fusion rings through rank \\( 9 \\).
 They published a list of explicity known fusion rules along with some known (or conjectured) properties on the website <https://anyonwiki.github.io/>.
 You'll notice that some of the fusion rings have unknown properties, like whether or not they are categorifiable.
 I set out to work on some of those properties.
@@ -111,7 +111,7 @@ Here, multiplicity-free means that the fusion rules are either \\( 0 \\) or \\( 
 Up to now it was unknown if this ring was categorifiable, and I answered this question positively.
 
 It was pointed out to me by my advisor that a good place to look for a categorification was a subcategory of the so-called metaplectic categories \\( \operatorname{SO}(N)\_2 \\).
-The details of these categories are beyond the scope of the article, but their fusion rules are known completely (<a href="#citeproc_bib_item_4">Gustafson, Rowell, and Ruan 2018</a>; <a href="#citeproc_bib_item_1">Ardonne et al. 2016</a>; <a href="#citeproc_bib_item_2">Bruillard et al. 2018</a>).
+The details of these categories are beyond the scope of the article, but their fusion rules are known completely (NO_ITEM_DATA:gustafsonMetaplecticCategoriesGauging2018a; <a href="#citeproc_bib_item_1">Ardonne et al. 2016</a>; <a href="#citeproc_bib_item_2">Bruillard et al. 2018</a>).
 
 We can realize the fusion rules \\( \operatorname{FR}^{8,0}\_4 \\) as "one half" of the metaplectic category \\( \operatorname{SO}(12)\_2 \\).
 We say "one half", because the category \\( \operatorname{SO}(12)\_2 \\) is graded by the group \\( \mathbf{Z}\_{2} \times \mathbf{Z}\_{2} \\), and we can choose the fusion category generated by the trivial graded component and the graded component associated to \\( (1,0) \\) (or equivalently, \\( (0,1) \\)).
@@ -207,12 +207,12 @@ The results are summarized in the tables below.
 | \\( V\_{1} \\)     | --                 | --                 | --                 | --                 | --                                    | --                                           | --                                       | \\( \mathbf{1}\oplus f \oplus X\_{0}\oplus X\_{1}\oplus X\_2 \\) | \\( f \oplus fg \oplus X\_{0} \oplus X\_{1} \\)                     |
 | \\( V\_{2} \\)     | --                 | --                 | --                 | --                 | --                                    | --                                           | --                                       | --                                                               | \\( \mathbf{1} \oplus f \oplus X\_{0} \oplus X\_{1} \oplus X\_2 \\) |
 
-## References
+## Bibliography
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Ardonne, Eddy, Meng Cheng, Eric C. Rowell, and Zhenghan Wang. 2016. “Classification of Metaplectic Modular Categories.” <i>Journal of Algebra</i> 466 (November): 141–46. <a href="https://doi.org/10.1016/j.jalgebra.2016.08.001">https://doi.org/10.1016/j.jalgebra.2016.08.001</a>.</div>
   <div class="csl-entry"><a id="citeproc_bib_item_2"></a>Bruillard, Paul, Paul Gustafson, Julia Yael Plavnik, and Eric Carson Rowell. 2018. “Dimension as a Quantum Statistic and the Classification of Metaplectic Categories.” May 20, 2018. <a href="https://doi.org/10.48550/arXiv.1710.10284">https://doi.org/10.48550/arXiv.1710.10284</a>.</div>
   <div class="csl-entry"><a id="citeproc_bib_item_3"></a>Etingof, Pavel, Shlomo Gelaki, Dmitri Nikshych, and Victor Ostrik. 2016. <i>Tensor Categories</i>. American Mathematical Soc. <a href="https://books.google.com?id=Z6XLDAAAQBAJ">https://books.google.com?id=Z6XLDAAAQBAJ</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_4"></a>Gustafson, Paul, Eric Rowell, and Yuze Ruan. 2018. “Metaplectic Categories, Gauging and Property F.” August 23, 2018. <a href="https://doi.org/10.48550/arXiv.1808.00698">https://doi.org/10.48550/arXiv.1808.00698</a>.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_5"></a>Vercleyen, Gert, and Joost Slingerland. 2023. “On Low Rank Fusion Rings.” March 14, 2023. <a href="https://doi.org/10.48550/arXiv.2205.15637">https://doi.org/10.48550/arXiv.2205.15637</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_4"></a>Vercleyen, Gert, and Joost Slingerland. 2023. “On Low Rank Fusion Rings.” March 14, 2023. <a href="https://doi.org/10.48550/arXiv.2205.15637">https://doi.org/10.48550/arXiv.2205.15637</a>.</div>
+  <div class="csl-entry">NO_ITEM_DATA:gustafsonMetaplecticCategoriesGauging2018a</div>
 </div>

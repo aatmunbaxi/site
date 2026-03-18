@@ -1,0 +1,8 @@
+<div class="two-column">
+  <div class="grid-text">
+    {{ .Inner }}
+  </div>
+  <div class="grid-image">
+    <img src="{{ .Get "img" }}" alt="{{ .Get "alt" | default "Grid image" }}" />
+  </div>
+</div>

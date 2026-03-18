@@ -28,14 +28,14 @@ This works really well for what it does, but unfortunately for me, I don't alway
 Consider the following elisp:
 
 ```emacs-lisp
-(set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
+  (set-face-attribute 'org-verbatim nil :foreground (doom-color 'green))
 ```
 
 This sets the font color for org verbatim text to the associated green color in the current DOOM theme.
 If I _only_ used DOOM themes, I could hook this to `load-theme` and save a weekend's worth of time.
 Here's what that looks like, but watch what happens when I load a non-DOOM theme:
 
-{{< figure src="/ox-hugo/technicolor-bad-switch.gif" caption="<span class=\"figure-number\">Figure 1: </span>Works for DOOM themes, but yucky transition to `modus-operandi-tinted`..." >}}
+{{< figure src="/images/technicolor-bad-switch.gif" caption="<span class=\"figure-number\">Figure 1: </span>Works for DOOM themes, but yucky transition to `modus-operandi-tinted`..." >}}
 
 Blegh!
 Internally, `doom-color` refers to the variable `doom-themes--colors`, which remains unchanged upon loading a non-DOOM theme[^fn:1].
@@ -46,7 +46,7 @@ Huzzah!
 All we have to do is write a function `current-theme-color` that determines the type of the current theme and dispatches the correct color-getting function, so our theme customization becomes:
 
 ```emacs-lisp
-(set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'green))
+   (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'green))
 ```
 
 Err, this doesn't quite work either.
@@ -54,7 +54,7 @@ Most all themes define a color "green", so this solution is sufficient for basic
 What happens if we wanted to use the theme's foreground color, like with `(doom-color 'fg)`?
 
 ```emacs-lisp
-(set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'fg))
+   (set-face-attribute 'org-verbatim nil :foreground (current-theme-color 'fg))
 ```
 
 It _still_ breaks on modus themes[^fn:2].
@@ -74,21 +74,21 @@ For good measure, we also want the background color, red, green, blue, magenta, 
 Our standard palette can be loaded into `technicolor-colors`, and the data for the themes we want to use can be specified:
 
 ```emacs-lisp
-(setq technicolor-colors '(foreground background red green blue magenta cyan)
-      technicolor-themes '(("^doom-.*" doom-color
-                            ((foreground . fg)
-                             (background . bg)))
+  (setq technicolor-colors '(foreground background red green blue magenta cyan)
+        technicolor-themes '(("^doom-.*" doom-color
+                              ((foreground . fg)
+                               (background . bg)))
 
-                           ("^modus-.*" modus-themes-get-color-value
-                            ((foreground . fg-main)
-                             (background . bg-main)
-                             (green . green-warmer))
+                             ("^modus-.*" modus-themes-get-color-value
+                              ((foreground . fg-main)
+                               (background . bg-main)
+                               (green . green-warmer))
 
-                            ("^catppuccin" technicolor--get-catppuccin-color
-                             ((foreground . text)
-                              (background . base)
-                              (magenta . pink)
-                              (cyan . sky))))))
+                              ("^catppuccin" technicolor--get-catppuccin-color
+                               ((foreground . text)
+                                (background . base)
+                                (magenta . pink)
+                                (cyan . sky))))))
 ```
 
 The `technicolor-themes` variable contains a list of lists, each of which contain a regex that will match a theme or group of themes, a function to access the colors in our universal palette (like `doom-color`), and an alist mapping the symbols in our universal palette to symbols in the desired theme[^fn:3].
@@ -97,7 +97,7 @@ Now, the function used to get the hex value of a color in the current theme's pa
 When it is called with a `doom-*` theme active, technicolor will return the output of
 
 ```emacs-lisp
-(doom-theme (alist-get 'color ((foreground . fg) (background . bg))))
+  (doom-theme (alist-get 'color ((foreground . fg) (background . bg))))
 ```
 
 if `color` has an associated value, or `(doom-color 'color)` if it does not.
@@ -114,12 +114,12 @@ What does this buy us?
 The face customization from the beginning of the article becomes
 
 ```emacs-lisp
-(set-face-attribute 'org-verbatim t :foreground (technicolor-get-color 'green))
+  (set-face-attribute 'org-verbatim t :foreground (technicolor-get-color 'green))
 ```
 
 This now works seamlessly across themes that are matched in `technicolor-themes`.
 
-{{< figure src="/ox-hugo/technicolor-good-switch.gif" caption="<span class=\"figure-number\">Figure 2: </span>Nice, cohesive greens." >}}
+{{< figure src="/images/technicolor-good-switch.gif" caption="<span class=\"figure-number\">Figure 2: </span>Nice, cohesive greens." >}}
 
 One can imagine adding more face attribute changes and fine-tuning the faces on a per-theme basis.
 
@@ -133,15 +133,15 @@ Let's say we want to make the background of `org-modern-tag` green.
 To prevent the tags from being too distracting, we will make sure the green isn't too light on dark themes (respectively, too dark on light themes).
 
 ```emacs-lisp
-(set-face-attribute 'org-modern-tag nil :background (technicolor-blend 'background 'green 80))
+  (set-face-attribute 'org-modern-tag nil :background (technicolor-blend 'background 'green 80))
 ```
 
 This sets the background color of the tag to be a blend of 80% background color into the theme's `green` value.
 The before and after of this customization is presented with the `doom-dracula` theme.
 
-{{< figure src="/ox-hugo/tech_before.png" caption="<span class=\"figure-number\">Figure 3: </span>Before applying face customization" >}}
+{{< figure src="/images/tech_before.png" caption="<span class=\"figure-number\">Figure 3: </span>Before applying face customization" >}}
 
-{{< figure src="/ox-hugo/tech_after.png" caption="<span class=\"figure-number\">Figure 4: </span>After applying face customization" >}}
+{{< figure src="/images/tech_after.png" caption="<span class=\"figure-number\">Figure 4: </span>After applying face customization" >}}
 
 If we didn't blend the green with the background color, it would be distractingly bright.
 Otherwise, we could use `technicolor-darken`, but then it would not work as intended for light themes.

@@ -88,7 +88,7 @@ When a thing is defined, you can press `, <THING_KEY>` to select the inner part 
 Similarly, you can press `. <THING_KEY>` to select to the bounds of the thing.
 Here's a demo on how that works with the `symbol` thing, mapped to `e`:
 
-{{< figure src="~/Videos/meow-symbol-inner.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of symbol thing in meow" >}}
+{{< figure src="/images/meow-symbol-inner.gif" caption="<span class=\"figure-number\">Figure 1: </span>Demo of symbol thing in meow" >}}
 
 There's a parallel between this behavior and the "inner &lt;object&gt;" and "all &lt;object&gt;" behavior in evil.
 For example, suppose we have a text object in evil that picks out the line the point is on, mapped to `l`.
@@ -117,7 +117,7 @@ Now we can map this thing to a key:
 
 Now, when we're inside an inline math environment, we can press `, m` to select all the text within the math environment, and `. m` to select all of the math environment.
 
-{{< figure src="~/Videos/meow-math-demo.gif" caption="<span class=\"figure-number\">Figure 2: </span>Demo of our user-defined math thing" >}}
+{{< figure src="/images/meow-math-demo.gif" caption="<span class=\"figure-number\">Figure 2: </span>Demo of our user-defined math thing" >}}
 
 The bindings `, m` and `. m` replicate the evil-tex object identification `i m` and `a m`, respectively.
 
@@ -210,7 +210,7 @@ Now the configuration for our environment thing is just
 (add-to-list 'meow-char-thing-table '(?E . latex-env))
 ```
 
-{{< figure src="~/Videos/meow-latex-env.gif" caption="<span class=\"figure-number\">Figure 3: </span>Demo of our user-defined latex-env thing" >}}
+{{< figure src="/images/meow-latex-env.gif" caption="<span class=\"figure-number\">Figure 3: </span>Demo of our user-defined latex-env thing" >}}
 
 
 ## LaTeX Parentheses Delimiters {#latex-parentheses-delimiters}
@@ -308,7 +308,7 @@ We can hook this into two new functions for the inner and bounds matching, respe
 
 Here's what the result looks like:
 
-{{< figure src="~/Videos/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
+{{< figure src="/images/meow-delim-demo.gif" caption="<span class=\"figure-number\">Figure 4: </span>Demo of our user-defined delimiter thing" >}}
 
 Note that the way we have defined the delimiters makes it trivial to add/subtract delimiters from the list of things we want to match.
 

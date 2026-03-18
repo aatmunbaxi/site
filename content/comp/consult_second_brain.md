@@ -47,40 +47,40 @@ All we have to do is add our own.
 Following the [plethora of examples on the consult wiki](https://github.com/minad/consult/wiki#consult-buffer-sources), the following code does just that.
 
 ```emacs-lisp
-(defvar org-roam-nodes-source
-         (list :name     "org-roam node"
-               :category 'org-heading
-               :face 'org-roam-title
-               :narrow   ?n
-               :require-match nil
-               :action (lambda (cand)
-                         ;; strip off nerd icon
-                         (let ((node-name (substring-no-properties cand 2)))
-                           (progn
-                             (org-roam-node-open (org-roam-node-from-title-or-alias
-                                                  node-name t))
-                             (when (org-at-heading-p)
-                               (org-fold-show-entry t)
-                               (recenter-top-bottom 0))))
+    (defvar org-roam-nodes-source
+             (list :name     "org-roam node"
+                   :category 'org-heading
+                   :face 'org-roam-title
+                   :narrow   ?n
+                   :require-match nil
+                   :action (lambda (cand)
+                             ;; strip off nerd icon
+                             (let ((node-name (substring-no-properties cand 2)))
+                               (progn
+                                 (org-roam-node-open (org-roam-node-from-title-or-alias
+                                                      node-name t))
+                                 (when (org-at-heading-p)
+                                   (org-fold-show-entry t)
+                                   (recenter-top-bottom 0))))
 
-               :new (lambda (name)
-                      (let ((info nil))
-                        (setq info (plist-put info 'title name))
-                        (org-roam-capture-  :goto nil
-                                            :keys "h"
-                                            :node (org-roam-node-create :title name)
-                                            :templates org-roam-capture-templates
-                                            :info info
-                                            :props info)))
-               :items (lambda ()
-                        (mapcar
-                         (lambda (str)
-                           ;; requires nerd icons
-                           (concat (nerd-icons-faicon "nf-fae-brain") " " str))
-                         (org-roam--get-titles)))))
+                   :new (lambda (name)
+                          (let ((info nil))
+                            (setq info (plist-put info 'title name))
+                            (org-roam-capture-  :goto nil
+                                                :keys "h"
+                                                :node (org-roam-node-create :title name)
+                                                :templates org-roam-capture-templates
+                                                :info info
+                                                :props info)))
+                   :items (lambda ()
+                            (mapcar
+                             (lambda (str)
+                               ;; requires nerd icons
+                               (concat (nerd-icons-faicon "nf-fae-brain") " " str))
+                             (org-roam--get-titles)))))
 
 
-(add-to-list 'consult-buffer-sources 'org-roam-nodes-source 'append)
+    (add-to-list 'consult-buffer-sources 'org-roam-nodes-source 'append)
 ```
 
 Now, access to my buffers _and_ `org-roam` nodes becomes a cinch.

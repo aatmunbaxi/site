@@ -1,0 +1,104 @@
+@import url("/css/fonts.css");
+@import url("/css/modus_operandi_tinted.css");
+@import url("/css/dark.css");
+code {
+    font-family: "PTMono", monospace;
+    background-color: var(--bg-dim);
+    text-emphasis: bold;
+    color: var(--magenta-warmer);
+    padding: 0.1em 0.2em;
+
+}
+
+pre code[class*="language-"] {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: true;
+
+}
+.highlight pre code[class*="language-"]::before {
+    background-color: var(--bg-dim);
+    border: solid 1px var(--fg-dim);
+    border-radius: 0 0 0rem 0rem;
+    width: fit-content;
+    color: var(--fg-main);
+    font-size: 12px;
+    justify-content: left;
+    letter-spacing: 0.025rem;
+    padding: 0.03rem 0.3rem;
+    position: absolute;
+    text-align: left;
+    text-transform: lowercase;
+    top: -0.6rem;
+    left: 0ex;
+}
+
+
+.highlight pre code[class="language-emacs-lisp"]::before {
+    content: "emacs-lisp";
+    background: var(--bg-magenta-intense);
+    color: var(--fg-main);
+}
+.highlight pre code[class="language-org"]::before {
+    content: "org";
+    background: var(--bg-hover);
+    color: var(--fg-main)
+
+}
+
+.highlight pre code[class="language-javaScript"]::before,
+.highlight pre code[class="language-js"]::before {
+    content: "js";
+    background: #f7df1e;
+    color: black;
+}
+
+.highlight pre code[class*="language-yml"]::before,
+.highlight pre code[class*="language-yaml"]::before {
+    content: "yaml";
+    background: #f71e6a;
+    color: white;
+}
+.highlight pre code[class*="language-haskell"]::before,
+.highlight pre code[class*="language-haskell"]::before {
+    content: "haskell";
+    background: var(--magenta-faint);
+    color: var(--bg-main);
+}
+.highlight pre code[class*="language-shell"]::before,
+.highlight pre code[class*="language-bash"]::before,
+.highlight pre code[class*="language-sh"]::before {
+    content: "shell";
+    background: var(--bg-term-green);
+    /* right: 95.5ex; */
+    /* right: calc(100% - 10ch); */
+    /* right: calc(100% - 1/1.8*10rem); */
+    color: var(--bg-main);
+}
+.highlight pre code[class*="language-json"]::before {
+    content: "json";
+    background: dodgerblue;
+    color: #000000;
+}
+.highlight pre code[class*="language-python"]::before,
+.highlight pre code[class*="language-py"]::before {
+    content: "python";
+    background-color: var(--bg-graph-blue-1);
+    color: var(--fg-main);
+}
+.highlight pre code[class*="language-css"]::before {
+    content: "css";
+    background: cyan;
+    color: black;
+}
+.highlight pre code[class*="language-go"]::before {
+    content: "Go";
+    background: cyan;
+    color: royalblue;
+}
+.highlight pre code[class*="language-md"]::before,
+.highlight pre code[class*="language-md"]::before {
+    content: "Markdown";
+    background: royalblue;
+    color: whitesmoke;
+}
+

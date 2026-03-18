@@ -1,0 +1,11 @@
+{{ $side := .Get "side" | default "right" }}
+{{ $width := .Get "width" | default "40%" }}
+{{ $radius := .Get "radius" | default "8px" }}
+
+<div class="{{ $side }}-margin-image" style="width: {{ $width }};">
+    <img src="{{ .Get "img" }}" alt="{{ .Get "alt" | default "Margin image" }}" style="border-radius: {{ $radius }};" />
+    
+    {{ with .Get "caption" }}
+        <p style="font-size: 0.8em; color: gray; margin-top: 5px;">{{ . }}</p>
+    {{ end }}
+</div>

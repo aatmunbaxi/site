@@ -29,16 +29,16 @@ Happily, Prot designed the `modus-themes` and `ef-themes` palettes in simple way
 Here's an excerpt of `modus-operandi-tinted-palette`:
 
 ```emacs-lisp
-((bg-main "#fbf7f0")
- (bg-dim "#efe9dd")
- (fg-main "#000000")
- (fg-dim "#595959")
- (fg-alt "#193668")
- (bg-active "#c9b9b0")
- (bg-inactive "#dfd5cf")
- (border "#9f9690")
- (red "#a60000")
- ... )
+  ((bg-main "#fbf7f0")
+   (bg-dim "#efe9dd")
+   (fg-main "#000000")
+   (fg-dim "#595959")
+   (fg-alt "#193668")
+   (bg-active "#c9b9b0")
+   (bg-inactive "#dfd5cf")
+   (border "#9f9690")
+   (red "#a60000")
+   ... )
 ```
 
 It's easy enough to write a function to read from the palette and generate LaTeX directives for defining (most of) the colors.
