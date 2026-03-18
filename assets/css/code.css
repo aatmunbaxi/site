@@ -38,6 +38,11 @@ pre code[class*="language-"] {
     background: var(--bg-magenta-intense);
     color: var(--fg-main);
 }
+.highlight pre code[class="lisp"]::before {
+    content: "common lisp";
+    background: var(--bg-green-intense);
+    color: var(--fg-main);
+}
 .highlight pre code[class="language-org"]::before {
     content: "org";
     background: var(--bg-hover);
