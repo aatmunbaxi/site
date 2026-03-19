@@ -8,18 +8,6 @@ weight = 2003
 section = "Mathematics"
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [Introduction](#introduction)
-- [Anyons and their statistics](#anyons-and-their-statistics)
-- [Modular Categories](#modular-categories)
-- [Conclusion](#conclusion)
-
-</div>
-<!--endtoc-->
-
 <div class="tldr">
 
 We introduce anyons, a hypothetical unit of computation in topological quantum computation. We explain their topological properties and discuss their relationship with modular categories.

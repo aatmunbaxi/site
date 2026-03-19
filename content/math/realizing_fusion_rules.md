@@ -2,7 +2,7 @@
 title = "Realizing some Multiplicity-Free Fusion Rules"
 author = ["Aatmun Baxi"]
 date = 2024-07-05
-lastmod = 2026-03-18T13:14:52-05:00
+lastmod = 2026-03-19T16:05:56-05:00
 tags = ["longread"]
 draft = false
 weight = 2002

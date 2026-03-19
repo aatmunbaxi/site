@@ -9,20 +9,6 @@ series = ["Hacking emacs"]
 section = "Computing"
 +++
 
-<div class="ox-hugo-toc toc">
-
-<div class="heading">Table of Contents</div>
-
-- [`evil-tex`](#evil-tex)
-- [Doing Our Own Thing](#doing-our-own-thing)
-- [Inline Math](#inline-math)
-- [Environments](#environments)
-- [LaTeX Parentheses Delimiters](#latex-parentheses-delimiters)
-- [Closing Thoughts](#closing-thoughts)
-
-</div>
-<!--endtoc-->
-
 <div class="tldr">
 
 We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
