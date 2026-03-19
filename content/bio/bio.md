@@ -19,12 +19,12 @@ Because these gadgets are fairly new, techniques to classify them pop up occasio
 My current interest lies in relaxations of the latter, where one drops the requirement of a local abelian symmetry (read: pointed symmetric fusion category) contained in a topological phase, in favor of an arbitrary abelian phase (read: arbitrary pointed fusion subcategory).
 This setting does not enjoy some of the fruits of the condensed fiber product, but with it comes the possibility of realizing new modular categories, or giving alternative realizations of existing modular categories.
 
+{{< margin-image img="/images/workshop.webp"  alt="Poster for Mathematical and Physical Underpinnings of Topological Quantum Computation" width=30% radius=0px  >}}
+
 Along the way, I built the [VerlindeDB](https://verlindedb.github.io/), a website made in a similar spirit as the AnyonWiki, to provide an online "database" of a large class of intresting modular categories coming from representations of quantum groups at roots of unity.
 
 
 ## Speaking {#speaking}
-
-{{< margin-image img="/images/workshop.webp"  alt="Poster for Mathematical and Physical Underpinnings of Topological Quantum Computation" width=30% radius=0px  >}}
 
 -   [Mathematical and Physical Underpinnings of Topological Quantum Computation](https://benjimorris.github.io/miqc/workshop-Feb.html). University of Leeds, Feb 2026
 
