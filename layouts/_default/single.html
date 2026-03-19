@@ -13,6 +13,12 @@
           <strong>tl;dr:</strong>
           {{ .Params.tldr }}
         </div>{{ end }}
+        {{ if and (isset .Params "toc") (.Params.toc) }}
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
         <section class="body">
           {{ .Content }}
         </section>
@@ -32,12 +38,7 @@
       </div>
 
       <!-- TOC -->
-      {{ if and (isset .Params "toc") (.Params.toc) }}
-      <div class="toc">
-        <strong>Table of contents:</strong>
-        {{ .TableOfContents }}
-      </div>
-      {{ end }}
+      
     </div>
 
     <!-- Disqus -->
