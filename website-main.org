@@ -2,7 +2,7 @@
 #+setupfile: latex_template.org
 #+hugo_weight: auto
 #+bibliography: ~/Documents/bib/zotero_refs.bib
-#+options: todo:nil date:t
+#+options: todo:nil date:t toc:nil
 #+startup: logdone
 
 
@@ -15,17 +15,19 @@
 :END:
 ** About Me
 
-I am a PhD student in mathematics at Texas A&M University. I study fusion and modular categories under my  advisor [[https://people.tamu.edu/~rowell/][Eric Rowell]].
+#+hugo: {{< margin-image img="/images/headshot.jpg" alt="Headshot of Aatmun Baxi" radius=30px width=20%  >}}
 
-#+hugo: {{< margin-image img="/images/headshot.jpg" alt="Headshot of Aatmun Baxi" radius=30px  >}}
+
+I am a PhD student in mathematics at Texas A&M University. I study fusion and modular categories under my  advisor [[https://people.tamu.edu/~rowell/][Eric Rowell]].
 *** Education
 - MS Mathematics, Texas A&M University 2023
 - BS Mathematics, UCLA 2021
 *** Hobbies
 I enjoy programming and hacking on emacs, with lisps being my current interest. Adjacently, I enjoy free (as in freedom) software.
 This site is deployed with Hugo using a heavily modified theme based on archie, with colors fitting Prot's =modus-operandi-tinted= and =modus-vivendi-tinted= color palettes for emacs.
+Try the dark mode toggle!
 
-I also enjoy supporting Liverpool football club, astrophotography, and learning japanese through immersion techniques.
+I also enjoy supporting Liverpool football club, astrophotography, and learning Japanese through immersion techniques.
 
 ** Contact
 - *Email*: [[mailto:abaxi@tamu.edu][abaxi@tamu.edu]]
@@ -460,15 +462,23 @@ Happy scripting!
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: configuring_meow_friendly_latex
-:EXPORT_DATE: 2024-07-05
+:EXPORT_DATE: 2026-03-19
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :series '("Hacking emacs") :section 'Computing
+:EXPORT_OPTIONS: toc:nil
 :END:
+
+
+#+attr_html: :tag Update
+#+begin_tagged_box
+ I no longer use meow! I've shifted away from modal editing in favor of default emacs bindings after giving it a good college try. A similar solution to all this LaTeX delimiter business can be done with =expand-region= and some custom functions to find the delimiters. The process here should still work, though.
+#+end_tagged_box
+
 #+begin_tldr
 We implement some configuration to recover functionality possible in evil-tex in the meow modal editing scheme.
 This article assumes some familiarity with the evil and meow modes.
 #+end_tldr
 #+hugo: more
-#+toc: headlines 2 local
+
 Having ditched =evil-collection= to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
 Alas, I feel modal editing is something I prefer, so I've adopted [[https://github.com/meow-edit/meow][meow]].
 I chose meow for a few reasons:
@@ -1043,7 +1053,6 @@ Note that I use top level headlines for my nodes, unlike the more popular one-fi
 - Select candidate with no match
 - =org-roam= capture as usual
 #+end_details
-
 * Misc
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: misc
@@ -1203,21 +1212,23 @@ Of course, we've long left the issue of pragmatism behind, but still, it's prett
 ** Research Interests
 Broadly speaking, my research interests lie in the category theory side of quantum algebra. Specifically, I am interested in braided fusion categories and modular categories that underpin the mathematics of topological quantum computing. At the risk of oversimplifying, these gadgets are categorifications of finite dimensional quasi-Hopf algebras and their behavior over \(\mathbb{C} \). In a very rigorous sense, this is a correct statement (keyword: Tannaka-Krein duality).
 
-Because these gadgets are fairly new, techniques to classify them pop up occasionally with some examples accompanying the general construction. In particular, a program of Delaney, Galindo, Plavnik, Rowell, and Hang introduced two powerful techniques: besting [cite:@delaneyBraidedZestingIts2021] and the condensed fiber product [cite:@delaneyCondensedFiberProduct2024].
-My current interest lies in relaxations of the latter, where one drops the requirement of a local abelian symmetry (read: pointed symmetric fusion category) contained in a topological phase, in favor of an arbitrary abelian phase (read: arbitrary pointed fusion subcategory).
+Because these gadgets are fairly new, techniques to classify them pop up occasionally with some examples accompanying the general construction. In particular, a program of Delaney, Galindo, Plavnik, Rowell, and Zhang introduced two powerful techniques: zesting [cite:@delaneyBraidedZestingIts2021] and the condensed fiber product [cite:@delaneyCondensedFiberProduct2024].
+My current interest lies in relaxations of the latter, where one drops the requirement of a local abelian symmetry (read: pointed symmetric fusion category) contained in a topological phase, in favor of an arbitrary abelian phase (read: arbitrary pointed braided subcategory).
 This setting does not enjoy some of the fruits of the condensed fiber product, but with it comes the possibility of realizing new modular categories, or giving alternative realizations of existing modular categories.
 
-Along the way, I built the [[https://verlindedb.github.io/][VerlindeDB]], a website made in a similar spirit as the AnyonWiki, to provide an online "database" of a large class of intresting modular categories coming from representations of quantum groups at roots of unity.
-
-** Speaking
-#+hugo: {{< margin-image img="/images/workshop.webp"  alt="Poster for Mathematical and Physical Underpinnings of Topological Quantum Computation" width=30% radius=0px  >}}
-
-- [[https://benjimorris.github.io/miqc/workshop-Feb.html][Mathematical and Physical Underpinnings of Topological Quantum Computation]]. University of Leeds, Feb 2026
+Along the way, I built the [[https://verlindedb.github.io/][VerlindeDB]], a website made in a similar spirit as the AnyonWiki, to provide an online "database" of a some low rank modular categories coming from representations of quantum groups at roots of unity.
 
 ** Computing
 After moving away from Windows some years ago, I've inadvertently forced myself to learn some tools of the trade used in STEM-adjacent industry work, which is where I hope to end up. In particular, knowing my way around shells, version control systems, and various programming languages like python, C++, Steel Bank common lisp, and emacs lisp (these last two are probably not so common in industry).
 
-#+print_bibliography:
+In conjunction with my interest in learning programming languages, I find programming to be an extremely satisfying way to solve problems. Sometimes in research mathematics, you can get stuck to the point where you hardly know what to write down. In most programming projects, the building blocks of the solution are small enough to where you never really stop adding, improving, and fine-tuning. I, like many mathematicians, am stricken by a desire to solve puzzles, and programming scratches the itch well enough with a lower startup cost than mathematics.
+#+hugo: {{< margin-image img="/images/workshop.webp"  alt="Poster for Mathematical and Physical Underpinnings of Topological Quantum Computation" width=30% radius=0px  >}}
+** Speaking
+
+
+- [[https://benjimorris.github.io/miqc/workshop-Feb.html][Mathematical and Physical Underpinnings of Topological Quantum Computation]]. University of Leeds, Feb 2026
+
+
 * RSS Feeds
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: /
