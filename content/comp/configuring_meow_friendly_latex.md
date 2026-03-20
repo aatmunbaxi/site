@@ -1,13 +1,19 @@
 +++
 title = "Configuring meow for Friendlier LaTeX Editing"
 author = ["Aatmun Baxi"]
-date = 2024-07-05
+date = 2026-03-19
 tags = ["emacs", "meow"]
 draft = false
 weight = 2003
 series = ["Hacking emacs"]
 section = "Computing"
 +++
+
+<div tag="Update" class="tagged_box">
+
+I no longer use meow! I've shifted away from modal editing in favor of default emacs bindings after giving it a good college try. A similar solution to all this LaTeX delimiter business can be done with `expand-region` and some custom functions to find the delimiters. The process here should still work, though.
+
+</div>
 
 <div class="tldr">
 
@@ -17,18 +23,6 @@ This article assumes some familiarity with the evil and meow modes.
 </div>
 
 <!--more-->
-
-<div class="ox-hugo-toc toc local">
-
-- [`evil-tex`](#evil-tex)
-- [Doing Our Own Thing](#doing-our-own-thing)
-- [Inline Math](#inline-math)
-- [Environments](#environments)
-- [LaTeX Parentheses Delimiters](#latex-parentheses-delimiters)
-- [Closing Thoughts](#closing-thoughts)
-
-</div>
-<!--endtoc-->
 
 Having ditched `evil-collection` to get familiar with the vanilla emacs keybindings, I surprisingly found myself satisfied with many of the facilities emacs provides out-of-the-box for editing text.
 Alas, I feel modal editing is something I prefer, so I've adopted [meow](https://github.com/meow-edit/meow).
