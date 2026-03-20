@@ -8,7 +8,7 @@ html {
     color: var(--fg-main);
     background-color: var(--bg-main);
     font-family: "Rosario", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6em;
 }
 body {
@@ -17,6 +17,7 @@ body {
     line-height: 2em;
     overflow: visible;
 }
+
 * {
     -webkit-tap-highlight-color: var(--fg-main);
 }
@@ -149,9 +150,11 @@ figure h4::before {
 header {
     font-family: "Rosario", sans-serif;
     display: flex;
+    width:100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 1em 0;
+    /* margin: 1em 0; */
+    /* width: 100rem; */
     line-height: 2.5em;
     background: var(--bg-dim);
     border-radius: 0.3rem;
@@ -162,7 +165,7 @@ header {
 
 header .main {
     font-size: 1.75rem;
-    display: float;
+    display: flex;
 }
 
 .home-page-header.home-page-header
@@ -432,7 +435,6 @@ table td {
     clear: left;
     margin-right: -20%; 
     width: 40%; 
-    /* transform: translateY(-50%); */
 }
 
 .right-margin-image img {
