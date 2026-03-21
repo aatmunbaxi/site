@@ -3,9 +3,9 @@
 @import url("/css/dark.css");
 code {
     font-family: "PTMono", monospace;
-    background-color: var(--bg-dim);
+    /* background-color: var(--bg-dim); */
     text-emphasis: bold;
-    color: var(--magenta-warmer);
+    /* color: var(--magenta-warmer); */
     padding: 0.1em 0.2em;
 
 }
