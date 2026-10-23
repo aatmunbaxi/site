@@ -1,0 +1,24 @@
+{{- /*
+  Theorem-like environment. Theorem, Lemma, Proposition, Corollary,
+  Definition, Example share one counter per page; Proof and Remark are
+  unnumbered. Proofs get a closing tombstone.
+
+  Params (all optional):
+    type      environment name (default: Theorem)
+    name      parenthetical title, e.g. "Ocneanu rigidity" (math allowed)
+    id        anchor id, so you can link to it with [[#id]]
+    nonumber  set to "t" to suppress the number
+*/ -}}
+{{- $type := .Get "type" | default "Theorem" -}}
+{{- $unnumbered := slice "Proof" "Remark" "Note" -}}
+{{- $numbered := and (not (in $unnumbered $type)) (not (.Get "nonumber")) -}}
+{{- $label := $type -}}
+{{- if $numbered -}}
+  {{- .Page.Store.Add "sc-theorem-count" 1 -}}
+  {{- $label = printf "%s %d" $type (.Page.Store.Get "sc-theorem-count") -}}
+{{- end -}}
+<div class="sc-theorem sc-theorem-{{ $type | lower }}"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
+  <span class="sc-theorem-label">{{ $label }}{{ with .Get "name" }} ({{ . | $.Page.RenderString }}){{ end }}.</span>
+  {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+  {{- if eq $type "Proof" }}<span class="sc-qed">∎</span>{{ end }}
+</div>

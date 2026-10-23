@@ -1,0 +1,18 @@
+{{- /*
+  A row of images that share the width of the text column, with an optional
+  shared caption underneath. Inner content is ordinary markdown images or
+  figures (org links, optionally with their own #+caption). Wraps to a column
+  on narrow screens.
+
+  Params (all optional):
+    caption  caption for the whole row (markdown/math allowed)
+    id       anchor id for linking to the row
+*/ -}}
+<figure class="sc-figure-row"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
+  <div class="sc-figure-row-items">
+    {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+  </div>
+  {{- with .Get "caption" }}
+  <figcaption>{{ . | $.Page.RenderString }}</figcaption>
+  {{- end }}
+</figure>

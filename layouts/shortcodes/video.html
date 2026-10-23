@@ -1,0 +1,26 @@
+{{- /*
+  Centered, bordered video (e.g. screen recordings of Emacs).
+
+  Params:
+    src      video path, e.g. /videos/demo.webm            (required)
+    width    CSS width                                      (default: 100%)
+    caption  caption under the video (markdown allowed)
+    poster   image shown before playback
+    gif      set to "t" to autoplay, loop, and mute like a GIF (no controls)
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $gif := .Get "gif" -}}
+{{- $ext := path.Ext $src | strings.TrimPrefix "." -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- if findRE `^\d+$` $width }}{{ $width = printf "%spx" $width }}{{ end -}}
+<figure class="sc-video">
+  <video style="width: {{ $width }};"
+         {{ if $gif }}autoplay loop muted playsinline{{ else }}controls preload="metadata"{{ end }}
+         {{ with .Get "poster" }}poster="{{ . }}"{{ end }}>
+    <source src="{{ $src }}" type="video/{{ $ext }}">
+    Your browser does not support embedded video; <a href="{{ $src }}">download it</a>.
+  </video>
+  {{- with .Get "caption" }}
+  <figcaption>{{ . | $.Page.RenderString }}</figcaption>
+  {{- end }}
+</figure>

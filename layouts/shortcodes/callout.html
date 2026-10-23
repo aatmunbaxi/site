@@ -1,0 +1,16 @@
+{{- /*
+  Labelled aside box in the same style as the tl;dr and tagged_box blocks,
+  with a color per kind.
+
+  Params (all optional):
+    kind   note | tip | warning | update | aside   (default: note)
+    title  label text (default: the kind, capitalized)
+*/ -}}
+{{- $kind := .Get "kind" | default "note" | lower -}}
+{{- $title := .Get "title" | default (title $kind) -}}
+<div class="sc-callout sc-callout-{{ $kind }}">
+  <span class="sc-callout-label">{{ $title }}</span>
+  <div class="sc-callout-body">
+    {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+  </div>
+</div>

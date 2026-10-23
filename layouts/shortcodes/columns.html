@@ -1,0 +1,23 @@
+{{- /*
+  Side-by-side columns of arbitrary content (text, images, code, math).
+  Columns are separated by a line containing only <---> (ox-hugo escapes it
+  to &lt;---&gt;, which is handled too). Stacks vertically on narrow screens.
+
+  Params (all optional):
+    widths  space-separated flex ratios, e.g. "2 1" for a 2:1 split
+    align   cross-axis alignment: start | center | end   (default: start)
+    gap     CSS gap between columns                       (default: 1.5rem)
+*/ -}}
+{{- $inner := replace .InnerDeindent "&lt;---&gt;" "<--->" -}}
+{{- $widths := split (.Get "widths" | default "") " " -}}
+{{- $align := .Get "align" | default "start" -}}
+{{- $gap := .Get "gap" | default "1.5rem" -}}
+<div class="sc-columns" style="gap: {{ $gap }}; align-items: {{ $align }};">
+{{- range $i, $col := split $inner "<--->" }}
+  {{- $w := index $widths $i | default "1" }}
+  {{- if eq $w "" }}{{ $w = "1" }}{{ end }}
+  <div class="sc-column" style="flex: {{ $w }} 1 0;">
+    {{ $col | $.Page.RenderString (dict "display" "block") }}
+  </div>
+{{- end }}
+</div>

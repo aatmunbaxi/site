@@ -1,0 +1,133 @@
+/* Styles for layouts/shortcodes/*. Colors come from the modus palette
+   variables, so light/dark mode both work. */
+
+/* columns */
+.sc-columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5em 0;
+}
+.sc-column {
+    min-width: 0;
+}
+.sc-column > :first-child { margin-top: 0; }
+.sc-column > :last-child  { margin-bottom: 0; }
+.sc-column img {
+    width: 100%;
+    border-width: 0;
+}
+@media (max-width: 768px) {
+    .sc-columns { flex-direction: column; }
+}
+
+/* figure-row */
+.sc-figure-row {
+    display: block;
+    width: 100%;
+    margin: 1.5em 0;
+    text-align: center;
+}
+.sc-figure-row-items,
+.sc-figure-row-items > p {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 0;
+}
+.sc-figure-row-items > *,
+.sc-figure-row-items > p > * {
+    flex: 1 1 0;
+    min-width: 0;
+}
+.sc-figure-row img {
+    width: 100%;
+    height: auto;
+    border-width: 0;
+}
+.sc-figure-row figure { padding: 0; }
+.sc-figure-row > figcaption { margin-top: 0.5em; }
+@media (max-width: 768px) {
+    .sc-figure-row-items,
+    .sc-figure-row-items > p { flex-direction: column; }
+}
+
+/* theorem */
+.sc-theorem {
+    margin: 1.2em 0;
+    padding: 0.2em 0 0.2em 1em;
+    border-left: 0.2rem solid var(--blue-faint);
+}
+.sc-theorem-label {
+    font-weight: bold;
+    color: var(--fg-alt);
+}
+.sc-theorem-label + p { display: inline; }
+.sc-theorem-theorem, .sc-theorem-lemma,
+.sc-theorem-proposition, .sc-theorem-corollary { font-style: italic; }
+.sc-theorem-theorem .sc-theorem-label, .sc-theorem-lemma .sc-theorem-label,
+.sc-theorem-proposition .sc-theorem-label, .sc-theorem-corollary .sc-theorem-label { font-style: normal; }
+.sc-theorem-definition { border-left-color: var(--green-faint); }
+.sc-theorem-example, .sc-theorem-remark, .sc-theorem-note { border-left-color: var(--border); }
+.sc-theorem-proof { border-left-color: transparent; }
+.sc-theorem-proof .sc-theorem-label { font-weight: normal; font-style: italic; color: var(--fg-main); }
+.sc-qed { float: right; }
+
+/* callout: matches .tldr / .tagged_box */
+.sc-callout { margin: 1.5em 0; }
+.sc-callout-label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 0.025rem;
+    padding: 0.2rem;
+    color: var(--fg-main);
+    background-color: var(--bg-blue-subtle);
+}
+.sc-callout-body {
+    padding: 0.8rem;
+    color: var(--fg-dim);
+    background-color: var(--bg-dim);
+    border: solid 0.1rem var(--fg-dim);
+}
+.sc-callout-body > :first-child { margin-top: 0; }
+.sc-callout-body > :last-child  { margin-bottom: 0; }
+.sc-callout-tip     .sc-callout-label { background-color: var(--bg-green-subtle); }
+.sc-callout-update  .sc-callout-label { background-color: var(--bg-green-subtle); }
+.sc-callout-warning .sc-callout-label { background-color: var(--bg-red-subtle); }
+.sc-callout-warning .sc-callout-body  { background-color: var(--bg-red-nuanced); }
+.sc-callout-aside   .sc-callout-label { background-color: var(--bg-magenta-subtle); }
+
+/* video */
+.sc-video {
+    display: block;
+    margin: 1.5em 0;
+    text-align: center;
+}
+.sc-video video {
+    max-width: 100%;
+    border: solid 0.1rem var(--border);
+}
+
+/* marginnote */
+.sc-marginnote {
+    float: right;
+    clear: right;
+    width: 30%;
+    margin-right: -35%;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: var(--fg-dim);
+}
+.sc-marginnote > :first-child { margin-top: 0; }
+@media (max-width: 1100px) {
+    .sc-marginnote {
+        float: none;
+        width: auto;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 0.2rem solid var(--border);
+    }
+}
+
+/* ruby */
+rt { font-size: 0.55em; color: var(--fg-dim); }

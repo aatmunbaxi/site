@@ -1,0 +1,8 @@
+{{- /*
+  Note floated into the right margin, next to the paragraph that follows it
+  (same margin space margin-image uses). Falls back to an inline aside on
+  narrow screens. Place it just *before* the paragraph it annotates.
+*/ -}}
+<aside class="sc-marginnote">
+  {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+</aside>

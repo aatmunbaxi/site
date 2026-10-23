@@ -29,7 +29,8 @@ customcss = [
 
 "/css/common.css",
 "/css/code.css",
-"/css/simple-icons.css"
+"/css/simple-icons.css",
+"/css/shortcodes.css"
 ]
 ShowWordCount = true
 useCDN = true
