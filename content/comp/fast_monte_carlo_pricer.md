@@ -74,10 +74,10 @@ Notice that the more games we play, the closer we get to 3.5
 
 ```text
 Theoretical expected value: 3.5
- 100 rolls: average = 3.560
-1000 rolls: average = 3.500
-10000 rolls: average = 3.501
-100000 rolls: average = 3.507
+ 100 rolls: average = 3.450
+1000 rolls: average = 3.498
+10000 rolls: average = 3.494
+100000 rolls: average = 3.499
 ```
 
 Pricing equity options is no different: the fair price of the option should be
@@ -434,7 +434,7 @@ cash.
 
 This reflects the fact that a `6` will appear in 100 rolls with near certainty (I
 can roll zero sixes in 100 rolls with probability \\(1.22 \times 10^{-8}\\)), so
-you can always hold out for a exercise time with maximum payoff.
+you can always hold out for an exercise time with maximum payoff.
 </div>
 </details>
 

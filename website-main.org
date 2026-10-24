@@ -848,7 +848,7 @@ cash.
 
 This reflects the fact that a =6= will appear in 100 rolls with near certainty (I
 can roll zero sixes in 100 rolls with probability \(1.22 \times 10^{-8}\)), so
-you can always hold out for a exercise time with maximum payoff.
+you can always hold out for an exercise time with maximum payoff.
 #+end_details
 
 *** Performance
