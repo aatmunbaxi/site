@@ -41,15 +41,16 @@ To answer this, let's address a toy example. I offer to play a game with you
 where I roll a fair 6-sided die and pay you the amount of the face it lands on.
 What should I set the cost of admission to this game? Being the "house", I
 certainly don't want to lose money, so amounts like `$1` probably don't make sense
-for me, but what is the right amount?
+for me. On the other hand, values like a `$6` admission fee won't give the players
+of the game any winnings. Where is the happy medium?
 
-If I expect a large demand to play this game, I should price the admission no
-less than what an "average" roll of a 6-sided die to be. The average in this
-case is the _expected value_ of single roll of a die. The exact value of this is
-3.5. Obviously, you can never roll a 3.5 on a die, but pricing the admission in
-this way ensures that—assuming high demand for the game—I won't lose money.
-Let's model the average payout over 100, 1000, and 10000 games of this type.
-Notice that the more games we play, the closer we get to 3.5
+If I expect to drive large demand to play this game, I should price the
+admission no less than what an average roll of a 6-sided die to be. The
+average in this case is the _expected value_ of single roll of a die. The exact
+value of this is 3.5. Obviously, you can never roll a 3.5 on a die, but pricing
+the admission in this way ensures that—assuming high demand for the game—I won't
+lose money. Let's model the average payout over 100, 1000, and 10000 games of
+this type. Notice that the more games we play, the closer we get to 3.5.
 
 ```lisp
 (defun roll-die ()
@@ -72,10 +73,10 @@ Notice that the more games we play, the closer we get to 3.5
 
 ```text
 Theoretical expected value: 3.5
- 100 rolls: average = 3.460
-1000 rolls: average = 3.481
-10000 rolls: average = 3.509
-100000 rolls: average = 3.505
+ 100 rolls: average = 3.710
+1000 rolls: average = 3.519
+10000 rolls: average = 3.506
+100000 rolls: average = 3.510
 ```
 
 Pricing equity options is no different: the fair price of the option should be
