@@ -1,7 +1,7 @@
 +++
 title = "A Surprisingly Fast and Flexible Monte Carlo Option Pricer in Common Lisp"
 author = ["Aatmun Baxi"]
-date = 2026-10-23
+date = 2026-10-24
 tags = ["lisp"]
 draft = false
 weight = 2002
@@ -14,8 +14,8 @@ Recently, I've begun work on a dream project of mine: writing a [quantative
 finance library in common lisp](https://github.com/aatmunbaxi/fincl). After prodding the Claude LLM towards my vision,
 I unexpectedly ended up with a fast and flexible Monte Carlo options pricer
 which appears to outperform QuantLib's C++ in speed and thread-invariance.
-Despite the library being far from being called "complete", I nevertheless share
-what I think are promising signs, with a working example provided.
+Despite the library being far from complete, I nevertheless share what I think
+are promising signs, with a working example.
 
 </div>
 
@@ -34,10 +34,8 @@ Since this article covers the specific task of pricing options with Monte Carlo
 methods, I will review the basics of what this task entails. An **option** is a
 financial contract that gives you the right (but not obligation) to purchase (or
 sell) a given financial asset at a certain agreed-upon price (a _strike_) on a set
-date (an _expiry_).
-Let's focus on options that allow you to buy shares of a
-stock. How should we price this contract? We will stick to options that let you
-by the underlying (called a _call option_).
+date (an _expiry_). Let's focus on options that allow you to buy shares of a
+stock—a _call_ option. How should we price this contract?
 
 To answer this, let's address a toy example. I offer to play a game with you
 where I roll a fair 6-sided die and pay you the amount of the face it lands on.
@@ -74,10 +72,10 @@ Notice that the more games we play, the closer we get to 3.5
 
 ```text
 Theoretical expected value: 3.5
- 100 rolls: average = 3.450
-1000 rolls: average = 3.498
-10000 rolls: average = 3.494
-100000 rolls: average = 3.499
+ 100 rolls: average = 3.460
+1000 rolls: average = 3.481
+10000 rolls: average = 3.509
+100000 rolls: average = 3.505
 ```
 
 Pricing equity options is no different: the fair price of the option should be
@@ -90,11 +88,13 @@ where the \\(0\\) payoff comes from not exercising the right to buy because \\(S
 equity).
 
 So what is the expected payoff of the option? This is where things get
-significantly complicated. To simulate the expected value of an equity at time
-of exercise, you'd need to know how the equity moves before the fact. If you
-could successfully do this even half of the time, you would not be reading this
-and would be fabulously wealthy. Hence, we need to pick a model that describes
-the dynamics of our equity in the future (called a _stochastic process_).
+significantly complicated. Using our fair die example, we can approximate the
+value \\(S\_T\\) of a stock at exercise time, and average over all of these
+endpoints. But to simulate the expected value of an equity at time of exercise,
+you'd need to know how the equity moves before the fact. If you could
+successfully do this even half of the time, you would not be reading this and
+would be fabulously wealthy. Hence, we need to pick a model that describes the
+dynamics of our equity in the future (called a _stochastic process_).
 
 Once a model is chosen, you can price a call option. Just simulate \\(N\\) equity
 paths with your process, and compute the average of \\(\max (S\_T-K,0)\\) for each
@@ -269,7 +269,7 @@ payoff looks. Can this be made any easier?
 ## Monte Carlo Option Pricing with fincl {#monte-carlo-option-pricing-with-fincl}
 
 Fincl adopts the same core assumptions as QuantLib: to price an option, you need
-an option, a market to price it in, and an engine to price it with. Since we've
+an option, a market to price within, and an engine to price it with. Since we've
 already fixed the other variables, let's discuss how fincl handles the Monte
 Carlo engine differently.
 
@@ -383,7 +383,8 @@ With the dynamics of our game settled, we can declare our contract and the marke
 ```
 
 With the ingredients to price all accounted for, we can hand our stochastic
-process (our fair die) and price our option contract:
+process (our fair die) over to the Monte Carlo engine and price our option
+contract:
 
 ```lisp
 (defparameter *mc-engine* (make-engine :mc :process (make-fair-die)

@@ -391,7 +391,7 @@ The study of modular categories is advancing at rapid pace, and we are learning 
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
 :EXPORT_FILE_NAME: fast_monte_carlo_pricer
-:EXPORT_DATE: 2026-10-23
+:EXPORT_DATE: 2026-10-24
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :section 'Computing
 :END:
 
@@ -400,8 +400,8 @@ Recently, I've begun work on a dream project of mine: writing a [[https://github
 finance library in common lisp]]. After prodding the Claude LLM towards my vision,
 I unexpectedly ended up with a fast and flexible Monte Carlo options pricer
 which appears to outperform QuantLib's C++ in speed and thread-invariance.
-Despite the library being far from being called "complete", I nevertheless share
-what I think are promising signs, with a working example provided.
+Despite the library being far from complete, I nevertheless share what I think
+are promising signs, with a working example.
 #+end_tldr
 *** Why Common Lisp :noexport:
 
@@ -443,10 +443,8 @@ Since this article covers the specific task of pricing options with Monte Carlo
 methods, I will review the basics of what this task entails. An *option* is a
 financial contract that gives you the right (but not obligation) to purchase (or
 sell) a given financial asset at a certain agreed-upon price (a /strike/) on a set
-date (an /expiry/).
-Let's focus on options that allow you to buy shares of a
-stock. How should we price this contract? We will stick to options that let you
-by the underlying (called a /call option/).
+date (an /expiry/). Let's focus on options that allow you to buy shares of a
+stock—a /call/ option. How should we price this contract?
 
 To answer this, let's address a toy example. I offer to play a game with you
 where I roll a fair 6-sided die and pay you the amount of the face it lands on.
@@ -497,11 +495,13 @@ where the \(0\) payoff comes from not exercising the right to buy because \(S_T
 equity).
 
 So what is the expected payoff of the option? This is where things get
-significantly complicated. To simulate the expected value of an equity at time
-of exercise, you'd need to know how the equity moves before the fact. If you
-could successfully do this even half of the time, you would not be reading this
-and would be fabulously wealthy. Hence, we need to pick a model that describes
-the dynamics of our equity in the future (called a /stochastic process/).
+significantly complicated. Using our fair die example, we can approximate the
+value \(S_T\) of a stock at exercise time, and average over all of these
+endpoints. But to simulate the expected value of an equity at time of exercise,
+you'd need to know how the equity moves before the fact. If you could
+successfully do this even half of the time, you would not be reading this and
+would be fabulously wealthy. Hence, we need to pick a model that describes the
+dynamics of our equity in the future (called a /stochastic process/).
 
 Once a model is chosen, you can price a call option. Just simulate \(N\) equity
 paths with your process, and compute the average of \(\max (S_T-K,0)\) for each
@@ -669,7 +669,7 @@ need is a process to model your underlying asset and formula for how your option
 payoff looks. Can this be made any easier?
 *** Monte Carlo Option Pricing with fincl
 Fincl adopts the same core assumptions as QuantLib: to price an option, you need
-an option, a market to price it in, and an engine to price it with. Since we've
+an option, a market to price within, and an engine to price it with. Since we've
 already fixed the other variables, let's discuss how fincl handles the Monte
 Carlo engine differently.
 
@@ -799,7 +799,8 @@ With the dynamics of our game settled, we can declare our contract and the marke
 
 
 With the ingredients to price all accounted for, we can hand our stochastic
-process (our fair die) and price our option contract:
+process (our fair die) over to the Monte Carlo engine and price our option
+contract:
 #+begin_src lisp :results output :exports both
 (defparameter *mc-engine* (make-engine :mc :process (make-fair-die)
                                            :n-paths 1000000
