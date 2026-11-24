@@ -530,7 +530,7 @@ well:
   Because of the element of randomness in stochastic differential equations,
   this will be a distribution of values, parameterized by path.
 
-Inside the =:every= and =:on= clauses, the user can evaluate =(record name value)=,
+Inside the =:every= and =:on= forms, the user can evaluate =(record name value)=,
 which stores =value= into =name= for summary. The complete collection of recorded
 values is not available at the end of the simulation, only the mean, min/max,
 standard deviation, and count of such values are returned. Unlike the =:final=
