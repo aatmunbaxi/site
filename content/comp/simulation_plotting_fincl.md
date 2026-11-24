@@ -338,7 +338,7 @@ And plotting them in a grid:
 {{< plotly name="gbm-heston-paths" height="400" >}}
 
 I hope you agree that they look much nicer than they did before! Previously, I
-was hacking together some matplotlib interop with lisp arrays. Now, it's writing
+was hacking together some matplotlib scripts with py4cl. Now, it's writing
 structured json with `yezon`.
 
 
