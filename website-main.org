@@ -674,10 +674,10 @@ futures is near \(0\).
 
 *** Visualization
 You may have noticed something in our =simulate= call: the =:keep (:paths 10)=.
-Remember that I said that recorded values are not stored in the result of a
-simulation? That wasn't strictly speaking true; you can store all recorded
+Remember earlier when I said that recorded values are not stored in the result
+of a simulation? That wasn't strictly speaking true; you can store all recorded
 values along \(n\) paths, where \(n\) is the number you pass to =:keep (:paths
-...)=. You can then inspect and visualize these values at their leisure, which we
+...)=. You can then inspect and visualize these values at your leisure, which we
 will do here.
 
 =fincl-viz= is a sister package that is meant to interop with fincl and assist
