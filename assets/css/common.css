@@ -362,6 +362,10 @@ svg {
     max-height: 20rem;
     color: var(--fg-main);
 }
+/* Plotly draws its whole figure as SVG; don't clip it */
+.plotly-embed svg {
+    max-height: none;
+}
 .soc:hover {
     color: white;
 }

@@ -38,9 +38,9 @@ pre code[class*="language-"] {
     background: var(--bg-magenta-intense);
     color: var(--fg-main);
 }
-.highlight pre code[class="lisp"]::before {
+.highlight pre code[class="language-lisp"]::before {
     content: "common lisp";
-    background: var(--bg-green-intense);
+    background: var(--bg-green-subtle);
     color: var(--fg-main);
 }
 .highlight pre code[class="language-org"]::before {

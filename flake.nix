@@ -16,8 +16,12 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
+           PLANTUML_JAR = "${pkgs.plantuml}/lib/plantuml.jar";
            buildInputs = [
-              pkgs.hugo
+             pkgs.hugo
+             pkgs.plantuml
+             pkgs.jdk
+             pkgs.graphviz
             ];
         };
       });

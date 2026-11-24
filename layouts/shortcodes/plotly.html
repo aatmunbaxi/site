@@ -1,0 +1,77 @@
+{{- /*
+  Usage: {{< plotly "name" >}}                     -> static/plots/name.json
+         {{< plotly name="name" height="600" >}}   -> override height (px or any CSS length)
+         {{< plotly src="/plots/x.json" >}}        -> explicit URL
+  The figure's fixed layout.width is dropped so the plot fills the text column.
+  layout.height from the JSON is used unless `height` is given.
+*/ -}}
+{{- $name := .Get "name" | default (.Get 0) -}}
+{{- $src := .Get "src" | default (printf "plots/%s.json" $name | relURL) -}}
+{{- $id := printf "plotly-%d" (add .Ordinal 1) -}}
+<div id="{{ $id }}" class="plotly-embed" style="width:100%;max-width:100%;overflow:hidden;{{ with .Get "height" }}height:{{ if (strings.HasSuffix . "%") }}{{ . }}{{ else if (findRE `^\d+$` .) }}{{ . }}px{{ else }}{{ . }}{{ end }};{{ end }}"></div>
+{{- if not (.Page.Scratch.Get "plotly-loaded") -}}
+{{- .Page.Scratch.Set "plotly-loaded" true -}}
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+{{- end }}
+<script>
+(function () {
+  var el = document.getElementById({{ $id }});
+  var userHeight = {{ if .Get "height" }}true{{ else }}false{{ end }};
+  var themed = {{ if eq (.Get "theme") "off" }}false{{ else }}true{{ end }};
+
+  // Build a relayout object from the site's CSS variables (modus palette).
+  function themeUpdate(layout) {
+    var cs = getComputedStyle(document.documentElement);
+    var v = function (n, d) { return cs.getPropertyValue(n).trim() || d; };
+    var bg = v("--bg-main", "#fff"), fg = v("--fg-main", "#000"),
+        grid = v("--bg-inactive", "#ddd"), line = v("--border", "#888"),
+        box = v("--bg-dim", "#eee");
+    var u = {
+      paper_bgcolor: bg,
+      plot_bgcolor: bg,
+      "font.color": fg,
+      "hoverlabel.bgcolor": box,
+      "hoverlabel.bordercolor": line,
+      "hoverlabel.font.color": fg
+    };
+    Object.keys(layout).forEach(function (k) {
+      if (/^legend\d*$/.test(k)) {   // legend, legend2, legend3, ...
+        u[k + ".bgcolor"] = box;
+        u[k + ".bordercolor"] = line;
+        u[k + ".borderwidth"] = 1;
+        u[k + ".font.color"] = fg;
+      }
+      if (/^(x|y)axis\d*$/.test(k)) {
+        u[k + ".gridcolor"] = grid;
+        u[k + ".linecolor"] = line;
+        u[k + ".tickcolor"] = line;
+        u[k + ".zerolinecolor"] = line;
+      }
+    });
+    (layout.annotations || []).forEach(function (_, i) {
+      u["annotations[" + i + "].font.color"] = fg;
+    });
+    return u;
+  }
+  fetch({{ $src }})
+    .then(function (r) { return r.json(); })
+    .then(function (f) {
+      var layout = Object.assign({}, f.layout);
+      delete layout.width;
+      layout.autosize = true;
+      if (!userHeight) el.style.height = (layout.height || 450) + "px";
+      delete layout.height;   // let the container's height drive it
+      var config = Object.assign({responsive: true}, f.config);
+      Plotly.newPlot(el, f.data, layout, config).then(function () {
+        if (!themed) return;
+        var apply = function () { Plotly.relayout(el, themeUpdate(el.layout)); };
+        apply();
+        // theme toggle button flips data-theme; also follow OS scheme changes
+        var t = document.getElementById("dark-mode-toggle");
+        if (t) new MutationObserver(apply).observe(t, {attributes: true, attributeFilter: ["data-theme"]});
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply);
+      });
+    })
+    .catch(function (e) { el.textContent = "Could not load plot: " + e; });
+})();
+</script>
