@@ -339,7 +339,7 @@ And plotting them in a grid:
 
 I hope you agree that they look much nicer than they did before! Previously, I
 was hacking together some matplotlib scripts with py4cl. Now, it's writing
-structured json with `yezon`.
+structured json with `jzon`.
 
 
 ## Concluding {#concluding}
