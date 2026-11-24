@@ -292,7 +292,7 @@ selling a "naked" option).
 ### A Simple Path Generation Visualization {#a-simple-path-generation-visualization}
 
 `simulate` can act as a simple path generation tool, forgoing any of the clauses
-that actually simulate local variables. Here are `simulate` snippets that plot
+that actually update local variables. Here are `simulate` snippets that plot
 paths and visualize them similar to my [last write-up](https://aatmunbaxi.netlify.app/comp/fast_monte_carlo_pricer/) on fincl's Monte Carlo
 engine. All we need to do is record the spot at each date and keep as many paths
 as we'd like to visualize:
