@@ -289,6 +289,59 @@ an unhedged short position can incur infinite losses (this is sometimes called
 selling a "naked" option).
 
 
+### A Simple Path Generation Visualization {#a-simple-path-generation-visualization}
+
+`simulate` can act as a simple path generation tool, forgoing any of the clauses
+that actually simulate local variables. Here are `simulate` snippets that plot
+paths and visualize them similar to my [last write-up](https://aatmunbaxi.netlify.app/comp/fast_monte_carlo_pricer/) on fincl's Monte Carlo
+engine. All we need to do is record the spot at each date and keep as many paths
+as we'd like to visualize:
+
+```lisp
+;; GBM path generation
+(defparameter *gbm-result*
+  (simulate ((make-gbm) *market* +dates+ :n-paths 30 :keep (:paths 30))
+    (:state s :spot)
+    (:every (date)
+      (record :price s))))
+
+;; Heston path generation
+(defparameter *heston-result*
+  (simulate ((make-heston :v0 0.04d0 :kappa 2d0
+                          :theta 0.04d0 :xi 0.5d0 :rho -0.7d0)
+             *market* +dates+ :n-paths 30 :keep (:paths 30))
+    (:state s :spot)
+    (:state v :variance)
+    (:every (date)
+      (record :price s)
+      (record :vol (sqrt (max v 0d0))))))
+```
+
+And plotting them in a grid:
+
+```lisp
+(with-theme *sim-theme*
+  (plot
+   (grid (panel
+          (paths *gbm-result* :n 20 :record :price :color *sim-colors*)
+          (mean-line *gbm-result* :price)
+          :title "Geometric Brownian Motion")
+         (panel (paths *heston-result* :n 20 :record :price :color *sim-colors*)
+                (mean-line *heston-result* :price)
+                :title "Heston" :ylabel "S")
+         :columns 2)
+   :title "Stochastic Process Simulation"
+   :layout '(:height 400)
+   :name "gbm-heston-paths" :display :json))
+```
+
+{{< plotly name="gbm-heston-paths" height="400" >}}
+
+I hope you agree that they look much nicer than they did before! Previously, I
+was hacking together some matplotlib interop with lisp arrays. Now, it's writing
+structured json with `yezon`.
+
+
 ## Concluding {#concluding}
 
 So far fincl is shaping up to be a neat little tool for a tinkerer interested in
@@ -296,4 +349,4 @@ quant finance (did I mention `simulate` is extensible as well?). Simulations are
 not limited to risk-neutral measure processes either. Recently, a change of
 measure method was added to fincl so that a user can add risk premia to a
 stochastic process. This opens up a number of avenues where simulations can be
-made to reflect the real world. I've had a lot of fun messing with it.
+made to better reflect the real world. I've had a lot of fun messing with it.

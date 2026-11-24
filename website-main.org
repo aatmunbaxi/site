@@ -671,7 +671,6 @@ We can now retrieve summary statistics about the =:final= values parameterized b
 Neat! We have experimentally recovered evidence that delta hedging is a net-zero
 strategy in a Black-Scholes world, since the average payoff over 1000 possible
 futures is near \(0\).
-
 *** Visualization
 You may have noticed something in our =simulate= call: the =:keep (:paths 10)=.
 Remember earlier when I said that recorded values are not stored in the result
@@ -733,6 +732,84 @@ distribution of final payoffs. Try fiddling with the graphs to zoom, rescale, et
 We see catastrophic losses in the unhedged position on account of the fact that
 an unhedged short position can incur infinite losses (this is sometimes called
 selling a "naked" option).
+**** A Simple Path Generation Visualization
+=simulate= can act as a simple path generation tool, forgoing any of the clauses
+that actually simulate local variables. Here are =simulate= snippets that plot
+paths and visualize them similar to my [[https://aatmunbaxi.netlify.app/comp/fast_monte_carlo_pricer/][last write-up]] on fincl's Monte Carlo
+engine. All we need to do is record the spot at each date and keep as many paths
+as we'd like to visualize:
+#+begin_src lisp :exports none
+(defconstant +dates+ +rebalance-dates+)
+#+end_src
+
+#+RESULTS:
+: +DATES+
+
+#+begin_src lisp :exports code
+;; GBM path generation
+(defparameter *gbm-result*
+  (simulate ((make-gbm) *market* +dates+ :n-paths 30 :keep (:paths 30))
+    (:state s :spot)
+    (:every (date)
+      (record :price s))))
+
+;; Heston path generation
+(defparameter *heston-result*
+  (simulate ((make-heston :v0 0.04d0 :kappa 2d0
+                          :theta 0.04d0 :xi 0.5d0 :rho -0.7d0)
+             ,*market* +dates+ :n-paths 30 :keep (:paths 30))
+    (:state s :spot)
+    (:state v :variance)
+    (:every (date)
+      (record :price s)
+      (record :vol (sqrt (max v 0d0))))))
+#+end_src
+
+#+RESULTS:
+: *HESTON-RESULT*
+
+And plotting them in a grid:
+#+begin_src lisp :exports none
+(defparameter *sim-colors*
+  '("#2a78d6" "#eb6834" "#2f9e6e" "#8a5cd1" "#c4a13f"
+    "#d6336c" "#17a2b8" "#7f8c3a" "#b5651d" "#5c6bc0"
+    "#e53935" "#00897b" "#8e24aa" "#f9a825" "#3949ab"
+    "#6d4c41" "#00acc1" "#c0392b" "#558b2f" "#ad1457"
+    "#1e88e5" "#ef6c00" "#43a047" "#7e57c2" "#fbc02d"
+    "#d81b60" "#26a69a" "#9e9d24" "#5d4037" "#039be5"))
+(defparameter *sim-theme* '(:roles (:paths (:width 1.0) :mean (:color "red" :dash "dot" :label "Mean")))))
+#+end_src
+
+#+RESULTS:
+: *SIM-THEME*
+
+#+begin_src lisp
+(with-theme *sim-theme*
+  (plot
+   (grid (panel 
+          (paths *gbm-result* :n 20 :record :price :color *sim-colors*)
+          (mean-line *gbm-result* :price)
+          :title "Geometric Brownian Motion")
+         (panel (paths *heston-result* :n 20 :record :price :color *sim-colors*)
+                (mean-line *heston-result* :price)
+                :title "Heston" :ylabel "S")
+         :columns 2)
+   :title "Stochastic Process Simulation"
+   :layout '(:height 400)
+   :name "gbm-heston-paths" :display :json))
+#+end_src
+
+#+RESULTS:
+: #P"/home/aatmun/websites/personal/static/plots/gbm-heston-paths.json"
+
+#+begin_export md
+{{< plotly name="gbm-heston-paths" height="400" >}}
+#+end_export
+
+I hope you agree that they look much nicer than they did before! Previously, I
+was hacking together some matplotlib interop with lisp arrays. Now, it's writing
+structured json with =yezon=.
+
 
 *** Concluding 
 So far fincl is shaping up to be a neat little tool for a tinkerer interested in
@@ -740,7 +817,7 @@ quant finance (did I mention =simulate= is extensible as well?). Simulations are
 not limited to risk-neutral measure processes either. Recently, a change of
 measure method was added to fincl so that a user can add risk premia to a
 stochastic process. This opens up a number of avenues where simulations can be
-made to reflect the real world. I've had a lot of fun messing with it.
+made to better reflect the real world. I've had a lot of fun messing with it.
 ** A Surprisingly Fast and Flexible Monte Carlo Option Pricer in Common Lisp :lisp:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: comp
