@@ -4,3 +4,10 @@
 [build]
 publish = "public"
 command = "hugo"
+
+# Site moved to GitHub Pages; send all old URLs to the same path there.
+[[redirects]]
+  from = "/*"
+  to = "https://aatmunbaxi.github.io/:splat"
+  status = 301
+  force = true
