@@ -1,4 +1,4 @@
-baseURL = 'https://aatmunbaxi.netlify.app'
+baseURL = 'https://aatmunbaxi.github.io'
 languageCode = 'en-us'
 title = 'abaxi'
 theme = 'archie'
@@ -51,7 +51,7 @@ url = "https://linkedin.com/in/aatmunbaxi"
 [[params.social]]
 title = "rss"
 icon = "rss"
-url = "https://aatmunbaxi.netlify.app/rss_indices/"
+url = "https://aatmunbaxi.github.io/rss_indices/"
 
 [taxonomies]
 tag = "tags"

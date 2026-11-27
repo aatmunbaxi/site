@@ -735,7 +735,7 @@ selling a "naked" option).
 **** A Simple Path Generation Visualization
 =simulate= can act as a simple path generation tool, forgoing any of the clauses
 that actually update local variables. Here are =simulate= snippets that plot
-paths and visualize them similar to my [[https://aatmunbaxi.netlify.app/comp/fast_monte_carlo_pricer/][last write-up]] on fincl's Monte Carlo
+paths and visualize them similar to my [[https://aatmunbaxi.github.io/comp/fast_monte_carlo_pricer/][last write-up]] on fincl's Monte Carlo
 engine. All we need to do is record the spot at each date and keep as many paths
 as we'd like to visualize:
 #+begin_src lisp :exports none
